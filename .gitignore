@@ -45,3 +45,7 @@ app-example
 !.yarn/sdks
 !.yarn/versions
 
+
+# devtools cache
+.cache/
+

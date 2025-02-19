@@ -1,17 +1,42 @@
 {
-  "extends": "expo/tsconfig.base",
+  "extends": "expo/tsconfig.base", // Remove it if not using expo. It's not very useful but expo would re-add it automatically
   "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "jsx": "react-native",
+    "lib": ["esnext"],
+    "moduleResolution": "Bundler",
+    "module": "ES2020", // allow dynamic import but not top-level await, this is the closest match to what metro supports
+    "noEmit": true,
     "strict": true,
-    "paths": {
-      "@/*": [
-        "./*"
-      ]
-    }
+    "target": "esnext",
+    "incremental": true,
+    "tsBuildInfoFile": ".cache/tsconfig.tsbuildinfo",
+    "noImplicitReturns": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "noUncheckedIndexedAccess": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "useUnknownInCatchVariables": true
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    ".expo/types/**/*.ts",
-    "expo-env.d.ts"
+  "exclude": [
+    "node_modules",
+    ".yarn", // yarn 3
+    "android", // react-native
+    "ios", // react-native
+    ".cache", // tsc/eslint/metro cache
+    "coverage", // jest
+    "dist", // expo updates
+    ".expo-shared",
+    ".expo"
   ]
 }
