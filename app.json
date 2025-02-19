@@ -36,6 +36,15 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "26f4b8e4-4ca4-4e2b-a8e0-e22e33610184"
+      }
+    },
+    "owner": "julienizz"
   }
 }
