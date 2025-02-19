@@ -8,6 +8,8 @@ node_modules/
 dist/
 web-build/
 expo-env.d.ts
+ios
+android
 
 # Native
 *.orig.*
@@ -48,4 +50,3 @@ app-example
 
 # devtools cache
 .cache/
-
