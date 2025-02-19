@@ -26,7 +26,15 @@
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "useUnknownInCatchVariables": true
+    "useUnknownInCatchVariables": true,
+    "baseUrl": "./",
+    "paths": {
+      // "#<alias>/*": ["./<path-to-alias-relative-to-baseUrl>/*"],
+      "#app/*": ["./src/app/*"],
+      "#modules/*": ["./src/modules/*"],
+      "#shared/*": ["./src/shared/*"],
+      "#navigation/*": ["./src/navigation/*"]
+    }
   },
   "exclude": [
     "node_modules",
