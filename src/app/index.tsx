@@ -1,11 +1,17 @@
 import { StyleSheet, Text, View } from "react-native";
 
+import { useLocation } from "#modules/location/hooks/useLocation.hook";
+
 export default function Page() {
+  const { location, isLoading } = useLocation();
   return (
     <View style={styles.container}>
       <View style={styles.main}>
-        <Text style={styles.title}>Hello World</Text>
-        <Text style={styles.subtitle}>This is the first page of your app.</Text>
+        <Text style={styles.title}>Ride Today</Text>
+        <Text style={styles.subtitle}>Your daily driving check</Text>
+        <Text
+          style={styles.subtitle}
+        >{`Location: ${isLoading ? "Loading..." : JSON.stringify(location)}`}</Text>
       </View>
     </View>
   );
@@ -22,6 +28,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     maxWidth: 960,
     marginHorizontal: "auto",
+    gap: 20,
   },
   title: {
     fontSize: 64,
