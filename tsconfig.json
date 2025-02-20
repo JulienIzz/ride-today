@@ -6,9 +6,7 @@
     "esModuleInterop": true,
     "isolatedModules": true,
     "jsx": "react-native",
-    "lib": [
-      "esnext"
-    ],
+    "lib": ["esnext"],
     "moduleResolution": "Bundler",
     "module": "ES2020",
     "noEmit": true,
@@ -31,18 +29,10 @@
     "useUnknownInCatchVariables": true,
     "baseUrl": "./",
     "paths": {
-      "#app/*": [
-        "./src/app/*"
-      ],
-      "#modules/*": [
-        "./src/modules/*"
-      ],
-      "#shared/*": [
-        "./src/shared/*"
-      ],
-      "#navigation/*": [
-        "./src/navigation/*"
-      ]
+      "#app/*": ["./src/app/*"],
+      "#modules/*": ["./src/modules/*"],
+      "#shared/*": ["./src/shared/*"],
+      "#testing/*": ["./src/testing/*"]
     }
   },
   "exclude": [
@@ -56,10 +46,5 @@
     ".expo-shared",
     ".expo"
   ],
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    ".expo/types/**/*.ts",
-    "expo-env.d.ts"
-  ]
+  "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"]
 }
