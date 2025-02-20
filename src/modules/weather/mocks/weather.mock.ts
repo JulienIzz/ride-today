@@ -1,0 +1,30 @@
+export const currentWeatherDtoMock = {
+  location: {
+    name: "Massy",
+    region: "Ile-de-France",
+    country: "France",
+    lat: 48.7333,
+    lon: 2.2833,
+    tz_id: "Europe/Paris",
+    localtime_epoch: 1740086775,
+    localtime: "2025-02-20 22:26",
+  },
+  current: {
+    temp_c: 12.2,
+    temp_f: 54,
+    is_day: 0,
+    condition: {
+      text: "Clear",
+      icon: "//cdn.weatherapi.com/weather/64x64/night/113.png",
+      code: 1000,
+    },
+    wind_mph: 6.3,
+    wind_kph: 10.1,
+    precip_mm: 0,
+    precip_in: 0,
+    humidity: 82,
+    cloud: 0,
+    feelslike_c: 11.3,
+    feelslike_f: 52.3,
+  },
+};
