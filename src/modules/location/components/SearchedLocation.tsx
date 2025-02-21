@@ -1,13 +1,16 @@
 import styled from "@emotion/native";
+import { X } from "lucide-react-native";
 import { useState } from "react";
 import { TextInput } from "react-native";
 import { useDebounce } from "use-debounce";
 
 import { CurrentLocation } from "#modules/location/components/CurrentLocation";
+import { Spacer } from "#shared/components/Spacer";
+import { Typography } from "#shared/fonts/Typography";
 import { QueryErrorBoundary } from "#shared/infra/boundaries/QueryBoundary";
 
 export const SearchedLocation = () => {
-  const [search, setSearch] = useState("Massy");
+  const [search, setSearch] = useState("Nice");
   const [debouncedSearch] = useDebounce(search, 500);
 
   return (
@@ -17,7 +20,7 @@ export const SearchedLocation = () => {
         value={search}
         onChangeText={setSearch}
       />
-      <QueryErrorBoundary>
+      <QueryErrorBoundary errorFallback={<LocationError />}>
         <CurrentLocation location={debouncedSearch} />
       </QueryErrorBoundary>
     </Container>
@@ -39,3 +42,19 @@ const LocationInput = styled(TextInput)(({ theme }) => ({
   backgroundColor: theme.colors.lightGray,
   borderRadius: theme.borderRadius.xl,
 }));
+
+export const LocationError = () => {
+  return (
+    <ErrorContainer>
+      <X color="red" size={14} />
+      <Spacer size={4} horizontal />
+      <Typography variant="body" text={"Unable to find location, try again"} />
+    </ErrorContainer>
+  );
+};
+
+const ErrorContainer = styled.View({
+  flexDirection: "row",
+  alignItems: "center",
+  justifyContent: "center",
+});
