@@ -8,9 +8,15 @@ import { useLocationStore } from "#modules/location/hooks/useLocationStore.hook"
 
 export const SearchedLocation = () => {
   const setLocation = useLocationStore((state) => state.setLocation);
+  const clearLocation = useLocationStore((state) => state.clearLocation);
   const [search, setSearch] = useState("");
 
   const debouncedSetLocation = useDebouncedCallback((value: string) => {
+    if (value === "") {
+      clearLocation();
+      return;
+    }
+
     setLocation(value);
   }, 500);
 

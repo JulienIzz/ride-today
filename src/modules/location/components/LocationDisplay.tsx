@@ -15,7 +15,7 @@ export const LocationDisplay = () => {
       errorFallback={<LocationError />}
       resetKeys={[location]}
     >
-      {location !== "" && <LocationDisplayComponent location={location} />}
+      {location && <LocationDisplayComponent location={location} />}
     </QueryErrorBoundary>
   );
 };
