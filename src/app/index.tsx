@@ -1,12 +1,5 @@
-import { Logo } from "#modules/home/components/Logo";
-import { Location } from "#modules/location/components/Location";
-import { PageTemplate } from "#modules/templates/components/PageTemplate";
+import { Home } from "#modules/home/screens/Home.screen";
 
 export default function Index() {
-  return (
-    <PageTemplate>
-      <Logo />
-      <Location />
-    </PageTemplate>
-  );
+  return <Home />;
 }
