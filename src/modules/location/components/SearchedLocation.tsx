@@ -4,7 +4,7 @@ import { useState } from "react";
 import { TextInput } from "react-native";
 import { useDebounce } from "use-debounce";
 
-import { CurrentLocation } from "#modules/location/components/CurrentLocation";
+import { LocationDisplay } from "#modules/location/components/LocationDisplay";
 import { Spacer } from "#shared/components/Spacer";
 import { Typography } from "#shared/fonts/Typography";
 import { QueryErrorBoundary } from "#shared/infra/boundaries/QueryBoundary";
@@ -21,7 +21,7 @@ export const SearchedLocation = () => {
         onChangeText={setSearch}
       />
       <QueryErrorBoundary errorFallback={<LocationError />}>
-        <CurrentLocation location={debouncedSearch} />
+        <LocationDisplay location={debouncedSearch} />
       </QueryErrorBoundary>
     </Container>
   );

@@ -5,7 +5,7 @@ import { useCurrentWeather } from "#modules/weather/hooks/useCurrentWeather.quer
 import { Spacer } from "#shared/components/Spacer";
 import { Typography } from "#shared/fonts/Typography";
 
-export const CurrentLocation = ({ location }: { location: string }) => {
+export const LocationDisplay = ({ location }: { location: string }) => {
   const { currentLocation } = useCurrentWeather(location);
 
   return (

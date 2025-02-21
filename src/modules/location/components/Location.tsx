@@ -1,8 +1,8 @@
 import styled from "@emotion/native";
 import { useState } from "react";
 
-import { CurrentLocation } from "#modules/location/components/CurrentLocation";
 import { GeolocationToggle } from "#modules/location/components/GeolocationToggle";
+import { LocationDisplay } from "#modules/location/components/LocationDisplay";
 import { SearchedLocation } from "#modules/location/components/SearchedLocation";
 
 export const Location = () => {
@@ -16,7 +16,9 @@ export const Location = () => {
         handleSwitch={handleSwitch}
       />
       {isLocationEnabled ? (
-        <CurrentLocation location="Massy" />
+        // TODO: handle location with hook instead of hardcode
+        // do it in deidcated component which call location hook and then locationDisplay with coords
+        <LocationDisplay location="Massy" />
       ) : (
         <SearchedLocation />
       )}
