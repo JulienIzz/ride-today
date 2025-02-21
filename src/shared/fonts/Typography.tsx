@@ -1,13 +1,13 @@
 import styled from "@emotion/native";
 
 const Text = styled.Text({
-  fontSize: 24,
+  fontSize: 12,
   fontFamily: "Montserrat_400Regular",
   color: "black",
 });
 
 const Subtext = styled.Text({
-  fontSize: 16,
+  fontSize: 10,
   fontFamily: "Montserrat_400Regular",
   color: "black",
 });
