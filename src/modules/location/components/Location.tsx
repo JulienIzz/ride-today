@@ -24,8 +24,8 @@ export const Location = () => {
   );
 };
 
-const Container = styled.View({
+const Container = styled.View(({ theme }) => ({
   alignItems: "center",
   justifyContent: "center",
-  gap: 4,
-});
+  gap: theme.spacing.xs,
+}));

@@ -15,13 +15,13 @@ export const Logo = () => {
   );
 };
 
-const Container = styled.View({
+const Container = styled.View(({ theme }) => ({
   flexDirection: "row",
   alignItems: "center",
   justifyContent: "center",
-  gap: 8,
-  padding: 16,
-});
+  gap: theme.spacing.s,
+  padding: theme.spacing.m,
+}));
 
 const LogoImage = styled(Image)({
   width: 40,

@@ -18,9 +18,9 @@ export const GeolocationToggle = ({
   );
 };
 
-const Container = styled.View({
+const Container = styled.View(({ theme }) => ({
   flexDirection: "row",
   justifyContent: "center",
   alignItems: "center",
-  gap: 8,
-});
+  gap: theme.spacing.s,
+}));

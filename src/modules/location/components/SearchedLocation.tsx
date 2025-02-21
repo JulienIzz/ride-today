@@ -24,8 +24,8 @@ export const SearchedLocation = () => {
   );
 };
 
-const Container = styled.View({
+const Container = styled.View(({ theme }) => ({
   alignItems: "center",
   justifyContent: "center",
-  gap: 8,
-});
+  gap: theme.spacing.s,
+}));
