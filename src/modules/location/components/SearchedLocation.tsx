@@ -20,7 +20,10 @@ export const SearchedLocation = () => {
         value={search}
         onChangeText={setSearch}
       />
-      <QueryErrorBoundary errorFallback={<LocationError />}>
+      <QueryErrorBoundary
+        errorFallback={<LocationError />}
+        resetKeys={[debouncedSearch]}
+      >
         <LocationDisplay location={debouncedSearch} />
       </QueryErrorBoundary>
     </Container>
