@@ -1,33 +1,22 @@
+import { useSuspenseQuery } from "@tanstack/react-query";
 import * as Location from "expo-location";
-import { useEffect, useState } from "react";
 
-export const useLocation = () => {
-  const [location, setLocation] = useState<Location.LocationObject | null>(
-    null,
-  );
-
-  const [locationStatus, setLocationStatus] = useState<
-    "loading" | "error" | "resolved"
-  >("loading");
-
-  useEffect(() => {
-    async function getCurrentLocation() {
+export const useLocationString = () => {
+  const { data } = useSuspenseQuery({
+    queryKey: ["user-location"],
+    queryFn: async () => {
       const { status } = await Location.requestForegroundPermissionsAsync();
+      // If permission is not granted, throw an error
       if (status !== "granted") {
-        setLocationStatus("error");
-        return;
+        throw new Error("Location permission not granted");
       }
+      // If permission is granted, fetch the current position
+      const currentPosition = await Location.getCurrentPositionAsync({});
+      return currentPosition;
+    },
+  });
 
-      setLocation(await Location.getCurrentPositionAsync({}));
-      setLocationStatus("resolved");
-    }
+  const locationString = `${data.coords.latitude},${data.coords.longitude}`;
 
-    void getCurrentLocation();
-  }, []);
-
-  return {
-    isLoading: locationStatus === "loading",
-    isError: locationStatus === "error",
-    location,
-  };
+  return { locationString };
 };
