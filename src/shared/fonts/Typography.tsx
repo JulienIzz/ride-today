@@ -1,22 +1,22 @@
 import styled from "@emotion/native";
 
-const Text = styled.Text({
-  fontSize: 12,
-  fontFamily: "Montserrat_400Regular",
-  color: "black",
-});
+const Text = styled.Text(({ theme }) => ({
+  fontSize: theme.fontSizes.xs,
+  fontFamily: theme.fonts.body,
+  color: theme.colors.black,
+}));
 
-const Subtext = styled.Text({
-  fontSize: 10,
-  fontFamily: "Montserrat_400Regular",
-  color: "black",
-});
+const Subtext = styled.Text(({ theme }) => ({
+  fontSize: theme.fontSizes["2xs"],
+  fontFamily: theme.fonts.body,
+  color: theme.colors.black,
+}));
 
-const Title = styled.Text({
-  fontSize: 40,
-  fontFamily: "Montserrat_700Bold",
-  color: "black",
-});
+const Title = styled.Text(({ theme }) => ({
+  fontSize: theme.fontSizes.title,
+  fontFamily: theme.fonts.title,
+  color: theme.colors.black,
+}));
 
 type Props = {
   variant: "body" | "subtext" | "title";

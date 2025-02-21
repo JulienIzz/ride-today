@@ -2,8 +2,10 @@ export const themeObject = {
   colors: {
     white: "#FFFFFF",
     black: "#000000",
+    gray: "#808080",
+    lightGray: "#E8E8E8",
   },
-  spacing: {
+  spacings: {
     "3xs": 1,
     "2xs": 2,
     xs: 4,
@@ -14,9 +16,9 @@ export const themeObject = {
   },
   borderRadius: {
     none: 0,
-    sm: 2,
-    md: 4,
-    lg: 8,
+    s: 2,
+    m: 4,
+    l: 8,
     xl: 16,
     round: 9999,
   },
@@ -28,6 +30,11 @@ export const themeObject = {
     m: 16,
     l: 18,
     xl: 24,
+    title: 40,
+  },
+  fonts: {
+    body: "Montserrat_400Regular",
+    title: "Montserrat_700Bold",
   },
 } as const;
 

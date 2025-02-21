@@ -19,8 +19,8 @@ const Container = styled.View(({ theme }) => ({
   flexDirection: "row",
   alignItems: "center",
   justifyContent: "center",
-  gap: theme.spacing.s,
-  padding: theme.spacing.m,
+  gap: theme.spacings.s,
+  padding: theme.spacings.m,
 }));
 
 const LogoImage = styled(Image)({

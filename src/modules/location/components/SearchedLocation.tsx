@@ -12,7 +12,7 @@ export const SearchedLocation = () => {
 
   return (
     <Container>
-      <TextInput
+      <LocationInput
         placeholder="Search location"
         value={search}
         onChangeText={setSearch}
@@ -27,5 +27,15 @@ export const SearchedLocation = () => {
 const Container = styled.View(({ theme }) => ({
   alignItems: "center",
   justifyContent: "center",
-  gap: theme.spacing.s,
+  gap: theme.spacings.s,
+}));
+
+const LocationInput = styled(TextInput)(({ theme }) => ({
+  width: 200,
+  justifyContent: "center",
+  textAlign: "center",
+  fontFamily: theme.fonts.body,
+  padding: theme.spacings.xs,
+  backgroundColor: theme.colors.lightGray,
+  borderRadius: theme.borderRadius.xl,
 }));

@@ -1,4 +1,5 @@
 import styled from "@emotion/native";
+import { useTheme } from "@emotion/react";
 import { MapPin, Search } from "lucide-react-native";
 import { Switch } from "src/design-system/components/Switch/Switch";
 
@@ -9,11 +10,18 @@ export const GeolocationToggle = ({
   isLocationEnabled: boolean;
   handleSwitch: () => void;
 }) => {
+  const theme = useTheme();
   return (
     <Container>
-      <Search color={!isLocationEnabled ? "black" : "grey"} size={20} />
+      <Search
+        color={!isLocationEnabled ? theme.colors.black : theme.colors.gray}
+        size={20}
+      />
       <Switch value={isLocationEnabled} onPress={handleSwitch} />
-      <MapPin color={isLocationEnabled ? "black" : "grey"} size={20} />
+      <MapPin
+        color={isLocationEnabled ? theme.colors.black : theme.colors.gray}
+        size={20}
+      />
     </Container>
   );
 };
@@ -22,5 +30,5 @@ const Container = styled.View(({ theme }) => ({
   flexDirection: "row",
   justifyContent: "center",
   alignItems: "center",
-  gap: theme.spacing.s,
+  gap: theme.spacings.s,
 }));
