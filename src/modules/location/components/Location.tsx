@@ -1,13 +1,19 @@
 import styled from "@emotion/native";
 import { useState } from "react";
 
+import { DeviceLocation } from "#modules/location/components/DeviceLocation";
 import { GeolocationToggle } from "#modules/location/components/GeolocationToggle";
-import { LocationDisplay } from "#modules/location/components/LocationDisplay";
 import { SearchedLocation } from "#modules/location/components/SearchedLocation";
+import { useLocationStore } from "#modules/location/hooks/useLocationStore.hook";
 
 export const Location = () => {
   const [isLocationEnabled, setLocationEnabled] = useState(false);
-  const handleSwitch = () => setLocationEnabled(!isLocationEnabled);
+  const clearLocation = useLocationStore((state) => state.clearLocation);
+
+  const handleSwitch = () => {
+    clearLocation();
+    setLocationEnabled(!isLocationEnabled);
+  };
 
   return (
     <Container>
@@ -15,13 +21,7 @@ export const Location = () => {
         isLocationEnabled={isLocationEnabled}
         handleSwitch={handleSwitch}
       />
-      {isLocationEnabled ? (
-        // TODO: handle location with hook instead of hardcode
-        // do it in deidcated component which call location hook and then locationDisplay with coords
-        <LocationDisplay location="Massy" />
-      ) : (
-        <SearchedLocation />
-      )}
+      {isLocationEnabled ? <DeviceLocation /> : <SearchedLocation />}
     </Container>
   );
 };

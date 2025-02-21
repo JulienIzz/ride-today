@@ -1,7 +1,7 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 import * as Location from "expo-location";
 
-export const useLocationString = () => {
+export const useDeviceGeolocation = () => {
   const { data } = useSuspenseQuery({
     queryKey: ["user-location"],
     queryFn: async () => {
@@ -18,5 +18,5 @@ export const useLocationString = () => {
 
   const locationString = `${data.coords.latitude},${data.coords.longitude}`;
 
-  return { locationString };
+  return { locationString, location: data };
 };
