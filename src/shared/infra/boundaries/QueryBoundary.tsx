@@ -9,7 +9,7 @@ interface Props {
   errorFallback?: React.ReactNode;
 }
 
-export const QueryBoundary = ({
+export const QueryErrorBoundary = ({
   loadingFallback,
   errorFallback,
   children,

@@ -4,7 +4,7 @@ import { TextInput } from "react-native";
 import { useDebounce } from "use-debounce";
 
 import { CurrentLocation } from "#modules/location/components/CurrentLocation";
-import { QueryBoundary } from "#shared/infra/boundaries/QueryBoundary";
+import { QueryErrorBoundary } from "#shared/infra/boundaries/QueryBoundary";
 
 export const SearchedLocation = () => {
   const [search, setSearch] = useState("Massy");
@@ -17,9 +17,9 @@ export const SearchedLocation = () => {
         value={search}
         onChangeText={setSearch}
       />
-      <QueryBoundary>
+      <QueryErrorBoundary>
         <CurrentLocation location={debouncedSearch} />
-      </QueryBoundary>
+      </QueryErrorBoundary>
     </Container>
   );
 };

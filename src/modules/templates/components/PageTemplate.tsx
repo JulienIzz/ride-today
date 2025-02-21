@@ -1,13 +1,13 @@
 import styled from "@emotion/native";
 import { type PropsWithChildren } from "react";
 
-import { QueryBoundary } from "#shared/infra/boundaries/QueryBoundary";
+import { QueryErrorBoundary } from "#shared/infra/boundaries/QueryBoundary";
 
 export const PageTemplate = ({ children }: PropsWithChildren) => {
   return (
-    <QueryBoundary>
+    <QueryErrorBoundary>
       <Container>{children}</Container>
-    </QueryBoundary>
+    </QueryErrorBoundary>
   );
 };
 
