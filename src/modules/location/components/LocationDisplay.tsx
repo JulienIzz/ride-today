@@ -2,7 +2,7 @@ import styled from "@emotion/native";
 import { MapPin, X } from "lucide-react-native";
 
 import { useLocationStore } from "#modules/location/hooks/useLocationStore.hook";
-import { useCurrentWeather } from "#modules/weather/hooks/useCurrentWeather.query";
+import { useWeather } from "#modules/weather/hooks/useCurrentWeather.query";
 import { Spacer } from "#shared/components/Spacer";
 import { Typography } from "#shared/fonts/Typography";
 import { QueryErrorBoundary } from "#shared/infra/boundaries/QueryBoundary";
@@ -21,7 +21,7 @@ export const LocationDisplay = () => {
 };
 
 const LocationDisplayComponent = ({ location }: { location: string }) => {
-  const { currentLocation } = useCurrentWeather(location);
+  const { currentLocation } = useWeather(location);
   return (
     <Container>
       <MapPin color="black" size={14} />

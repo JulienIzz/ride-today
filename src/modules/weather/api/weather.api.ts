@@ -1,9 +1,9 @@
-import type { CurrentWeatherDto } from "#modules/weather/types/weather.dto.types";
+import type { WeatherDto } from "#modules/weather/types/weather.dto.types";
 import { weatherApiHttpClient } from "#shared/infra/httpClients/weatherApiHttpClient";
 
-export const fetchCurrentWeather = async (location: string) => {
-  const response = await weatherApiHttpClient.get<CurrentWeatherDto>(
-    "/current.json",
+export const fetchWeather = async (location: string) => {
+  const response = await weatherApiHttpClient.get<WeatherDto>(
+    "/forecast.json",
     {
       params: {
         q: location,
