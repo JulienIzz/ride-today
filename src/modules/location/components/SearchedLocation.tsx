@@ -1,6 +1,7 @@
 import styled from "@emotion/native";
 import { useState } from "react";
 import { TextInput } from "react-native";
+import Animated, { FadeInUp } from "react-native-reanimated";
 import { useDebouncedCallback } from "use-debounce";
 
 import { LocationDisplay } from "#modules/location/components/LocationDisplay";
@@ -26,7 +27,7 @@ export const SearchedLocation = () => {
   };
 
   return (
-    <Container>
+    <Container entering={FadeInUp}>
       <LocationInput
         placeholder="Search location"
         value={search}
@@ -37,7 +38,7 @@ export const SearchedLocation = () => {
   );
 };
 
-const Container = styled.View(({ theme }) => ({
+const Container = styled(Animated.View)(({ theme }) => ({
   alignItems: "center",
   justifyContent: "center",
   gap: theme.spacings.s,
