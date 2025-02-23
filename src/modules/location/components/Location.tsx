@@ -21,7 +21,9 @@ export const Location = () => {
         isLocationEnabled={isLocationEnabled}
         handleSwitch={handleSwitch}
       />
-      {isLocationEnabled ? <DeviceLocation /> : <SearchedLocation />}
+      <LocationContainer>
+        {isLocationEnabled ? <DeviceLocation /> : <SearchedLocation />}
+      </LocationContainer>
     </Container>
   );
 };
@@ -31,3 +33,7 @@ const Container = styled.View(({ theme }) => ({
   justifyContent: "center",
   gap: theme.spacings.s,
 }));
+
+const LocationContainer = styled.View({
+  height: 50,
+});
