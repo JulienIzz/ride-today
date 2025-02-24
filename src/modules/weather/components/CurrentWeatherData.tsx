@@ -39,7 +39,7 @@ export const CurrentWeatherData = ({ location }: { location: string }) => {
         <Typography
           variant="body"
           text={
-            currentWeather.isDay
+            currentWeather.isDay === 1
               ? t({ message: "Day" })
               : t({ message: "Night" })
           }
