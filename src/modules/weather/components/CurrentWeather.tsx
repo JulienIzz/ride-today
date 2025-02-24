@@ -1,4 +1,5 @@
 import styled from "@emotion/native";
+import { t } from "@lingui/core/macro";
 import { MapPinOff } from "lucide-react-native";
 
 import { useLocationStore } from "#modules/location/hooks/useLocationStore.hook";
@@ -29,11 +30,8 @@ const NoLocation = () => {
     <NoLocationContainer>
       <MapPinOff color="black" size={50} />
       <LabelContainer>
-        <Typography variant="body" text="No location selected" />
-        <Typography
-          variant="body"
-          text="Please select one or select geolocation"
-        />
+        <Typography variant="body" text={t`No location selected`} />
+        <Typography variant="body" text={t`select one or select geolocation`} />
       </LabelContainer>
     </NoLocationContainer>
   );

@@ -1,4 +1,5 @@
 import styled from "@emotion/native";
+import { t } from "@lingui/core/macro";
 import { Image } from "expo-image";
 
 import { Typography } from "#shared/fonts/Typography";
@@ -8,9 +9,9 @@ import logo from "../assets/logo.png";
 export const Logo = () => {
   return (
     <Container>
-      <Typography variant="title" text="RIDE" />
+      <Typography variant="title" text={t`RIDE`} />
       <LogoImage source={logo} />
-      <Typography variant="title" text="TODAY" />
+      <Typography variant="title" text={t`TODAY`} />
     </Container>
   );
 };

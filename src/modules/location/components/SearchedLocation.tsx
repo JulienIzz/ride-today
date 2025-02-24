@@ -1,4 +1,5 @@
 import styled from "@emotion/native";
+import { t } from "@lingui/core/macro";
 import { useState } from "react";
 import { TextInput } from "react-native";
 import Animated, { FadeInUp } from "react-native-reanimated";
@@ -29,7 +30,7 @@ export const SearchedLocation = () => {
   return (
     <Container entering={FadeInUp}>
       <LocationInput
-        placeholder="Search location"
+        placeholder={t`Search location`}
         value={search}
         onChangeText={handleChangeText}
       />

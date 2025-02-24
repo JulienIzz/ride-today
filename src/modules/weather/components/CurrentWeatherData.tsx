@@ -1,4 +1,5 @@
 import styled from "@emotion/native";
+import { t } from "@lingui/core/macro";
 import { View } from "react-native";
 
 import { useWeather } from "#modules/weather/hooks/useCurrentWeather.query";
@@ -17,7 +18,7 @@ export const CurrentWeatherData = ({ location }: { location: string }) => {
           </TemperatureContainer>
           <Typography
             variant="body"
-            text={`Feelslike ${currentWeather.feelslikeC}°C`}
+            text={t({ message: `Feelslike ${currentWeather.feelslikeC}°C` })}
           />
         </View>
         <Typography variant="body" text={currentWeather.condition.text} />
@@ -25,19 +26,23 @@ export const CurrentWeatherData = ({ location }: { location: string }) => {
       <RightContainer>
         <Typography
           variant="body"
-          text={`Humidity : ${currentWeather.humidity}%`}
+          text={t({ message: `Humidity : ${currentWeather.humidity}%` })}
         />
         <Typography
           variant="body"
-          text={`Wind speed : ${currentWeather.windKph} km/h`}
+          text={t({ message: `Wind speed : ${currentWeather.windKph} km/h` })}
         />
         <Typography
           variant="body"
-          text={`Precipitation : ${currentWeather.precipMm} mm`}
+          text={t({ message: `Precipitation : ${currentWeather.precipMm} mm` })}
         />
         <Typography
           variant="body"
-          text={currentWeather.isDay ? "Day" : "Night"}
+          text={
+            currentWeather.isDay
+              ? t({ message: "Day" })
+              : t({ message: "Night" })
+          }
         />
       </RightContainer>
     </Container>

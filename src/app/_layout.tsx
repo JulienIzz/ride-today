@@ -7,6 +7,7 @@ import { useCallback } from "react";
 import { theme } from "src/design-system/theme/theme";
 
 import { useAppIsReady } from "#shared/config/useAppIsReady.hook";
+import { I18nProvider } from "#shared/i18n/I18n.provider";
 
 void SplashScreen.preventAutoHideAsync();
 
@@ -31,20 +32,22 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <QueryClientProvider client={queryClient}>
-        <RootView onLayout={onLayoutRootView}>
-          <Stack
-            screenOptions={{
-              headerShown: false,
-              contentStyle: {
-                backgroundColor: theme.colors.white,
-              },
-            }}
-          />
-        </RootView>
-      </QueryClientProvider>
-    </ThemeProvider>
+    <I18nProvider>
+      <ThemeProvider theme={theme}>
+        <QueryClientProvider client={queryClient}>
+          <RootView onLayout={onLayoutRootView}>
+            <Stack
+              screenOptions={{
+                headerShown: false,
+                contentStyle: {
+                  backgroundColor: theme.colors.white,
+                },
+              }}
+            />
+          </RootView>
+        </QueryClientProvider>
+      </ThemeProvider>
+    </I18nProvider>
   );
 }
 
