@@ -1,12 +1,23 @@
 import styled from "@emotion/native";
 import { t } from "@lingui/core/macro";
+import { useMemo } from "react";
 import { View } from "react-native";
 
 import { useWeather } from "#modules/weather/hooks/useCurrentWeather.query";
 import { Typography } from "#shared/fonts/Typography";
+import { getConditionsTranslation } from "#shared/i18n/getConditionsTranslation";
 
 export const CurrentWeatherData = ({ location }: { location: string }) => {
   const { currentWeather } = useWeather(location);
+
+  const conditionText = useMemo(
+    () =>
+      getConditionsTranslation(
+        currentWeather.condition.code,
+        currentWeather.isDay === 1,
+      ),
+    [currentWeather.condition.code, currentWeather.isDay],
+  );
 
   return (
     <Container>
@@ -21,7 +32,9 @@ export const CurrentWeatherData = ({ location }: { location: string }) => {
             text={t({ message: `Feelslike ${currentWeather.feelslikeC}°C` })}
           />
         </View>
-        <Typography variant="body" text={currentWeather.condition.text} />
+        {conditionText ? (
+          <Typography variant="body" text={conditionText} />
+        ) : null}
       </LeftContainer>
       <RightContainer>
         <Typography
