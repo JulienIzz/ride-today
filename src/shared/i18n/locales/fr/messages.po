@@ -13,32 +13,46 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/modules/weather/components/CurrentWeatherData.tsx:43
+#. placeholder {0}: hour.cloud
+#: src/modules/weather/components/ForecastWeather.tsx:76
+msgid "Cloud : {0}%"
+msgstr "Nuages : {0}%"
+
+#: src/modules/weather/components/ForecastWeather.tsx:83
+#: src/modules/weather/components/CurrentWeather.tsx:67
 msgid "Day"
 msgstr "Jour"
 
 #. placeholder {0}: currentWeather.feelslikeC
-#: src/modules/weather/components/CurrentWeatherData.tsx:21
+#: src/modules/weather/components/CurrentWeather.tsx:43
 msgid "Feelslike {0}°C"
 msgstr "Ressenti {0}°C"
 
+#. placeholder {0}: hour.humidity
 #. placeholder {0}: currentWeather.humidity
-#: src/modules/weather/components/CurrentWeatherData.tsx:29
+#: src/modules/weather/components/ForecastWeather.tsx:88
+#: src/modules/weather/components/CurrentWeather.tsx:53
 msgid "Humidity : {0}%"
 msgstr "Humidité : {0}%"
 
-#: src/modules/weather/components/CurrentWeatherData.tsx:44
+#: src/modules/weather/components/ForecastWeather.tsx:83
+#: src/modules/weather/components/CurrentWeather.tsx:68
 msgid "Night"
 msgstr "Nuit"
 
-#: src/modules/weather/components/CurrentWeather.tsx:33
+#: src/modules/weather/components/CurrentWeather.tsx:81
 msgid "No location selected"
 msgstr "Pas de localisation sélectionnée"
 
 #. placeholder {0}: currentWeather.precipMm
-#: src/modules/weather/components/CurrentWeatherData.tsx:37
+#: src/modules/weather/components/CurrentWeather.tsx:61
 msgid "Precipitation : {0} mm"
 msgstr "Précipitations : {0} mm"
+
+#. placeholder {0}: hour.chanceOfRain
+#: src/modules/weather/components/ForecastWeather.tsx:92
+msgid "Rain : {0}%"
+msgstr "Pluie : {0}%"
 
 #: src/modules/home/components/Logo.tsx:12
 msgid "RIDE"
@@ -48,15 +62,25 @@ msgstr "RIDE"
 msgid "Search location"
 msgstr "Chercher une ville"
 
-#: src/modules/weather/components/CurrentWeather.tsx:34
+#: src/modules/weather/components/CurrentWeather.tsx:82
 msgid "select one or select geolocation"
 msgstr "Recherchez une ville ou activez la localisation"
+
+#. placeholder {0}: hour.chanceOfSnow
+#: src/modules/weather/components/ForecastWeather.tsx:96
+msgid "Snow : {0}%"
+msgstr "Neige : {0}%"
 
 #: src/modules/home/components/Logo.tsx:14
 msgid "TODAY"
 msgstr "TODAY"
 
+#. placeholder {0}: hour.windKph
+#: src/modules/weather/components/ForecastWeather.tsx:72
+msgid "Wind : {0} km/h"
+msgstr "Vent : {0} km/h"
+
 #. placeholder {0}: currentWeather.windKph
-#: src/modules/weather/components/CurrentWeatherData.tsx:33
+#: src/modules/weather/components/CurrentWeather.tsx:57
 msgid "Wind speed : {0} km/h"
 msgstr "Vent : {0} km/h"
