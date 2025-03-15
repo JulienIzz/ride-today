@@ -1,12 +1,28 @@
 import styled from "@emotion/native";
 import { t } from "@lingui/core/macro";
+import { MapPinOff } from "lucide-react-native";
 import { View } from "react-native";
 
 import { useWeather } from "#modules/weather/hooks/useCurrentWeather.query";
 import { Typography } from "#shared/fonts/Typography";
 import { getConditionsTranslation } from "#shared/i18n/getConditionsTranslation";
 
-export const CurrentWeather = ({ location }: { location: string }) => {
+export const CurrentWeather = ({ location }: { location: string | null }) => {
+  if (!location)
+    return (
+      <Container>
+        <NoLocation />
+      </Container>
+    );
+
+  return (
+    <Container>
+      <CurrentWeatherData location={location} />
+    </Container>
+  );
+};
+
+export const CurrentWeatherData = ({ location }: { location: string }) => {
   const { currentWeather } = useWeather(location);
 
   const conditionText = getConditionsTranslation(
@@ -15,8 +31,8 @@ export const CurrentWeather = ({ location }: { location: string }) => {
   );
 
   return (
-    <Container>
-      <LeftContainer>
+    <WeatherContainer>
+      <SideContainer>
         <View>
           <TemperatureContainer>
             <Temperature>{currentWeather.tempC}</Temperature>
@@ -30,8 +46,8 @@ export const CurrentWeather = ({ location }: { location: string }) => {
         {conditionText ? (
           <Typography variant="body" text={conditionText} />
         ) : null}
-      </LeftContainer>
-      <RightContainer>
+      </SideContainer>
+      <SideContainer>
         <Typography
           variant="body"
           text={t({ message: `Humidity : ${currentWeather.humidity}%` })}
@@ -52,23 +68,38 @@ export const CurrentWeather = ({ location }: { location: string }) => {
               : t({ message: "Night" })
           }
         />
-      </RightContainer>
-    </Container>
+      </SideContainer>
+    </WeatherContainer>
+  );
+};
+
+const NoLocation = () => {
+  return (
+    <NoLocationContainer>
+      <MapPinOff color="black" size={50} />
+      <LabelContainer>
+        <Typography variant="body" text={t`No location selected`} />
+        <Typography variant="body" text={t`select one or select geolocation`} />
+      </LabelContainer>
+    </NoLocationContainer>
   );
 };
 
 const Container = styled.View(({ theme }) => ({
+  height: 200,
+  width: "100%",
+  backgroundColor: theme.colors.lightGray,
+  borderRadius: theme.borderRadius.xl,
+  padding: theme.spacings.m,
+}));
+
+const WeatherContainer = styled.View(({ theme }) => ({
   flex: 1,
   flexDirection: "row",
   gap: theme.spacings.s,
 }));
 
-const LeftContainer = styled.View({
-  flex: 1,
-  gap: 10,
-});
-
-const RightContainer = styled.View(({ theme }) => ({
+const SideContainer = styled.View(({ theme }) => ({
   flex: 1,
   gap: theme.spacings.xs,
 }));
@@ -89,4 +120,17 @@ const Degrees = styled.Text(({ theme }) => ({
   fontSize: 20,
   fontFamily: theme.fonts.title,
   color: theme.colors.black,
+}));
+
+const NoLocationContainer = styled.View(({ theme }) => ({
+  flex: 1,
+  gap: theme.spacings.m,
+  justifyContent: "center",
+  alignItems: "center",
+}));
+
+const LabelContainer = styled.View(({ theme }) => ({
+  justifyContent: "center",
+  alignItems: "center",
+  gap: theme.spacings.xs,
 }));
