@@ -1,6 +1,6 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
-import { MapPin, Search } from "lucide-react-native";
+import { MapPinned, Search } from "lucide-react-native";
 import { Switch } from "src/design-system/components/Switch/Switch";
 
 export const GeolocationToggle = ({
@@ -18,7 +18,7 @@ export const GeolocationToggle = ({
         size={20}
       />
       <Switch value={isLocationEnabled} onPress={handleSwitch} />
-      <MapPin
+      <MapPinned
         color={isLocationEnabled ? theme.colors.black : theme.colors.gray}
         size={20}
       />
