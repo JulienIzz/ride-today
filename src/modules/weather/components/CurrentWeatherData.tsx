@@ -1,6 +1,5 @@
 import styled from "@emotion/native";
 import { t } from "@lingui/core/macro";
-import { useMemo } from "react";
 import { View } from "react-native";
 
 import { useWeather } from "#modules/weather/hooks/useCurrentWeather.query";
@@ -10,13 +9,9 @@ import { getConditionsTranslation } from "#shared/i18n/getConditionsTranslation"
 export const CurrentWeatherData = ({ location }: { location: string }) => {
   const { currentWeather } = useWeather(location);
 
-  const conditionText = useMemo(
-    () =>
-      getConditionsTranslation(
-        currentWeather.condition.code,
-        currentWeather.isDay === 1,
-      ),
-    [currentWeather.condition.code, currentWeather.isDay],
+  const conditionText = getConditionsTranslation(
+    currentWeather.condition.code,
+    currentWeather.isDay === 1,
   );
 
   return (
