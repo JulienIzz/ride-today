@@ -16,18 +16,22 @@ export const GeolocationToggle = ({
       value={isLocationEnabled}
       onPress={handleSwitch}
       trackColors={{
-        left: theme.colors.lightGray,
-        right: theme.colors.lightGray,
+        left: theme.colors.componentBackground,
+        right: theme.colors.componentBackground,
       }}
       leftIcon={
         <Search
-          color={!isLocationEnabled ? theme.colors.black : theme.colors.gray}
+          color={
+            !isLocationEnabled ? theme.colors.contrast : theme.colors.disabled
+          }
           size={20}
         />
       }
       rightIcon={
         <MapPinned
-          color={isLocationEnabled ? theme.colors.black : theme.colors.gray}
+          color={
+            isLocationEnabled ? theme.colors.contrast : theme.colors.disabled
+          }
           size={20}
         />
       }

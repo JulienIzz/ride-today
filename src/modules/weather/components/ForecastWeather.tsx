@@ -1,4 +1,5 @@
 import styled from "@emotion/native";
+import { useTheme } from "@emotion/react";
 import { t } from "@lingui/core/macro";
 import { Moon, Sun } from "lucide-react-native";
 import { Fragment } from "react";
@@ -54,6 +55,7 @@ export const renderHourWeather = (
 };
 
 const HourWeather = ({ hour }: { hour: Hour }) => {
+  const theme = useTheme();
   const conditionText = getConditionsTranslation(
     hour.condition.code,
     hour.isDay === 1,
@@ -64,38 +66,41 @@ const HourWeather = ({ hour }: { hour: Hour }) => {
       <LeftContainer>
         <IconAndText>
           {hour.isDay === 1 ? (
-            <Sun color={"black"} size={16} />
+            <Sun color={theme.colors.contrastLight} size={16} />
           ) : (
-            <Moon color={"black"} size={16} />
+            <Moon color={theme.colors.contrastLight} size={16} />
           )}
-          <Typography
+          <ContrastLightTypography
             variant="body"
             text={formatToDisplayHour(new Date(hour.time))}
           />
         </IconAndText>
         {conditionText ? (
-          <Typography variant="body" text={conditionText} />
+          <ContrastLightTypography variant="body" text={conditionText} />
         ) : null}
-        <Typography variant="body" text={t({ message: `${hour.tempC}°C` })} />
-        <Typography
+        <ContrastLightTypography
+          variant="body"
+          text={t({ message: `${hour.tempC}°C` })}
+        />
+        <ContrastLightTypography
           variant="body"
           text={t({ message: `Wind : ${hour.windKph} km/h` })}
         />
       </LeftContainer>
       <RightContainer>
-        <Typography
+        <ContrastLightTypography
           variant="body"
           text={t({ message: `Cloud : ${hour.cloud}%` })}
         />
-        <Typography
+        <ContrastLightTypography
           variant="body"
           text={t({ message: `Humidity : ${hour.humidity}%` })}
         />
-        <Typography
+        <ContrastLightTypography
           variant="body"
           text={t({ message: `Rain : ${hour.chanceOfRain}%` })}
         />
-        <Typography
+        <ContrastLightTypography
           variant="body"
           text={t({ message: `Snow : ${hour.chanceOfSnow}%` })}
         />
@@ -124,4 +129,8 @@ const IconAndText = styled.View(({ theme }) => ({
   flexDirection: "row",
   alignItems: "center",
   gap: theme.spacings.xs,
+}));
+
+const ContrastLightTypography = styled(Typography)(({ theme }) => ({
+  color: theme.colors.contrastLight,
 }));

@@ -40,7 +40,7 @@ export default function RootLayout() {
               screenOptions={{
                 headerShown: false,
                 contentStyle: {
-                  backgroundColor: theme.colors.white,
+                  backgroundColor: theme.colors.mainBackground,
                 },
               }}
             />

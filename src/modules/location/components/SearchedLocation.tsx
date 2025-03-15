@@ -1,4 +1,5 @@
 import styled from "@emotion/native";
+import { useTheme } from "@emotion/react";
 import { t } from "@lingui/core/macro";
 import { useEffect, useState } from "react";
 import { TextInput } from "react-native";
@@ -9,6 +10,8 @@ import { LocationDisplay } from "#modules/location/components/LocationDisplay";
 import { useLocationStore } from "#modules/location/hooks/useLocationStore.hook";
 
 export const SearchedLocation = () => {
+  const theme = useTheme();
+
   const setLocation = useLocationStore((state) => state.setLocation);
   const setSearchedLocation = useLocationStore(
     (state) => state.setSearchedLocation,
@@ -45,6 +48,8 @@ export const SearchedLocation = () => {
         placeholder={t`Search location`}
         value={search}
         onChangeText={handleChangeText}
+        cursorColor={theme.colors.primary}
+        placeholderTextColor={theme.colors.contrastLight}
       />
       <LocationDisplay />
     </Container>
@@ -63,6 +68,7 @@ const LocationInput = styled(TextInput)(({ theme }) => ({
   textAlign: "center",
   fontFamily: theme.fonts.body,
   padding: theme.spacings.xs,
-  backgroundColor: theme.colors.lightGray,
+  backgroundColor: theme.colors.componentBackground,
   borderRadius: theme.borderRadius.xl,
+  color: theme.colors.contrastLight,
 }));

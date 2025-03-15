@@ -114,7 +114,7 @@ const NoLocation = () => {
 const Container = styled.View(({ theme }) => ({
   height: 200,
   width: "100%",
-  backgroundColor: theme.colors.lightGray,
+  backgroundColor: theme.colors.primary,
   borderRadius: theme.borderRadius.xl,
   padding: theme.spacings.m,
 }));
@@ -138,14 +138,14 @@ const TemperatureContainer = styled.View(({ theme }) => ({
 const Temperature = styled.Text(({ theme }) => ({
   fontSize: 50,
   fontFamily: theme.fonts.title,
-  color: theme.colors.black,
+  color: theme.colors.contrast,
   lineHeight: 53,
 }));
 
 const Degrees = styled.Text(({ theme }) => ({
   fontSize: 20,
   fontFamily: theme.fonts.title,
-  color: theme.colors.black,
+  color: theme.colors.contrast,
 }));
 
 const NoLocationContainer = styled.View(({ theme }) => ({

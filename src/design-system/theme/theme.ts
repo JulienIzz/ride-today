@@ -1,9 +1,11 @@
 export const themeObject = {
   colors: {
-    white: "#FFFFFF",
-    black: "#000000",
-    gray: "#808080",
-    lightGray: "#E8E8E8",
+    mainBackground: "#1F1F1F",
+    primary: "#C8FF33",
+    contrast: "#000000",
+    contrastLight: "#FFFFFF",
+    disabled: "#808080",
+    componentBackground: "#313131",
   },
   spacings: {
     "3xs": 1,

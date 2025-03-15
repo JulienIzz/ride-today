@@ -1,6 +1,6 @@
 import styled from "@emotion/native";
 import type { ViewStyle } from "react-native";
-import { Pressable, StyleSheet, View } from "react-native";
+import { Pressable, View } from "react-native";
 import Animated, {
   interpolate,
   interpolateColor,
@@ -67,17 +67,15 @@ export const BigIconSwitch = ({
   return (
     <View>
       <Pressable onPress={onPress}>
-        <Animated.View
+        <Track
           onLayout={(e) => {
             height.value = e.nativeEvent.layout.height;
             width.value = e.nativeEvent.layout.width;
           }}
-          style={[switchStyles.track, style, trackAnimatedStyle]}
+          style={[style, trackAnimatedStyle]}
         >
-          <Animated.View
-            style={[switchStyles.thumb, thumbAnimatedStyle]}
-          ></Animated.View>
-        </Animated.View>
+          <Thumb style={thumbAnimatedStyle}></Thumb>
+        </Track>
         <LeftIcon>{leftIcon}</LeftIcon>
         <RightIcon>{rightIcon}</RightIcon>
       </Pressable>
@@ -105,17 +103,15 @@ const RightIcon = styled.View({
   alignItems: "center",
 });
 
-const switchStyles = StyleSheet.create({
-  track: {
-    alignItems: "flex-start",
-    width: 100,
-    height: 40,
-    padding: 5,
-    backgroundColor: "blue",
-  },
-  thumb: {
-    height: "100%",
-    aspectRatio: 1,
-    backgroundColor: "white",
-  },
-});
+const Thumb = styled(Animated.View)(({ theme }) => ({
+  height: "100%",
+  aspectRatio: 1,
+  backgroundColor: theme.colors.primary,
+}));
+
+const Track = styled(Animated.View)(({ theme }) => ({
+  width: 100,
+  height: 40,
+  padding: 5,
+  backgroundColor: theme.colors.componentBackground,
+}));

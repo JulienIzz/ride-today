@@ -1,4 +1,5 @@
 import styled from "@emotion/native";
+import { useTheme } from "@emotion/react";
 import { t } from "@lingui/core/macro";
 import { MapPin, RectangleEllipsis, X } from "lucide-react-native";
 
@@ -27,27 +28,39 @@ export const LocationDisplay = () => {
 
 const LocationDisplayComponent = ({ location }: { location: string }) => {
   const { currentLocation } = useWeather(location);
+  const theme = useTheme();
+
   return (
     <Container>
-      <MapPin color="black" size={14} />
+      <MapPin color={theme.colors.contrastLight} size={14} />
       <Spacer size={4} horizontal />
-      <Typography variant="body" text={`${currentLocation.name}`} />
+      <ContrastLightTypography
+        variant="body"
+        text={`${currentLocation.name}`}
+      />
       {currentLocation.region ? (
-        <Typography variant="body" text={`, ${currentLocation.region}`} />
+        <ContrastLightTypography
+          variant="body"
+          text={`, ${currentLocation.region}`}
+        />
       ) : null}
       {currentLocation.country ? (
-        <Typography variant="body" text={`, ${currentLocation.country}`} />
+        <ContrastLightTypography
+          variant="body"
+          text={`, ${currentLocation.country}`}
+        />
       ) : null}
     </Container>
   );
 };
 
 const LocationMissing = () => {
+  const theme = useTheme();
   return (
     <Container>
-      <RectangleEllipsis color="black" strokeWidth={1.5} />
+      <RectangleEllipsis color={theme.colors.contrastLight} strokeWidth={1.5} />
       <Spacer size={4} horizontal />
-      <Typography variant="body" text={t`Waiting for location`} />
+      <ContrastLightTypography variant="body" text={t`Waiting for location`} />
     </Container>
   );
 };
@@ -57,7 +70,10 @@ const LocationError = () => {
     <Container>
       <X color="red" size={14} />
       <Spacer size={4} horizontal />
-      <Typography variant="body" text={"Unable to find location, try again"} />
+      <ContrastLightTypography
+        variant="body"
+        text={"Unable to find location, try again"}
+      />
     </Container>
   );
 };
@@ -67,3 +83,7 @@ const Container = styled.View({
   alignItems: "center",
   justifyContent: "center",
 });
+
+const ContrastLightTypography = styled(Typography)(({ theme }) => ({
+  color: theme.colors.contrastLight,
+}));
