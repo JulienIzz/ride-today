@@ -6,7 +6,7 @@ import { useWeather } from "#modules/weather/hooks/useCurrentWeather.query";
 import { Typography } from "#shared/fonts/Typography";
 import { getConditionsTranslation } from "#shared/i18n/getConditionsTranslation";
 
-export const CurrentWeatherData = ({ location }: { location: string }) => {
+export const CurrentWeather = ({ location }: { location: string }) => {
   const { currentWeather } = useWeather(location);
 
   const conditionText = getConditionsTranslation(

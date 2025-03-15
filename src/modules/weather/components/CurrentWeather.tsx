@@ -3,11 +3,11 @@ import { t } from "@lingui/core/macro";
 import { MapPinOff } from "lucide-react-native";
 
 import { useLocationStore } from "#modules/location/hooks/useLocationStore.hook";
-import { CurrentWeatherData } from "#modules/weather/components/CurrentWeatherData";
+import { CurrentWeather } from "#modules/weather/components/CurrentWeatherData";
 import { Typography } from "#shared/fonts/Typography";
 import { QueryErrorBoundary } from "#shared/infra/boundaries/QueryBoundary";
 
-export const CurrentWeather = () => {
+export const Weather = () => {
   const location = useLocationStore((state) => state.location);
 
   return (
@@ -15,7 +15,7 @@ export const CurrentWeather = () => {
       <WeatherContainer>
         {location ? (
           <QueryErrorBoundary>
-            <CurrentWeatherData location={location} />
+            <CurrentWeather location={location} />
           </QueryErrorBoundary>
         ) : (
           <NoLocation />
