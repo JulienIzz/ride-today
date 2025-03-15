@@ -1,6 +1,14 @@
 import styled from "@emotion/native";
 import { t } from "@lingui/core/macro";
-import { MapPinOff } from "lucide-react-native";
+import { format } from "date-fns";
+import {
+  CloudRain,
+  MapPinOff,
+  Moon,
+  Sun,
+  Waves,
+  Wind,
+} from "lucide-react-native";
 import { View } from "react-native";
 
 import { useWeather } from "#modules/weather/hooks/useCurrentWeather.query";
@@ -23,7 +31,7 @@ export const CurrentWeather = ({ location }: { location: string | null }) => {
 };
 
 export const CurrentWeatherData = ({ location }: { location: string }) => {
-  const { currentWeather } = useWeather(location);
+  const { currentWeather, currentLocation } = useWeather(location);
 
   const conditionText = getConditionsTranslation(
     currentWeather.condition.code,
@@ -48,26 +56,44 @@ export const CurrentWeatherData = ({ location }: { location: string }) => {
         ) : null}
       </SideContainer>
       <SideContainer>
-        <Typography
-          variant="body"
-          text={t({ message: `Humidity : ${currentWeather.humidity}%` })}
-        />
-        <Typography
-          variant="body"
-          text={t({ message: `Wind speed : ${currentWeather.windKph} km/h` })}
-        />
-        <Typography
-          variant="body"
-          text={t({ message: `Precipitation : ${currentWeather.precipMm} mm` })}
-        />
-        <Typography
-          variant="body"
-          text={
-            currentWeather.isDay === 1
-              ? t({ message: "Day" })
-              : t({ message: "Night" })
-          }
-        />
+        <IconAndText>
+          <Waves color={"black"} size={20} />
+          <Typography
+            variant="body"
+            text={t({ message: `Humidity : ${currentWeather.humidity}%` })}
+          />
+        </IconAndText>
+        <IconAndText>
+          <Wind color={"black"} size={20} />
+          <Typography
+            variant="body"
+            text={t({ message: `Wind speed : ${currentWeather.windKph} km/h` })}
+          />
+        </IconAndText>
+        <IconAndText>
+          <CloudRain color={"black"} size={20} />
+          <Typography
+            variant="body"
+            text={t({
+              message: `Precipitation : ${currentWeather.precipMm} mm`,
+            })}
+          />
+        </IconAndText>
+        <IconAndText>
+          {currentWeather.isDay === 1 ? (
+            <Sun color={"black"} size={20} />
+          ) : (
+            <Moon color={"black"} size={20} />
+          )}
+          <Typography
+            variant="body"
+            text={`${format(currentLocation.localTime, "HH:mm")} - ${
+              currentWeather.isDay === 1
+                ? t({ message: "Day" })
+                : t({ message: "Night" })
+            }`}
+          />
+        </IconAndText>
       </SideContainer>
     </WeatherContainer>
   );
@@ -101,7 +127,7 @@ const WeatherContainer = styled.View(({ theme }) => ({
 
 const SideContainer = styled.View(({ theme }) => ({
   flex: 1,
-  gap: theme.spacings.xs,
+  gap: theme.spacings.s,
 }));
 
 const TemperatureContainer = styled.View(({ theme }) => ({
@@ -131,6 +157,12 @@ const NoLocationContainer = styled.View(({ theme }) => ({
 
 const LabelContainer = styled.View(({ theme }) => ({
   justifyContent: "center",
+  alignItems: "center",
+  gap: theme.spacings.xs,
+}));
+
+const IconAndText = styled.View(({ theme }) => ({
+  flexDirection: "row",
   alignItems: "center",
   gap: theme.spacings.xs,
 }));

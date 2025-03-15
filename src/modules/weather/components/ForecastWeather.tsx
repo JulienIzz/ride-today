@@ -1,5 +1,6 @@
 import styled from "@emotion/native";
 import { t } from "@lingui/core/macro";
+import { Moon, Sun } from "lucide-react-native";
 import { Fragment } from "react";
 import { FlatList } from "react-native";
 
@@ -20,11 +21,12 @@ export const ForecastWeather = ({ location }: { location: string | null }) => {
 };
 
 export const ForecastWeatherData = ({ location }: { location: string }) => {
-  const { forecastWeather } = useWeather(location);
+  const { forecastWeather, currentLocation } = useWeather(location);
 
-  const HoursWeather = filterOnlyNextHours(
-    forecastWeather.forecastday[0]?.hour,
-  );
+  const HoursWeather = filterOnlyNextHours({
+    hours: forecastWeather.forecastday[0]?.hour,
+    currentHour: new Date(currentLocation.localTime),
+  });
 
   const forecastLength = HoursWeather.length;
 
@@ -60,28 +62,30 @@ const HourWeather = ({ hour }: { hour: Hour }) => {
   return (
     <HourContainer>
       <LeftContainer>
-        <Typography
-          variant="body"
-          text={`${formatToDisplayHour(new Date(hour.time))}`}
-        />
+        <IconAndText>
+          {hour.isDay === 1 ? (
+            <Sun color={"black"} size={16} />
+          ) : (
+            <Moon color={"black"} size={16} />
+          )}
+          <Typography
+            variant="body"
+            text={formatToDisplayHour(new Date(hour.time))}
+          />
+        </IconAndText>
         {conditionText ? (
           <Typography variant="body" text={conditionText} />
         ) : null}
+        <Typography variant="body" text={t({ message: `${hour.tempC}°C` })} />
         <Typography
           variant="body"
           text={t({ message: `Wind : ${hour.windKph} km/h` })}
-        />
-        <Typography
-          variant="body"
-          text={t({ message: `Cloud : ${hour.cloud}%` })}
         />
       </LeftContainer>
       <RightContainer>
         <Typography
           variant="body"
-          text={
-            hour.isDay === 1 ? t({ message: "Day" }) : t({ message: "Night" })
-          }
+          text={t({ message: `Cloud : ${hour.cloud}%` })}
         />
         <Typography
           variant="body"
@@ -113,5 +117,11 @@ const LeftContainer = styled.View(({ theme }) => ({
 
 const RightContainer = styled.View(({ theme }) => ({
   alignItems: "flex-end",
+  gap: theme.spacings.xs,
+}));
+
+const IconAndText = styled.View(({ theme }) => ({
+  flexDirection: "row",
+  alignItems: "center",
   gap: theme.spacings.xs,
 }));
