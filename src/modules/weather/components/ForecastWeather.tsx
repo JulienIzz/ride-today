@@ -1,7 +1,7 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
 import { t } from "@lingui/core/macro";
-import { Moon, Sun } from "lucide-react-native";
+import { Moon, MoonStar, Sun } from "lucide-react-native";
 import { Fragment } from "react";
 import { FlatList } from "react-native";
 
@@ -68,7 +68,8 @@ export const renderHourWeather = (
   return (
     <Fragment>
       <HourWeather hour={hour} />
-      {index + 1 < forecastLength && <Divider />}
+      <Divider />
+      {index + 1 === forecastLength && <EndOfDay />}
     </Fragment>
   );
 };
@@ -128,6 +129,16 @@ const HourWeather = ({ hour }: { hour: Hour }) => {
   );
 };
 
+const EndOfDay = () => {
+  const theme = useTheme();
+
+  return (
+    <EndOfDayContainer>
+      <MoonStar size={40} strokeWidth={1} color={theme.colors.contrastLight} />
+    </EndOfDayContainer>
+  );
+};
+
 const ListContainer = styled.View(({ theme }) => ({
   flex: 1,
   gap: theme.spacings.s,
@@ -173,4 +184,10 @@ const IconAndText = styled.View(({ theme }) => ({
 
 const ContrastLightTypography = styled(Typography)(({ theme }) => ({
   color: theme.colors.contrastLight,
+}));
+
+const EndOfDayContainer = styled.View(({ theme }) => ({
+  alignItems: "center",
+  justifyContent: "center",
+  padding: theme.spacings.l,
 }));
