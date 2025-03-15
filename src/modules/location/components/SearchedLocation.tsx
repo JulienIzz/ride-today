@@ -1,6 +1,6 @@
 import styled from "@emotion/native";
 import { t } from "@lingui/core/macro";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TextInput } from "react-native";
 import Animated, { FadeInUp } from "react-native-reanimated";
 import { useDebouncedCallback } from "use-debounce";
@@ -10,8 +10,13 @@ import { useLocationStore } from "#modules/location/hooks/useLocationStore.hook"
 
 export const SearchedLocation = () => {
   const setLocation = useLocationStore((state) => state.setLocation);
+  const setSearchedLocation = useLocationStore(
+    (state) => state.setSearchedLocation,
+  );
+  const searchedLocation = useLocationStore((state) => state.searchedLocation);
   const clearLocation = useLocationStore((state) => state.clearLocation);
-  const [search, setSearch] = useState("");
+
+  const [search, setSearch] = useState(searchedLocation ?? undefined);
 
   const debouncedSetLocation = useDebouncedCallback((value: string) => {
     if (value === "") {
@@ -24,8 +29,15 @@ export const SearchedLocation = () => {
 
   const handleChangeText = (value: string) => {
     setSearch(value);
+    setSearchedLocation(value);
     debouncedSetLocation(value);
   };
+
+  useEffect(() => {
+    if (searchedLocation) {
+      setLocation(searchedLocation);
+    }
+  }, [setLocation, search, searchedLocation]);
 
   return (
     <Container entering={FadeInUp}>

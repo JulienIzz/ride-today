@@ -1,5 +1,6 @@
 import styled from "@emotion/native";
-import { MapPin, X } from "lucide-react-native";
+import { t } from "@lingui/core/macro";
+import { MapPin, RectangleEllipsis, X } from "lucide-react-native";
 
 import { useLocationStore } from "#modules/location/hooks/useLocationStore.hook";
 import { useWeather } from "#modules/weather/hooks/useCurrentWeather.query";
@@ -15,7 +16,11 @@ export const LocationDisplay = () => {
       errorFallback={<LocationError />}
       resetKeys={[location]}
     >
-      {location && <LocationDisplayComponent location={location} />}
+      {location ? (
+        <LocationDisplayComponent location={location} />
+      ) : (
+        <LocationMissing />
+      )}
     </QueryErrorBoundary>
   );
 };
@@ -37,21 +42,25 @@ const LocationDisplayComponent = ({ location }: { location: string }) => {
   );
 };
 
-const LocationError = () => {
+const LocationMissing = () => {
   return (
-    <ErrorContainer>
-      <X color="red" size={14} />
+    <Container>
+      <RectangleEllipsis color="black" strokeWidth={1.5} />
       <Spacer size={4} horizontal />
-      <Typography variant="body" text={"Unable to find location, try again"} />
-    </ErrorContainer>
+      <Typography variant="body" text={t`Waiting for location`} />
+    </Container>
   );
 };
 
-const ErrorContainer = styled.View({
-  flexDirection: "row",
-  alignItems: "center",
-  justifyContent: "center",
-});
+const LocationError = () => {
+  return (
+    <Container>
+      <X color="red" size={14} />
+      <Spacer size={4} horizontal />
+      <Typography variant="body" text={"Unable to find location, try again"} />
+    </Container>
+  );
+};
 
 const Container = styled.View({
   flexDirection: "row",

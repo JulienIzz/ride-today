@@ -1,5 +1,9 @@
 import styled from "@emotion/native";
 import { useState } from "react";
+import Animated, {
+  useAnimatedStyle,
+  withTiming,
+} from "react-native-reanimated";
 
 import { DeviceLocation } from "#modules/location/components/DeviceLocation";
 import { GeolocationToggle } from "#modules/location/components/GeolocationToggle";
@@ -15,13 +19,19 @@ export const Location = () => {
     setLocationEnabled(!isLocationEnabled);
   };
 
+  const animatedStyle = useAnimatedStyle(() => {
+    return {
+      height: withTiming(isLocationEnabled ? 20 : 55, { duration: 300 }),
+    };
+  });
+
   return (
     <Container>
       <GeolocationToggle
         isLocationEnabled={isLocationEnabled}
         handleSwitch={handleSwitch}
       />
-      <LocationContainer>
+      <LocationContainer style={animatedStyle}>
         {isLocationEnabled ? <DeviceLocation /> : <SearchedLocation />}
       </LocationContainer>
     </Container>
@@ -34,6 +44,4 @@ const Container = styled.View(({ theme }) => ({
   gap: theme.spacings.s,
 }));
 
-const LocationContainer = styled.View({
-  height: 50,
-});
+const LocationContainer = styled(Animated.View)();
