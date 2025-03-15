@@ -2,7 +2,7 @@ import { useTheme } from "@emotion/react";
 import { Canvas, LinearGradient, Rect, vec } from "@shopify/react-native-skia";
 import { Dimensions } from "react-native";
 
-import { absoluteFillStyle } from "#design-system/AbsoluteFillView";
+import { absoluteFillStyle } from "#design-system/utils/absoluteFillStyle";
 import { Logo } from "#modules/home/components/Logo";
 import { Location } from "#modules/location/components/Location";
 import { PageTemplate } from "#modules/templates/components/PageTemplate";

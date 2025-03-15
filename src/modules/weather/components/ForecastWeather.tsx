@@ -5,6 +5,8 @@ import { Moon, Sun } from "lucide-react-native";
 import { Fragment } from "react";
 import { FlatList } from "react-native";
 
+import { absoluteFillStyle } from "#design-system/utils/absoluteFillStyle";
+import { FlexView } from "#design-system/utils/FlexView";
 import { useWeather } from "#modules/weather/hooks/useCurrentWeather.query";
 import type { Hour } from "#modules/weather/types/weather.types";
 import { filterOnlyNextHours } from "#modules/weather/utils/filterOnlyNextHours";
@@ -18,7 +20,12 @@ export const ForecastWeather = ({ location }: { location: string | null }) => {
     return null;
   }
 
-  return <ForecastWeatherData location={location} />;
+  return (
+    <FlexView>
+      <Background style={absoluteFillStyle} />
+      <ForecastWeatherData location={location} />
+    </FlexView>
+  );
 };
 
 export const ForecastWeatherData = ({ location }: { location: string }) => {
@@ -32,12 +39,24 @@ export const ForecastWeatherData = ({ location }: { location: string }) => {
   const forecastLength = HoursWeather.length;
 
   return (
-    <FlatList
-      data={HoursWeather}
-      renderItem={({ item: hour, index }) =>
-        renderHourWeather(hour, forecastLength, index)
-      }
-    />
+    <ListContainer>
+      <ListHeaderContainer>
+        <ContrastLightTypography
+          variant="bodyBold"
+          text={t({ message: "Next hours" })}
+        />
+      </ListHeaderContainer>
+      <Divider />
+      <HoursContainer>
+        <FlatList
+          data={HoursWeather}
+          renderItem={({ item: hour, index }) =>
+            renderHourWeather(hour, forecastLength, index)
+          }
+          showsVerticalScrollIndicator={false}
+        />
+      </HoursContainer>
+    </ListContainer>
   );
 };
 
@@ -108,6 +127,27 @@ const HourWeather = ({ hour }: { hour: Hour }) => {
     </HourContainer>
   );
 };
+
+const ListContainer = styled.View(({ theme }) => ({
+  flex: 1,
+  gap: theme.spacings.s,
+}));
+
+const HoursContainer = styled.View(({ theme }) => ({
+  paddingHorizontal: theme.spacings.m,
+  flex: 1,
+}));
+
+const ListHeaderContainer = styled.View(({ theme }) => ({
+  paddingTop: theme.spacings.m,
+  paddingHorizontal: theme.spacings.m,
+}));
+
+const Background = styled.View(({ theme }) => ({
+  backgroundColor: theme.colors.componentBackground,
+  borderRadius: theme.borderRadius.xl,
+  opacity: 0.4,
+}));
 
 const HourContainer = styled.View(({ theme }) => ({
   flexDirection: "row",

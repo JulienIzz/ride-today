@@ -36,6 +36,7 @@ export const themeObject = {
   },
   fonts: {
     body: "Montserrat_400Regular",
+    bodyBold: "Montserrat_600SemiBold",
     title: "Montserrat_700Bold",
   },
 } as const;

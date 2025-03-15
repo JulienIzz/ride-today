@@ -14,12 +14,12 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. placeholder {0}: hour.tempC
-#: src/modules/weather/components/ForecastWeather.tsx:83
+#: src/modules/weather/components/ForecastWeather.tsx:103
 msgid "{0}°C"
 msgstr "{0}°C"
 
 #. placeholder {0}: hour.cloud
-#: src/modules/weather/components/ForecastWeather.tsx:93
+#: src/modules/weather/components/ForecastWeather.tsx:113
 msgid "Cloud : {0}%"
 msgstr "Cloud : {0}%"
 
@@ -34,10 +34,14 @@ msgstr "Feelslike {0}°C"
 
 #. placeholder {0}: hour.humidity
 #. placeholder {0}: currentWeather.humidity
-#: src/modules/weather/components/ForecastWeather.tsx:97
+#: src/modules/weather/components/ForecastWeather.tsx:117
 #: src/modules/weather/components/CurrentWeather.tsx:63
 msgid "Humidity : {0}%"
 msgstr "Humidity : {0}%"
+
+#: src/modules/weather/components/ForecastWeather.tsx:46
+msgid "Next hours"
+msgstr "Next hours"
 
 #: src/modules/weather/components/CurrentWeather.tsx:93
 msgid "Night"
@@ -53,7 +57,7 @@ msgid "Precipitation : {0} mm"
 msgstr "Precipitation : {0} mm"
 
 #. placeholder {0}: hour.chanceOfRain
-#: src/modules/weather/components/ForecastWeather.tsx:101
+#: src/modules/weather/components/ForecastWeather.tsx:121
 msgid "Rain : {0}%"
 msgstr "Rain : {0}%"
 
@@ -70,7 +74,7 @@ msgid "select one or select geolocation"
 msgstr "select one or select geolocation"
 
 #. placeholder {0}: hour.chanceOfSnow
-#: src/modules/weather/components/ForecastWeather.tsx:105
+#: src/modules/weather/components/ForecastWeather.tsx:125
 msgid "Snow : {0}%"
 msgstr "Snow : {0}%"
 
@@ -79,7 +83,7 @@ msgid "Waiting for location"
 msgstr "Waiting for location"
 
 #. placeholder {0}: hour.windKph
-#: src/modules/weather/components/ForecastWeather.tsx:87
+#: src/modules/weather/components/ForecastWeather.tsx:107
 msgid "Wind : {0} km/h"
 msgstr "Wind : {0} km/h"
 

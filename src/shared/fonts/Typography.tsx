@@ -1,9 +1,15 @@
 import styled from "@emotion/native";
 import type { ColorValue, TextStyle } from "react-native";
 
-const Text = styled.Text<{ color?: ColorValue }>(({ theme, color }) => ({
+const Body = styled.Text<{ color?: ColorValue }>(({ theme, color }) => ({
   fontSize: theme.fontSizes.xs,
   fontFamily: theme.fonts.body,
+  color: color ?? theme.colors.contrast,
+}));
+
+const BodyBold = styled.Text<{ color?: ColorValue }>(({ theme, color }) => ({
+  fontSize: theme.fontSizes.xs,
+  fontFamily: theme.fonts.bodyBold,
   color: color ?? theme.colors.contrast,
 }));
 
@@ -20,7 +26,7 @@ const Title = styled.Text<{ color?: ColorValue }>(({ theme, color }) => ({
 }));
 
 type Props = {
-  variant: "body" | "subtext" | "title";
+  variant: "body" | "bodyBold" | "subtext" | "title";
   text: string;
   style?: TextStyle;
   color?: ColorValue;
@@ -36,9 +42,15 @@ export const Typography = ({ variant, text, color, style }: Props) => {
       );
     case "body":
       return (
-        <Text color={color} style={style}>
+        <Body color={color} style={style}>
           {text}
-        </Text>
+        </Body>
+      );
+    case "bodyBold":
+      return (
+        <BodyBold color={color} style={style}>
+          {text}
+        </BodyBold>
       );
     case "subtext":
       return (
