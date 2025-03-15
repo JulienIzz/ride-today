@@ -41,7 +41,7 @@ export const Location = () => {
 const Container = styled.View(({ theme }) => ({
   alignItems: "center",
   justifyContent: "center",
-  gap: theme.spacings.s,
+  gap: theme.spacings.m,
 }));
 
 const LocationContainer = styled(Animated.View)();
