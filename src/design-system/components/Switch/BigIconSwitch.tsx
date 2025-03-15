@@ -1,0 +1,121 @@
+import styled from "@emotion/native";
+import type { ViewStyle } from "react-native";
+import { Pressable, StyleSheet, View } from "react-native";
+import Animated, {
+  interpolate,
+  interpolateColor,
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from "react-native-reanimated";
+
+type BigIconSwitchProps = {
+  value: boolean;
+  onPress: () => void;
+  style?: ViewStyle;
+  duration?: number;
+  trackColors?: { right: string; left: string };
+  leftIcon: React.JSX.Element;
+  rightIcon: React.JSX.Element;
+};
+
+export const BigIconSwitch = ({
+  value,
+  onPress,
+  style = {
+    width: 120,
+    height: 60,
+    padding: 5,
+  },
+  duration = 300,
+  trackColors = { right: "grey", left: "grey" },
+  leftIcon,
+  rightIcon,
+}: BigIconSwitchProps) => {
+  const numberedValue = value ? 1 : 0;
+  const height = useSharedValue(0);
+  const width = useSharedValue(0);
+
+  const trackAnimatedStyle = useAnimatedStyle(() => {
+    const color = interpolateColor(
+      numberedValue,
+      [0, 1],
+      [trackColors.left, trackColors.right],
+    );
+    const colorValue = withTiming(color, { duration });
+
+    return {
+      backgroundColor: colorValue,
+      borderRadius: height.value / 2,
+    };
+  });
+
+  const thumbAnimatedStyle = useAnimatedStyle(() => {
+    const moveValue = interpolate(
+      Number(numberedValue),
+      [0, 1],
+      [0, width.value - height.value],
+    );
+    const translateValue = withTiming(moveValue, { duration });
+
+    return {
+      transform: [{ translateX: translateValue }],
+      borderRadius: height.value / 2,
+    };
+  });
+
+  return (
+    <View>
+      <Pressable onPress={onPress}>
+        <Animated.View
+          onLayout={(e) => {
+            height.value = e.nativeEvent.layout.height;
+            width.value = e.nativeEvent.layout.width;
+          }}
+          style={[switchStyles.track, style, trackAnimatedStyle]}
+        >
+          <Animated.View
+            style={[switchStyles.thumb, thumbAnimatedStyle]}
+          ></Animated.View>
+        </Animated.View>
+        <LeftIcon>{leftIcon}</LeftIcon>
+        <RightIcon>{rightIcon}</RightIcon>
+      </Pressable>
+    </View>
+  );
+};
+
+const LeftIcon = styled.View({
+  width: "50%",
+  position: "absolute",
+  left: 0,
+  top: 0,
+  bottom: 0,
+  justifyContent: "center",
+  alignItems: "center",
+});
+
+const RightIcon = styled.View({
+  width: "50%",
+  position: "absolute",
+  right: 0,
+  top: 0,
+  bottom: 0,
+  justifyContent: "center",
+  alignItems: "center",
+});
+
+const switchStyles = StyleSheet.create({
+  track: {
+    alignItems: "flex-start",
+    width: 100,
+    height: 40,
+    padding: 5,
+    backgroundColor: "blue",
+  },
+  thumb: {
+    height: "100%",
+    aspectRatio: 1,
+    backgroundColor: "white",
+  },
+});
