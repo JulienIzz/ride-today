@@ -9,6 +9,7 @@ export const adaptWeather = (currentWeatherDto: WeatherDto): Weather => {
       country: currentWeatherDto.location.country,
       lat: currentWeatherDto.location.lat,
       lon: currentWeatherDto.location.lon,
+      localTime: currentWeatherDto.location.localtime,
     },
     current: {
       tempC: currentWeatherDto.current.temp_c,

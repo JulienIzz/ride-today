@@ -31,6 +31,7 @@ interface Location {
   country: string;
   lat: number;
   lon: number;
+  localTime: string;
 }
 
 export interface Forecast {
