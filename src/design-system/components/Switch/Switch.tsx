@@ -13,7 +13,7 @@ type SwitchProps = {
   onPress: () => void;
   style?: ViewStyle;
   duration?: number;
-  trackColors?: { on: string; off: string };
+  trackColors?: { right: string; left: string };
 };
 
 export const Switch = ({
@@ -25,7 +25,7 @@ export const Switch = ({
     padding: 4,
   },
   duration = 300,
-  trackColors = { on: "grey", off: "grey" },
+  trackColors = { right: "grey", left: "grey" },
 }: SwitchProps) => {
   const numberedValue = value ? 1 : 0;
   const height = useSharedValue(0);
@@ -35,7 +35,7 @@ export const Switch = ({
     const color = interpolateColor(
       numberedValue,
       [0, 1],
-      [trackColors.off, trackColors.on],
+      [trackColors.left, trackColors.right],
     );
     const colorValue = withTiming(color, { duration });
 
