@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useCallback } from "react";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { theme } from "src/design-system/theme/theme";
 
 import { useAppIsReady } from "#shared/config/useAppIsReady.hook";
@@ -34,18 +35,20 @@ export default function RootLayout() {
   return (
     <I18nProvider>
       <ThemeProvider theme={theme}>
-        <QueryClientProvider client={queryClient}>
-          <RootView onLayout={onLayoutRootView}>
-            <Stack
-              screenOptions={{
-                headerShown: false,
-                contentStyle: {
-                  backgroundColor: theme.colors.mainBackground,
-                },
-              }}
-            />
-          </RootView>
-        </QueryClientProvider>
+        <GestureHandlerRootView>
+          <QueryClientProvider client={queryClient}>
+            <RootView onLayout={onLayoutRootView}>
+              <Stack
+                screenOptions={{
+                  headerShown: false,
+                  contentStyle: {
+                    backgroundColor: theme.colors.mainBackground,
+                  },
+                }}
+              />
+            </RootView>
+          </QueryClientProvider>
+        </GestureHandlerRootView>
       </ThemeProvider>
     </I18nProvider>
   );
