@@ -1,3 +1,6 @@
+import styled from "@emotion/native";
+import { useTheme } from "@emotion/react";
+import { t } from "@lingui/core/macro";
 import { QueryErrorResetBoundary } from "@tanstack/react-query";
 import { type PropsWithChildren, Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
@@ -45,9 +48,29 @@ export const QueryErrorBoundary = ({
 };
 
 const LoaderFallback = () => {
-  return <ActivityIndicator />;
+  return (
+    <CenteredView>
+      <ActivityIndicator />
+    </CenteredView>
+  );
 };
 
 const ErrorFallback = () => {
-  return <Typography variant="body" text="Error" />;
+  const theme = useTheme();
+  return (
+    <CenteredView>
+      <Typography
+        variant="body"
+        color={theme.colors.contrastLight}
+        text={t`An error has occurred. Please try again later.`}
+      />
+    </CenteredView>
+  );
 };
+
+const CenteredView = styled.View(({ theme }) => ({
+  flex: 1,
+  justifyContent: "center",
+  alignItems: "center",
+  padding: theme.spacings.m,
+}));

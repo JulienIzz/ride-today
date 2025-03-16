@@ -5,9 +5,9 @@ import { QueryErrorBoundary } from "#shared/infra/boundaries/QueryBoundary";
 
 export const PageTemplate = ({ children }: PropsWithChildren) => {
   return (
-    <QueryErrorBoundary>
-      <Container>{children}</Container>
-    </QueryErrorBoundary>
+    <Container>
+      <QueryErrorBoundary>{children}</QueryErrorBoundary>
+    </Container>
   );
 };
 

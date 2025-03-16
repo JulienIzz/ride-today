@@ -14,12 +14,20 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. placeholder {0}: hour.tempC
-#: src/modules/weather/components/ForecastWeather.tsx:103
+#: src/modules/weather/components/ForecastWeather.tsx:96
 msgid "{0}°C"
 msgstr "{0}°C"
 
+#: src/modules/home/components/MenuModal.tsx:14
+msgid "About"
+msgstr "About"
+
+#: src/shared/infra/boundaries/QueryBoundary.tsx:65
+msgid "An error has occurred. Please try again later."
+msgstr "An error has occurred. Please try again later."
+
 #. placeholder {0}: hour.cloud
-#: src/modules/weather/components/ForecastWeather.tsx:113
+#: src/modules/weather/components/ForecastWeather.tsx:106
 msgid "Cloud : {0}%"
 msgstr "Cloud : {0}%"
 
@@ -34,12 +42,12 @@ msgstr "Feelslike {0}°C"
 
 #. placeholder {0}: hour.humidity
 #. placeholder {0}: currentWeather.humidity
-#: src/modules/weather/components/ForecastWeather.tsx:117
+#: src/modules/weather/components/ForecastWeather.tsx:110
 #: src/modules/weather/components/CurrentWeather.tsx:63
 msgid "Humidity : {0}%"
 msgstr "Humidity : {0}%"
 
-#: src/modules/weather/components/ForecastWeather.tsx:46
+#: src/modules/weather/components/ForecastWeather.tsx:44
 msgid "Next hours"
 msgstr "Next hours"
 
@@ -57,7 +65,7 @@ msgid "Precipitation : {0} mm"
 msgstr "Precipitation : {0} mm"
 
 #. placeholder {0}: hour.chanceOfRain
-#: src/modules/weather/components/ForecastWeather.tsx:121
+#: src/modules/weather/components/ForecastWeather.tsx:114
 msgid "Rain : {0}%"
 msgstr "Rain : {0}%"
 
@@ -73,8 +81,12 @@ msgstr "Search location"
 msgid "select one or select geolocation"
 msgstr "select one or select geolocation"
 
+#: src/modules/home/components/MenuModal.tsx:13
+msgid "Settings"
+msgstr "Settings"
+
 #. placeholder {0}: hour.chanceOfSnow
-#: src/modules/weather/components/ForecastWeather.tsx:125
+#: src/modules/weather/components/ForecastWeather.tsx:118
 msgid "Snow : {0}%"
 msgstr "Snow : {0}%"
 
@@ -83,7 +95,7 @@ msgid "Waiting for location"
 msgstr "Waiting for location"
 
 #. placeholder {0}: hour.windKph
-#: src/modules/weather/components/ForecastWeather.tsx:107
+#: src/modules/weather/components/ForecastWeather.tsx:100
 msgid "Wind : {0} km/h"
 msgstr "Wind : {0} km/h"
 
