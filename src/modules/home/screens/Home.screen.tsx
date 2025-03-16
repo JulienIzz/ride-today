@@ -4,6 +4,7 @@ import { Canvas, LinearGradient, Rect, vec } from "@shopify/react-native-skia";
 import { Cog, X } from "lucide-react-native";
 import { useState } from "react";
 import { Dimensions } from "react-native";
+import Animated, { PinwheelIn } from "react-native-reanimated";
 
 import { ScaledPressable } from "#design-system/components/Button/ScaledPressable";
 import { absoluteFillStyle } from "#design-system/utils/absoluteFillStyle";
@@ -83,7 +84,9 @@ const MenuWheel = ({
       }}
     >
       {isMenuOpened ? (
-        <X strokeWidth={2} color={theme.colors.primary} size={32} />
+        <Animated.View entering={PinwheelIn}>
+          <X strokeWidth={2} color={theme.colors.primary} size={32} />
+        </Animated.View>
       ) : (
         <Cog strokeWidth={2} color={theme.colors.contrast} size={32} />
       )}
