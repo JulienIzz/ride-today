@@ -73,7 +73,7 @@ const LocationError = () => {
       <Spacer size={4} horizontal />
       <ContrastLightTypography
         variant="body"
-        text={t`Unable to find location, try again`}
+        text={t`Unable to find location`}
       />
     </ErrorContainer>
   );
