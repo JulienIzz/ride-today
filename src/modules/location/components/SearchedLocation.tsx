@@ -27,6 +27,8 @@ export const SearchedLocation = () => {
   const [search, setSearch] = useState(searchedLocation ?? undefined);
 
   const debouncedSetLocation = useDebouncedCallback((value: string) => {
+    setSearchedLocation(value);
+
     if (value === "") {
       clearLocation();
       return;
@@ -37,7 +39,6 @@ export const SearchedLocation = () => {
 
   const handleChangeText = (value: string) => {
     setSearch(value);
-    setSearchedLocation(value);
     debouncedSetLocation(value);
   };
 
