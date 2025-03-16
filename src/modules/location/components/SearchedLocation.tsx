@@ -3,7 +3,7 @@ import { useTheme } from "@emotion/react";
 import { t } from "@lingui/core/macro";
 import { useEffect, useState } from "react";
 import { TextInput } from "react-native";
-import Animated, { FadeIn } from "react-native-reanimated";
+import Animated, { FadeInUp } from "react-native-reanimated";
 import { useDebouncedCallback } from "use-debounce";
 
 import { LocationDisplay } from "#modules/location/components/LocationDisplay";
@@ -43,7 +43,7 @@ export const SearchedLocation = () => {
   }, [setLocation, search, searchedLocation]);
 
   return (
-    <Container entering={FadeIn}>
+    <Container entering={FadeInUp}>
       <LocationInput
         placeholder={t`Search location`}
         value={search}
