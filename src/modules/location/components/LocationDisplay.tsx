@@ -24,7 +24,7 @@ const LocationDisplayComponent = ({ location }: { location: string }) => {
 
   return (
     <Container>
-      <MapPin color={theme.colors.contrastLight} size={14} />
+      <MapPin color={theme.colors.contrastLight} />
       <Spacer size={4} horizontal />
       <ContrastLightTypography
         variant="body"

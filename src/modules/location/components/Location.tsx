@@ -21,7 +21,7 @@ export const Location = () => {
 
   const animatedStyle = useAnimatedStyle(() => {
     return {
-      height: withTiming(isLocationEnabled ? 25 : 70),
+      height: withTiming(isLocationEnabled ? 25 : 75),
     };
   });
 
@@ -45,6 +45,5 @@ const Container = styled.View(({ theme }) => ({
 }));
 
 const LocationContainer = styled(Animated.View)({
-  justifyContent: "center",
-  alignItems: "center",
+  justifyContent: "flex-start",
 });

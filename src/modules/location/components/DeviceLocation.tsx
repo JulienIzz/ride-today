@@ -40,7 +40,7 @@ const LocationError = () => {
 
   return (
     <Container>
-      <X color="red" size={14} />
+      <X color="red" />
       <Spacer size={4} horizontal />
       <Typography
         variant="body"

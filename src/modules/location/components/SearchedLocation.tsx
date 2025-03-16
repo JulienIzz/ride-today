@@ -69,7 +69,7 @@ export const SearchedLocation = () => {
 const LocationError = () => {
   return (
     <ErrorContainer>
-      <X color="red" size={14} />
+      <X color="red" />
       <Spacer size={4} horizontal />
       <ContrastLightTypography
         variant="body"
@@ -81,7 +81,6 @@ const LocationError = () => {
 
 const Container = styled(Animated.View)(({ theme }) => ({
   alignItems: "center",
-  justifyContent: "center",
   gap: theme.spacings.s,
 }));
 
