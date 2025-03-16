@@ -36,8 +36,6 @@ export const ForecastWeatherData = ({ location }: { location: string }) => {
     currentHour: new Date(currentLocation.localTime),
   });
 
-  const forecastLength = HoursWeather.length;
-
   return (
     <ListContainer>
       <ListHeaderContainer>
@@ -50,26 +48,20 @@ export const ForecastWeatherData = ({ location }: { location: string }) => {
       <HoursContainer>
         <FlatList
           data={HoursWeather}
-          renderItem={({ item: hour, index }) =>
-            renderHourWeather(hour, forecastLength, index)
-          }
+          renderItem={({ item: hour }) => renderHourWeather(hour)}
           showsVerticalScrollIndicator={false}
+          ListFooterComponent={<EndOfDay />}
         />
       </HoursContainer>
     </ListContainer>
   );
 };
 
-export const renderHourWeather = (
-  hour: Hour,
-  forecastLength: number,
-  index: number,
-) => {
+export const renderHourWeather = (hour: Hour) => {
   return (
     <Fragment>
       <HourWeather hour={hour} />
       <Divider />
-      {index + 1 === forecastLength && <EndOfDay />}
     </Fragment>
   );
 };
