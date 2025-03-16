@@ -68,9 +68,8 @@ const ErrorFallback = () => {
   );
 };
 
-const CenteredView = styled.View(({ theme }) => ({
+const CenteredView = styled.View({
   flex: 1,
   justifyContent: "center",
   alignItems: "center",
-  padding: theme.spacings.m,
-}));
+});
