@@ -112,7 +112,6 @@ const NoLocation = () => {
 };
 
 const Container = styled.View(({ theme }) => ({
-  height: 200,
   width: "100%",
   backgroundColor: theme.colors.primary,
   borderRadius: theme.borderRadius.xl,
@@ -120,7 +119,6 @@ const Container = styled.View(({ theme }) => ({
 }));
 
 const WeatherContainer = styled.View(({ theme }) => ({
-  flex: 1,
   flexDirection: "row",
   gap: theme.spacings.s,
 }));
@@ -149,7 +147,6 @@ const Degrees = styled.Text(({ theme }) => ({
 }));
 
 const NoLocationContainer = styled.View(({ theme }) => ({
-  flex: 1,
   gap: theme.spacings.m,
   justifyContent: "center",
   alignItems: "center",
