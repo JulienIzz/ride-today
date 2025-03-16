@@ -51,6 +51,7 @@ export const ForecastWeatherData = ({ location }: { location: string }) => {
           renderItem={({ item: hour }) => renderHourWeather(hour)}
           showsVerticalScrollIndicator={false}
           ListFooterComponent={<EndOfDay />}
+          bounces={false}
         />
       </HoursContainer>
     </ListContainer>
