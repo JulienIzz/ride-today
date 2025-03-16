@@ -1,32 +1,24 @@
 import styled from "@emotion/native";
 import { t } from "@lingui/core/macro";
 import { format } from "date-fns";
-import {
-  CloudRain,
-  MapPinOff,
-  Moon,
-  Sun,
-  Waves,
-  Wind,
-} from "lucide-react-native";
+import { CloudRain, Moon, Sun, Waves, Wind } from "lucide-react-native";
 import { View } from "react-native";
 
+import {
+  CurrentWeatherContainer,
+  WeatherLocationMissing,
+} from "#modules/weather/components/CurrentWeatherContainer";
 import { useWeather } from "#modules/weather/hooks/useCurrentWeather.query";
 import { Typography } from "#shared/fonts/Typography";
 import { getConditionsTranslation } from "#shared/i18n/getConditionsTranslation";
 
 export const CurrentWeather = ({ location }: { location: string | null }) => {
-  if (!location)
-    return (
-      <Container>
-        <NoLocation />
-      </Container>
-    );
+  if (!location) return <WeatherLocationMissing />;
 
   return (
-    <Container>
+    <CurrentWeatherContainer>
       <CurrentWeatherData location={location} />
-    </Container>
+    </CurrentWeatherContainer>
   );
 };
 
@@ -99,25 +91,6 @@ export const CurrentWeatherData = ({ location }: { location: string }) => {
   );
 };
 
-const NoLocation = () => {
-  return (
-    <NoLocationContainer>
-      <MapPinOff color="black" size={50} />
-      <LabelContainer>
-        <Typography variant="body" text={t`No location selected`} />
-        <Typography variant="body" text={t`select one or select geolocation`} />
-      </LabelContainer>
-    </NoLocationContainer>
-  );
-};
-
-const Container = styled.View(({ theme }) => ({
-  width: "100%",
-  backgroundColor: theme.colors.primary,
-  borderRadius: theme.borderRadius.xl,
-  padding: theme.spacings.m,
-}));
-
 const WeatherContainer = styled.View(({ theme }) => ({
   flexDirection: "row",
   gap: theme.spacings.s,
@@ -144,18 +117,6 @@ const Degrees = styled.Text(({ theme }) => ({
   fontSize: 20,
   fontFamily: theme.fonts.title,
   color: theme.colors.contrast,
-}));
-
-const NoLocationContainer = styled.View(({ theme }) => ({
-  gap: theme.spacings.m,
-  justifyContent: "center",
-  alignItems: "center",
-}));
-
-const LabelContainer = styled.View(({ theme }) => ({
-  justifyContent: "center",
-  alignItems: "center",
-  gap: theme.spacings.xs,
 }));
 
 const IconAndText = styled.View(({ theme }) => ({

@@ -1,8 +1,11 @@
 import styled from "@emotion/native";
-import { ActivityIndicator } from "react-native";
 
 import { useLocationStore } from "#modules/location/hooks/useLocationStore.hook";
 import { CurrentWeather } from "#modules/weather/components/CurrentWeather";
+import {
+  WeatherLocationLoading,
+  WeatherLocationMissing,
+} from "#modules/weather/components/CurrentWeatherContainer";
 import { ForecastWeather } from "#modules/weather/components/ForecastWeather";
 import { QueryErrorBoundary } from "#shared/infra/boundaries/QueryBoundary";
 
@@ -13,11 +16,8 @@ export const Weather = () => {
     <Container>
       <QueryErrorBoundary
         resetKeys={[location]}
-        loadingFallback={
-          <LoaderContainer>
-            <ActivityIndicator />
-          </LoaderContainer>
-        }
+        loadingFallback={<WeatherLocationLoading />}
+        errorFallback={<WeatherLocationMissing />}
       >
         <CurrentWeather location={location} />
         <ForecastWeather location={location} />
@@ -31,9 +31,3 @@ const Container = styled.View(({ theme }) => ({
   padding: theme.spacings.m,
   gap: theme.spacings.s,
 }));
-
-const LoaderContainer = styled.View({
-  flex: 1,
-  justifyContent: "center",
-  alignItems: "center",
-});
