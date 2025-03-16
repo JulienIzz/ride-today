@@ -13,12 +13,13 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#. placeholder {0}: hour.tempC
-#: src/modules/weather/components/ForecastWeather.tsx:96
-msgid "{0}°C"
-msgstr "{0}°C"
+#. placeholder {0}: hour.temp[unitSystem]
+#: src/modules/weather/components/ForecastWeather.tsx:99
+msgid "{0}"
+msgstr "{0}"
 
 #: src/modules/home/components/MenuModal.tsx:14
+#: src/modules/about/screens/About.screen.tsx:9
 msgid "About"
 msgstr "A propos"
 
@@ -27,79 +28,85 @@ msgid "An error has occurred. Please try again later."
 msgstr "Une erreur est survenue. Veuillez réessayer plus tard."
 
 #. placeholder {0}: hour.cloud
-#: src/modules/weather/components/ForecastWeather.tsx:106
-msgid "Cloud : {0}%"
-msgstr "Nuages : {0}%"
+#: src/modules/weather/components/ForecastWeather.tsx:109
+msgid "Cloud : {0}"
+msgstr "Nuages : {0}"
 
-#: src/modules/weather/components/CurrentWeather.tsx:92
+#: src/modules/weather/components/CurrentWeather.tsx:91
 msgid "Day"
 msgstr "Jour"
 
-#. placeholder {0}: currentWeather.feelslikeC
-#: src/modules/weather/components/CurrentWeather.tsx:51
-msgid "Feelslike {0}°C"
-msgstr "Ressenti {0}°C"
+#. placeholder {0}: currentWeather.feelslike[unitSystem]
+#: src/modules/weather/components/CurrentWeather.tsx:46
+msgid "Feelslike {0}"
+msgstr "Ressenti {0}"
+
+#: src/modules/location/components/DeviceLocation.tsx:48
+msgid "Geolocation failed"
+msgstr "Échec de localisation"
 
 #. placeholder {0}: hour.humidity
 #. placeholder {0}: currentWeather.humidity
-#: src/modules/weather/components/ForecastWeather.tsx:110
-#: src/modules/weather/components/CurrentWeather.tsx:63
-msgid "Humidity : {0}%"
-msgstr "Humidité : {0}%"
+#: src/modules/weather/components/ForecastWeather.tsx:113
+#: src/modules/weather/components/CurrentWeather.tsx:60
+msgid "Humidity : {0}"
+msgstr "Humidité : {0}"
 
-#: src/modules/weather/components/ForecastWeather.tsx:44
+#: src/modules/settings/screens/Settings.screen.tsx:30
+msgid "Imperial"
+msgstr "Impérial"
+
+#: src/modules/settings/screens/Settings.screen.tsx:29
+msgid "Metric"
+msgstr "Métrique"
+
+#: src/modules/weather/components/ForecastWeather.tsx:45
 msgid "Next hours"
 msgstr "Prochaines heures"
 
-#: src/modules/weather/components/CurrentWeather.tsx:93
+#: src/modules/weather/components/CurrentWeather.tsx:92
 msgid "Night"
 msgstr "Nuit"
 
-#: src/modules/weather/components/CurrentWeather.tsx:107
-msgid "No location selected"
-msgstr "Pas de localisation sélectionnée"
-
-#. placeholder {0}: currentWeather.precipMm
-#: src/modules/weather/components/CurrentWeather.tsx:77
-msgid "Precipitation : {0} mm"
-msgstr "Précipitations : {0} mm"
+#. placeholder {0}: currentWeather.precip[unitSystem]
+#: src/modules/weather/components/CurrentWeather.tsx:76
+msgid "Precipitation : {0}"
+msgstr "Précipitations : {0}"
 
 #. placeholder {0}: hour.chanceOfRain
-#: src/modules/weather/components/ForecastWeather.tsx:114
-msgid "Rain : {0}%"
-msgstr "Pluie : {0}%"
+#: src/modules/weather/components/ForecastWeather.tsx:117
+msgid "Rain : {0}"
+msgstr "Pluie : {0}"
 
 #: src/modules/home/components/Logo.tsx:15
 msgid "RIDE TODAY"
 msgstr "RIDE TODAY"
 
-#: src/modules/location/components/SearchedLocation.tsx:48
+#: src/modules/location/components/SearchedLocation.tsx:53
 msgid "Search location"
 msgstr "Chercher une ville"
 
-#: src/modules/weather/components/CurrentWeather.tsx:108
-msgid "select one or select geolocation"
-msgstr "Recherchez une ville ou activez la localisation"
-
+#: src/modules/settings/screens/Settings.screen.tsx:24
 #: src/modules/home/components/MenuModal.tsx:13
 msgid "Settings"
 msgstr "Paramètres"
 
 #. placeholder {0}: hour.chanceOfSnow
-#: src/modules/weather/components/ForecastWeather.tsx:118
-msgid "Snow : {0}%"
-msgstr "Neige : {0}%"
+#: src/modules/weather/components/ForecastWeather.tsx:121
+msgid "Snow : {0}"
+msgstr "Neige : {0}"
 
-#: src/modules/location/components/LocationDisplay.tsx:63
+#: src/modules/location/components/SearchedLocation.tsx:76
+msgid "Unable to find location"
+msgstr "Lieu non trouvé"
+
+#: src/modules/location/components/LocationDisplay.tsx:55
 msgid "Waiting for location"
 msgstr "En attente d'une localisation"
 
-#. placeholder {0}: hour.windKph
-#: src/modules/weather/components/ForecastWeather.tsx:100
-msgid "Wind : {0} km/h"
-msgstr "Vent : {0} km/h"
-
-#. placeholder {0}: currentWeather.windKph
-#: src/modules/weather/components/CurrentWeather.tsx:70
-msgid "Wind speed : {0} km/h"
-msgstr "Vent : {0} km/h"
+#. placeholder {0}: hour.wind[unitSystem]
+#. placeholder {0}: currentWeather.wind[unitSystem]
+#: src/modules/weather/components/ForecastWeather.tsx:103
+#: src/modules/weather/components/CurrentWeather.tsx:67
+msgid "Wind : {0}"
+msgstr "Vent : {0}"
