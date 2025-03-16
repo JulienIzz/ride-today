@@ -1,17 +1,21 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
 import { Canvas, LinearGradient, Rect, vec } from "@shopify/react-native-skia";
-import { Cog } from "lucide-react-native";
+import { Cog, X } from "lucide-react-native";
+import { useState } from "react";
 import { Dimensions } from "react-native";
 
 import { ScaledPressable } from "#design-system/components/Button/ScaledPressable";
 import { absoluteFillStyle } from "#design-system/utils/absoluteFillStyle";
 import { Logo } from "#modules/home/components/Logo";
+import { MenuModal } from "#modules/home/components/MenuModal";
 import { Location } from "#modules/location/components/Location";
 import { PageTemplate } from "#modules/templates/components/PageTemplate";
 import { Weather } from "#modules/weather/components/Weather";
 
 export const Home = () => {
+  const [isMenuOpened, setIsMenuOpened] = useState(false);
+
   return (
     <PageTemplate>
       <TopLeftGradient />
@@ -19,7 +23,11 @@ export const Home = () => {
       <Logo />
       <Location />
       <Weather />
-      <MenuWheel />
+      {isMenuOpened && <MenuModal closeMenu={() => setIsMenuOpened(false)} />}
+      <MenuWheel
+        isMenuOpened={isMenuOpened}
+        onPress={() => setIsMenuOpened(!isMenuOpened)}
+      />
     </PageTemplate>
   );
 };
@@ -56,11 +64,29 @@ const BottomRightGradient = () => {
   );
 };
 
-const MenuWheel = () => {
+const MenuWheel = ({
+  isMenuOpened,
+  onPress,
+}: {
+  isMenuOpened: boolean;
+  onPress?: () => void;
+}) => {
   const theme = useTheme();
+
   return (
-    <WheelContainer onPress={() => {}}>
-      <Cog strokeWidth={2} color={theme.colors.contrast} size={32} />
+    <WheelContainer
+      onPress={onPress}
+      style={{
+        backgroundColor: isMenuOpened
+          ? theme.colors.contrast
+          : theme.colors.primary,
+      }}
+    >
+      {isMenuOpened ? (
+        <X strokeWidth={2} color={theme.colors.primary} size={32} />
+      ) : (
+        <Cog strokeWidth={2} color={theme.colors.contrast} size={32} />
+      )}
     </WheelContainer>
   );
 };
@@ -71,7 +97,6 @@ const WheelContainer = styled(ScaledPressable)(({ theme }) => ({
   right: 20,
   padding: theme.spacings.m,
   borderRadius: theme.borderRadius.round,
-  backgroundColor: theme.colors.primary,
   shadowColor: theme.colors.contrast,
   shadowRadius: 8,
   shadowOpacity: 0.5,
