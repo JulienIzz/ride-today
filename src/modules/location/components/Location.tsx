@@ -21,7 +21,7 @@ export const Location = () => {
 
   const animatedStyle = useAnimatedStyle(() => {
     return {
-      height: withTiming(isLocationEnabled ? 20 : 55),
+      height: withTiming(isLocationEnabled ? 20 : 70),
     };
   });
 

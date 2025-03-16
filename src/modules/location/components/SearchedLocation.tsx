@@ -63,12 +63,14 @@ const Container = styled(Animated.View)(({ theme }) => ({
 }));
 
 const LocationInput = styled(TextInput)(({ theme }) => ({
-  width: 200,
+  width: 300,
+  height: 44,
   justifyContent: "center",
   textAlign: "center",
   fontFamily: theme.fonts.body,
   padding: theme.spacings.xs,
   backgroundColor: theme.colors.componentBackground,
-  borderRadius: theme.borderRadius.xl,
+  borderRadius: theme.borderRadius.round,
   color: theme.colors.contrastLight,
+  fontSize: 16,
 }));
