@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Animated, { FadeInDown } from "react-native-reanimated";
+import Animated, { FadeIn } from "react-native-reanimated";
 
 import { LocationDisplay } from "#modules/location/components/LocationDisplay";
 import { useDeviceGeolocation } from "#modules/location/hooks/useDeviceGeolocation.hook";
@@ -14,7 +14,7 @@ export const DeviceLocation = () => {
   }, [locationString, setLocation]);
 
   return (
-    <Animated.View entering={FadeInDown}>
+    <Animated.View entering={FadeIn}>
       <LocationDisplay />
     </Animated.View>
   );
