@@ -1,4 +1,5 @@
 import styled from "@emotion/native";
+import { memo } from "react";
 
 import { useLocationStore } from "#modules/location/hooks/useLocationStore.hook";
 import { CurrentWeather } from "#modules/weather/components/CurrentWeather";
@@ -9,7 +10,7 @@ import {
 import { ForecastWeather } from "#modules/weather/components/ForecastWeather";
 import { QueryErrorBoundary } from "#shared/infra/boundaries/QueryBoundary";
 
-export const Weather = () => {
+export const Weather = memo(() => {
   const location = useLocationStore((state) => state.location);
 
   return (
@@ -24,7 +25,8 @@ export const Weather = () => {
       </QueryErrorBoundary>
     </Container>
   );
-};
+});
+Weather.displayName = "Weather";
 
 const Container = styled.View(({ theme }) => ({
   flex: 1,

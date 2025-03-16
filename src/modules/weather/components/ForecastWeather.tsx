@@ -8,6 +8,7 @@ import { FlatList } from "react-native";
 import { absoluteFillStyle } from "#design-system/utils/absoluteFillStyle";
 import { FlexView } from "#design-system/utils/FlexView";
 import { useWeather } from "#modules/weather/hooks/useCurrentWeather.query";
+import { useUnitSystem } from "#modules/weather/hooks/useUnitSystem";
 import type { Hour } from "#modules/weather/types/weather.types";
 import { filterOnlyNextHours } from "#modules/weather/utils/filterOnlyNextHours";
 import { formatToDisplayHour } from "#modules/weather/utils/formatToDisplayHour";
@@ -74,6 +75,8 @@ const HourWeather = ({ hour }: { hour: Hour }) => {
     hour.isDay === 1,
   );
 
+  const unitSystem = useUnitSystem();
+
   return (
     <HourContainer>
       <LeftContainer>
@@ -93,29 +96,29 @@ const HourWeather = ({ hour }: { hour: Hour }) => {
         ) : null}
         <ContrastLightTypography
           variant="body"
-          text={t({ message: `${hour.tempC}°C` })}
+          text={t({ message: `${hour.temp[unitSystem]}` })}
         />
         <ContrastLightTypography
           variant="body"
-          text={t({ message: `Wind : ${hour.windKph} km/h` })}
+          text={t({ message: `Wind : ${hour.wind[unitSystem]}` })}
         />
       </LeftContainer>
       <RightContainer>
         <ContrastLightTypography
           variant="body"
-          text={t({ message: `Cloud : ${hour.cloud}%` })}
+          text={t({ message: `Cloud : ${hour.cloud}` })}
         />
         <ContrastLightTypography
           variant="body"
-          text={t({ message: `Humidity : ${hour.humidity}%` })}
+          text={t({ message: `Humidity : ${hour.humidity}` })}
         />
         <ContrastLightTypography
           variant="body"
-          text={t({ message: `Rain : ${hour.chanceOfRain}%` })}
+          text={t({ message: `Rain : ${hour.chanceOfRain}` })}
         />
         <ContrastLightTypography
           variant="body"
-          text={t({ message: `Snow : ${hour.chanceOfSnow}%` })}
+          text={t({ message: `Snow : ${hour.chanceOfSnow}` })}
         />
       </RightContainer>
     </HourContainer>

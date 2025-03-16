@@ -9,6 +9,7 @@ import {
   WeatherLocationMissing,
 } from "#modules/weather/components/CurrentWeatherContainer";
 import { useWeather } from "#modules/weather/hooks/useCurrentWeather.query";
+import { useUnitSystem } from "#modules/weather/hooks/useUnitSystem";
 import { Typography } from "#shared/fonts/Typography";
 import { getConditionsTranslation } from "#shared/i18n/getConditionsTranslation";
 
@@ -25,6 +26,8 @@ export const CurrentWeather = ({ location }: { location: string | null }) => {
 export const CurrentWeatherData = ({ location }: { location: string }) => {
   const { currentWeather, currentLocation } = useWeather(location);
 
+  const unitSystem = useUnitSystem();
+
   const conditionText = getConditionsTranslation(
     currentWeather.condition.code,
     currentWeather.isDay === 1,
@@ -35,12 +38,14 @@ export const CurrentWeatherData = ({ location }: { location: string }) => {
       <SideContainer>
         <View>
           <TemperatureContainer>
-            <Temperature>{currentWeather.tempC}</Temperature>
-            <Degrees>°C</Degrees>
+            <Temperature>{currentWeather.temp[unitSystem]}</Temperature>
+            <Degrees>{unitSystem === "imperial" ? "°F" : "°C"}</Degrees>
           </TemperatureContainer>
           <Typography
             variant="body"
-            text={t({ message: `Feelslike ${currentWeather.feelslikeC}°C` })}
+            text={t({
+              message: `Feelslike ${currentWeather.feelslike[unitSystem]}`,
+            })}
           />
         </View>
         {conditionText ? (
@@ -52,14 +57,16 @@ export const CurrentWeatherData = ({ location }: { location: string }) => {
           <Waves color={"black"} size={20} />
           <Typography
             variant="body"
-            text={t({ message: `Humidity : ${currentWeather.humidity}%` })}
+            text={t({ message: `Humidity : ${currentWeather.humidity}` })}
           />
         </IconAndText>
         <IconAndText>
           <Wind color={"black"} size={20} />
           <Typography
             variant="body"
-            text={t({ message: `Wind speed : ${currentWeather.windKph} km/h` })}
+            text={t({
+              message: `Wind : ${currentWeather.wind[unitSystem]}`,
+            })}
           />
         </IconAndText>
         <IconAndText>
@@ -67,7 +74,7 @@ export const CurrentWeatherData = ({ location }: { location: string }) => {
           <Typography
             variant="body"
             text={t({
-              message: `Precipitation : ${currentWeather.precipMm} mm`,
+              message: `Precipitation : ${currentWeather.precip[unitSystem]}`,
             })}
           />
         </IconAndText>
