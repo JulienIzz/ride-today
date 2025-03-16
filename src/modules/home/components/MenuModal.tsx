@@ -35,7 +35,7 @@ export const MenuModal = ({ closeMenu }: MenuModalProps) => {
         {menuItems.map((item, index) => (
           <Fragment key={item.link}>
             <Link href={`/${item.link}`} asChild>
-              <MenuItem>
+              <MenuItem onPress={closeMenu}>
                 <Typography
                   variant="body"
                   color={theme.colors.contrastLight}
