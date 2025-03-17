@@ -3,7 +3,7 @@ import { useTheme } from "@emotion/react";
 import { t } from "@lingui/core/macro";
 import { Moon, MoonStar, Sun } from "lucide-react-native";
 import { Fragment } from "react";
-import { FlatList } from "react-native";
+import { FlatList, RefreshControl } from "react-native";
 
 import { absoluteFillStyle } from "#design-system/utils/absoluteFillStyle";
 import { FlexView } from "#design-system/utils/FlexView";
@@ -30,7 +30,8 @@ export const ForecastWeather = ({ location }: { location: string | null }) => {
 };
 
 export const ForecastWeatherData = ({ location }: { location: string }) => {
-  const { forecastWeather, currentLocation } = useWeather(location);
+  const { forecastWeather, currentLocation, queryStates } =
+    useWeather(location);
 
   const HoursWeather = filterOnlyNextHours({
     hours: forecastWeather.forecastday[0]?.hour,
@@ -53,7 +54,12 @@ export const ForecastWeatherData = ({ location }: { location: string }) => {
           renderItem={({ item: hour }) => renderHourWeather(hour)}
           showsVerticalScrollIndicator={false}
           ListFooterComponent={<EndOfDay />}
-          bounces={false}
+          refreshControl={
+            <RefreshControl
+              refreshing={queryStates.isLoading}
+              onRefresh={queryStates.refetch}
+            />
+          }
         />
       </HoursContainer>
     </ListContainer>

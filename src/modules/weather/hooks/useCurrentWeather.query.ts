@@ -6,7 +6,7 @@ import { adaptWeather } from "#modules/weather/interfaces/weather.adapter";
 const weatherQueryKey = (location: string) => ["location", location];
 
 export const useWeather = (location: string) => {
-  const { data } = useSuspenseQuery({
+  const { data, ...queryStates } = useSuspenseQuery({
     queryKey: weatherQueryKey(location),
     queryFn: () => fetchWeather(location),
   });
@@ -17,5 +17,5 @@ export const useWeather = (location: string) => {
   const forecastWeather = adaptedData.forecast;
   const currentLocation = adaptedData.location;
 
-  return { currentWeather, forecastWeather, currentLocation };
+  return { currentWeather, forecastWeather, currentLocation, queryStates };
 };
