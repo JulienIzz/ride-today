@@ -13,7 +13,7 @@ import { Typography } from "#shared/fonts/Typography";
 type TextSwitchProps = {
   value: boolean;
   onPress: () => void;
-  style?: {
+  trackStyle?: {
     width: number;
     height: number;
     padding: number;
@@ -27,9 +27,9 @@ type TextSwitchProps = {
 export const TextSwitch = ({
   value,
   onPress,
-  style = {
+  trackStyle = {
     width: 200,
-    height: 30,
+    height: 40,
     padding: 5,
   },
   duration = 300,
@@ -66,7 +66,7 @@ export const TextSwitch = ({
     return {
       transform: [{ translateX: translateValue }],
       borderRadius: height.get() / 2,
-      width: width.get() / 2 - style.padding * 2,
+      width: width.get() / 2 - trackStyle.padding * 2,
     };
   });
 
@@ -78,7 +78,7 @@ export const TextSwitch = ({
             height.value = e.nativeEvent.layout.height;
             width.value = e.nativeEvent.layout.width;
           }}
-          style={[style, trackAnimatedStyle]}
+          style={[trackStyle, trackAnimatedStyle]}
         >
           <Thumb style={thumbAnimatedStyle} />
           <LeftView>

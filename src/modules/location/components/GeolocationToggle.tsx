@@ -3,6 +3,12 @@ import { MapPinned, Search } from "lucide-react-native";
 
 import { BigIconSwitch } from "#design-system/components/Switch/BigIconSwitch";
 
+const toggleTrackStyle = {
+  width: 120,
+  height: 40,
+  padding: 5,
+};
+
 export const GeolocationToggle = ({
   isLocationEnabled,
   handleSwitch,
@@ -15,6 +21,7 @@ export const GeolocationToggle = ({
     <BigIconSwitch
       value={isLocationEnabled}
       onPress={handleSwitch}
+      trackStyle={toggleTrackStyle}
       trackColors={{
         left: theme.colors.componentBackground,
         right: theme.colors.componentBackground,

@@ -1,5 +1,4 @@
 import styled from "@emotion/native";
-import type { ViewStyle } from "react-native";
 import { Pressable, View } from "react-native";
 import Animated, {
   interpolate,
@@ -12,7 +11,11 @@ import Animated, {
 type BigIconSwitchProps = {
   value: boolean;
   onPress: () => void;
-  style?: ViewStyle;
+  trackStyle?: {
+    width: number;
+    height: number;
+    padding: number;
+  };
   duration?: number;
   trackColors?: { right: string; left: string };
   leftIcon: React.JSX.Element;
@@ -22,7 +25,7 @@ type BigIconSwitchProps = {
 export const BigIconSwitch = ({
   value,
   onPress,
-  style = {
+  trackStyle = {
     width: 120,
     height: 60,
     padding: 5,
@@ -54,13 +57,14 @@ export const BigIconSwitch = ({
     const moveValue = interpolate(
       Number(numberedValue),
       [0, 1],
-      [0, width.value - height.value],
+      [0, width.get() / 2],
     );
     const translateValue = withTiming(moveValue, { duration });
 
     return {
       transform: [{ translateX: translateValue }],
-      borderRadius: height.value / 2,
+      borderRadius: height.get() / 2,
+      width: width.get() / 2 - trackStyle.padding * 2,
     };
   });
 
@@ -72,7 +76,7 @@ export const BigIconSwitch = ({
             height.value = e.nativeEvent.layout.height;
             width.value = e.nativeEvent.layout.width;
           }}
-          style={[style, trackAnimatedStyle]}
+          style={[trackStyle, trackAnimatedStyle]}
         >
           <Thumb style={thumbAnimatedStyle}></Thumb>
         </Track>
@@ -105,13 +109,9 @@ const RightIcon = styled.View({
 
 const Thumb = styled(Animated.View)(({ theme }) => ({
   height: "100%",
-  aspectRatio: 1,
   backgroundColor: theme.colors.primary,
 }));
 
 const Track = styled(Animated.View)(({ theme }) => ({
-  width: 100,
-  height: 40,
-  padding: 5,
   backgroundColor: theme.colors.componentBackground,
 }));
