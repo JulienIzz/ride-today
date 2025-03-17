@@ -1,12 +1,4 @@
-export const themeObject = {
-  colors: {
-    mainBackground: "#1F1F1F",
-    primary: "#C8FF33",
-    contrast: "#000000",
-    contrastLight: "#FFFFFF",
-    disabled: "#808080",
-    componentBackground: "#313131",
-  },
+const commonTheme = {
   spacings: {
     "3xs": 1,
     "2xs": 2,
@@ -41,6 +33,34 @@ export const themeObject = {
   },
 } as const;
 
-export type Theme = typeof themeObject;
+const darkThemeObject = {
+  colors: {
+    mainBackground: "#1F1F1F",
+    primary: "#C8FF33",
+    contrast: "#000000",
+    contrastLight: "#FFFFFF",
+    inactive: "#808080",
+    disabled: "#333333",
+    componentBackground: "#313131",
+  },
+  ...commonTheme,
+};
 
-export const theme: Theme = themeObject;
+const lightThemeObject = {
+  colors: {
+    mainBackground: "#F5F5F5",
+    primary: "#D6420F",
+    contrast: "#FFFFFF",
+    contrastLight: "#000000",
+    inactive: "#808080",
+    disabled: "#333333",
+    componentBackground: "#C9C9C9",
+  },
+  ...commonTheme,
+};
+
+export type Theme = typeof lightThemeObject;
+
+export const lightTheme: Theme = lightThemeObject;
+
+export const darkTheme: Theme = darkThemeObject;

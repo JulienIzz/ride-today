@@ -22,7 +22,7 @@ export const GeolocationToggle = ({
       leftIcon={
         <Search
           color={
-            !isLocationEnabled ? theme.colors.contrast : theme.colors.disabled
+            !isLocationEnabled ? theme.colors.contrast : theme.colors.inactive
           }
           size={20}
         />
@@ -30,7 +30,7 @@ export const GeolocationToggle = ({
       rightIcon={
         <MapPinned
           color={
-            isLocationEnabled ? theme.colors.contrast : theme.colors.disabled
+            isLocationEnabled ? theme.colors.contrast : theme.colors.inactive
           }
           size={20}
         />

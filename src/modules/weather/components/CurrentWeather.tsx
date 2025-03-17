@@ -1,4 +1,5 @@
 import styled from "@emotion/native";
+import { useTheme } from "@emotion/react";
 import { t } from "@lingui/core/macro";
 import { format } from "date-fns";
 import { CloudRain, Moon, Sun, Waves, Wind } from "lucide-react-native";
@@ -24,6 +25,7 @@ export const CurrentWeather = ({ location }: { location: string | null }) => {
 };
 
 export const CurrentWeatherData = ({ location }: { location: string }) => {
+  const theme = useTheme();
   const { currentWeather, currentLocation } = useWeather(location);
 
   const unitSystem = useUnitSystem();
@@ -54,14 +56,14 @@ export const CurrentWeatherData = ({ location }: { location: string }) => {
       </SideContainer>
       <SideContainer>
         <IconAndText>
-          <Waves color={"black"} size={20} />
+          <Waves color={theme.colors.contrast} size={20} />
           <Typography
             variant="body"
             text={t({ message: `Humidity : ${currentWeather.humidity}` })}
           />
         </IconAndText>
         <IconAndText>
-          <Wind color={"black"} size={20} />
+          <Wind color={theme.colors.contrast} size={20} />
           <Typography
             variant="body"
             text={t({
@@ -70,7 +72,7 @@ export const CurrentWeatherData = ({ location }: { location: string }) => {
           />
         </IconAndText>
         <IconAndText>
-          <CloudRain color={"black"} size={20} />
+          <CloudRain color={theme.colors.contrast} size={20} />
           <Typography
             variant="body"
             text={t({
@@ -80,9 +82,9 @@ export const CurrentWeatherData = ({ location }: { location: string }) => {
         </IconAndText>
         <IconAndText>
           {currentWeather.isDay === 1 ? (
-            <Sun color={"black"} size={20} />
+            <Sun color={theme.colors.contrast} size={20} />
           ) : (
-            <Moon color={"black"} size={20} />
+            <Moon color={theme.colors.contrast} size={20} />
           )}
           <Typography
             variant="body"

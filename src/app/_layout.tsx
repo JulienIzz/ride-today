@@ -1,14 +1,17 @@
 import styled from "@emotion/native";
-import { ThemeProvider } from "@emotion/react";
+import { ThemeProvider, useTheme } from "@emotion/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useCallback } from "react";
+import { useColorScheme } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { theme } from "src/design-system/theme/theme";
+import { useMMKVBoolean, useMMKVString } from "react-native-mmkv";
+import { darkTheme, lightTheme } from "src/design-system/theme/theme";
 
 import { useAppIsReady } from "#shared/config/useAppIsReady.hook";
 import { I18nProvider } from "#shared/i18n/I18n.provider";
+import { storage, StorageKeys } from "#shared/mmkv/store";
 
 void SplashScreen.preventAutoHideAsync();
 
@@ -21,6 +24,7 @@ const queryClient = new QueryClient();
 
 export default function RootLayout() {
   const { appIsReady } = useAppIsReady();
+  const scheme = useThemeScheme();
 
   const onLayoutRootView = useCallback(() => {
     if (appIsReady) {
@@ -34,18 +38,11 @@ export default function RootLayout() {
 
   return (
     <I18nProvider>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={scheme === "dark" ? darkTheme : lightTheme}>
         <GestureHandlerRootView>
           <QueryClientProvider client={queryClient}>
             <RootView onLayout={onLayoutRootView}>
-              <Stack
-                screenOptions={{
-                  headerShown: false,
-                  contentStyle: {
-                    backgroundColor: theme.colors.mainBackground,
-                  },
-                }}
-              />
+              <RootStack />
             </RootView>
           </QueryClientProvider>
         </GestureHandlerRootView>
@@ -53,6 +50,36 @@ export default function RootLayout() {
     </I18nProvider>
   );
 }
+
+const useThemeScheme = () => {
+  const scheme = useColorScheme();
+  const [isCustomThemeEnabled] = useMMKVBoolean(
+    StorageKeys.IS_CUSTOM_THEME_ENABLED,
+    storage,
+  );
+  const [theme] = useMMKVString(StorageKeys.CUSTOM_THEME, storage);
+
+  if (isCustomThemeEnabled) {
+    return theme;
+  }
+
+  return scheme;
+};
+
+const RootStack = () => {
+  const theme = useTheme();
+
+  return (
+    <Stack
+      screenOptions={{
+        headerShown: false,
+        contentStyle: {
+          backgroundColor: theme.colors.mainBackground,
+        },
+      }}
+    />
+  );
+};
 
 const RootView = styled.View({
   flex: 1,
