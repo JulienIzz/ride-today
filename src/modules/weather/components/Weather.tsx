@@ -31,5 +31,5 @@ Weather.displayName = "Weather";
 const Container = styled.View(({ theme }) => ({
   flex: 1,
   padding: theme.spacings.m,
-  gap: theme.spacings.s,
+  gap: theme.spacings.m,
 }));
