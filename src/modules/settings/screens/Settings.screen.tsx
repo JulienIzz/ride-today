@@ -30,7 +30,7 @@ export const Settings = () => {
       <PageTitleWithBack title={t`Settings`} />
       <Divider />
       <Setting
-        label="Units"
+        label={t`Units`}
         value={!isImperialEnabled}
         onToggleValue={() => setIsImperialEnabled(!isImperialEnabled)}
         leftChoice={t`Metric`}
@@ -38,7 +38,7 @@ export const Settings = () => {
       />
       <Divider />
       <Setting
-        label="Dark/Light theme"
+        label={t`Dark/Light theme`}
         value={!!isCustomThemeEnabled}
         onToggleValue={() => setIsCustomThemeEnabled(!isCustomThemeEnabled)}
         leftChoice={t`System`}
@@ -46,7 +46,7 @@ export const Settings = () => {
       />
       <Divider />
       <Setting
-        label="Theme choice"
+        label={t`Theme choice`}
         value={theme === "light"}
         onToggleValue={() => setTheme(theme === "dark" ? "light" : "dark")}
         leftChoice={t`Dark`}

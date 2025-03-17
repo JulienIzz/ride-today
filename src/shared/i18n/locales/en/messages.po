@@ -32,12 +32,24 @@ msgstr "An error has occurred. Please try again later."
 msgid "Cloud : {0}"
 msgstr "Cloud : {0}"
 
-#: src/modules/weather/components/CurrentWeather.tsx:91
+#: src/modules/settings/screens/Settings.screen.tsx:45
+msgid "Custom"
+msgstr "Custom"
+
+#: src/modules/settings/screens/Settings.screen.tsx:52
+msgid "Dark"
+msgstr "Dark"
+
+#: src/modules/settings/screens/Settings.screen.tsx:41
+msgid "Dark/Light theme"
+msgstr "Dark/Light theme"
+
+#: src/modules/weather/components/CurrentWeather.tsx:93
 msgid "Day"
 msgstr "Day"
 
 #. placeholder {0}: currentWeather.feelslike[unitSystem]
-#: src/modules/weather/components/CurrentWeather.tsx:46
+#: src/modules/weather/components/CurrentWeather.tsx:48
 msgid "Feelslike {0}"
 msgstr "Feelslike {0}"
 
@@ -48,15 +60,19 @@ msgstr "Geolocation failed"
 #. placeholder {0}: hour.humidity
 #. placeholder {0}: currentWeather.humidity
 #: src/modules/weather/components/ForecastWeather.tsx:113
-#: src/modules/weather/components/CurrentWeather.tsx:60
+#: src/modules/weather/components/CurrentWeather.tsx:62
 msgid "Humidity : {0}"
 msgstr "Humidity : {0}"
 
-#: src/modules/settings/screens/Settings.screen.tsx:30
+#: src/modules/settings/screens/Settings.screen.tsx:37
 msgid "Imperial"
 msgstr "Imperial"
 
-#: src/modules/settings/screens/Settings.screen.tsx:29
+#: src/modules/settings/screens/Settings.screen.tsx:53
+msgid "Light"
+msgstr "Light"
+
+#: src/modules/settings/screens/Settings.screen.tsx:36
 msgid "Metric"
 msgstr "Metric"
 
@@ -64,12 +80,12 @@ msgstr "Metric"
 msgid "Next hours"
 msgstr "Next hours"
 
-#: src/modules/weather/components/CurrentWeather.tsx:92
+#: src/modules/weather/components/CurrentWeather.tsx:94
 msgid "Night"
 msgstr "Night"
 
 #. placeholder {0}: currentWeather.precip[unitSystem]
-#: src/modules/weather/components/CurrentWeather.tsx:76
+#: src/modules/weather/components/CurrentWeather.tsx:78
 msgid "Precipitation : {0}"
 msgstr "Precipitation : {0}"
 
@@ -82,11 +98,11 @@ msgstr "Rain : {0}"
 msgid "RIDE TODAY"
 msgstr "RIDE TODAY"
 
-#: src/modules/location/components/SearchedLocation.tsx:53
+#: src/modules/location/components/SearchedLocation.tsx:54
 msgid "Search location"
 msgstr "Search location"
 
-#: src/modules/settings/screens/Settings.screen.tsx:24
+#: src/modules/settings/screens/Settings.screen.tsx:30
 #: src/modules/home/components/MenuModal.tsx:13
 msgid "Settings"
 msgstr "Settings"
@@ -96,9 +112,21 @@ msgstr "Settings"
 msgid "Snow : {0}"
 msgstr "Snow : {0}"
 
-#: src/modules/location/components/SearchedLocation.tsx:76
+#: src/modules/settings/screens/Settings.screen.tsx:44
+msgid "System"
+msgstr "System"
+
+#: src/modules/settings/screens/Settings.screen.tsx:49
+msgid "Theme choice"
+msgstr "Theme choice"
+
+#: src/modules/location/components/SearchedLocation.tsx:77
 msgid "Unable to find location"
 msgstr "Unable to find location"
+
+#: src/modules/settings/screens/Settings.screen.tsx:33
+msgid "Units"
+msgstr "Units"
 
 #: src/modules/location/components/LocationDisplay.tsx:55
 msgid "Waiting for location"
@@ -107,6 +135,6 @@ msgstr "Waiting for location"
 #. placeholder {0}: hour.wind[unitSystem]
 #. placeholder {0}: currentWeather.wind[unitSystem]
 #: src/modules/weather/components/ForecastWeather.tsx:103
-#: src/modules/weather/components/CurrentWeather.tsx:67
+#: src/modules/weather/components/CurrentWeather.tsx:69
 msgid "Wind : {0}"
 msgstr "Wind : {0}"
