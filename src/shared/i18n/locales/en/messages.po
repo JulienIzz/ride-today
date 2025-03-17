@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. placeholder {0}: hour.temp[unitSystem]
-#: src/modules/weather/components/ForecastWeather.tsx:99
+#: src/modules/weather/components/ForecastWeather.tsx:100
 msgid "{0}"
 msgstr "{0}"
 
@@ -28,7 +28,7 @@ msgid "An error has occurred. Please try again later."
 msgstr "An error has occurred. Please try again later."
 
 #. placeholder {0}: hour.cloud
-#: src/modules/weather/components/ForecastWeather.tsx:109
+#: src/modules/weather/components/ForecastWeather.tsx:110
 msgid "Cloud : {0}"
 msgstr "Cloud : {0}"
 
@@ -59,7 +59,7 @@ msgstr "Geolocation failed"
 
 #. placeholder {0}: hour.humidity
 #. placeholder {0}: currentWeather.humidity
-#: src/modules/weather/components/ForecastWeather.tsx:113
+#: src/modules/weather/components/ForecastWeather.tsx:114
 #: src/modules/weather/components/CurrentWeather.tsx:62
 msgid "Humidity : {0}"
 msgstr "Humidity : {0}"
@@ -76,7 +76,7 @@ msgstr "Light"
 msgid "Metric"
 msgstr "Metric"
 
-#: src/modules/weather/components/ForecastWeather.tsx:45
+#: src/modules/weather/components/ForecastWeather.tsx:46
 msgid "Next hours"
 msgstr "Next hours"
 
@@ -86,11 +86,11 @@ msgstr "Night"
 
 #. placeholder {0}: currentWeather.precip[unitSystem]
 #: src/modules/weather/components/CurrentWeather.tsx:78
-msgid "Precipitation : {0}"
-msgstr "Precipitation : {0}"
+msgid "Precip. : {0}"
+msgstr "Precip. : {0}"
 
 #. placeholder {0}: hour.chanceOfRain
-#: src/modules/weather/components/ForecastWeather.tsx:117
+#: src/modules/weather/components/ForecastWeather.tsx:118
 msgid "Rain : {0}"
 msgstr "Rain : {0}"
 
@@ -108,7 +108,7 @@ msgid "Settings"
 msgstr "Settings"
 
 #. placeholder {0}: hour.chanceOfSnow
-#: src/modules/weather/components/ForecastWeather.tsx:121
+#: src/modules/weather/components/ForecastWeather.tsx:122
 msgid "Snow : {0}"
 msgstr "Snow : {0}"
 
@@ -120,7 +120,7 @@ msgstr "System"
 msgid "Theme choice"
 msgstr "Theme choice"
 
-#: src/modules/location/components/SearchedLocation.tsx:77
+#: src/modules/location/components/SearchedLocation.tsx:75
 msgid "Unable to find location"
 msgstr "Unable to find location"
 
@@ -128,13 +128,13 @@ msgstr "Unable to find location"
 msgid "Units"
 msgstr "Units"
 
-#: src/modules/location/components/LocationDisplay.tsx:55
+#: src/modules/location/components/LocationDisplay.tsx:52
 msgid "Waiting for location"
 msgstr "Waiting for location"
 
 #. placeholder {0}: hour.wind[unitSystem]
 #. placeholder {0}: currentWeather.wind[unitSystem]
-#: src/modules/weather/components/ForecastWeather.tsx:103
+#: src/modules/weather/components/ForecastWeather.tsx:104
 #: src/modules/weather/components/CurrentWeather.tsx:69
 msgid "Wind : {0}"
 msgstr "Wind : {0}"

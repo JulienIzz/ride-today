@@ -82,13 +82,10 @@ export const TextSwitch = ({
         >
           <Thumb style={thumbAnimatedStyle} />
           <LeftView>
-            <Typography variant={value ? "body" : "bodyBold"} text={leftText} />
+            <Typography variant={"P1"} bold={!value} text={leftText} />
           </LeftView>
           <RightView>
-            <Typography
-              variant={value ? "bodyBold" : "body"}
-              text={rightText}
-            />
+            <Typography variant={"P1"} bold={value} text={rightText} />
           </RightView>
         </Track>
       </Pressable>

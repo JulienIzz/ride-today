@@ -1,62 +1,84 @@
 import styled from "@emotion/native";
+import { useTheme } from "@emotion/react";
 import type { ColorValue, TextStyle } from "react-native";
 
-const Body = styled.Text<{ color?: ColorValue }>(({ theme, color }) => ({
-  fontSize: theme.fontSizes.xs,
-  fontFamily: theme.fonts.body,
+const Text = styled.Text<{
+  fontSize: number;
+  color?: ColorValue;
+  bold?: boolean;
+}>(({ theme, fontSize, color, bold }) => ({
+  fontSize: fontSize,
+  fontFamily: bold ? theme.fonts.semiBold : theme.fonts.regular,
   color: color ?? theme.colors.contrast,
 }));
 
-const BodyBold = styled.Text<{ color?: ColorValue }>(({ theme, color }) => ({
-  fontSize: theme.fontSizes.xs,
-  fontFamily: theme.fonts.bodyBold,
-  color: color ?? theme.colors.contrast,
-}));
-
-const Subtext = styled.Text<{ color?: ColorValue }>(({ theme, color }) => ({
-  fontSize: theme.fontSizes["2xs"],
-  fontFamily: theme.fonts.body,
-  color: color ?? theme.colors.contrast,
-}));
-
-const Title = styled.Text<{ color?: ColorValue }>(({ theme, color }) => ({
-  fontSize: theme.fontSizes.title,
-  fontFamily: theme.fonts.title,
+const Tagline = styled.Text<{ color?: ColorValue }>(({ theme, color }) => ({
+  fontSize: theme.fontSizes.tagline,
+  fontFamily: theme.fonts.bold,
   color: color ?? theme.colors.contrast,
 }));
 
 type Props = {
-  variant: "body" | "bodyBold" | "subtext" | "title";
+  variant: "tagline" | "P1" | "P2" | "P3" | "P4" | "H1" | "H2" | "H3" | "H4";
   text: string;
   style?: TextStyle;
   color?: ColorValue;
+  bold?: boolean;
 };
 
-export const Typography = ({ variant, text, color, style }: Props) => {
+export const Typography = ({ variant, text, ...props }: Props) => {
+  const theme = useTheme();
+
   switch (variant) {
-    case "title":
+    case "tagline":
+      return <Tagline {...props}>{text}</Tagline>;
+    case "P1":
       return (
-        <Title color={color} style={style}>
+        <Text fontSize={theme.fontSizes.m} {...props}>
           {text}
-        </Title>
+        </Text>
       );
-    case "body":
+    case "P2":
       return (
-        <Body color={color} style={style}>
+        <Text fontSize={theme.fontSizes.s} {...props}>
           {text}
-        </Body>
+        </Text>
       );
-    case "bodyBold":
+    case "P3":
       return (
-        <BodyBold color={color} style={style}>
+        <Text fontSize={theme.fontSizes.xs} {...props}>
           {text}
-        </BodyBold>
+        </Text>
       );
-    case "subtext":
+    case "P4":
       return (
-        <Subtext color={color} style={style}>
+        <Text fontSize={theme.fontSizes["2xs"]} {...props}>
           {text}
-        </Subtext>
+        </Text>
+      );
+    case "H1":
+      return (
+        <Text fontSize={theme.fontSizes["3xl"]} {...props}>
+          {text}
+        </Text>
+      );
+    case "H2":
+      return (
+        <Text fontSize={theme.fontSizes["2xl"]} {...props}>
+          {text}
+        </Text>
+      );
+    case "H3":
+      return (
+        <Text fontSize={theme.fontSizes.xl} {...props}>
+          {text}
+        </Text>
+      );
+    case "H4":
+      return (
+        <Text fontSize={theme.fontSizes.l} {...props}>
+          {text}
+        </Text>
       );
   }
 };

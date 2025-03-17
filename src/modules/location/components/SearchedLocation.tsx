@@ -72,10 +72,7 @@ const LocationError = () => {
     <ErrorContainer>
       <X color="red" />
       <Spacer size={4} horizontal />
-      <ContrastLightTypography
-        variant="body"
-        text={t`Unable to find location`}
-      />
+      <ContrastLightTypography variant="P1" text={t`Unable to find location`} />
     </ErrorContainer>
   );
 };
@@ -90,7 +87,7 @@ const LocationInput = styled(TextInput)(({ theme }) => ({
   height: 44,
   justifyContent: "center",
   textAlign: "center",
-  fontFamily: theme.fonts.body,
+  fontFamily: theme.fonts.regular,
   padding: theme.spacings.xs,
   backgroundColor: theme.colors.componentBackground,
   borderRadius: theme.borderRadius.round,

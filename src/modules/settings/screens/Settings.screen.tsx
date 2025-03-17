@@ -78,7 +78,8 @@ const Setting = ({
   return (
     <SettingContainer>
       <Typography
-        variant="bodyBold"
+        variant="P1"
+        bold
         color={theme.colors.contrastLight}
         text={label}
       />

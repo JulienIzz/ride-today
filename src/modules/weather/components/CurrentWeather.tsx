@@ -44,28 +44,28 @@ export const CurrentWeatherData = ({ location }: { location: string }) => {
             <Degrees>{unitSystem === "imperial" ? "°F" : "°C"}</Degrees>
           </TemperatureContainer>
           <Typography
-            variant="body"
+            variant="P1"
             text={t({
               message: `Feelslike ${currentWeather.feelslike[unitSystem]}`,
             })}
           />
         </View>
         {conditionText ? (
-          <Typography variant="body" text={conditionText} />
+          <Typography variant="P1" text={conditionText} />
         ) : null}
       </SideContainer>
       <SideContainer>
         <IconAndText>
           <Waves color={theme.colors.contrast} size={20} />
           <Typography
-            variant="body"
+            variant="P1"
             text={t({ message: `Humidity : ${currentWeather.humidity}` })}
           />
         </IconAndText>
         <IconAndText>
           <Wind color={theme.colors.contrast} size={20} />
           <Typography
-            variant="body"
+            variant="P1"
             text={t({
               message: `Wind : ${currentWeather.wind[unitSystem]}`,
             })}
@@ -74,9 +74,9 @@ export const CurrentWeatherData = ({ location }: { location: string }) => {
         <IconAndText>
           <CloudRain color={theme.colors.contrast} size={20} />
           <Typography
-            variant="body"
+            variant="P1"
             text={t({
-              message: `Precipitation : ${currentWeather.precip[unitSystem]}`,
+              message: `Precip. : ${currentWeather.precip[unitSystem]}`,
             })}
           />
         </IconAndText>
@@ -87,7 +87,7 @@ export const CurrentWeatherData = ({ location }: { location: string }) => {
             <Moon color={theme.colors.contrast} size={20} />
           )}
           <Typography
-            variant="body"
+            variant="P1"
             text={`${format(currentLocation.localTime, "HH:mm")} - ${
               currentWeather.isDay === 1
                 ? t({ message: "Day" })
@@ -117,14 +117,14 @@ const TemperatureContainer = styled.View(({ theme }) => ({
 
 const Temperature = styled.Text(({ theme }) => ({
   fontSize: 50,
-  fontFamily: theme.fonts.title,
+  fontFamily: theme.fonts.bold,
   color: theme.colors.contrast,
   lineHeight: 53,
 }));
 
 const Degrees = styled.Text(({ theme }) => ({
   fontSize: 20,
-  fontFamily: theme.fonts.title,
+  fontFamily: theme.fonts.bold,
   color: theme.colors.contrast,
 }));
 

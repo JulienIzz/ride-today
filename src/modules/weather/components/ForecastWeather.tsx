@@ -41,7 +41,8 @@ export const ForecastWeatherData = ({ location }: { location: string }) => {
     <ListContainer>
       <ListHeaderContainer>
         <ContrastLightTypography
-          variant="bodyBold"
+          variant="P1"
+          bold
           text={t({ message: "Next hours" })}
         />
       </ListHeaderContainer>
@@ -87,37 +88,37 @@ const HourWeather = ({ hour }: { hour: Hour }) => {
             <Moon color={theme.colors.contrastLight} size={16} />
           )}
           <ContrastLightTypography
-            variant="body"
+            variant="P1"
             text={formatToDisplayHour(new Date(hour.time))}
           />
         </IconAndText>
         {conditionText ? (
-          <ContrastLightTypography variant="body" text={conditionText} />
+          <ContrastLightTypography variant="P1" text={conditionText} />
         ) : null}
         <ContrastLightTypography
-          variant="body"
+          variant="P1"
           text={t({ message: `${hour.temp[unitSystem]}` })}
         />
         <ContrastLightTypography
-          variant="body"
+          variant="P1"
           text={t({ message: `Wind : ${hour.wind[unitSystem]}` })}
         />
       </LeftContainer>
       <RightContainer>
         <ContrastLightTypography
-          variant="body"
+          variant="P1"
           text={t({ message: `Cloud : ${hour.cloud}` })}
         />
         <ContrastLightTypography
-          variant="body"
+          variant="P1"
           text={t({ message: `Humidity : ${hour.humidity}` })}
         />
         <ContrastLightTypography
-          variant="body"
+          variant="P1"
           text={t({ message: `Rain : ${hour.chanceOfRain}` })}
         />
         <ContrastLightTypography
-          variant="body"
+          variant="P1"
           text={t({ message: `Snow : ${hour.chanceOfSnow}` })}
         />
       </RightContainer>

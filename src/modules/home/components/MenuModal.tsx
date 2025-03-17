@@ -37,7 +37,8 @@ export const MenuModal = ({ closeMenu }: MenuModalProps) => {
             <Link href={`/${item.link}`} asChild>
               <MenuItem onPress={closeMenu}>
                 <Typography
-                  variant="bodyBold"
+                  variant="P1"
+                  bold
                   color={theme.colors.contrastLight}
                   text={item.label}
                 />

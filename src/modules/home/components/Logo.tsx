@@ -11,7 +11,7 @@ export const Logo = () => {
     <Container>
       <Typography
         color={theme.colors.contrastLight}
-        variant="title"
+        variant="tagline"
         text={t`RIDE TODAY`}
       />
     </Container>

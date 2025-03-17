@@ -26,19 +26,16 @@ const LocationDisplayComponent = ({ location }: { location: string }) => {
     <Container>
       <MapPin color={theme.colors.contrastLight} />
       <Spacer size={4} horizontal />
-      <ContrastLightTypography
-        variant="body"
-        text={`${currentLocation.name}`}
-      />
+      <ContrastLightTypography variant="P1" text={`${currentLocation.name}`} />
       {currentLocation.region ? (
         <ContrastLightTypography
-          variant="body"
+          variant="P1"
           text={`, ${currentLocation.region}`}
         />
       ) : null}
       {currentLocation.country ? (
         <ContrastLightTypography
-          variant="body"
+          variant="P1"
           text={`, ${currentLocation.country}`}
         />
       ) : null}
@@ -52,7 +49,7 @@ const LocationMissing = () => {
     <Container>
       <RectangleEllipsis color={theme.colors.contrastLight} strokeWidth={1.5} />
       <Spacer size={4} horizontal />
-      <ContrastLightTypography variant="body" text={t`Waiting for location`} />
+      <ContrastLightTypography variant="P1" text={t`Waiting for location`} />
     </Container>
   );
 };

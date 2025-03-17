@@ -60,7 +60,7 @@ const ErrorFallback = () => {
   return (
     <CenteredView>
       <Typography
-        variant="body"
+        variant="P1"
         color={theme.colors.contrastLight}
         text={t`An error has occurred. Please try again later.`}
       />

@@ -19,7 +19,8 @@ export const PageTitleWithBack = ({ title }: TitleProps) => {
         <ChevronLeft color={theme.colors.contrast} size={24} />
       </BackContainer>
       <Typography
-        variant="title"
+        variant="H1"
+        bold
         color={theme.colors.contrastLight}
         text={title}
       />

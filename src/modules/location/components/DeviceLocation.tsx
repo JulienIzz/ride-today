@@ -43,7 +43,7 @@ const LocationError = () => {
       <X color="red" />
       <Spacer size={4} horizontal />
       <Typography
-        variant="body"
+        variant="P1"
         color={theme.colors.contrastLight}
         text={t`Geolocation failed`}
       />
