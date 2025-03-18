@@ -43,6 +43,7 @@ const darkThemeObject = {
     inactive: "#808080",
     disabled: "#333333",
     componentBackground: "#313131",
+    white: "#FFFFFF",
   },
   ...commonTheme,
 };
@@ -56,11 +57,12 @@ const lightThemeObject = {
     inactive: "#808080",
     disabled: "#333333",
     componentBackground: "#C9C9C9",
+    white: "#FFFFFF",
   },
   ...commonTheme,
 };
 
-export type Theme = typeof lightThemeObject;
+export type Theme = typeof darkThemeObject;
 
 export const lightTheme: Theme = lightThemeObject;
 

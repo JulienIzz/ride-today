@@ -1,5 +1,9 @@
 import type { WeatherDto } from "#modules/weather/types/weather.dto.types";
-import type { Weather } from "#modules/weather/types/weather.types";
+import type {
+  ConditionNotation,
+  Weather,
+} from "#modules/weather/types/weather.types";
+import { conditionNotations } from "#modules/weather/utils/notationMapping";
 
 export const adaptWeather = (currentWeatherDto: WeatherDto): Weather => {
   return {
@@ -24,6 +28,11 @@ export const adaptWeather = (currentWeatherDto: WeatherDto): Weather => {
         text: currentWeatherDto.current.condition.text,
         icon: currentWeatherDto.current.condition.icon,
         code: currentWeatherDto.current.condition.code,
+        notation: getConditionNotation(
+          currentWeatherDto.current.condition.code,
+          currentWeatherDto.current.is_day,
+          currentWeatherDto.current.temp_c,
+        ),
       },
       wind: {
         metric: currentWeatherDto.current.wind_kph + " km/h",
@@ -66,6 +75,11 @@ export const adaptWeather = (currentWeatherDto: WeatherDto): Weather => {
               text: hourDto.condition.text,
               icon: hourDto.condition.icon,
               code: hourDto.condition.code,
+              notation: getConditionNotation(
+                hourDto.condition.code,
+                hourDto.is_day,
+                hourDto.temp_c,
+              ),
             },
             chanceOfRain: hourDto.chance_of_rain + "%",
             chanceOfSnow: hourDto.chance_of_snow + "%",
@@ -74,4 +88,36 @@ export const adaptWeather = (currentWeatherDto: WeatherDto): Weather => {
       ),
     },
   };
+};
+
+const getConditionNotation = (
+  code: number,
+  isDay: number,
+  tempInCelsius: number,
+): ConditionNotation | undefined => {
+  let temperatureModifier: number;
+
+  if (tempInCelsius < -2) {
+    temperatureModifier = -5;
+  } else if (tempInCelsius < 2) {
+    temperatureModifier = -4;
+  } else if (tempInCelsius < 10) {
+    temperatureModifier = -1;
+  } else if (tempInCelsius < 30) {
+    temperatureModifier = 0;
+  } else {
+    temperatureModifier = -1;
+  }
+
+  const notation = conditionNotations.find(
+    (conditionNotation) => conditionNotation.code === code,
+  )?.notation;
+
+  if (notation === undefined) {
+    return;
+  }
+
+  const modifiedNotation = notation + temperatureModifier;
+
+  return Math.trunc(modifiedNotation / (isDay ? 1 : 2)) as ConditionNotation;
 };

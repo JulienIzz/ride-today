@@ -3,11 +3,10 @@ import { MapPinOff } from "lucide-react-native";
 import { ActivityIndicator } from "react-native";
 
 export const CurrentWeatherContainer = styled.View(({ theme }) => ({
-  height: 140,
+  height: 230,
   width: "100%",
   backgroundColor: theme.colors.primary,
   borderRadius: theme.borderRadius.xl,
-  padding: theme.spacings.m,
 }));
 
 export const WeatherLocationMissing = () => {

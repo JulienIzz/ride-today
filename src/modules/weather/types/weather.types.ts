@@ -17,10 +17,13 @@ interface Current {
   condition: Condition;
 }
 
+export type ConditionNotation = 0 | 1 | 2 | 3 | 4 | 5;
+
 interface Condition {
   text: string;
   icon: string;
   code: number;
+  notation: ConditionNotation | undefined;
 }
 
 interface Location {

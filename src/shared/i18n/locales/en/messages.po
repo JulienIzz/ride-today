@@ -13,7 +13,9 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#. placeholder {0}: notationMapping[conditionNotation].message
 #. placeholder {0}: hour.temp[unitSystem]
+#: src/modules/weather/components/WeatherNotation.tsx:53
 #: src/modules/weather/components/ForecastWeather.tsx:106
 msgid "{0}"
 msgstr "{0}"
@@ -26,6 +28,10 @@ msgstr "About"
 #: src/shared/infra/boundaries/QueryBoundary.tsx:65
 msgid "An error has occurred. Please try again later."
 msgstr "An error has occurred. Please try again later."
+
+#: src/modules/weather/components/WeatherNotation.tsx:111
+msgid "Challenging conditions, stay sharp and be prepared."
+msgstr "Challenging conditions, stay sharp and be prepared."
 
 #. placeholder {0}: hour.cloud
 #: src/modules/weather/components/ForecastWeather.tsx:116
@@ -44,12 +50,16 @@ msgstr "Dark"
 msgid "Dark/Light theme"
 msgstr "Dark/Light theme"
 
-#: src/modules/weather/components/CurrentWeather.tsx:93
+#: src/modules/weather/components/CurrentWeather.tsx:96
 msgid "Day"
 msgstr "Day"
 
+#: src/modules/weather/components/WeatherNotation.tsx:119
+msgid "Favorable weather. Expect a decent, comfortable ride."
+msgstr "Favorable weather. Expect a decent, comfortable ride."
+
 #. placeholder {0}: currentWeather.feelslike[unitSystem]
-#: src/modules/weather/components/CurrentWeather.tsx:48
+#: src/modules/weather/components/CurrentWeather.tsx:51
 msgid "Feelslike {0}"
 msgstr "Feelslike {0}"
 
@@ -60,9 +70,13 @@ msgstr "Geolocation failed"
 #. placeholder {0}: hour.humidity
 #. placeholder {0}: currentWeather.humidity
 #: src/modules/weather/components/ForecastWeather.tsx:120
-#: src/modules/weather/components/CurrentWeather.tsx:62
+#: src/modules/weather/components/CurrentWeather.tsx:65
 msgid "Humidity : {0}"
 msgstr "Humidity : {0}"
+
+#: src/modules/weather/components/WeatherNotation.tsx:123
+msgid "Ideal condition ! Hit the road and enjoy!"
+msgstr "Ideal condition ! Hit the road and enjoy!"
 
 #: src/modules/settings/screens/Settings.screen.tsx:37
 msgid "Imperial"
@@ -72,6 +86,10 @@ msgstr "Imperial"
 msgid "Light"
 msgstr "Light"
 
+#: src/modules/weather/components/WeatherNotation.tsx:115
+msgid "Manageable, ride carefully and watch for trouble."
+msgstr "Manageable, ride carefully and watch for trouble."
+
 #: src/modules/settings/screens/Settings.screen.tsx:36
 msgid "Metric"
 msgstr "Metric"
@@ -80,12 +98,12 @@ msgstr "Metric"
 msgid "Next hours"
 msgstr "Next hours"
 
-#: src/modules/weather/components/CurrentWeather.tsx:94
+#: src/modules/weather/components/CurrentWeather.tsx:97
 msgid "Night"
 msgstr "Night"
 
 #. placeholder {0}: currentWeather.precip[unitSystem]
-#: src/modules/weather/components/CurrentWeather.tsx:78
+#: src/modules/weather/components/CurrentWeather.tsx:81
 msgid "Precip. : {0}"
 msgstr "Precip. : {0}"
 
@@ -98,6 +116,10 @@ msgstr "Rain : {0}"
 msgid "RIDE TODAY"
 msgstr "RIDE TODAY"
 
+#: src/modules/weather/components/WeatherNotation.tsx:26
+msgid "RideScore"
+msgstr "RideScore"
+
 #: src/modules/location/components/SearchedLocation.tsx:54
 msgid "Search location"
 msgstr "Search location"
@@ -106,6 +128,10 @@ msgstr "Search location"
 #: src/modules/home/components/MenuModal.tsx:13
 msgid "Settings"
 msgstr "Settings"
+
+#: src/modules/weather/components/WeatherNotation.tsx:107
+msgid "Severely hazardous, better to stay off the road."
+msgstr "Severely hazardous, better to stay off the road."
 
 #. placeholder {0}: hour.chanceOfSnow
 #: src/modules/weather/components/ForecastWeather.tsx:128
@@ -128,6 +154,10 @@ msgstr "Unable to find location"
 msgid "Units"
 msgstr "Units"
 
+#: src/modules/weather/components/WeatherNotation.tsx:103
+msgid "Very risky. Ride only if absolutely necessary."
+msgstr "Very risky. Ride only if absolutely necessary."
+
 #: src/modules/location/components/LocationDisplay.tsx:52
 msgid "Waiting for location"
 msgstr "Waiting for location"
@@ -135,6 +165,6 @@ msgstr "Waiting for location"
 #. placeholder {0}: hour.wind[unitSystem]
 #. placeholder {0}: currentWeather.wind[unitSystem]
 #: src/modules/weather/components/ForecastWeather.tsx:110
-#: src/modules/weather/components/CurrentWeather.tsx:69
+#: src/modules/weather/components/CurrentWeather.tsx:72
 msgid "Wind : {0}"
 msgstr "Wind : {0}"
