@@ -1,4 +1,5 @@
 import styled from "@emotion/native";
+import type { ViewStyle } from "react-native";
 import { Pressable, View } from "react-native";
 import Animated, {
   interpolate,
@@ -16,6 +17,7 @@ type BigIconSwitchProps = {
     height: number;
     padding: number;
   };
+  containerStyle?: Omit<ViewStyle, "height" | "width" | "padding">;
   duration?: number;
   trackColors?: { right: string; left: string };
   leftIcon: React.JSX.Element;
@@ -30,6 +32,7 @@ export const BigIconSwitch = ({
     height: 60,
     padding: 5,
   },
+  containerStyle,
   duration = 300,
   trackColors = { right: "grey", left: "grey" },
   leftIcon,
@@ -76,7 +79,7 @@ export const BigIconSwitch = ({
             height.value = e.nativeEvent.layout.height;
             width.value = e.nativeEvent.layout.width;
           }}
-          style={[trackStyle, trackAnimatedStyle]}
+          style={[trackStyle, containerStyle, trackAnimatedStyle]}
         >
           <Thumb style={thumbAnimatedStyle}></Thumb>
         </Track>

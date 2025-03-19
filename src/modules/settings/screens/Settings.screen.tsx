@@ -28,7 +28,6 @@ export const Settings = () => {
     <PageTemplate>
       <TopRightGradient />
       <PageTitleWithBack title={t`Settings`} />
-      <Divider />
       <Setting
         label={t`Units`}
         value={!isImperialEnabled}

@@ -100,8 +100,9 @@ const WheelContainer = styled(ScaledPressable)(({ theme }) => ({
   right: 20,
   padding: theme.spacings.m,
   borderRadius: theme.borderRadius.round,
-  shadowColor: theme.colors.contrast,
+  shadowColor: "black",
   shadowRadius: 8,
   shadowOpacity: 0.5,
   shadowOffset: { width: 4, height: 4 },
+  elevation: 4,
 }));

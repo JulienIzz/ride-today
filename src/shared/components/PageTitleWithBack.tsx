@@ -2,8 +2,10 @@ import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
 import { useNavigation } from "expo-router";
 import { ChevronLeft } from "lucide-react-native";
+import { View } from "react-native";
 
 import { ScaledPressable } from "#design-system/components/Button/ScaledPressable";
+import { Divider } from "#shared/components/Divider";
 import { Typography } from "#shared/fonts/Typography";
 
 interface TitleProps {
@@ -14,17 +16,20 @@ export const PageTitleWithBack = ({ title }: TitleProps) => {
   const theme = useTheme();
   const { goBack } = useNavigation();
   return (
-    <TitleContainer>
-      <BackContainer onPress={goBack}>
-        <ChevronLeft color={theme.colors.contrast} size={24} />
-      </BackContainer>
-      <Typography
-        variant="H1"
-        bold
-        color={theme.colors.contrastLight}
-        text={title}
-      />
-    </TitleContainer>
+    <View>
+      <TitleContainer>
+        <BackContainer onPress={goBack}>
+          <ChevronLeft color={theme.colors.contrast} size={24} />
+        </BackContainer>
+        <Typography
+          variant="H1"
+          bold
+          color={theme.colors.contrastLight}
+          text={title}
+        />
+      </TitleContainer>
+      <Divider />
+    </View>
   );
 };
 

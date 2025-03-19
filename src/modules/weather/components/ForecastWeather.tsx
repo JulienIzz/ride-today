@@ -15,6 +15,7 @@ import { formatToDisplayHour } from "#modules/weather/utils/formatToDisplayHour"
 import { Divider } from "#shared/components/Divider";
 import { Typography } from "#shared/fonts/Typography";
 import { getConditionsTranslation } from "#shared/i18n/getConditionsTranslation";
+import { shadowStyle } from "#shared/styling/shadowStyle";
 
 export const ForecastWeather = ({ location }: { location: string | null }) => {
   if (!location) {
@@ -22,10 +23,10 @@ export const ForecastWeather = ({ location }: { location: string | null }) => {
   }
 
   return (
-    <FlexView>
+    <Container>
       <Background style={absoluteFillStyle} />
       <ForecastWeatherData location={location} />
-    </FlexView>
+    </Container>
   );
 };
 
@@ -142,6 +143,11 @@ const EndOfDay = () => {
   );
 };
 
+const Container = styled(FlexView)(({ theme }) => ({
+  borderRadius: theme.borderRadius.xl,
+  boxShadow: shadowStyle,
+}));
+
 const ListContainer = styled.View(({ theme }) => ({
   flex: 1,
   gap: theme.spacings.s,
@@ -158,8 +164,8 @@ const ListHeaderContainer = styled.View(({ theme }) => ({
 }));
 
 const Background = styled.View(({ theme }) => ({
-  backgroundColor: theme.colors.componentBackground,
   borderRadius: theme.borderRadius.xl,
+  backgroundColor: theme.colors.componentBackground,
   opacity: 0.4,
 }));
 

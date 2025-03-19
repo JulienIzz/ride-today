@@ -2,6 +2,7 @@ import { useTheme } from "@emotion/react";
 import { MapPinned, Search } from "lucide-react-native";
 
 import { BigIconSwitch } from "#design-system/components/Switch/BigIconSwitch";
+import { shadowStyle } from "#shared/styling/shadowStyle";
 
 const toggleTrackStyle = {
   width: 120,
@@ -26,6 +27,7 @@ export const GeolocationToggle = ({
         left: theme.colors.componentBackground,
         right: theme.colors.componentBackground,
       }}
+      containerStyle={{ boxShadow: shadowStyle }}
       leftIcon={
         <Search
           color={

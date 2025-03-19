@@ -51,12 +51,12 @@ const darkThemeObject = {
 const lightThemeObject = {
   colors: {
     mainBackground: "#F5F5F5",
-    primary: "#D6420F",
+    primary: "#7F33FF",
     contrast: "#FFFFFF",
     contrastLight: "#000000",
     inactive: "#808080",
     disabled: "#333333",
-    componentBackground: "#C9C9C9",
+    componentBackground: "#F7F2FE",
     white: "#FFFFFF",
   },
   ...commonTheme,

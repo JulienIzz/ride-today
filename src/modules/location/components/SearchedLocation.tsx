@@ -12,6 +12,7 @@ import { useLocationStore } from "#modules/location/hooks/useLocationStore.hook"
 import { Spacer } from "#shared/components/Spacer";
 import { Typography } from "#shared/fonts/Typography";
 import { QueryErrorBoundary } from "#shared/infra/boundaries/QueryBoundary";
+import { shadowStyle } from "#shared/styling/shadowStyle";
 
 export const SearchedLocation = () => {
   const theme = useTheme();
@@ -50,13 +51,15 @@ export const SearchedLocation = () => {
 
   return (
     <Container entering={FadeInUp}>
-      <LocationInput
-        placeholder={t`Search location`}
-        value={search}
-        onChangeText={handleChangeText}
-        cursorColor={theme.colors.primary}
-        placeholderTextColor={theme.colors.contrastLight}
-      />
+      <LocationInputContainer>
+        <LocationInput
+          placeholder={t`Search location`}
+          value={search}
+          onChangeText={handleChangeText}
+          cursorColor={theme.colors.primary}
+          placeholderTextColor={theme.colors.contrastLight}
+        />
+      </LocationInputContainer>
       <QueryErrorBoundary
         errorFallback={<LocationError />}
         resetKeys={[location]}
@@ -82,15 +85,22 @@ const Container = styled(Animated.View)(({ theme }) => ({
   gap: theme.spacings.s,
 }));
 
-const LocationInput = styled(TextInput)(({ theme }) => ({
+const LocationInputContainer = styled.View(({ theme }) => ({
   width: 300,
   height: 40,
   justifyContent: "center",
-  textAlign: "center",
-  fontFamily: theme.fonts.regular,
+  alignItems: "center",
   padding: theme.spacings.xs,
   backgroundColor: theme.colors.componentBackground,
   borderRadius: theme.borderRadius.round,
+  fontSize: 16,
+  boxShadow: shadowStyle,
+}));
+
+const LocationInput = styled(TextInput)(({ theme }) => ({
+  flex: 1,
+  textAlign: "center",
+  fontFamily: theme.fonts.regular,
   color: theme.colors.contrastLight,
   fontSize: 16,
 }));
