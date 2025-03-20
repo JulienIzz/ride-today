@@ -4,6 +4,7 @@ import { t } from "@lingui/core/macro";
 import { Link } from "expo-router";
 import { Fragment } from "react";
 import Animated, { FadeIn, FadeInDown, FadeOut } from "react-native-reanimated";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { absoluteFillStyle } from "#design-system/utils/absoluteFillStyle";
 import { Divider } from "#shared/components/Divider";
@@ -52,12 +53,15 @@ export const MenuModal = ({ closeMenu }: MenuModalProps) => {
   );
 };
 
-const Container = styled(Animated.View)(({ theme }) => ({
-  justifyContent: "flex-end",
-  alignItems: "center",
-  paddingBottom: 100,
-  padding: theme.spacings.xl,
-}));
+const Container = styled(Animated.View)(({ theme }) => {
+  const { bottom } = useSafeAreaInsets();
+  return {
+    justifyContent: "flex-end",
+    alignItems: "center",
+    paddingBottom: 100 + bottom,
+    padding: theme.spacings.xl,
+  };
+});
 
 const ModalContainer = styled(Animated.View)(({ theme }) => ({
   width: "100%",

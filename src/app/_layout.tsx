@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useCallback } from "react";
-import { useColorScheme } from "react-native";
+import { StatusBar, useColorScheme } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { useMMKVBoolean, useMMKVString } from "react-native-mmkv";
 import { darkTheme, lightTheme } from "src/design-system/theme/theme";
@@ -41,6 +41,7 @@ export default function RootLayout() {
       <ThemeProvider theme={scheme === "dark" ? darkTheme : lightTheme}>
         <GestureHandlerRootView>
           <QueryClientProvider client={queryClient}>
+            <StatusBar hidden />
             <RootView onLayout={onLayoutRootView}>
               <RootStack />
             </RootView>
