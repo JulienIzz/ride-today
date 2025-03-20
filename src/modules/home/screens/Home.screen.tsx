@@ -24,5 +24,6 @@ export const Home = () => {
 const Container = styled.View(({ theme }) => ({
   flex: 1,
   paddingHorizontal: theme.spacings.m,
+  paddingBottom: theme.spacings.m,
   gap: theme.spacings.m,
 }));
