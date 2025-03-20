@@ -15,6 +15,7 @@ import { formatToDisplayHour } from "#modules/weather/utils/formatToDisplayHour"
 import { Divider } from "#shared/components/Divider";
 import { Typography } from "#shared/fonts/Typography";
 import { getConditionsTranslation } from "#shared/i18n/getConditionsTranslation";
+import { QueryErrorBoundary } from "#shared/infra/boundaries/QueryBoundary";
 import { shadowStyle } from "#shared/styling/shadowStyle";
 
 export const ForecastWeather = ({
@@ -27,10 +28,14 @@ export const ForecastWeather = ({
   }
 
   return (
-    <Container>
-      <Background style={absoluteFillStyle} />
-      <ForecastWeatherData location={location} />
-    </Container>
+    <FlexView>
+      <QueryErrorBoundary>
+        <Container>
+          <Background style={absoluteFillStyle} />
+          <ForecastWeatherData location={location} />
+        </Container>
+      </QueryErrorBoundary>
+    </FlexView>
   );
 };
 
