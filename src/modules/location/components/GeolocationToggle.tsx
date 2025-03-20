@@ -1,7 +1,7 @@
 import { useTheme } from "@emotion/react";
 import { MapPinned, Search } from "lucide-react-native";
 
-import { BigIconSwitch } from "#design-system/components/Switch/BigIconSwitch";
+import { ContentSwitch } from "#design-system/components/Switch/ContentSwitch";
 import { shadowStyle } from "#shared/styling/shadowStyle";
 
 const toggleTrackStyle = {
@@ -19,7 +19,7 @@ export const GeolocationToggle = ({
 }) => {
   const theme = useTheme();
   return (
-    <BigIconSwitch
+    <ContentSwitch
       value={isLocationEnabled}
       onPress={handleSwitch}
       trackStyle={toggleTrackStyle}
@@ -28,7 +28,7 @@ export const GeolocationToggle = ({
         right: theme.colors.componentBackground,
       }}
       containerStyle={{ boxShadow: shadowStyle }}
-      leftIcon={
+      leftComponent={
         <Search
           color={
             !isLocationEnabled ? theme.colors.contrast : theme.colors.inactive
@@ -36,7 +36,7 @@ export const GeolocationToggle = ({
           size={20}
         />
       }
-      rightIcon={
+      rightComponent={
         <MapPinned
           color={
             isLocationEnabled ? theme.colors.contrast : theme.colors.inactive

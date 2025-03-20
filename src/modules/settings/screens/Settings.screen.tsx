@@ -5,7 +5,7 @@ import { Canvas, LinearGradient, Rect, vec } from "@shopify/react-native-skia";
 import { Dimensions, View } from "react-native";
 import { useMMKVBoolean, useMMKVString } from "react-native-mmkv";
 
-import { TextSwitch } from "#design-system/components/Switch/TextSwitch";
+import { ContentSwitch } from "#design-system/components/Switch/ContentSwitch";
 import { absoluteFillStyle } from "#design-system/utils/absoluteFillStyle";
 import { PageTemplate } from "#modules/templates/components/PageTemplate";
 import { Divider } from "#shared/components/Divider";
@@ -74,6 +74,12 @@ const Setting = ({
 }) => {
   const theme = useTheme();
 
+  const trackStyle = {
+    width: 200,
+    height: 40,
+    padding: 5,
+  };
+
   return (
     <SettingContainer>
       <Typography
@@ -83,11 +89,16 @@ const Setting = ({
         text={label}
       />
       <View>
-        <TextSwitch
+        <ContentSwitch
           value={value}
           onPress={onToggleValue}
-          leftText={leftChoice}
-          rightText={rightChoice}
+          trackStyle={trackStyle}
+          leftComponent={
+            <Typography variant="P1" bold={!value} text={leftChoice} />
+          }
+          rightComponent={
+            <Typography variant="P1" bold={value} text={rightChoice} />
+          }
         />
       </View>
       {disabled && <DisabledView style={absoluteFillStyle} />}

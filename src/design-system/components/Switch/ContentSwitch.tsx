@@ -9,7 +9,7 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 
-type BigIconSwitchProps = {
+type ContentSwitch = {
   value: boolean;
   onPress: () => void;
   trackStyle?: {
@@ -20,11 +20,11 @@ type BigIconSwitchProps = {
   containerStyle?: Omit<ViewStyle, "height" | "width" | "padding">;
   duration?: number;
   trackColors?: { right: string; left: string };
-  leftIcon: React.JSX.Element;
-  rightIcon: React.JSX.Element;
+  leftComponent: React.JSX.Element;
+  rightComponent: React.JSX.Element;
 };
 
-export const BigIconSwitch = ({
+export const ContentSwitch = ({
   value,
   onPress,
   trackStyle = {
@@ -35,9 +35,9 @@ export const BigIconSwitch = ({
   containerStyle,
   duration = 300,
   trackColors = { right: "grey", left: "grey" },
-  leftIcon,
-  rightIcon,
-}: BigIconSwitchProps) => {
+  leftComponent: leftIcon,
+  rightComponent: rightIcon,
+}: ContentSwitch) => {
   const numberedValue = value ? 1 : 0;
   const height = useSharedValue(0);
   const width = useSharedValue(0);
