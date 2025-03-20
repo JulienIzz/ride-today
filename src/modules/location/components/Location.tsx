@@ -2,10 +2,8 @@ import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
 import { t } from "@lingui/core/macro";
 import { useState } from "react";
-import Animated from "react-native-reanimated";
 
 import { GeolocationToggle } from "#modules/location/components/GeolocationToggle";
-import { useLocationInputContainerStyle } from "#modules/location/hooks/useLocationInputContainerStyle";
 import { useSearchLocation } from "#modules/location/hooks/useSearchLocation";
 import { shadowStyle } from "#shared/styling/shadowStyle";
 
@@ -13,9 +11,6 @@ export const Location = () => {
   const theme = useTheme();
 
   const [isLocationEnabled, setLocationEnabled] = useState(false);
-
-  const { locationInputContainerStyle, setTotalWidth, setSwitchWidth } =
-    useLocationInputContainerStyle(isLocationEnabled);
 
   const { search, changeTextHandler, updateLocation } = useSearchLocation();
 
@@ -27,44 +22,48 @@ export const Location = () => {
   };
 
   return (
-    <Container onLayout={setTotalWidth}>
-      <LocationInputContainer style={locationInputContainerStyle}>
+    <Container>
+      <LocationInputContainer disabled={!isLocationEnabled}>
         <LocationInput
           placeholder={t`Search location`}
           value={search}
+          editable={!isLocationEnabled}
           onChangeText={changeTextHandler}
           cursorColor={theme.colors.primary}
           placeholderTextColor={theme.colors.contrastLight}
         />
       </LocationInputContainer>
-      <SwitchContainer onLayout={setSwitchWidth}>
-        <GeolocationToggle
-          isLocationEnabled={isLocationEnabled}
-          handleSwitch={handleSwitch}
-        />
-      </SwitchContainer>
+      <GeolocationToggle
+        isLocationEnabled={isLocationEnabled}
+        handleSwitch={handleSwitch}
+      />
     </Container>
   );
 };
 
-const Container = styled.View({
+const Container = styled.View(({ theme }) => ({
   width: "100%",
   alignItems: "center",
   justifyContent: "center",
   flexDirection: "row",
-});
-
-const SwitchContainer = styled.View();
-
-const LocationInputContainer = styled(Animated.View)(({ theme }) => ({
-  alignItems: "center",
-  justifyContent: "center",
-  height: 40,
-  padding: theme.spacings.xs,
-  backgroundColor: theme.colors.componentBackground,
-  borderRadius: theme.borderRadius.round,
-  boxShadow: shadowStyle,
+  gap: theme.spacings.m,
 }));
+
+const LocationInputContainer = styled.View<{ disabled: boolean }>(
+  ({ theme, disabled }) => ({
+    alignItems: "center",
+    justifyContent: "center",
+    flex: 1,
+    height: 40,
+    padding: theme.spacings.xs,
+    opacity: disabled ? 1 : 0.5,
+    backgroundColor: disabled
+      ? theme.colors.componentBackground
+      : theme.colors.inactive,
+    borderRadius: theme.borderRadius.round,
+    boxShadow: shadowStyle,
+  }),
+);
 
 const LocationInput = styled.TextInput(({ theme }) => ({
   width: "100%",

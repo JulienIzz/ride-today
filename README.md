@@ -8,12 +8,10 @@
 - Différents messages aléatoire pour la même notation de journée
 - Quid de si le tel de l'user est ni EN ni FR
 
-# Notes vrai device
+# Bugs
 
-- Flicker quand switch recherche/location => Faut vraiment refactor le stockage de la loc, séparer search et autoloc ?
-  (le coupable est sans doute le reset du store au switch)
 - Parfois des borders radius carrés ? (bug dev mode ?)
-- Refactor les animations de search/currentWeather => Trouver une homogénéisation ?
+- Par défaut en impérial ? Globalement : Gérer les cas par défaut des réglages
 
 # Bonus
 
