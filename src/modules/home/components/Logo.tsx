@@ -18,10 +18,6 @@ export const Logo = () => {
   );
 };
 
-const Container = styled.View(({ theme }) => ({
-  flexDirection: "row",
+const Container = styled.View({
   alignItems: "center",
-  justifyContent: "center",
-  gap: theme.spacings.s,
-  padding: theme.spacings.s,
-}));
+});
