@@ -1,3 +1,4 @@
+import styled from "@emotion/native";
 import { memo } from "react";
 
 import { FlexView } from "#design-system/utils/FlexView";
@@ -14,7 +15,7 @@ export const Weather = memo(() => {
   const location = useLocationStore((state) => state.location);
 
   return (
-    <FlexView>
+    <Container>
       <QueryErrorBoundary
         resetKeys={[location]}
         loadingFallback={<WeatherLocationLoading />}
@@ -23,7 +24,11 @@ export const Weather = memo(() => {
         <CurrentWeather location={location} />
         <ForecastWeather location={location} />
       </QueryErrorBoundary>
-    </FlexView>
+    </Container>
   );
 });
 Weather.displayName = "Weather";
+
+const Container = styled(FlexView)(({ theme }) => ({
+  gap: theme.spacings.m,
+}));
