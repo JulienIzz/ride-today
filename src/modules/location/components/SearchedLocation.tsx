@@ -98,7 +98,8 @@ const LocationInputContainer = styled.View(({ theme }) => ({
 }));
 
 const LocationInput = styled(TextInput)(({ theme }) => ({
-  flex: 1,
+  width: "100%",
+  height: "100%",
   textAlign: "center",
   fontFamily: theme.fonts.regular,
   color: theme.colors.contrastLight,
