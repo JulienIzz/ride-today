@@ -1,4 +1,5 @@
 import styled from "@emotion/native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { HomeGradients } from "#modules/home/components/HomeGradient";
 import { Logo } from "#modules/home/components/Logo";
@@ -21,9 +22,13 @@ export const Home = () => {
   );
 };
 
-const Container = styled.View(({ theme }) => ({
-  flex: 1,
-  paddingHorizontal: theme.spacings.m,
-  paddingBottom: theme.spacings.m,
-  gap: theme.spacings.m,
-}));
+const Container = styled.View(({ theme }) => {
+  const { top } = useSafeAreaInsets();
+  return {
+    flex: 1,
+    paddingHorizontal: theme.spacings.m,
+    paddingBottom: theme.spacings.m,
+    paddingTop: top ? 0 : theme.spacings.m,
+    gap: theme.spacings.m,
+  };
+});
