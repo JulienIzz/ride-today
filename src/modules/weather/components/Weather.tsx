@@ -2,6 +2,7 @@ import styled from "@emotion/native";
 import { memo } from "react";
 
 import { FlexView } from "#design-system/utils/FlexView";
+import { LocationDisplay } from "#modules/location/components/LocationDisplay";
 import { useLocationStore } from "#modules/location/hooks/useLocationStore.hook";
 import { CurrentWeather } from "#modules/weather/components/CurrentWeather";
 import {
@@ -21,6 +22,7 @@ export const Weather = memo(() => {
         loadingFallback={<WeatherLocationLoading />}
         errorFallback={<WeatherLocationMissing />}
       >
+        <LocationDisplay />
         <CurrentWeather location={location} />
         <ForecastWeather location={location} />
       </QueryErrorBoundary>

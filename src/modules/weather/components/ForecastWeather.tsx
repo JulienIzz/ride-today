@@ -17,7 +17,11 @@ import { Typography } from "#shared/fonts/Typography";
 import { getConditionsTranslation } from "#shared/i18n/getConditionsTranslation";
 import { shadowStyle } from "#shared/styling/shadowStyle";
 
-export const ForecastWeather = ({ location }: { location: string | null }) => {
+export const ForecastWeather = ({
+  location,
+}: {
+  location: string | undefined;
+}) => {
   if (!location) {
     return null;
   }

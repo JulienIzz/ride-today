@@ -16,7 +16,11 @@ import { useUnitSystem } from "#modules/weather/hooks/useUnitSystem";
 import { Typography } from "#shared/fonts/Typography";
 import { getConditionsTranslation } from "#shared/i18n/getConditionsTranslation";
 
-export const CurrentWeather = ({ location }: { location: string | null }) => {
+export const CurrentWeather = ({
+  location,
+}: {
+  location: string | undefined;
+}) => {
   if (!location) return <WeatherLocationMissing />;
 
   return (

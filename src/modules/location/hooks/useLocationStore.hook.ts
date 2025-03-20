@@ -1,18 +1,11 @@
 import { create } from "zustand";
 
 interface LocationStore {
-  location: string | null;
-  searchedLocation: string | null;
-  setLocation: (location: string) => void;
-  setSearchedLocation: (location: string) => void;
-  clearLocation: () => void;
+  location: string | undefined;
+  setLocation: (location: string | undefined) => void;
 }
 
 export const useLocationStore = create<LocationStore>((set) => ({
-  location: null,
-  searchedLocation: null,
-  setLocation: (location: string) => set({ location }),
-  setSearchedLocation: (location: string) =>
-    set({ searchedLocation: location }),
-  clearLocation: () => set({ location: null }),
+  location: undefined,
+  setLocation: (location) => set({ location }),
 }));
