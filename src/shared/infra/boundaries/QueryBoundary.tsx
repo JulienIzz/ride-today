@@ -6,6 +6,7 @@ import { type PropsWithChildren, Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { ActivityIndicator } from "react-native";
 
+import { absoluteFillStyle } from "#design-system/utils/absoluteFillStyle";
 import { Typography } from "#shared/fonts/Typography";
 
 interface Props {
@@ -69,7 +70,7 @@ const ErrorFallback = () => {
 };
 
 const CenteredView = styled.View({
-  flex: 1,
   justifyContent: "center",
   alignItems: "center",
+  ...absoluteFillStyle,
 });
