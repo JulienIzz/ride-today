@@ -123,6 +123,7 @@ const WeatherContainer = styled.View(({ theme }) => ({
 
 const SideContainer = styled.View(({ theme }) => ({
   flex: 1,
+  height: 125,
   gap: theme.spacings.s,
 }));
 

@@ -47,13 +47,15 @@ export const WeatherNotation = ({
           />
         ))}
       </Ranking>
-      <Message
-        variant="P2"
-        color={theme.colors.contrastLight}
-        text={t({
-          message: `${notationDetails[conditionNotation].message}`,
-        })}
-      />
+      <Message>
+        <MessageText
+          variant="P2"
+          color={theme.colors.contrastLight}
+          text={t({
+            message: `${notationDetails[conditionNotation].message}`,
+          })}
+        />
+      </Message>
     </Container>
   );
 };
@@ -64,7 +66,7 @@ const Container = styled(FlexView)(({ theme }) => ({
   paddingHorizontal: theme.spacings.m,
   paddingVertical: theme.spacings.s,
   backgroundColor: theme.colors.componentBackground,
-  justifyContent: "center",
+  justifyContent: "flex-start",
   alignItems: "center",
   transform: [{ translateY: 2 }],
 }));
@@ -93,7 +95,13 @@ const RankPill = styled.View<{ enabled: boolean; notation: ConditionNotation }>(
   }),
 );
 
-const Message = styled(Typography)({
+const Message = styled.View({
+  flex: 1,
+  justifyContent: "center",
+  alignItems: "center",
+});
+
+const MessageText = styled(Typography)({
   textAlign: "center",
 });
 
