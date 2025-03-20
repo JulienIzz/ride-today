@@ -8,7 +8,6 @@ import { View } from "react-native";
 import { FlexView } from "#design-system/utils/FlexView";
 import {
   CurrentWeatherContainer,
-  WeatherLocationLoading,
   WeatherLocationMissing,
 } from "#modules/weather/components/CurrentWeatherContainer";
 import { WeatherNotation } from "#modules/weather/components/WeatherNotation";
@@ -26,15 +25,14 @@ export const CurrentWeather = ({
   if (!location) return <WeatherLocationMissing />;
 
   return (
-    <QueryErrorBoundary
-      resetKeys={[location]}
-      loadingFallback={<WeatherLocationLoading />}
-      errorFallback={<WeatherLocationMissing />}
-    >
-      <CurrentWeatherContainer>
+    <CurrentWeatherContainer>
+      <QueryErrorBoundary
+        resetKeys={[location]}
+        errorFallback={<WeatherLocationMissing />}
+      >
         <CurrentWeatherData location={location} />
-      </CurrentWeatherContainer>
-    </QueryErrorBoundary>
+      </QueryErrorBoundary>
+    </CurrentWeatherContainer>
   );
 };
 
