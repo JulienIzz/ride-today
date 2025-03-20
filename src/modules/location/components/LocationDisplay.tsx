@@ -2,20 +2,29 @@ import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
 import { t } from "@lingui/core/macro";
 import { MapPin, RectangleEllipsis } from "lucide-react-native";
+import { ActivityIndicator } from "react-native";
 
-import { useLocationStore } from "#modules/location/hooks/useLocationStore.hook";
 import { useWeather } from "#modules/weather/hooks/useCurrentWeather.query";
 import { Spacer } from "#shared/components/Spacer";
 import { Typography } from "#shared/fonts/Typography";
+import { QueryErrorBoundary } from "#shared/infra/boundaries/QueryBoundary";
 
-export const LocationDisplay = () => {
-  const location = useLocationStore((state) => state.location);
-
+export const LocationDisplay = ({
+  location,
+}: {
+  location: string | undefined;
+}) => {
   if (!location) {
     return <LocationMissing />;
   }
 
-  return <LocationDisplayComponent location={location} />;
+  return (
+    <SizeWrapper>
+      <QueryErrorBoundary loadingFallback={<LoadingLocation />}>
+        <LocationDisplayComponent location={location} />
+      </QueryErrorBoundary>
+    </SizeWrapper>
+  );
 };
 
 const LocationDisplayComponent = ({ location }: { location: string }) => {
@@ -43,6 +52,16 @@ const LocationDisplayComponent = ({ location }: { location: string }) => {
   );
 };
 
+const LoadingLocation = () => {
+  return (
+    <Container>
+      <ActivityIndicator size={"small"} />
+      <Spacer size={4} horizontal />
+      <ContrastLightTypography variant="P1" text={t`Loading location`} />
+    </Container>
+  );
+};
+
 const LocationMissing = () => {
   const theme = useTheme();
   return (
@@ -63,3 +82,9 @@ const Container = styled.View({
 const ContrastLightTypography = styled(Typography)(({ theme }) => ({
   color: theme.colors.contrastLight,
 }));
+
+const SizeWrapper = styled.View({
+  height: 24,
+  justifyContent: "center",
+  alignItems: "center",
+});

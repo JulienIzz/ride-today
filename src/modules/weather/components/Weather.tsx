@@ -17,12 +17,12 @@ export const Weather = memo(() => {
 
   return (
     <Container>
+      <LocationDisplay location={location} />
       <QueryErrorBoundary
         resetKeys={[location]}
         loadingFallback={<WeatherLocationLoading />}
         errorFallback={<WeatherLocationMissing />}
       >
-        <LocationDisplay />
         <CurrentWeather location={location} />
         <ForecastWeather location={location} />
       </QueryErrorBoundary>
