@@ -38,12 +38,13 @@ const darkThemeObject = {
   colors: {
     mainBackground: "#1F1F1F",
     primary: "#C8FF33",
+    complementary: "#7F33FF",
     contrast: "#000000",
     contrastLight: "#FFFFFF",
     inactive: "#808080",
     disabled: "#333333",
     componentBackground: "#313131",
-    white: "#FFFFFF",
+    error: "#FF3333",
   },
   ...commonTheme,
 };
@@ -52,12 +53,13 @@ const lightThemeObject = {
   colors: {
     mainBackground: "#F5F5F5",
     primary: "#7F33FF",
+    complementary: "#C8FF33",
     contrast: "#FFFFFF",
     contrastLight: "#000000",
     inactive: "#808080",
     disabled: "#333333",
     componentBackground: "#F7F2FE",
-    white: "#FFFFFF",
+    error: "#FF3333",
   },
   ...commonTheme,
 };
