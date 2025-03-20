@@ -25,12 +25,12 @@ const commonTheme = {
     xl: 20,
     "2xl": 24,
     "3xl": 32,
-    tagline: 40,
+    tagline: 32,
   },
   fonts: {
     regular: "Montserrat_400Regular",
     semiBold: "Montserrat_600SemiBold",
-    bold: "Montserrat_700Bold",
+    bold: "Montserrat_800ExtraBold_Italic",
   },
 } as const;
 

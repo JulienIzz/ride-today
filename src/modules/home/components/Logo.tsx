@@ -8,16 +8,15 @@ export const Logo = () => {
   const theme = useTheme();
 
   return (
-    <Container>
-      <Typography
-        color={theme.colors.contrastLight}
-        variant="tagline"
-        text={t`RIDE TODAY`}
-      />
-    </Container>
+    <TagLine
+      color={theme.colors.contrastLight}
+      variant="tagline"
+      text={t`RIDE TODAY`}
+    />
   );
 };
 
-const Container = styled.View({
-  alignItems: "center",
+const TagLine = styled(Typography)({
+  width: "100%",
+  textAlign: "center",
 });
