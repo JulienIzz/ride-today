@@ -14,15 +14,16 @@ import { Typography } from "#shared/fonts/Typography";
 import { storage, StorageKeys } from "#shared/mmkv/store";
 
 export const Settings = () => {
-  const [isImperialEnabled, setIsImperialEnabled] = useMMKVBoolean(
+  const [isImperialEnabled = false, setIsImperialEnabled] = useMMKVBoolean(
     StorageKeys.IS_IMPERIAL_ENABLED,
     storage,
   );
-  const [isCustomThemeEnabled, setIsCustomThemeEnabled] = useMMKVBoolean(
-    StorageKeys.IS_CUSTOM_THEME_ENABLED,
+  const [isCustomThemeEnabled = false, setIsCustomThemeEnabled] =
+    useMMKVBoolean(StorageKeys.IS_CUSTOM_THEME_ENABLED, storage);
+  const [theme = "dark", setTheme] = useMMKVString(
+    StorageKeys.CUSTOM_THEME,
     storage,
   );
-  const [theme, setTheme] = useMMKVString(StorageKeys.CUSTOM_THEME, storage);
 
   return (
     <PageTemplate>

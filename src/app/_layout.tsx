@@ -54,11 +54,11 @@ export default function RootLayout() {
 
 const useThemeScheme = () => {
   const scheme = useColorScheme();
-  const [isCustomThemeEnabled] = useMMKVBoolean(
+  const [isCustomThemeEnabled = false] = useMMKVBoolean(
     StorageKeys.IS_CUSTOM_THEME_ENABLED,
     storage,
   );
-  const [theme] = useMMKVString(StorageKeys.CUSTOM_THEME, storage);
+  const [theme = "dark"] = useMMKVString(StorageKeys.CUSTOM_THEME, storage);
 
   if (isCustomThemeEnabled) {
     return theme;
