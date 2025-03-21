@@ -157,10 +157,9 @@ const Container = styled(FlexView)(({ theme }) => ({
   boxShadow: shadowStyle,
 }));
 
-const ListContainer = styled.View(({ theme }) => ({
+const ListContainer = styled.View({
   flex: 1,
-  gap: theme.spacings.s,
-}));
+});
 
 const HoursContainer = styled.View(({ theme }) => ({
   paddingHorizontal: theme.spacings.m,
@@ -170,6 +169,7 @@ const HoursContainer = styled.View(({ theme }) => ({
 const ListHeaderContainer = styled.View(({ theme }) => ({
   paddingTop: theme.spacings.m,
   paddingHorizontal: theme.spacings.m,
+  marginBottom: theme.spacings.s,
 }));
 
 const Background = styled.View(({ theme }) => ({
