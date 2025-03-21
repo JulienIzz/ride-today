@@ -4,7 +4,7 @@ import { MapPinOff } from "lucide-react-native";
 import { shadowStyle } from "#shared/styling/shadowStyle";
 
 export const CurrentWeatherContainer = styled.View(({ theme }) => ({
-  height: 250,
+  height: 265,
   width: "100%",
   backgroundColor: theme.colors.primary,
   borderRadius: theme.borderRadius.xl,
