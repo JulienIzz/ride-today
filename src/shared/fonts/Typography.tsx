@@ -1,6 +1,6 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
-import type { ColorValue, TextStyle } from "react-native";
+import type { ColorValue, TextProps, TextStyle } from "react-native";
 
 const Text = styled.Text<{
   fontSize: number;
@@ -24,7 +24,7 @@ type Props = {
   style?: TextStyle;
   color?: ColorValue;
   bold?: boolean;
-};
+} & TextProps;
 
 export const Typography = ({ variant, text, ...props }: Props) => {
   const theme = useTheme();

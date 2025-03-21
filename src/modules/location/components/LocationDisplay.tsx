@@ -34,20 +34,11 @@ const LocationDisplayComponent = ({ location }: { location: string }) => {
   return (
     <Container>
       <MapPin color={theme.colors.contrastLight} />
-      <Spacer size={4} horizontal />
-      <ContrastLightTypography variant="P1" text={`${currentLocation.name}`} />
-      {currentLocation.region ? (
-        <ContrastLightTypography
-          variant="P1"
-          text={`, ${currentLocation.region}`}
-        />
-      ) : null}
-      {currentLocation.country ? (
-        <ContrastLightTypography
-          variant="P1"
-          text={`, ${currentLocation.country}`}
-        />
-      ) : null}
+      <ContrastLightTypography
+        variant="P1"
+        numberOfLines={1}
+        text={`${currentLocation.name}, ${currentLocation.region}, ${currentLocation.country}`}
+      />
     </Container>
   );
 };
@@ -73,11 +64,12 @@ const LocationMissing = () => {
   );
 };
 
-const Container = styled.View({
+const Container = styled.View(({ theme }) => ({
   flexDirection: "row",
   alignItems: "center",
   justifyContent: "center",
-});
+  gap: theme.spacings.xs,
+}));
 
 const ContrastLightTypography = styled(Typography)(({ theme }) => ({
   color: theme.colors.contrastLight,
@@ -85,6 +77,4 @@ const ContrastLightTypography = styled(Typography)(({ theme }) => ({
 
 const SizeWrapper = styled.View({
   height: 24,
-  justifyContent: "center",
-  alignItems: "center",
 });
