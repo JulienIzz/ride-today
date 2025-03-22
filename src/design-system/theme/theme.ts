@@ -10,10 +10,11 @@ const commonTheme = {
   },
   borderRadius: {
     none: 0,
-    s: 2,
-    m: 4,
-    l: 8,
-    xl: 16,
+    xs: 4,
+    s: 8,
+    m: 16,
+    l: 24,
+    xl: 32,
     round: 9999,
   },
   fontSizes: {

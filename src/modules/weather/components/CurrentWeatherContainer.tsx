@@ -7,7 +7,7 @@ export const CurrentWeatherContainer = styled.View(({ theme }) => ({
   height: 265,
   width: "100%",
   backgroundColor: theme.colors.primary,
-  borderRadius: theme.borderRadius.xl,
+  borderRadius: theme.borderRadius.m,
   boxShadow: shadowStyle,
 }));
 

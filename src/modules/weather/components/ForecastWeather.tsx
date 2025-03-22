@@ -153,7 +153,7 @@ const EndOfDay = () => {
 };
 
 const Container = styled(FlexView)(({ theme }) => ({
-  borderRadius: theme.borderRadius.xl,
+  borderRadius: theme.borderRadius.m,
   boxShadow: shadowStyle,
 }));
 
@@ -173,7 +173,7 @@ const ListHeaderContainer = styled.View(({ theme }) => ({
 }));
 
 const Background = styled.View(({ theme }) => ({
-  borderRadius: theme.borderRadius.xl,
+  borderRadius: theme.borderRadius.m,
   backgroundColor: theme.colors.componentBackground,
   opacity: 0.4,
 }));

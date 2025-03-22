@@ -66,7 +66,7 @@ const Container = styled(Animated.View)(({ theme }) => {
 const ModalContainer = styled(Animated.View)(({ theme }) => ({
   width: "100%",
   backgroundColor: theme.colors.componentBackground,
-  borderRadius: theme.borderRadius.xl,
+  borderRadius: theme.borderRadius.m,
   alignItems: "center",
 }));
 

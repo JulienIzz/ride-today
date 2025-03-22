@@ -67,7 +67,7 @@ export const WeatherNotation = ({
 
 const Container = styled(FlexView)(({ theme }) => ({
   gap: theme.spacings.s,
-  borderRadius: theme.borderRadius.xl,
+  borderRadius: theme.borderRadius.m,
   padding: theme.spacings.m,
   backgroundColor: theme.colors.componentBackground,
   justifyContent: "flex-start",
