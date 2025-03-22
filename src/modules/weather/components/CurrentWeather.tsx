@@ -125,7 +125,6 @@ const SideContainer = styled.View(({ theme }) => ({
   flex: 1,
   height: 125,
   gap: theme.spacings.s,
-  justifyContent: "space-between",
 }));
 
 const TemperatureContainer = styled.View(({ theme }) => ({

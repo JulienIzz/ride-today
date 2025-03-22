@@ -81,15 +81,15 @@ export const conditionNotations = [
   },
   {
     code: 1186,
-    notation: 2,
+    notation: 3,
   },
   {
     code: 1189,
-    notation: 2,
+    notation: 3,
   },
   {
     code: 1192,
-    notation: 1,
+    notation: 2,
   },
   {
     code: 1195,
