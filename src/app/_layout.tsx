@@ -9,6 +9,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { useMMKVBoolean, useMMKVString } from "react-native-mmkv";
 import { darkTheme, lightTheme } from "src/design-system/theme/theme";
 
+import { GlobalModal } from "#modules/modal/GlobalModal";
 import { useAppIsReady } from "#shared/config/useAppIsReady.hook";
 import { I18nProvider } from "#shared/i18n/I18n.provider";
 import { storage, StorageKeys } from "#shared/mmkv/store";
@@ -44,6 +45,7 @@ export default function RootLayout() {
             <StatusBar hidden />
             <RootView onLayout={onLayoutRootView}>
               <RootStack />
+              <GlobalModal />
             </RootView>
           </QueryClientProvider>
         </GestureHandlerRootView>

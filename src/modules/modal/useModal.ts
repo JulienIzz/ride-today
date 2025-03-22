@@ -1,0 +1,34 @@
+import { create } from "zustand";
+
+type Modal = "rideScore" | undefined;
+
+export type GlobalModalStore = {
+  isVisible: boolean;
+  modal: Modal;
+  actions: {
+    showRideScoreModal: () => void;
+    hideModal: () => void;
+  };
+};
+
+export const useGlobalModalStore = create<GlobalModalStore>((set) => ({
+  isVisible: false,
+  modal: undefined,
+  actions: {
+    showRideScoreModal: () => set({ isVisible: true, modal: "rideScore" }),
+    hideModal: () => set({ isVisible: false, modal: undefined }),
+  },
+}));
+
+export const useGlobalModal = () => {
+  const isVisible = useGlobalModalStore((state) => state.isVisible);
+  const modal = useGlobalModalStore((state) => state.modal);
+
+  return {
+    isVisible,
+    modal,
+  };
+};
+
+export const useGlobalModalActions = () =>
+  useGlobalModalStore((state) => state.actions);

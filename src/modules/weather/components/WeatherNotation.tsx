@@ -4,6 +4,7 @@ import { t } from "@lingui/core/macro";
 import { BadgeInfo } from "lucide-react-native";
 
 import { FlexView } from "#design-system/utils/FlexView";
+import { useGlobalModalActions } from "#modules/modal/useModal";
 import type { ConditionNotation } from "#modules/weather/types/weather.types";
 import { Spacer } from "#shared/components/Spacer";
 import { Typography } from "#shared/fonts/Typography";
@@ -14,6 +15,9 @@ export const WeatherNotation = ({
   conditionNotation: ConditionNotation | undefined;
 }) => {
   const theme = useTheme();
+
+  const { showRideScoreModal } = useGlobalModalActions();
+
   if (conditionNotation === undefined) return null;
 
   return (
@@ -27,6 +31,7 @@ export const WeatherNotation = ({
         />
         <BadgeInfo
           color={theme.colors.contrastLight}
+          onPress={showRideScoreModal}
           size={14}
           strokeWidth={3}
         />
