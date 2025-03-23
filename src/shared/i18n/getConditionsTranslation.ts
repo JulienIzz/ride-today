@@ -11,11 +11,12 @@ export const getConditionsTranslation = (
   const conditions: Conditions = conditionsJSON;
   const localeCode = i18n.locale;
 
-  const condition = conditions
-    ?.find((cdt) => cdt.code === conditionCode)
-    ?.languages.find((language) => language.lang_iso === localeCode)?.[
-    isDay ? "day_text" : "night_text"
-  ];
+  const condition = conditions?.find((cdt) => cdt.code === conditionCode);
 
-  return condition;
+  const conditionText =
+    condition?.languages.find((language) => language.lang_iso === localeCode)?.[
+      isDay ? "day_text" : "night_text"
+    ] ?? condition?.[isDay ? "day" : "night"];
+
+  return conditionText;
 };
