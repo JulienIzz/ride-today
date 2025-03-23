@@ -1,9 +1,9 @@
+import { conditionNotations } from "#modules/rideScore/utils/notationMapping";
 import type { WeatherDto } from "#modules/weather/types/weather.dto.types";
 import type {
   ConditionNotation,
   Weather,
 } from "#modules/weather/types/weather.types";
-import { conditionNotations } from "#modules/weather/utils/notationMapping";
 
 export const adaptWeather = (currentWeatherDto: WeatherDto): Weather => {
   return {

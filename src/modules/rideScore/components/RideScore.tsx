@@ -9,7 +9,7 @@ import type { ConditionNotation } from "#modules/weather/types/weather.types";
 import { Spacer } from "#shared/components/Spacer";
 import { Typography } from "#shared/fonts/Typography";
 
-export const WeatherNotation = ({
+export const RideScore = ({
   conditionNotation,
 }: {
   conditionNotation: ConditionNotation | undefined;
@@ -109,7 +109,7 @@ const MessageText = styled(Typography)({
   textAlign: "center",
 });
 
-const notationDetails = {
+export const notationDetails = {
   0: {
     color: undefined,
     message: t`Very risky. Ride only if absolutely necessary.`,
