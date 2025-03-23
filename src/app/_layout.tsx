@@ -77,7 +77,7 @@ const RootStack = () => {
       screenOptions={{
         headerShown: false,
         contentStyle: {
-          backgroundColor: theme.colors.mainBackground,
+          backgroundColor: theme.colors.appBackground,
         },
       }}
     />

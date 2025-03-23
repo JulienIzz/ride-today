@@ -37,30 +37,44 @@ const commonTheme = {
 
 const darkThemeObject = {
   colors: {
-    mainBackground: "#1F1F1F",
+    appBackground: "#1F1F1F",
     primary: "#C8FF33",
-    complementary: "#7F33FF",
     contrast: "#000000",
     contrastLight: "#FFFFFF",
     inactive: "#808080",
     disabled: "#333333",
     componentBackground: "#313131",
     error: "#FF3333",
+    rideScore: {
+      0: "#000000",
+      1: "#cc3232",
+      2: "#db7b2b",
+      3: "#e7b416",
+      4: "#99c140",
+      5: "#2dc937",
+    },
   },
   ...commonTheme,
 };
 
 const lightThemeObject = {
   colors: {
-    mainBackground: "#F5F5F5",
+    appBackground: "#F5F5F5",
     primary: "#7F33FF",
-    complementary: "#C8FF33",
     contrast: "#FFFFFF",
     contrastLight: "#000000",
     inactive: "#808080",
     disabled: "#333333",
     componentBackground: "#F7F2FE",
     error: "#FF3333",
+    rideScore: {
+      0: "#D6D2DC",
+      1: "#cc3232",
+      2: "#db7b2b",
+      3: "#e7b416",
+      4: "#99c140",
+      5: "#2dc937",
+    },
   },
   ...commonTheme,
 };

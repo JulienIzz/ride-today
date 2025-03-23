@@ -5,6 +5,7 @@ import { BadgeInfo } from "lucide-react-native";
 
 import { FlexView } from "#design-system/utils/FlexView";
 import { useGlobalModalActions } from "#modules/modal/useModal";
+import { useRideScoreDetails } from "#modules/rideScore/utils/rideScoreDetails";
 import type { ConditionNotation } from "#modules/weather/types/weather.types";
 import { Spacer } from "#shared/components/Spacer";
 import { Typography } from "#shared/fonts/Typography";
@@ -15,6 +16,8 @@ export const RideScore = ({
   conditionNotation: ConditionNotation | undefined;
 }) => {
   const theme = useTheme();
+
+  const rideScoreDetails = useRideScoreDetails();
 
   const { showRideScoreModal } = useGlobalModalActions();
 
@@ -57,7 +60,7 @@ export const RideScore = ({
           variant="P2"
           color={theme.colors.contrastLight}
           text={t({
-            message: `${notationDetails[conditionNotation].message}`,
+            message: `${rideScoreDetails[conditionNotation].catchPhrase}`,
           })}
         />
       </Message>
@@ -90,12 +93,12 @@ const Ranking = styled.View(({ theme }) => ({
 const RankPill = styled.View<{ enabled: boolean; notation: ConditionNotation }>(
   ({ theme, enabled, notation }) => ({
     backgroundColor: enabled
-      ? notationDetails[notation].color
-      : theme.colors.contrast,
+      ? theme.colors.rideScore[notation]
+      : theme.colors.rideScore[0],
     borderRadius: theme.borderRadius.round,
     flex: 1,
     height: 10,
-    opacity: enabled ? 1 : 0.5,
+    opacity: enabled ? 1 : 0.7,
   }),
 );
 
@@ -108,30 +111,3 @@ const Message = styled.View({
 const MessageText = styled(Typography)({
   textAlign: "center",
 });
-
-export const notationDetails = {
-  0: {
-    color: undefined,
-    message: t`Very risky. Ride only if absolutely necessary.`,
-  },
-  1: {
-    color: "#cc3232",
-    message: t`Severely hazardous, better to stay off the road.`,
-  },
-  2: {
-    color: "#db7b2b",
-    message: t`Challenging conditions, stay sharp and be prepared.`,
-  },
-  3: {
-    color: "#e7b416",
-    message: t`Manageable, ride carefully and watch for trouble.`,
-  },
-  4: {
-    color: "#99c140",
-    message: t`Favorable weather. Expect a decent, comfortable ride.`,
-  },
-  5: {
-    color: "#2dc937",
-    message: t`Ideal condition ! Hit the road and enjoy!`,
-  },
-};

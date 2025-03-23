@@ -13,10 +13,10 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#. placeholder {0}: notationDetails[conditionNotation].message
 #. placeholder {0}: hour.temp[unitSystem]
-#: src/modules/weather/components/WeatherNotation.tsx:53
+#. placeholder {0}: rideScoreDetails[conditionNotation].catchPhrase
 #: src/modules/weather/components/ForecastWeather.tsx:116
+#: src/modules/rideScore/components/RideScore.tsx:62
 msgid "{0}"
 msgstr "{0}"
 
@@ -25,11 +25,15 @@ msgstr "{0}"
 msgid "About"
 msgstr "About"
 
+#: src/modules/modal/modals/RideScoreModal.tsx:32
+msgid "About the RideScore"
+msgstr "About the RideScore"
+
 #: src/shared/infra/boundaries/QueryBoundary.tsx:66
 msgid "An error has occurred"
 msgstr "An error has occurred"
 
-#: src/modules/weather/components/WeatherNotation.tsx:111
+#: src/modules/rideScore/utils/rideScoreDetails.ts:22
 msgid "Challenging conditions, stay sharp and be prepared."
 msgstr "Challenging conditions, stay sharp and be prepared."
 
@@ -38,59 +42,59 @@ msgstr "Challenging conditions, stay sharp and be prepared."
 msgid "Cloud : {0}"
 msgstr "Cloud : {0}"
 
-#: src/modules/settings/screens/Settings.screen.tsx:44
+#: src/modules/settings/screens/Settings.screen.tsx:45
 msgid "Custom"
 msgstr "Custom"
 
-#: src/modules/settings/screens/Settings.screen.tsx:51
+#: src/modules/settings/screens/Settings.screen.tsx:52
 msgid "Dark"
 msgstr "Dark"
 
-#: src/modules/settings/screens/Settings.screen.tsx:40
+#: src/modules/settings/screens/Settings.screen.tsx:41
 msgid "Dark/Light theme"
 msgstr "Dark/Light theme"
 
-#: src/modules/weather/components/CurrentWeather.tsx:108
+#: src/modules/weather/components/CurrentWeather.tsx:106
 msgid "Day"
 msgstr "Day"
 
-#: src/modules/weather/components/WeatherNotation.tsx:119
+#: src/modules/rideScore/utils/rideScoreDetails.ts:32
 msgid "Favorable weather. Expect a decent, comfortable ride."
 msgstr "Favorable weather. Expect a decent, comfortable ride."
 
 #. placeholder {0}: currentWeather.feelslike[unitSystem]
-#: src/modules/weather/components/CurrentWeather.tsx:63
+#: src/modules/weather/components/CurrentWeather.tsx:61
 msgid "Feelslike {0}"
 msgstr "Feelslike {0}"
 
 #. placeholder {0}: hour.humidity
 #. placeholder {0}: currentWeather.humidity
 #: src/modules/weather/components/ForecastWeather.tsx:130
-#: src/modules/weather/components/CurrentWeather.tsx:77
+#: src/modules/weather/components/CurrentWeather.tsx:75
 msgid "Humidity : {0}"
 msgstr "Humidity : {0}"
 
-#: src/modules/weather/components/WeatherNotation.tsx:123
+#: src/modules/rideScore/utils/rideScoreDetails.ts:37
 msgid "Ideal condition ! Hit the road and enjoy!"
 msgstr "Ideal condition ! Hit the road and enjoy!"
 
-#: src/modules/settings/screens/Settings.screen.tsx:36
+#: src/modules/settings/screens/Settings.screen.tsx:37
 msgid "Imperial"
 msgstr "Imperial"
 
-#: src/modules/settings/screens/Settings.screen.tsx:52
+#: src/modules/settings/screens/Settings.screen.tsx:53
 msgid "Light"
 msgstr "Light"
 
-#: src/modules/location/components/LocationDisplay.tsx:60
+#: src/modules/location/components/LocationDisplay.tsx:51
 msgid "Loading location"
 msgstr "Loading location"
 
-#: src/modules/weather/components/WeatherNotation.tsx:115
+#: src/modules/rideScore/utils/rideScoreDetails.ts:27
 msgid "Manageable, ride carefully and watch for trouble."
 msgstr "Manageable, ride carefully and watch for trouble."
 
-#: src/modules/settings/screens/Settings.screen.tsx:35
+#: src/modules/settings/screens/Settings.screen.tsx:36
 msgid "Metric"
 msgstr "Metric"
 
@@ -98,12 +102,12 @@ msgstr "Metric"
 msgid "Next hours"
 msgstr "Next hours"
 
-#: src/modules/weather/components/CurrentWeather.tsx:109
+#: src/modules/weather/components/CurrentWeather.tsx:107
 msgid "Night"
 msgstr "Night"
 
 #. placeholder {0}: currentWeather.precip[unitSystem]
-#: src/modules/weather/components/CurrentWeather.tsx:93
+#: src/modules/weather/components/CurrentWeather.tsx:91
 msgid "Precip. : {0}"
 msgstr "Precip. : {0}"
 
@@ -112,11 +116,15 @@ msgstr "Precip. : {0}"
 msgid "Rain : {0}"
 msgstr "Rain : {0}"
 
-#: src/modules/home/components/Logo.tsx:15
+#: src/modules/modal/modals/RideScoreModal.tsx:48
+msgid "Rating System"
+msgstr "Rating System"
+
+#: src/modules/home/components/Logo.tsx:14
 msgid "RIDE TODAY"
 msgstr "RIDE TODAY"
 
-#: src/modules/weather/components/WeatherNotation.tsx:26
+#: src/modules/rideScore/components/RideScore.tsx:33
 msgid "RideScore"
 msgstr "RideScore"
 
@@ -124,12 +132,12 @@ msgstr "RideScore"
 msgid "Search location"
 msgstr "Search location"
 
-#: src/modules/settings/screens/Settings.screen.tsx:30
+#: src/modules/settings/screens/Settings.screen.tsx:31
 #: src/modules/home/components/Menu/MenuModal.tsx:14
 msgid "Settings"
 msgstr "Settings"
 
-#: src/modules/weather/components/WeatherNotation.tsx:107
+#: src/modules/rideScore/utils/rideScoreDetails.ts:17
 msgid "Severely hazardous, better to stay off the road."
 msgstr "Severely hazardous, better to stay off the road."
 
@@ -138,29 +146,61 @@ msgstr "Severely hazardous, better to stay off the road."
 msgid "Snow : {0}"
 msgstr "Snow : {0}"
 
-#: src/modules/settings/screens/Settings.screen.tsx:43
+#: src/modules/settings/screens/Settings.screen.tsx:44
 msgid "System"
 msgstr "System"
 
-#: src/modules/settings/screens/Settings.screen.tsx:48
+#: src/modules/modal/modals/RideScoreModal.tsx:37
+msgid "The RideScore is a score that represents the estimated quality of the ride. It is based on several factors related to the current weather, time of the day and temperature."
+msgstr "The RideScore is a score that represents the estimated quality of the ride. It is based on several factors related to the current weather, time of the day and temperature."
+
+#: src/modules/rideScore/utils/rideScoreDetails.ts:38
+msgid "The weather conditions are excellent (clear sky or simply cloudy), the temperature as well, and the time of the day is perfect for riding. It's the perfect day to go out and ride!"
+msgstr "The weather conditions are excellent (clear sky or simply cloudy), the temperature as well, and the time of the day is perfect for riding. It's the perfect day to go out and ride!"
+
+#: src/modules/rideScore/utils/rideScoreDetails.ts:28
+msgid "The weather is average (light rain for example), temperature is okay. Riding is possible but you should be careful. The ride might be a bit challenging but it should be okay if you're careful."
+msgstr "The weather is average (light rain for example), temperature is okay. Riding is possible but you should be careful. The ride might be a bit challenging but it should be okay if you're careful."
+
+#: src/modules/rideScore/utils/rideScoreDetails.ts:23
+msgid "The weather is average or below average, temperature is okay-ish. Riding is not recommended but if you must, be very careful. The ride will probably not be very enjoyable."
+msgstr "The weather is average or below average, temperature is okay-ish. Riding is not recommended but if you must, be very careful. The ride will probably not be very enjoyable."
+
+#: src/modules/rideScore/utils/rideScoreDetails.ts:13
+msgid "The weather is extremely bad (blizzard, heavy snow, etc.) and/or temperature is very low (or very high). It would be very dangerous to go out and ride in such conditions, we strongly advise against it."
+msgstr "The weather is extremely bad (blizzard, heavy snow, etc.) and/or temperature is very low (or very high). It would be very dangerous to go out and ride in such conditions, we strongly advise against it."
+
+#: src/modules/rideScore/utils/rideScoreDetails.ts:33
+msgid "The weather is good (no rain or challenging conditions), temperature is comfortable. It's a good day to go out and ride, you should have a good time."
+msgstr "The weather is good (no rain or challenging conditions), temperature is comfortable. It's a good day to go out and ride, you should have a good time."
+
+#: src/modules/rideScore/utils/rideScoreDetails.ts:18
+msgid "The weather is very bad (snow, heavy rain) and/or temperature is very low (or very high). Going out and riding in such conditions is very risky."
+msgstr "The weather is very bad (snow, heavy rain) and/or temperature is very low (or very high). Going out and riding in such conditions is very risky."
+
+#: src/modules/settings/screens/Settings.screen.tsx:49
 msgid "Theme choice"
 msgstr "Theme choice"
 
-#: src/modules/settings/screens/Settings.screen.tsx:32
+#: src/modules/settings/screens/Settings.screen.tsx:33
 msgid "Units"
 msgstr "Units"
 
-#: src/modules/weather/components/WeatherNotation.tsx:103
+#: src/modules/rideScore/utils/rideScoreDetails.ts:12
 msgid "Very risky. Ride only if absolutely necessary."
 msgstr "Very risky. Ride only if absolutely necessary."
 
-#: src/modules/location/components/LocationDisplay.tsx:71
+#: src/modules/location/components/LocationDisplay.tsx:62
 msgid "Waiting for location"
 msgstr "Waiting for location"
+
+#: src/modules/modal/modals/RideScoreModal.tsx:42
+msgid "We wish to remind you that the RideScore is an estimation and that the actual quality of the ride may vary. DO NOT rely solely on the RideScore to determine if you should ride or not, always check the weather and the road conditions."
+msgstr "We wish to remind you that the RideScore is an estimation and that the actual quality of the ride may vary. DO NOT rely solely on the RideScore to determine if you should ride or not, always check the weather and the road conditions."
 
 #. placeholder {0}: hour.wind[unitSystem]
 #. placeholder {0}: currentWeather.wind[unitSystem]
 #: src/modules/weather/components/ForecastWeather.tsx:120
-#: src/modules/weather/components/CurrentWeather.tsx:84
+#: src/modules/weather/components/CurrentWeather.tsx:82
 msgid "Wind : {0}"
 msgstr "Wind : {0}"
