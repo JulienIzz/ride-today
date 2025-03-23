@@ -3,7 +3,7 @@ import { useTheme } from "@emotion/react";
 import { t } from "@lingui/core/macro";
 import { ScrollView } from "react-native";
 
-import { Modal } from "#modules/modal/GlobalModal";
+import { Modal } from "#modules/modal/Modal";
 import { useGlobalModal } from "#modules/modal/useModal";
 import { useRideScoreDetails } from "#modules/rideScore/utils/rideScoreDetails";
 import type { ConditionNotation } from "#modules/weather/types/weather.types";
