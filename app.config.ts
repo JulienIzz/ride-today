@@ -16,8 +16,8 @@ const appConfig_DEV = {
     tinted: "./assets/icons/ios-tinted-dev.png",
   },
   androidIcon: {
-    foregroundImage: "./assets/icons/adaptive-icon.png",
-    monochromeImage: "./assets/icons/adaptive-icon.png",
+    foregroundImage: "./assets/icons/adaptive-icon-dev.png",
+    monochromeImage: "./assets/icons/adaptive-icon-dev.png",
     backgroundColor: "#ffffff",
   },
 };
