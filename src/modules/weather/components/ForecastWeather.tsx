@@ -1,12 +1,21 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
 import { t } from "@lingui/core/macro";
-import { Moon, MoonStar, Sun } from "lucide-react-native";
+import {
+  CloudRain,
+  Moon,
+  MoonStar,
+  Snowflake,
+  Sun,
+  Waves,
+  Wind,
+} from "lucide-react-native";
 import { Fragment } from "react";
 import { FlatList, RefreshControl } from "react-native";
 
 import { absoluteFillStyle } from "#design-system/utils/absoluteFillStyle";
 import { FlexView } from "#design-system/utils/FlexView";
+import { RideScoreMini } from "#modules/rideScore/components/RideScoreMini";
 import { useWeather } from "#modules/weather/hooks/useCurrentWeather.query";
 import { useUnitSystem } from "#modules/weather/hooks/useUnitSystem";
 import type { Hour } from "#modules/weather/types/weather.types";
@@ -107,36 +116,34 @@ const HourWeather = ({ hour }: { hour: Hour }) => {
             variant="P1"
             text={formatToDisplayHour(new Date(hour.time))}
           />
+          <RideScoreMini score={hour.condition.notation} />
         </IconAndText>
+        <ContrastLightTypography variant="P1" text={hour.temp[unitSystem]} />
         {conditionText ? (
-          <ContrastLightTypography variant="P1" text={conditionText} />
+          <ContrastLightTypography
+            numberOfLines={2}
+            variant="P1"
+            text={conditionText}
+          />
         ) : null}
-        <ContrastLightTypography
-          variant="P1"
-          text={t({ message: `${hour.temp[unitSystem]}` })}
-        />
-        <ContrastLightTypography
-          variant="P1"
-          text={t({ message: `Wind : ${hour.wind[unitSystem]}` })}
-        />
       </LeftContainer>
       <RightContainer>
-        <ContrastLightTypography
-          variant="P1"
-          text={t({ message: `Cloud : ${hour.cloud}` })}
-        />
-        <ContrastLightTypography
-          variant="P1"
-          text={t({ message: `Humidity : ${hour.humidity}` })}
-        />
-        <ContrastLightTypography
-          variant="P1"
-          text={t({ message: `Rain : ${hour.chanceOfRain}` })}
-        />
-        <ContrastLightTypography
-          variant="P1"
-          text={t({ message: `Snow : ${hour.chanceOfSnow}` })}
-        />
+        <IconAndText>
+          <ContrastLightTypography variant="P1" text={hour.wind[unitSystem]} />
+          <Wind color={theme.colors.contrastLight} size={16} />
+        </IconAndText>
+        <IconAndText>
+          <ContrastLightTypography variant="P1" text={hour.humidity} />
+          <Waves color={theme.colors.contrastLight} size={16} />
+        </IconAndText>
+        <IconAndText>
+          <ContrastLightTypography variant="P1" text={hour.chanceOfRain} />
+          <CloudRain color={theme.colors.contrastLight} size={16} />
+        </IconAndText>
+        <IconAndText>
+          <ContrastLightTypography variant="P1" text={hour.chanceOfSnow} />
+          <Snowflake color={theme.colors.contrastLight} size={16} />
+        </IconAndText>
       </RightContainer>
     </HourContainer>
   );
@@ -197,7 +204,7 @@ const RightContainer = styled.View(({ theme }) => ({
 const IconAndText = styled.View(({ theme }) => ({
   flexDirection: "row",
   alignItems: "center",
-  gap: theme.spacings.xs,
+  gap: theme.spacings.s,
 }));
 
 const ContrastLightTypography = styled(Typography)(({ theme }) => ({

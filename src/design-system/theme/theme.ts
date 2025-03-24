@@ -47,6 +47,7 @@ const darkThemeObject = {
     error: "#FF3333",
     rideScore: {
       0: "#000000",
+      "0-contrast": "#FFFFFF",
       1: "#cc3232",
       2: "#db7b2b",
       3: "#e7b416",
@@ -69,6 +70,7 @@ const lightThemeObject = {
     error: "#FF3333",
     rideScore: {
       0: "#D6D2DC",
+      "0-contrast": "#000000",
       1: "#cc3232",
       2: "#db7b2b",
       3: "#e7b416",
