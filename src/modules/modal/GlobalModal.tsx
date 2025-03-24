@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { BackHandler } from "react-native";
 
+import { OnboardingModal } from "#modules/modal/modals/OnboardingModal";
 import { RideScoreModal } from "#modules/modal/modals/RideScoreModal";
 import { useGlobalModal, useGlobalModalActions } from "#modules/modal/useModal";
 
@@ -29,5 +30,10 @@ export const GlobalModal = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hideModal]);
 
-  return <RideScoreModal />;
+  return (
+    <>
+      <RideScoreModal />
+      <OnboardingModal />
+    </>
+  );
 };

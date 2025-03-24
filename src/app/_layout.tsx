@@ -10,6 +10,7 @@ import { darkTheme, lightTheme } from "src/design-system/theme/theme";
 
 import { GlobalModal } from "#modules/modal/GlobalModal";
 import { useAppIsReady } from "#shared/config/useAppIsReady.hook";
+import { useOnboarding } from "#shared/hooks/useOnboarding";
 import { useThemeScheme } from "#shared/hooks/useThemeScheme";
 import { I18nProvider } from "#shared/i18n/I18n.provider";
 
@@ -55,6 +56,7 @@ export default function RootLayout() {
 
 const RootStack = () => {
   const theme = useTheme();
+  useOnboarding();
 
   return (
     <Stack
