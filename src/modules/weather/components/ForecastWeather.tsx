@@ -49,6 +49,8 @@ export const ForecastWeather = ({
 };
 
 export const ForecastWeatherData = ({ location }: { location: string }) => {
+  const theme = useTheme();
+
   const { forecastWeather, currentLocation, queryStates } =
     useWeather(location);
 
@@ -58,10 +60,11 @@ export const ForecastWeatherData = ({ location }: { location: string }) => {
   });
 
   return (
-    <ListContainer>
+    <FlexView>
       <ListHeaderContainer>
-        <ContrastLightTypography
+        <Typography
           variant="P1"
+          color={theme.colors.contrastLight}
           bold
           text={t({ message: "Next hours" })}
         />
@@ -81,7 +84,7 @@ export const ForecastWeatherData = ({ location }: { location: string }) => {
           }
         />
       </HoursContainer>
-    </ListContainer>
+    </FlexView>
   );
 };
 
@@ -112,15 +115,21 @@ const HourWeather = ({ hour }: { hour: Hour }) => {
           ) : (
             <Moon color={theme.colors.contrastLight} size={16} />
           )}
-          <ContrastLightTypography
+          <Typography
+            color={theme.colors.contrastLight}
             variant="P1"
             text={formatToDisplayHour(new Date(hour.time))}
           />
           <RideScoreMini score={hour.condition.notation} />
         </IconAndText>
-        <ContrastLightTypography variant="P1" text={hour.temp[unitSystem]} />
+        <Typography
+          color={theme.colors.contrastLight}
+          variant="P1"
+          text={hour.temp[unitSystem]}
+        />
         {conditionText ? (
-          <ContrastLightTypography
+          <Typography
+            color={theme.colors.contrastLight}
             numberOfLines={2}
             variant="P1"
             text={conditionText}
@@ -129,19 +138,35 @@ const HourWeather = ({ hour }: { hour: Hour }) => {
       </LeftContainer>
       <RightContainer>
         <IconAndText>
-          <ContrastLightTypography variant="P1" text={hour.wind[unitSystem]} />
+          <Typography
+            color={theme.colors.contrastLight}
+            variant="P1"
+            text={hour.wind[unitSystem]}
+          />
           <Wind color={theme.colors.contrastLight} size={16} />
         </IconAndText>
         <IconAndText>
-          <ContrastLightTypography variant="P1" text={hour.humidity} />
+          <Typography
+            color={theme.colors.contrastLight}
+            variant="P1"
+            text={hour.humidity}
+          />
           <Waves color={theme.colors.contrastLight} size={16} />
         </IconAndText>
         <IconAndText>
-          <ContrastLightTypography variant="P1" text={hour.chanceOfRain} />
+          <Typography
+            color={theme.colors.contrastLight}
+            variant="P1"
+            text={hour.chanceOfRain}
+          />
           <CloudRain color={theme.colors.contrastLight} size={16} />
         </IconAndText>
         <IconAndText>
-          <ContrastLightTypography variant="P1" text={hour.chanceOfSnow} />
+          <Typography
+            color={theme.colors.contrastLight}
+            variant="P1"
+            text={hour.chanceOfSnow}
+          />
           <Snowflake color={theme.colors.contrastLight} size={16} />
         </IconAndText>
       </RightContainer>
@@ -164,13 +189,8 @@ const Container = styled(FlexView)(({ theme }) => ({
   boxShadow: shadowStyle,
 }));
 
-const ListContainer = styled.View({
-  flex: 1,
-});
-
-const HoursContainer = styled.View(({ theme }) => ({
+const HoursContainer = styled(FlexView)(({ theme }) => ({
   paddingHorizontal: theme.spacings.m,
-  flex: 1,
 }));
 
 const ListHeaderContainer = styled.View(({ theme }) => ({
@@ -205,10 +225,6 @@ const IconAndText = styled.View(({ theme }) => ({
   flexDirection: "row",
   alignItems: "center",
   gap: theme.spacings.s,
-}));
-
-const ContrastLightTypography = styled(Typography)(({ theme }) => ({
-  color: theme.colors.contrastLight,
 }));
 
 const EndOfDayContainer = styled.View(({ theme }) => ({
