@@ -14,11 +14,11 @@ export const Home = () => {
   return (
     <PageTemplate>
       <HomeGradients />
-      <Container>
+      <LocationContainer>
         <Logo />
         <Location />
         <LocationDisplay />
-      </Container>
+      </LocationContainer>
       <Divider />
       <Weather />
       <Menu />
@@ -26,7 +26,7 @@ export const Home = () => {
   );
 };
 
-const Container = styled.View(({ theme }) => {
+const LocationContainer = styled.View(({ theme }) => {
   const { top } = useSafeAreaInsets();
   return {
     padding: theme.spacings.m,
