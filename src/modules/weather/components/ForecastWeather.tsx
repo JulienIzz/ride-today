@@ -11,7 +11,6 @@ import {
   Wind,
 } from "lucide-react-native";
 import { Fragment } from "react";
-import { FlatList, RefreshControl } from "react-native";
 
 import { absoluteFillStyle } from "#design-system/utils/absoluteFillStyle";
 import { FlexView } from "#design-system/utils/FlexView";
@@ -51,8 +50,7 @@ export const ForecastWeather = ({
 export const ForecastWeatherData = ({ location }: { location: string }) => {
   const theme = useTheme();
 
-  const { forecastWeather, currentLocation, queryStates } =
-    useWeather(location);
+  const { forecastWeather, currentLocation } = useWeather(location);
 
   const HoursWeather = filterOnlyNextHours({
     hours: forecastWeather.forecastday[0]?.hour,
@@ -71,18 +69,10 @@ export const ForecastWeatherData = ({ location }: { location: string }) => {
       </ListHeaderContainer>
       <Divider />
       <HoursContainer>
-        <FlatList
-          data={HoursWeather}
-          renderItem={({ item: hour }) => renderHourWeather(hour)}
-          showsVerticalScrollIndicator={false}
-          ListFooterComponent={<EndOfDay />}
-          refreshControl={
-            <RefreshControl
-              refreshing={queryStates.isLoading}
-              onRefresh={queryStates.refetch}
-            />
-          }
-        />
+        {HoursWeather.map((hour, index) => (
+          <Fragment key={index}>{renderHourWeather(hour)}</Fragment>
+        ))}
+        <EndOfDay />
       </HoursContainer>
     </FlexView>
   );
