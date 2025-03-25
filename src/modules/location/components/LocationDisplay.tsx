@@ -4,16 +4,15 @@ import { t } from "@lingui/core/macro";
 import { MapPin, RectangleEllipsis } from "lucide-react-native";
 import { ActivityIndicator } from "react-native";
 
+import { useLocationStore } from "#modules/location/hooks/useLocationStore.hook";
 import { useWeather } from "#modules/weather/hooks/useCurrentWeather.query";
 import { Spacer } from "#shared/components/Spacer";
 import { Typography } from "#shared/fonts/Typography";
 import { QueryErrorBoundary } from "#shared/infra/boundaries/QueryBoundary";
 
-export const LocationDisplay = ({
-  location,
-}: {
-  location: string | undefined;
-}) => {
+export const LocationDisplay = () => {
+  const location = useLocationStore((state) => state.location);
+
   if (!location) {
     return <LocationMissing />;
   }
