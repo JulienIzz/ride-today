@@ -1,37 +1,67 @@
 import { useTheme } from "@emotion/react";
 import { memo } from "react";
-import { ScrollView } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { RefreshControl, ScrollView } from "react-native";
 
 import { FlexView } from "#design-system/utils/FlexView";
 import { useLocationStore } from "#modules/location/hooks/useLocationStore.hook";
 import { CurrentWeather } from "#modules/weather/components/CurrentWeather";
+import {
+  useWeatherContainerStyle,
+  WeatherLoading,
+  WeatherLocationMissing,
+} from "#modules/weather/components/CurrentWeatherContainer";
 import { ForecastWeather } from "#modules/weather/components/ForecastWeather";
+import { useWeather } from "#modules/weather/hooks/useCurrentWeather.query";
+import { QueryErrorBoundary } from "#shared/infra/boundaries/QueryBoundary";
 
 export const Weather = memo(() => {
   const location = useLocationStore((state) => state.location);
 
-  const scrollViewStyle = useScrollViewStyle();
-
   return (
     <FlexView>
-      <ScrollView contentContainerStyle={scrollViewStyle}>
-        <CurrentWeather location={location} />
-        <ForecastWeather location={location} />
-      </ScrollView>
+      {location ? (
+        <QueryErrorBoundary
+          errorFallback={<WeatherLocationMissing />}
+          loadingFallback={<WeatherLoading />}
+          resetKeys={[location]}
+        >
+          <WeatherData location={location} />
+        </QueryErrorBoundary>
+      ) : (
+        <WeatherLocationMissing />
+      )}
     </FlexView>
   );
 });
 Weather.displayName = "Weather";
 
-const useScrollViewStyle = () => {
+const WeatherData = ({ location }: { location: string }) => {
+  const { forecastWeather, currentLocation, currentWeather, queryStates } =
+    useWeather(location);
+
   const theme = useTheme();
 
-  const { bottom } = useSafeAreaInsets();
+  const scrollViewStyle = useWeatherContainerStyle();
 
-  return {
-    gap: theme.spacings.m,
-    padding: theme.spacings.m,
-    paddingBottom: bottom + theme.spacings.s,
-  };
+  return (
+    <ScrollView
+      contentContainerStyle={scrollViewStyle}
+      refreshControl={
+        <RefreshControl
+          refreshing={queryStates.isLoading}
+          onRefresh={queryStates.refetch}
+          tintColor={theme.colors.contrastLight}
+        />
+      }
+    >
+      <CurrentWeather
+        currentWeather={currentWeather}
+        currentLocation={currentLocation}
+      />
+      <ForecastWeather
+        forecastWeather={forecastWeather}
+        currentLocation={currentLocation}
+      />
+    </ScrollView>
+  );
 };

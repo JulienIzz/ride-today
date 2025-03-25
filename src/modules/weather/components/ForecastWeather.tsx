@@ -15,42 +15,27 @@ import { Fragment } from "react";
 import { absoluteFillStyle } from "#design-system/utils/absoluteFillStyle";
 import { FlexView } from "#design-system/utils/FlexView";
 import { RideScoreMini } from "#modules/rideScore/components/RideScoreMini";
-import { useWeather } from "#modules/weather/hooks/useCurrentWeather.query";
 import { useUnitSystem } from "#modules/weather/hooks/useUnitSystem";
-import type { Hour } from "#modules/weather/types/weather.types";
+import type {
+  Forecast,
+  Hour,
+  Location,
+} from "#modules/weather/types/weather.types";
 import { filterOnlyNextHours } from "#modules/weather/utils/filterOnlyNextHours";
 import { formatToDisplayHour } from "#modules/weather/utils/formatToDisplayHour";
 import { Divider } from "#shared/components/Divider";
 import { Typography } from "#shared/fonts/Typography";
 import { getConditionsTranslation } from "#shared/i18n/getConditionsTranslation";
-import { QueryErrorBoundary } from "#shared/infra/boundaries/QueryBoundary";
 import { shadowStyle } from "#shared/styling/shadowStyle";
 
 export const ForecastWeather = ({
-  location,
+  forecastWeather,
+  currentLocation,
 }: {
-  location: string | undefined;
+  forecastWeather: Forecast;
+  currentLocation: Location;
 }) => {
-  if (!location) {
-    return null;
-  }
-
-  return (
-    <FlexView>
-      <QueryErrorBoundary>
-        <Container>
-          <Background style={absoluteFillStyle} />
-          <ForecastWeatherData location={location} />
-        </Container>
-      </QueryErrorBoundary>
-    </FlexView>
-  );
-};
-
-export const ForecastWeatherData = ({ location }: { location: string }) => {
   const theme = useTheme();
-
-  const { forecastWeather, currentLocation } = useWeather(location);
 
   const HoursWeather = filterOnlyNextHours({
     hours: forecastWeather.forecastday[0]?.hour,
@@ -59,21 +44,26 @@ export const ForecastWeatherData = ({ location }: { location: string }) => {
 
   return (
     <FlexView>
-      <ListHeaderContainer>
-        <Typography
-          variant="P1"
-          color={theme.colors.contrastLight}
-          bold
-          text={t({ message: "Next hours" })}
-        />
-      </ListHeaderContainer>
-      <Divider />
-      <HoursContainer>
-        {HoursWeather.map((hour, index) => (
-          <Fragment key={index}>{renderHourWeather(hour)}</Fragment>
-        ))}
-        <EndOfDay />
-      </HoursContainer>
+      <Container>
+        <Background style={absoluteFillStyle} />
+        <FlexView>
+          <ListHeaderContainer>
+            <Typography
+              variant="P1"
+              color={theme.colors.contrastLight}
+              bold
+              text={t({ message: "Next hours" })}
+            />
+          </ListHeaderContainer>
+          <Divider />
+          <HoursContainer>
+            {HoursWeather.map((hour, index) => (
+              <Fragment key={index}>{renderHourWeather(hour)}</Fragment>
+            ))}
+            <EndOfDay />
+          </HoursContainer>
+        </FlexView>
+      </Container>
     </FlexView>
   );
 };
