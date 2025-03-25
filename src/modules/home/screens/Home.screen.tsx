@@ -5,12 +5,12 @@ import { HomeGradients } from "#modules/home/components/HomeGradient";
 import { Logo } from "#modules/home/components/Logo";
 import { Menu } from "#modules/home/components/Menu/Menu";
 import { Location } from "#modules/location/components/Location";
-import { PageTemplate } from "#modules/templates/components/PageTemplate";
+import { SafePageTemplate } from "#modules/templates/components/PageTemplate";
 import { Weather } from "#modules/weather/components/Weather";
 
 export const Home = () => {
   return (
-    <PageTemplate>
+    <SafePageTemplate>
       <HomeGradients />
       <Container>
         <Logo />
@@ -18,7 +18,7 @@ export const Home = () => {
         <Weather />
       </Container>
       <Menu />
-    </PageTemplate>
+    </SafePageTemplate>
   );
 };
 
