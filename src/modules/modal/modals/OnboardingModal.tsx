@@ -1,13 +1,12 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
 import { t } from "@lingui/core/macro";
-import { useMMKVBoolean } from "react-native-mmkv";
 
 import { ScaledButton } from "#design-system/components/Button/Button";
 import { Modal } from "#modules/modal/Modal";
 import { useGlobalModal, useGlobalModalActions } from "#modules/modal/useModal";
 import { Typography } from "#shared/fonts/Typography";
-import { storage, StorageKeys } from "#shared/mmkv/store";
+import { useMMKVOnboarding } from "#shared/mmkv/useMMKV";
 
 export const OnboardingModal = () => {
   const theme = useTheme();
@@ -16,10 +15,7 @@ export const OnboardingModal = () => {
 
   const { hideModal } = useGlobalModalActions();
 
-  const [, setHasReadOnboarding] = useMMKVBoolean(
-    StorageKeys.HAS_READ_ONBOARDING,
-    storage,
-  );
+  const { setHasReadOnboarding } = useMMKVOnboarding();
 
   const isModalVisible = isVisible && modal === "onboarding";
 

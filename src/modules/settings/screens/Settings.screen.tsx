@@ -3,7 +3,6 @@ import { useTheme } from "@emotion/react";
 import { t } from "@lingui/core/macro";
 import { Canvas, LinearGradient, Rect, vec } from "@shopify/react-native-skia";
 import { Dimensions, View } from "react-native";
-import { useMMKVBoolean, useMMKVString } from "react-native-mmkv";
 
 import { ContentSwitch } from "#design-system/components/Switch/ContentSwitch";
 import { absoluteFillStyle } from "#design-system/utils/absoluteFillStyle";
@@ -11,19 +10,17 @@ import { PageTemplate } from "#modules/templates/components/PageTemplate";
 import { Divider } from "#shared/components/Divider";
 import { PageTitleWithBack } from "#shared/components/PageTitleWithBack";
 import { Typography } from "#shared/fonts/Typography";
-import { storage, StorageKeys } from "#shared/mmkv/store";
+import {
+  useMMKVCustomTheme,
+  useMMKVTheme,
+  useMMKVUnits,
+} from "#shared/mmkv/useMMKV";
 
 export const Settings = () => {
-  const [isImperialEnabled = false, setIsImperialEnabled] = useMMKVBoolean(
-    StorageKeys.IS_IMPERIAL_ENABLED,
-    storage,
-  );
-  const [isCustomThemeEnabled = false, setIsCustomThemeEnabled] =
-    useMMKVBoolean(StorageKeys.IS_CUSTOM_THEME_ENABLED, storage);
-  const [theme = "dark", setTheme] = useMMKVString(
-    StorageKeys.CUSTOM_THEME,
-    storage,
-  );
+  const { isImperialEnabled, setIsImperialEnabled } = useMMKVUnits();
+  const { isCustomThemeEnabled, setIsCustomThemeEnabled } =
+    useMMKVCustomTheme();
+  const { theme, setTheme } = useMMKVTheme();
 
   return (
     <PageTemplate>

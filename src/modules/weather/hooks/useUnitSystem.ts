@@ -1,13 +1,8 @@
-import { useMMKVBoolean } from "react-native-mmkv";
-
 import { UnitsEnum } from "#modules/weather/types/units.types";
-import { storage, StorageKeys } from "#shared/mmkv/store";
+import { useMMKVUnits } from "#shared/mmkv/useMMKV";
 
 export const useUnitSystem = () => {
-  const [isImperialEnabled] = useMMKVBoolean(
-    StorageKeys.IS_IMPERIAL_ENABLED,
-    storage,
-  );
+  const { isImperialEnabled } = useMMKVUnits();
   const unitSystem = isImperialEnabled ? UnitsEnum.METRIC : UnitsEnum.IMPERIAL;
   return unitSystem;
 };
