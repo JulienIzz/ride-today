@@ -7,4 +7,5 @@ export enum StorageKeys {
   IS_CUSTOM_THEME_ENABLED = "isCustomThemeEnabled",
   CUSTOM_THEME = "customTheme",
   HAS_READ_ONBOARDING = "hasReadOnboarding",
+  IS_DEBUG_REACT_QUERY_ENABLED = "isDebugReactQueryEnabled",
 }
