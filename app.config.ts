@@ -20,6 +20,11 @@ const appConfig_DEV = {
     monochromeImage: "./assets/icons/adaptive-icon-dev.png",
     backgroundColor: "#ffffff",
   },
+  appEnv: {
+    flags: {
+      CHEATCODES_ENABLED: true,
+    },
+  },
 };
 
 const appConfig_STAGING: typeof appConfig_DEV = {
@@ -35,6 +40,11 @@ const appConfig_STAGING: typeof appConfig_DEV = {
     foregroundImage: "./assets/icons/adaptive-icon.png",
     monochromeImage: "./assets/icons/adaptive-icon.png",
     backgroundColor: "#ffffff",
+  },
+  appEnv: {
+    flags: {
+      CHEATCODES_ENABLED: false,
+    },
   },
 };
 
@@ -52,6 +62,11 @@ const appConfig_PRODUCTION: typeof appConfig_DEV = {
     monochromeImage: "./assets/icons/adaptive-icon.png",
     backgroundColor: "#ffffff",
   },
+  appEnv: {
+    flags: {
+      CHEATCODES_ENABLED: false,
+    },
+  },
 };
 
 const appConfigs = {
@@ -61,6 +76,8 @@ const appConfigs = {
 };
 
 const appConfig = appConfigs[STAGE];
+
+export type AppEnv = (typeof appConfig_DEV)["appEnv"];
 
 const config: ExpoConfig = {
   name: appConfig.appName,
@@ -112,6 +129,8 @@ const config: ExpoConfig = {
     eas: {
       projectId: "26f4b8e4-4ca4-4e2b-a8e0-e22e33610184",
     },
+    STAGE,
+    appEnv: appConfig.appEnv,
   },
   updates: {
     fallbackToCacheTimeout: appConfig.waitForUpdateOnSplashScreenMs,
