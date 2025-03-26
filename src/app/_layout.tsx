@@ -6,6 +6,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { useCallback } from "react";
 import { StatusBar } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { DevToolsBubble } from "react-native-react-query-devtools";
 import { darkTheme, lightTheme } from "src/design-system/theme/theme";
 
 import { GlobalModal } from "#modules/modal/GlobalModal";
@@ -13,6 +14,7 @@ import { useAppIsReady } from "#shared/config/useAppIsReady.hook";
 import { useOnboarding } from "#shared/hooks/useOnboarding";
 import { useThemeScheme } from "#shared/hooks/useThemeScheme";
 import { I18nProvider } from "#shared/i18n/I18n.provider";
+import { useMMKVDebugReactQuery } from "#shared/mmkv/useMMKV";
 
 void SplashScreen.preventAutoHideAsync();
 
@@ -26,6 +28,8 @@ const queryClient = new QueryClient();
 export default function RootLayout() {
   const { appIsReady } = useAppIsReady();
   const scheme = useThemeScheme();
+
+  const { isDebugReactQueryEnabled } = useMMKVDebugReactQuery();
 
   const onLayoutRootView = useCallback(() => {
     if (appIsReady) {
@@ -47,6 +51,7 @@ export default function RootLayout() {
               <RootStack />
               <GlobalModal />
             </RootView>
+            {isDebugReactQueryEnabled && <DevToolsBubble />}
           </QueryClientProvider>
         </GestureHandlerRootView>
       </ThemeProvider>
