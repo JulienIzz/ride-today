@@ -29,7 +29,7 @@ const appConfig_DEV = {
 
 const appConfig_STAGING: typeof appConfig_DEV = {
   bundleId: "com.julienizz.ridetoday.staging",
-  appName: "Ride Today STAGING",
+  appName: "Ride Today STG",
   waitForUpdateOnSplashScreenMs: 600000,
   iosIcon: {
     light: "./assets/icons/ios-light.png",
