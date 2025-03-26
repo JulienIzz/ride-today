@@ -1,29 +1,29 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
 import { t } from "@lingui/core/macro";
-import { MapPin, RectangleEllipsis } from "lucide-react-native";
+import { CircleX, MapPin, RectangleEllipsis } from "lucide-react-native";
 import { ActivityIndicator } from "react-native";
 
+import { useLocationStore } from "#modules/location/hooks/useLocationStore.hook";
 import { useWeather } from "#modules/weather/hooks/useCurrentWeather.query";
 import { Spacer } from "#shared/components/Spacer";
 import { Typography } from "#shared/fonts/Typography";
 import { QueryErrorBoundary } from "#shared/infra/boundaries/QueryBoundary";
 
-export const LocationDisplay = ({
-  location,
-}: {
-  location: string | undefined;
-}) => {
+export const LocationDisplay = () => {
+  const location = useLocationStore((state) => state.location);
+
   if (!location) {
     return <LocationMissing />;
   }
 
   return (
-    <SizeWrapper>
-      <QueryErrorBoundary loadingFallback={<LoadingLocation />}>
-        <LocationDisplayComponent location={location} />
-      </QueryErrorBoundary>
-    </SizeWrapper>
+    <QueryErrorBoundary
+      loadingFallback={<LoadingLocation />}
+      errorFallback={<LocationError />}
+    >
+      <LocationDisplayComponent location={location} />
+    </QueryErrorBoundary>
   );
 };
 
@@ -34,7 +34,8 @@ const LocationDisplayComponent = ({ location }: { location: string }) => {
   return (
     <Container>
       <MapPin color={theme.colors.contrastLight} />
-      <ContrastLightTypography
+      <Typography
+        color={theme.colors.contrastLight}
         variant="P1"
         numberOfLines={1}
         text={`${currentLocation.name}, ${currentLocation.region}, ${currentLocation.country}`}
@@ -44,11 +45,16 @@ const LocationDisplayComponent = ({ location }: { location: string }) => {
 };
 
 const LoadingLocation = () => {
+  const theme = useTheme();
   return (
     <Container>
       <ActivityIndicator size={"small"} />
       <Spacer size={4} horizontal />
-      <ContrastLightTypography variant="P1" text={t`Loading location`} />
+      <Typography
+        color={theme.colors.contrastLight}
+        variant="P1"
+        text={t`Loading location`}
+      />
     </Container>
   );
 };
@@ -59,7 +65,26 @@ const LocationMissing = () => {
     <Container>
       <RectangleEllipsis color={theme.colors.contrastLight} strokeWidth={1.5} />
       <Spacer size={4} horizontal />
-      <ContrastLightTypography variant="P1" text={t`Waiting for location`} />
+      <Typography
+        color={theme.colors.contrastLight}
+        variant="P1"
+        text={t`Waiting for location`}
+      />
+    </Container>
+  );
+};
+
+const LocationError = () => {
+  const theme = useTheme();
+  return (
+    <Container>
+      <CircleX color={theme.colors.contrastLight} strokeWidth={1.5} />
+      <Spacer size={4} horizontal />
+      <Typography
+        color={theme.colors.contrastLight}
+        variant="P1"
+        text={t`Unable to find location`}
+      />
     </Container>
   );
 };
@@ -69,12 +94,5 @@ const Container = styled.View(({ theme }) => ({
   alignItems: "center",
   justifyContent: "center",
   gap: theme.spacings.xs,
-}));
-
-const ContrastLightTypography = styled(Typography)(({ theme }) => ({
-  color: theme.colors.contrastLight,
-}));
-
-const SizeWrapper = styled.View({
   height: 24,
-});
+}));

@@ -1,5 +1,8 @@
 import styled from "@emotion/native";
+import { useTheme } from "@emotion/react";
 import { MapPinOff } from "lucide-react-native";
+import { ActivityIndicator, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { shadowStyle } from "#shared/styling/shadowStyle";
 
@@ -12,13 +15,43 @@ export const CurrentWeatherContainer = styled.View(({ theme }) => ({
 }));
 
 export const WeatherLocationMissing = () => {
+  const style = useWeatherContainerStyle();
+
   return (
-    <CurrentWeatherContainer>
-      <CenteredView>
-        <MapPinOff color="black" size={50} />
-      </CenteredView>
-    </CurrentWeatherContainer>
+    <View style={style}>
+      <CurrentWeatherContainer>
+        <CenteredView>
+          <MapPinOff color="black" size={50} />
+        </CenteredView>
+      </CurrentWeatherContainer>
+    </View>
   );
+};
+
+export const WeatherLoading = () => {
+  const style = useWeatherContainerStyle();
+
+  return (
+    <View style={style}>
+      <CurrentWeatherContainer>
+        <CenteredView>
+          <ActivityIndicator />
+        </CenteredView>
+      </CurrentWeatherContainer>
+    </View>
+  );
+};
+
+export const useWeatherContainerStyle = () => {
+  const theme = useTheme();
+
+  const { bottom } = useSafeAreaInsets();
+
+  return {
+    gap: theme.spacings.m,
+    padding: theme.spacings.m,
+    paddingBottom: bottom + theme.spacings.s,
+  };
 };
 
 const CenteredView = styled.View({

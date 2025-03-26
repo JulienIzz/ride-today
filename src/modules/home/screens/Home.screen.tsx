@@ -5,30 +5,32 @@ import { HomeGradients } from "#modules/home/components/HomeGradient";
 import { Logo } from "#modules/home/components/Logo";
 import { Menu } from "#modules/home/components/Menu/Menu";
 import { Location } from "#modules/location/components/Location";
+import { LocationDisplay } from "#modules/location/components/LocationDisplay";
 import { PageTemplate } from "#modules/templates/components/PageTemplate";
 import { Weather } from "#modules/weather/components/Weather";
+import { Divider } from "#shared/components/Divider";
 
 export const Home = () => {
   return (
     <PageTemplate>
       <HomeGradients />
-      <Container>
+      <LocationContainer>
         <Logo />
         <Location />
-        <Weather />
-      </Container>
+        <LocationDisplay />
+      </LocationContainer>
+      <Divider />
+      <Weather />
       <Menu />
     </PageTemplate>
   );
 };
 
-const Container = styled.View(({ theme }) => {
+const LocationContainer = styled.View(({ theme }) => {
   const { top } = useSafeAreaInsets();
   return {
-    flex: 1,
-    paddingHorizontal: theme.spacings.m,
-    paddingBottom: theme.spacings.m,
-    paddingTop: top ? 0 : theme.spacings.m,
+    padding: theme.spacings.m,
+    paddingTop: top ? top : theme.spacings.m,
     gap: theme.spacings.m,
   };
 });

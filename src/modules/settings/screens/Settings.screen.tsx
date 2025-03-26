@@ -6,7 +6,7 @@ import { Dimensions, View } from "react-native";
 
 import { ContentSwitch } from "#design-system/components/Switch/ContentSwitch";
 import { absoluteFillStyle } from "#design-system/utils/absoluteFillStyle";
-import { PageTemplate } from "#modules/templates/components/PageTemplate";
+import { SafePageTemplate } from "#modules/templates/components/PageTemplate";
 import { Divider } from "#shared/components/Divider";
 import { PageTitleWithBack } from "#shared/components/PageTitleWithBack";
 import { Typography } from "#shared/fonts/Typography";
@@ -23,7 +23,7 @@ export const Settings = () => {
   const { theme, setTheme } = useMMKVTheme();
 
   return (
-    <PageTemplate>
+    <SafePageTemplate>
       <TopRightGradient />
       <PageTitleWithBack title={t`Settings`} />
       <Setting
@@ -51,7 +51,7 @@ export const Settings = () => {
         disabled={!isCustomThemeEnabled}
       />
       <Divider />
-    </PageTemplate>
+    </SafePageTemplate>
   );
 };
 

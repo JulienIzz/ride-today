@@ -6,7 +6,7 @@ export interface Weather {
   forecast: Forecast;
 }
 
-interface Current {
+export interface Current {
   temp: Record<Units, number>;
   feelslike: Record<Units, string>;
   wind: Record<Units, string>;
@@ -26,7 +26,7 @@ interface Condition {
   notation: ConditionNotation | undefined;
 }
 
-interface Location {
+export interface Location {
   name: string;
   region: string;
   country: string;

@@ -7,38 +7,21 @@ import { View } from "react-native";
 
 import { FlexView } from "#design-system/utils/FlexView";
 import { RideScore } from "#modules/rideScore/components/RideScore";
-import {
-  CurrentWeatherContainer,
-  WeatherLocationMissing,
-} from "#modules/weather/components/CurrentWeatherContainer";
-import { useWeather } from "#modules/weather/hooks/useCurrentWeather.query";
+import { CurrentWeatherContainer } from "#modules/weather/components/CurrentWeatherContainer";
 import { useUnitSystem } from "#modules/weather/hooks/useUnitSystem";
+import { UnitsEnum } from "#modules/weather/types/units.types";
+import type { Current, Location } from "#modules/weather/types/weather.types";
 import { Typography } from "#shared/fonts/Typography";
 import { getConditionsTranslation } from "#shared/i18n/getConditionsTranslation";
-import { QueryErrorBoundary } from "#shared/infra/boundaries/QueryBoundary";
 
 export const CurrentWeather = ({
-  location,
+  currentWeather,
+  currentLocation,
 }: {
-  location: string | undefined;
+  currentWeather: Current;
+  currentLocation: Location;
 }) => {
-  if (!location) return <WeatherLocationMissing />;
-
-  return (
-    <CurrentWeatherContainer>
-      <QueryErrorBoundary
-        resetKeys={[location]}
-        errorFallback={<WeatherLocationMissing />}
-      >
-        <CurrentWeatherData location={location} />
-      </QueryErrorBoundary>
-    </CurrentWeatherContainer>
-  );
-};
-
-export const CurrentWeatherData = ({ location }: { location: string }) => {
   const theme = useTheme();
-  const { currentWeather, currentLocation } = useWeather(location);
 
   const unitSystem = useUnitSystem();
 
@@ -48,70 +31,74 @@ export const CurrentWeatherData = ({ location }: { location: string }) => {
   );
 
   return (
-    <FlexView>
-      <WeatherContainer>
-        <SideContainer>
-          <View>
-            <TemperatureContainer>
-              <Temperature>{currentWeather.temp[unitSystem]}</Temperature>
-              <Degrees>{unitSystem === "imperial" ? "°F" : "°C"}</Degrees>
-            </TemperatureContainer>
-            <Typography
-              variant="P1"
-              text={t({
-                message: `Feelslike ${currentWeather.feelslike[unitSystem]}`,
-              })}
-            />
-          </View>
-          {conditionText ? (
-            <Typography variant="P1" text={conditionText} />
-          ) : null}
-        </SideContainer>
-        <SideContainer>
-          <IconAndText>
-            <Waves color={theme.colors.contrast} size={20} />
-            <Typography
-              variant="P1"
-              text={t({ message: `Humidity : ${currentWeather.humidity}` })}
-            />
-          </IconAndText>
-          <IconAndText>
-            <Wind color={theme.colors.contrast} size={20} />
-            <Typography
-              variant="P1"
-              text={t({
-                message: `Wind : ${currentWeather.wind[unitSystem]}`,
-              })}
-            />
-          </IconAndText>
-          <IconAndText>
-            <CloudRain color={theme.colors.contrast} size={20} />
-            <Typography
-              variant="P1"
-              text={t({
-                message: `Precip. : ${currentWeather.precip[unitSystem]}`,
-              })}
-            />
-          </IconAndText>
-          <IconAndText>
-            {currentWeather.isDay === 1 ? (
-              <Sun color={theme.colors.contrast} size={20} />
-            ) : (
-              <Moon color={theme.colors.contrast} size={20} />
-            )}
-            <Typography
-              variant="P1"
-              text={`${format(currentLocation.localTime, "HH:mm")} - ${
-                currentWeather.isDay === 1
-                  ? t({ message: "Day" })
-                  : t({ message: "Night" })
-              }`}
-            />
-          </IconAndText>
-        </SideContainer>
-      </WeatherContainer>
-      <RideScore conditionNotation={currentWeather.condition.notation} />
-    </FlexView>
+    <CurrentWeatherContainer>
+      <FlexView>
+        <WeatherContainer>
+          <SideContainer>
+            <View>
+              <TemperatureContainer>
+                <Temperature>{currentWeather.temp[unitSystem]}</Temperature>
+                <Degrees>
+                  {unitSystem === UnitsEnum.IMPERIAL ? "°F" : "°C"}
+                </Degrees>
+              </TemperatureContainer>
+              <Typography
+                variant="P1"
+                text={t({
+                  message: `Feelslike ${currentWeather.feelslike[unitSystem]}`,
+                })}
+              />
+            </View>
+            {conditionText ? (
+              <Typography variant="P1" text={conditionText} />
+            ) : null}
+          </SideContainer>
+          <SideContainer>
+            <IconAndText>
+              <Waves color={theme.colors.contrast} size={20} />
+              <Typography
+                variant="P1"
+                text={t({ message: `Humidity : ${currentWeather.humidity}` })}
+              />
+            </IconAndText>
+            <IconAndText>
+              <Wind color={theme.colors.contrast} size={20} />
+              <Typography
+                variant="P1"
+                text={t({
+                  message: `Wind : ${currentWeather.wind[unitSystem]}`,
+                })}
+              />
+            </IconAndText>
+            <IconAndText>
+              <CloudRain color={theme.colors.contrast} size={20} />
+              <Typography
+                variant="P1"
+                text={t({
+                  message: `Precip. : ${currentWeather.precip[unitSystem]}`,
+                })}
+              />
+            </IconAndText>
+            <IconAndText>
+              {currentWeather.isDay === 1 ? (
+                <Sun color={theme.colors.contrast} size={20} />
+              ) : (
+                <Moon color={theme.colors.contrast} size={20} />
+              )}
+              <Typography
+                variant="P1"
+                text={`${format(currentLocation.localTime, "HH:mm")} - ${
+                  currentWeather.isDay === 1
+                    ? t({ message: "Day" })
+                    : t({ message: "Night" })
+                }`}
+              />
+            </IconAndText>
+          </SideContainer>
+        </WeatherContainer>
+        <RideScore conditionNotation={currentWeather.condition.notation} />
+      </FlexView>
+    </CurrentWeatherContainer>
   );
 };
 

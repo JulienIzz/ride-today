@@ -1,12 +1,12 @@
 import { t } from "@lingui/core/macro";
 
-import { PageTemplate } from "#modules/templates/components/PageTemplate";
+import { SafePageTemplate } from "#modules/templates/components/PageTemplate";
 import { PageTitleWithBack } from "#shared/components/PageTitleWithBack";
 
 export const About = () => {
   return (
-    <PageTemplate>
+    <SafePageTemplate>
       <PageTitleWithBack title={t`About`} />
-    </PageTemplate>
+    </SafePageTemplate>
   );
 };

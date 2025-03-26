@@ -2,16 +2,25 @@ import styled from "@emotion/native";
 import { type PropsWithChildren } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+import { FlexView } from "#design-system/utils/FlexView";
 import { QueryErrorBoundary } from "#shared/infra/boundaries/QueryBoundary";
 
-export const PageTemplate = ({ children }: PropsWithChildren) => {
+export const SafePageTemplate = ({ children }: PropsWithChildren) => {
   return (
-    <Container>
+    <SafeContainer>
       <QueryErrorBoundary>{children}</QueryErrorBoundary>
-    </Container>
+    </SafeContainer>
   );
 };
 
-const Container = styled(SafeAreaView)({
+export const PageTemplate = ({ children }: PropsWithChildren) => {
+  return (
+    <FlexView>
+      <QueryErrorBoundary>{children}</QueryErrorBoundary>
+    </FlexView>
+  );
+};
+
+const SafeContainer = styled(SafeAreaView)({
   flex: 1,
 });
