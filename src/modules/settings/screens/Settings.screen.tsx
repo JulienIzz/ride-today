@@ -2,14 +2,16 @@ import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
 import { t } from "@lingui/core/macro";
 import { Canvas, LinearGradient, Rect, vec } from "@shopify/react-native-skia";
-import { Dimensions, View } from "react-native";
+import { useRouter } from "expo-router";
+import { Dimensions } from "react-native";
 
-import { ContentSwitch } from "#design-system/components/Switch/ContentSwitch";
+import { ScaledButton } from "#design-system/components/Button/Button";
 import { absoluteFillStyle } from "#design-system/utils/absoluteFillStyle";
+import { Setting } from "#modules/settings/components/Setting";
 import { SafePageTemplate } from "#modules/templates/components/PageTemplate";
 import { Divider } from "#shared/components/Divider";
 import { PageTitleWithBack } from "#shared/components/PageTitleWithBack";
-import { Typography } from "#shared/fonts/Typography";
+import { isFeatureEnabled } from "#shared/env/featureFlags";
 import {
   useMMKVCustomTheme,
   useMMKVTheme,
@@ -26,6 +28,12 @@ export const Settings = () => {
     <SafePageTemplate>
       <TopRightGradient />
       <PageTitleWithBack title={t`Settings`} />
+      {isFeatureEnabled("CHEATCODES_ENABLED") && (
+        <>
+          <CheatcodesButton />
+          <Divider />
+        </>
+      )}
       <Setting
         label={t`Units`}
         value={!isImperialEnabled}
@@ -55,52 +63,16 @@ export const Settings = () => {
   );
 };
 
-const Setting = ({
-  label,
-  value,
-  onToggleValue,
-  leftChoice,
-  rightChoice,
-  disabled,
-}: {
-  label: string;
-  value: boolean;
-  onToggleValue: () => void;
-  leftChoice: string;
-  rightChoice: string;
-  disabled?: boolean;
-}) => {
-  const theme = useTheme();
-
-  const trackStyle = {
-    width: 200,
-    height: 40,
-    padding: 5,
-  };
+const CheatcodesButton = () => {
+  const router = useRouter();
 
   return (
-    <SettingContainer>
-      <Typography
-        variant="P1"
-        bold
-        color={theme.colors.contrastLight}
-        text={label}
+    <ButtonContainer>
+      <ScaledButton
+        title="Cheatcodes"
+        onPress={() => router.navigate("/cheatcodes")}
       />
-      <View>
-        <ContentSwitch
-          value={value}
-          onPress={onToggleValue}
-          trackStyle={trackStyle}
-          leftComponent={
-            <Typography variant="P1" bold={!value} text={leftChoice} />
-          }
-          rightComponent={
-            <Typography variant="P1" bold={value} text={rightChoice} />
-          }
-        />
-      </View>
-      {disabled && <DisabledView style={absoluteFillStyle} />}
-    </SettingContainer>
+    </ButtonContainer>
   );
 };
 
@@ -120,15 +92,8 @@ const TopRightGradient = () => {
   );
 };
 
-const SettingContainer = styled.Pressable({
-  flexDirection: "row",
-  justifyContent: "space-between",
+const ButtonContainer = styled.View(({ theme }) => ({
+  padding: theme.spacings.m,
+  justifyContent: "center",
   alignItems: "center",
-  padding: 16,
-});
-
-const DisabledView = styled.View(({ theme }) => ({
-  ...absoluteFillStyle,
-  backgroundColor: theme.colors.disabled,
-  opacity: 0.5,
 }));
