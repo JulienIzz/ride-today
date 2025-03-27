@@ -36,7 +36,7 @@ export const Settings = () => {
       )}
       <Setting
         label={t`Units`}
-        value={!isImperialEnabled}
+        value={isImperialEnabled}
         onToggleValue={() => setIsImperialEnabled(!isImperialEnabled)}
         leftChoice={t`Metric`}
         rightChoice={t`Imperial`}
