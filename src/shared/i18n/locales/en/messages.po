@@ -43,6 +43,10 @@ msgstr "By proceeding, you acknowledge that the developers and providers of this
 msgid "Challenging conditions, stay sharp and be prepared."
 msgstr "Challenging conditions, stay sharp and be prepared."
 
+#: src/modules/about/screens/About.screen.tsx
+msgid "Credits"
+msgstr "Credits"
+
 #: src/modules/settings/screens/Settings.screen.tsx
 msgid "Custom"
 msgstr "Custom"
@@ -147,6 +151,10 @@ msgstr "Severely hazardous, better to stay off the road."
 msgid "System"
 msgstr "System"
 
+#: src/modules/about/screens/About.screen.tsx
+msgid "Terms of use"
+msgstr "Terms of use"
+
 #: src/modules/modal/modals/RideScoreModal.tsx
 msgid "The RideScore is a score that represents the estimated quality of the ride. It is based on several factors related to the current weather, time of the day and temperature."
 msgstr "The RideScore is a score that represents the estimated quality of the ride. It is based on several factors related to the current weather, time of the day and temperature."
@@ -190,6 +198,10 @@ msgstr "Unable to find location"
 #: src/modules/settings/screens/Settings.screen.tsx
 msgid "Units"
 msgstr "Units"
+
+#: src/modules/about/screens/About.screen.tsx
+msgid "User prevention"
+msgstr "User prevention"
 
 #: src/modules/rideScore/utils/rideScoreDetails.ts
 msgid "Very risky. Ride only if absolutely necessary."

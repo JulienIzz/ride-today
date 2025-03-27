@@ -6,9 +6,14 @@ if (STAGE !== "dev" && STAGE !== "staging" && STAGE !== "production") {
   throw new Error(`Invalid STAGE env var: ${STAGE}`);
 }
 
+const commonConfig = {
+  appVersion: "0.0.1",
+};
+
 const appConfig_DEV = {
   bundleId: "com.julienizz.ridetoday.dev",
   appName: "Ride Today DEV",
+  appVersion: commonConfig.appVersion,
   waitForUpdateOnSplashScreenMs: 0,
   iosIcon: {
     light: "./assets/icons/ios-light-dev.png",
@@ -21,6 +26,7 @@ const appConfig_DEV = {
     backgroundColor: "#ffffff",
   },
   appEnv: {
+    version: commonConfig.appVersion,
     flags: {
       CHEATCODES_ENABLED: true,
     },
@@ -30,6 +36,7 @@ const appConfig_DEV = {
 const appConfig_STAGING: typeof appConfig_DEV = {
   bundleId: "com.julienizz.ridetoday.staging",
   appName: "Ride Today STG",
+  appVersion: commonConfig.appVersion,
   waitForUpdateOnSplashScreenMs: 600000,
   iosIcon: {
     light: "./assets/icons/ios-light.png",
@@ -42,6 +49,7 @@ const appConfig_STAGING: typeof appConfig_DEV = {
     backgroundColor: "#ffffff",
   },
   appEnv: {
+    version: commonConfig.appVersion,
     flags: {
       CHEATCODES_ENABLED: false,
     },
@@ -51,6 +59,7 @@ const appConfig_STAGING: typeof appConfig_DEV = {
 const appConfig_PRODUCTION: typeof appConfig_DEV = {
   bundleId: "com.julienizz.ridetoday",
   appName: "Ride Today",
+  appVersion: commonConfig.appVersion,
   waitForUpdateOnSplashScreenMs: 10000,
   iosIcon: {
     light: "./assets/icons/ios-light.png",
@@ -63,6 +72,7 @@ const appConfig_PRODUCTION: typeof appConfig_DEV = {
     backgroundColor: "#ffffff",
   },
   appEnv: {
+    version: commonConfig.appVersion,
     flags: {
       CHEATCODES_ENABLED: false,
     },
@@ -82,7 +92,7 @@ export type AppEnv = (typeof appConfig_DEV)["appEnv"];
 const config: ExpoConfig = {
   name: appConfig.appName,
   slug: "ride-today",
-  version: "1.0.0",
+  version: appConfig.appVersion,
   orientation: "portrait",
   icon: "./assets/icons/ios-light.png",
   scheme: "ride-today",
