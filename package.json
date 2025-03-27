@@ -4,7 +4,9 @@
   "version": "1.0.0",
   "scripts": {
     "start": "expo start",
-    "prebuild:dev": "STAGE=dev expo prebuild",
+    "start:staging": "STAGE=staging expo start",
+    "start:production": "STAGE=production expo start",
+    "prebuild": "STAGE=dev expo prebuild",
     "prebuild:staging": "STAGE=staging expo prebuild",
     "prebuild:production": "STAGE=production expo prebuild",
     "android": "expo run:android",
