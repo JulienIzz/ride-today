@@ -9,4 +9,7 @@ module.exports = {
   ],
   format: "po",
   sourceLocale: "en",
+  formatOptions: {
+    lineNumbers: false,
+  },
 };
