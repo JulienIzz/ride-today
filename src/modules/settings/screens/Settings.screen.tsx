@@ -43,7 +43,7 @@ export const Settings = () => {
       />
       <Divider />
       <Setting
-        label={t`Dark/Light theme`}
+        label={t`Theme mode`}
         value={!!isCustomThemeEnabled}
         onToggleValue={() => setIsCustomThemeEnabled(!isCustomThemeEnabled)}
         leftChoice={t`System`}

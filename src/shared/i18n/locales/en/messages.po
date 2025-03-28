@@ -60,10 +60,6 @@ msgstr "Custom"
 msgid "Dark"
 msgstr "Dark"
 
-#: src/modules/settings/screens/Settings.screen.tsx
-msgid "Dark/Light theme"
-msgstr "Dark/Light theme"
-
 #: src/modules/weather/components/CurrentWeather.tsx
 msgid "Day"
 msgstr "Day"
@@ -203,6 +199,14 @@ msgstr "The weather is very bad (snow, heavy rain) and/or temperature is very lo
 #: src/modules/settings/screens/Settings.screen.tsx
 msgid "Theme choice"
 msgstr "Theme choice"
+
+#: src/modules/settings/screens/Settings.screen.tsx
+msgid "Theme mode"
+msgstr "Theme mode"
+
+#: src/modules/credits/screens/Credits.screen.tsx
+msgid "Third party services"
+msgstr "Third party services"
 
 #: src/modules/modal/modals/OnboardingModal.tsx
 msgid "This application provides a general weather-based riding score for your convenience."
