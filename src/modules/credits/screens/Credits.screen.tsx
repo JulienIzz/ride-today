@@ -53,13 +53,13 @@ export const Credits = () => {
           text={"WeatherAPI.com"}
         />
       </InfoContainer>
-      <DebugInfos>
+      <RightInfos>
         <Typography
           variant="P1"
           color={theme.colors.inactive}
           text={t`© 2025 Julien Izzillo. All Rights Reserved.`}
         />
-      </DebugInfos>
+      </RightInfos>
     </SafePageTemplate>
   );
 };
@@ -80,10 +80,11 @@ const TopRightGradient = () => {
   );
 };
 
-const DebugInfos = styled(FlexView)({
+const RightInfos = styled(FlexView)(({ theme }) => ({
   justifyContent: "flex-end",
   alignItems: "center",
-});
+  padding: theme.spacings.m,
+}));
 
 const InfoContainer = styled(FlexView)(({ theme }) => ({
   padding: theme.spacings.m,

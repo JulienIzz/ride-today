@@ -86,7 +86,8 @@ const SectionContainer = styled.TouchableOpacity(({ theme }) => ({
   padding: theme.spacings.l,
 }));
 
-const DebugInfos = styled(FlexView)({
+const DebugInfos = styled(FlexView)(({ theme }) => ({
   justifyContent: "flex-end",
   alignItems: "center",
-});
+  padding: theme.spacings.m,
+}));
