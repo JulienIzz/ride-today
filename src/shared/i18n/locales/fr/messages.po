@@ -18,6 +18,10 @@ msgstr ""
 msgid "{0}"
 msgstr "{0}"
 
+#: src/modules/credits/screens/Credits.screen.tsx
+msgid "© 2025 Julien Izzillo. All Rights Reserved."
+msgstr "© 2025 Julien Izzillo. Tous droits réservés."
+
 #: src/modules/home/components/Menu/MenuModal.tsx
 #: src/modules/about/screens/About.screen.tsx
 msgid "About"
@@ -43,6 +47,7 @@ msgstr "En continuant, vous reconnaissez que les développeurs et les fournisseu
 msgid "Challenging conditions, stay sharp and be prepared."
 msgstr "Conditions exigeantes : restez vigilant et soyez alerte."
 
+#: src/modules/credits/screens/Credits.screen.tsx
 #: src/modules/about/screens/About.screen.tsx
 msgid "Credits"
 msgstr "Crédits"
@@ -62,6 +67,14 @@ msgstr "Thème clair/sombre"
 #: src/modules/weather/components/CurrentWeather.tsx
 msgid "Day"
 msgstr "Jour"
+
+#: src/modules/credits/screens/Credits.screen.tsx
+msgid "Design"
+msgstr "Design"
+
+#: src/modules/credits/screens/Credits.screen.tsx
+msgid "Development"
+msgstr "Développement"
 
 #: src/modules/rideScore/utils/rideScoreDetails.ts
 msgid "Favorable weather. Expect a decent, comfortable ride."

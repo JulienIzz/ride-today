@@ -54,6 +54,7 @@ const darkThemeObject = {
       4: "#99c140",
       5: "#2dc937",
     },
+    link: "#29a6ff",
   },
   ...commonTheme,
 };
@@ -77,6 +78,7 @@ const lightThemeObject = {
       4: "#99c140",
       5: "#2dc937",
     },
+    link: "#0000EE",
   },
   ...commonTheme,
 };

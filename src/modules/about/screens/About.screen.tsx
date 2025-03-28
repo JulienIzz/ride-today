@@ -2,6 +2,7 @@ import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
 import { t } from "@lingui/core/macro";
 import { Canvas, LinearGradient, Rect, vec } from "@shopify/react-native-skia";
+import { useRouter } from "expo-router";
 import { Dimensions } from "react-native";
 
 import { absoluteFillStyle } from "#design-system/utils/absoluteFillStyle";
@@ -15,6 +16,7 @@ import { useMMKVOnboarding } from "#shared/mmkv/useMMKV";
 
 export const About = () => {
   const theme = useTheme();
+  const router = useRouter();
 
   const { setHasReadOnboarding } = useMMKVOnboarding();
 
@@ -29,7 +31,12 @@ export const About = () => {
           setHasReadOnboarding(false);
         }}
       />
-      <Section label={t`Credits`} />
+      <Section
+        label={t`Credits`}
+        onPress={() => {
+          router.navigate("/about/credits");
+        }}
+      />
       <DebugInfos>
         <Typography
           variant="P1"

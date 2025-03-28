@@ -82,3 +82,8 @@ export const Typography = ({ variant, text, ...props }: Props) => {
       );
   }
 };
+export const Link = (props: Props) => {
+  const theme = useTheme();
+
+  return <Typography {...props} color={theme.colors.link} />;
+};
