@@ -50,7 +50,7 @@ export const RideScoreModal = () => {
             <Typo
               variant="P1"
               color={theme.colors.contrastLight}
-              text={`The score goes from 0 to 5, where 0 is the worst and 5 is the best. To take into account night time and the increased danger, we divide by two the score. Here is a breakdown of the score:`}
+              text={t`The score goes from 0 to 5, where 0 is the worst and 5 is the best. To take into account night time and the increased danger, we divide by two the score. Here is a breakdown of the score:`}
             />
             <DetailsContainer>
               {([0, 1, 2, 3, 4, 5] as ConditionNotation[]).map((rating) => (

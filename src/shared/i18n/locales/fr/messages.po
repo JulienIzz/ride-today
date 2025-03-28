@@ -122,6 +122,10 @@ msgstr "Nuit"
 msgid "Precip. : {0}"
 msgstr "Précip. : {0}"
 
+#: src/modules/about/screens/About.screen.tsx
+msgid "Privacy policy"
+msgstr "Politique de confidentialité"
+
 #: src/modules/modal/modals/RideScoreModal.tsx
 msgid "Rating System"
 msgstr "Système de notation"
@@ -151,13 +155,13 @@ msgstr "Conditions très dangereuses. Mieux vaut ne pas prendre le guidon."
 msgid "System"
 msgstr "Système"
 
-#: src/modules/about/screens/About.screen.tsx
-msgid "Privacy policy"
-msgstr "Politique de confidentialité"
-
 #: src/modules/modal/modals/RideScoreModal.tsx
 msgid "The RideScore is a score that represents the estimated quality of the ride. It is based on several factors related to the current weather, time of the day and temperature."
 msgstr "Le RideScore est une note qui représente la qualité estimée de la sortie. Elle se base sur plusieurs facteurs liés aux conditions météorologiques, à l’heure de la journée et à la température."
+
+#: src/modules/modal/modals/RideScoreModal.tsx
+msgid "The score goes from 0 to 5, where 0 is the worst and 5 is the best. To take into account night time and the increased danger, we divide by two the score. Here is a breakdown of the score:"
+msgstr "Le RideScore varie de 0 à 5, où 0 est le pire et 5 le meilleur. Pour tenir compte de la nuit et du danger accru, nous divisons la note par deux. Voici un descriptif pour chaque note :"
 
 #: src/modules/rideScore/utils/rideScoreDetails.ts
 msgid "The weather conditions are excellent (clear sky or simply cloudy), the temperature as well, and the time of the day is perfect for riding. It's the perfect day to go out and ride!"
