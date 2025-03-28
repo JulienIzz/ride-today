@@ -70,7 +70,7 @@ const CheatcodesButton = () => {
     <ButtonContainer>
       <ScaledButton
         title="Cheatcodes"
-        onPress={() => router.navigate("/cheatcodes")}
+        onPress={() => router.navigate("/settings/cheatcodes")}
       />
     </ButtonContainer>
   );
