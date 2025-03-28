@@ -25,7 +25,6 @@ import { filterOnlyNextHours } from "#modules/weather/utils/filterOnlyNextHours"
 import { formatToDisplayHour } from "#modules/weather/utils/formatToDisplayHour";
 import { Divider } from "#shared/components/Divider";
 import { Typography } from "#shared/fonts/Typography";
-import { getConditionsTranslation } from "#shared/i18n/getConditionsTranslation";
 import { shadowStyle } from "#shared/styling/shadowStyle";
 
 export const ForecastWeather = ({
@@ -79,10 +78,6 @@ export const renderHourWeather = (hour: Hour) => {
 
 const HourWeather = ({ hour }: { hour: Hour }) => {
   const theme = useTheme();
-  const conditionText = getConditionsTranslation(
-    hour.condition.code,
-    hour.isDay === 1,
-  );
 
   const unitSystem = useUnitSystem();
 
@@ -107,14 +102,12 @@ const HourWeather = ({ hour }: { hour: Hour }) => {
           variant="P1"
           text={hour.temp[unitSystem]}
         />
-        {conditionText ? (
-          <Typography
-            color={theme.colors.contrastLight}
-            numberOfLines={2}
-            variant="P1"
-            text={conditionText}
-          />
-        ) : null}
+        <Typography
+          color={theme.colors.contrastLight}
+          numberOfLines={2}
+          variant="P1"
+          text={hour.condition.text}
+        />
       </LeftContainer>
       <RightContainer>
         <IconAndText>

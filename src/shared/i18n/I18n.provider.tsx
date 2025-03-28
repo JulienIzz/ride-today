@@ -5,7 +5,7 @@ import { getLocales } from "expo-localization";
 import enMessages from "#shared/i18n/locales/en/messages";
 import frMessages from "#shared/i18n/locales/fr/messages";
 
-const fallbackLanguageTag = "en";
+export const fallbackLanguageTag = "en";
 const AVAILABLE_LANGUAGES = ["fr", fallbackLanguageTag];
 const bestAvailableLanguageConfig = getLocales().find(
   (locale) =>

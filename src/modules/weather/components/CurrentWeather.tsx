@@ -12,7 +12,6 @@ import { useUnitSystem } from "#modules/weather/hooks/useUnitSystem";
 import { UnitsEnum } from "#modules/weather/types/units.types";
 import type { Current, Location } from "#modules/weather/types/weather.types";
 import { Typography } from "#shared/fonts/Typography";
-import { getConditionsTranslation } from "#shared/i18n/getConditionsTranslation";
 
 export const CurrentWeather = ({
   currentWeather,
@@ -24,11 +23,6 @@ export const CurrentWeather = ({
   const theme = useTheme();
 
   const unitSystem = useUnitSystem();
-
-  const conditionText = getConditionsTranslation(
-    currentWeather.condition.code,
-    currentWeather.isDay === 1,
-  );
 
   return (
     <CurrentWeatherContainer>
@@ -49,9 +43,7 @@ export const CurrentWeather = ({
                 })}
               />
             </View>
-            {conditionText ? (
-              <Typography variant="P1" text={conditionText} />
-            ) : null}
+            <Typography variant="P1" text={currentWeather.condition.text} />
           </SideContainer>
           <SideContainer>
             <IconAndText>
