@@ -7,30 +7,25 @@ import { Dimensions } from "react-native";
 
 import { absoluteFillStyle } from "#design-system/utils/absoluteFillStyle";
 import { FlexView } from "#design-system/utils/FlexView";
+import { useGlobalModalActions } from "#modules/modal/useModal";
 import { SafePageTemplate } from "#modules/templates/components/PageTemplate";
 import { Divider } from "#shared/components/Divider";
 import { PageTitleWithBack } from "#shared/components/PageTitleWithBack";
 import { appEnv } from "#shared/env/appEnv";
 import { Typography } from "#shared/fonts/Typography";
-import { useMMKVOnboarding } from "#shared/mmkv/useMMKV";
 
 export const About = () => {
   const theme = useTheme();
   const router = useRouter();
 
-  const { setHasReadOnboarding } = useMMKVOnboarding();
+  const { showOnboarding } = useGlobalModalActions();
 
   return (
     <SafePageTemplate>
       <TopRightGradient />
       <PageTitleWithBack title={t`About`} />
       <Section label={t`Privacy policy`} />
-      <Section
-        label={t`User prevention`}
-        onPress={() => {
-          setHasReadOnboarding(false);
-        }}
-      />
+      <Section label={t`User prevention`} onPress={showOnboarding} />
       <Section
         label={t`Credits`}
         onPress={() => {
