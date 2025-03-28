@@ -24,11 +24,7 @@ export const GlobalModal = () => {
     );
 
     return () => backHandler.remove();
-
-    // isVisible is not a dependency because we don't want to re-add
-    // the event listener each time the modal is shown/hidden
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hideModal]);
+  }, [hideModal, isVisible]);
 
   return (
     <>
