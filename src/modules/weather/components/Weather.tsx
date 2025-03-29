@@ -53,6 +53,7 @@ const WeatherData = ({ location }: { location: string }) => {
           tintColor={theme.colors.contrastLight}
         />
       }
+      showsVerticalScrollIndicator={false}
     >
       <CurrentWeather
         currentWeather={currentWeather}
