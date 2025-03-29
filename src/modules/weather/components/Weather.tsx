@@ -3,7 +3,7 @@ import { memo } from "react";
 import { RefreshControl, ScrollView } from "react-native";
 
 import { FlexView } from "#design-system/utils/FlexView";
-import { BOTTOM_MENU_HEIGHT } from "#modules/home/screens/Home.screen";
+import { BOTTOM_MENU_HEIGHT } from "#modules/home/utils/constants";
 import { useLocationStore } from "#modules/location/hooks/useLocationStore.hook";
 import { CurrentWeather } from "#modules/weather/components/CurrentWeather";
 import {

@@ -8,6 +8,7 @@ import { HomeGradients } from "#modules/home/components/HomeGradient";
 import { Logo } from "#modules/home/components/Logo";
 import { Menu } from "#modules/home/components/Menu/Menu";
 import { PageSelector } from "#modules/home/components/PageSelector";
+import { BOTTOM_MENU_HEIGHT } from "#modules/home/utils/constants";
 import { Location } from "#modules/location/components/Location";
 import { LocationDisplay } from "#modules/location/components/LocationDisplay";
 import { PageTemplate } from "#modules/templates/components/PageTemplate";
