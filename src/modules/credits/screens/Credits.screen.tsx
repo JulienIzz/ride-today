@@ -52,6 +52,12 @@ export const Credits = () => {
           color={theme.colors.contrastLight}
           text={"WeatherAPI.com"}
         />
+        <Link
+          variant="P1"
+          onPress={() => Linking.openURL("https://lucide.dev/")}
+          color={theme.colors.contrastLight}
+          text={"Lucide Icons"}
+        />
       </InfoContainer>
       <RightInfos>
         <Typography
