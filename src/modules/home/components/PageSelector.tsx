@@ -22,7 +22,7 @@ export const PageSelector = ({
         }}
       >
         <ThermometerSun
-          size={32}
+          size={24}
           color={
             selectedPage === 0 ? theme.colors.primary : theme.colors.inactive
           }
@@ -35,7 +35,7 @@ export const PageSelector = ({
         }}
       >
         <ChartSpline
-          size={32}
+          size={24}
           color={
             selectedPage === 1 ? theme.colors.primary : theme.colors.inactive
           }
@@ -51,12 +51,14 @@ const Icons = styled.View(({ theme }) => {
     backgroundColor: theme.colors.componentBackground,
     borderRadius: theme.borderRadius.l,
     boxShadow: shadowStyle,
+    width: 250,
+    justifyContent: "space-around",
   };
 });
 
 const IconContainer = styled.Pressable(({ theme }) => ({
   paddingVertical: theme.spacings.m,
-  paddingHorizontal: theme.spacings["2xl"],
+  paddingHorizontal: theme.spacings.m,
   height: "100%",
   justifyContent: "flex-start",
   alignItems: "center",

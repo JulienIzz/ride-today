@@ -22,7 +22,7 @@ msgstr "{0}"
 msgid "© 2025 Julien Izzillo. All Rights Reserved."
 msgstr "© 2025 Julien Izzillo. All Rights Reserved."
 
-#: src/modules/home/components/Menu/MenuModal.tsx
+#: src/modules/modal/modals/MenuModal.tsx
 #: src/modules/about/screens/About.screen.tsx
 msgid "About"
 msgstr "About"
@@ -152,7 +152,7 @@ msgid "Search location"
 msgstr "Search location"
 
 #: src/modules/settings/screens/Settings.screen.tsx
-#: src/modules/home/components/Menu/MenuModal.tsx
+#: src/modules/modal/modals/MenuModal.tsx
 msgid "Settings"
 msgstr "Settings"
 

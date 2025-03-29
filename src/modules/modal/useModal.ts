@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-type Modal = "rideScore" | "onboarding" | undefined;
+type Modal = "rideScore" | "onboarding" | "menu" | undefined;
 
 export type GlobalModalStore = {
   isVisible: boolean;
@@ -8,6 +8,7 @@ export type GlobalModalStore = {
   actions: {
     showRideScoreModal: () => void;
     showOnboarding: () => void;
+    showMenu: () => void;
     hideModal: () => void;
   };
 };
@@ -18,6 +19,7 @@ export const useGlobalModalStore = create<GlobalModalStore>((set) => ({
   actions: {
     showRideScoreModal: () => set({ isVisible: true, modal: "rideScore" }),
     showOnboarding: () => set({ isVisible: true, modal: "onboarding" }),
+    showMenu: () => set({ isVisible: true, modal: "menu" }),
     hideModal: () => set({ isVisible: false, modal: undefined }),
   },
 }));

@@ -6,7 +6,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { HomeGradients } from "#modules/home/components/HomeGradient";
 import { Logo } from "#modules/home/components/Logo";
-import { Menu } from "#modules/home/components/Menu/Menu";
+import { MenuWheel } from "#modules/home/components/MenuWheel";
 import { PageSelector } from "#modules/home/components/PageSelector";
 import { BOTTOM_MENU_HEIGHT } from "#modules/home/utils/constants";
 import { Location } from "#modules/location/components/Location";
@@ -14,8 +14,6 @@ import { LocationDisplay } from "#modules/location/components/LocationDisplay";
 import { PageTemplate } from "#modules/templates/components/PageTemplate";
 import { Weather } from "#modules/weather/components/Weather";
 import { Divider } from "#shared/components/Divider";
-
-export const BOTTOM_MENU_HEIGHT = 64;
 
 export const Home = () => {
   const [selectedPage, setSelectedPage] = useState(0);
@@ -49,8 +47,8 @@ export const Home = () => {
       </PagerContainer>
       <BottomMenu>
         <PageSelector selectedPage={selectedPage} setPage={setPage} />
+        <MenuWheel />
       </BottomMenu>
-      <Menu />
     </PageTemplate>
   );
 };
@@ -77,7 +75,7 @@ const BottomMenu = styled.View(({ theme }) => {
     right: 0,
     bottom: bottom ? bottom + theme.spacings.m : theme.spacings.m,
     alignItems: "center",
-    justifyContent: "flex-end",
+    justifyContent: "center",
     height: BOTTOM_MENU_HEIGHT,
   };
 });
