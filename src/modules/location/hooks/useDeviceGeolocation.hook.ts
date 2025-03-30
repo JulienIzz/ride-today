@@ -14,6 +14,7 @@ export const useDeviceGeolocation = () => {
       const currentPosition = await Location.getCurrentPositionAsync({});
       return currentPosition;
     },
+    staleTime: 1000 * 60 * 5, // 5 minutes
   });
 
   const locationString = `${data.coords.latitude},${data.coords.longitude}`;
