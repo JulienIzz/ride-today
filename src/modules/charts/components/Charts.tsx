@@ -71,6 +71,9 @@ const DailyLineChart = ({
 
   const { today, tomorrow } = useChartsDataFromWeather(location);
 
+  const nowIndex = new Date().getHours();
+  const scrolltoIndex = Math.max(0, nowIndex - 3);
+
   return (
     <LineChart
       // COMMON CONFIG
@@ -106,6 +109,8 @@ const DailyLineChart = ({
       startOpacity={0.7}
       endFillColor={theme.colors.primary}
       endOpacity={0}
+      // SCROLL
+      scrollToIndex={day === "today" ? scrolltoIndex : undefined}
     />
   );
 };
