@@ -13,6 +13,7 @@ export const fetchWeather = async (
         q: location,
         aqi: "no",
         lang: locale,
+        days: 2,
       },
     },
   );

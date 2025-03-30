@@ -119,5 +119,8 @@ const getConditionNotation = (
 
   const modifiedNotation = notation + temperatureModifier;
 
-  return Math.trunc(modifiedNotation / (isDay ? 1 : 2)) as ConditionNotation;
+  return Math.max(
+    Math.trunc(modifiedNotation / (isDay ? 1 : 2)),
+    0,
+  ) as ConditionNotation;
 };
