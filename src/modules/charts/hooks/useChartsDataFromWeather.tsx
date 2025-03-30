@@ -1,12 +1,14 @@
 import { useTheme } from "@emotion/react";
 import type { lineDataItem } from "react-native-gifted-charts";
 
-import type { Forecast } from "#modules/weather/types/weather.types";
+import { useWeather } from "#modules/weather/hooks/useCurrentWeather.query";
 import { formatToDisplayHour } from "#modules/weather/utils/formatToDisplayHour";
 import { Typography } from "#shared/fonts/Typography";
 
-export const useChartsDataFromWeather = (forecastWeather: Forecast) => {
+export const useChartsDataFromWeather = (location: string) => {
   const theme = useTheme();
+
+  const { forecastWeather } = useWeather(location);
 
   const todayHoursForecast = forecastWeather.forecastday[0]?.hour ?? [];
   const tomorrowHoursForecast = forecastWeather.forecastday[1]?.hour ?? [];

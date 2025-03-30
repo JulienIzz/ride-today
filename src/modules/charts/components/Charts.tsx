@@ -2,7 +2,6 @@ import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
 import { t } from "@lingui/core/macro";
 import { memo, useState } from "react";
-import type { lineDataItem } from "react-native-gifted-charts";
 import { CurveType, LineChart } from "react-native-gifted-charts";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -10,85 +9,72 @@ import { FlexView } from "#design-system/utils/FlexView";
 import { useChartsDataFromWeather } from "#modules/charts/hooks/useChartsDataFromWeather";
 import { BOTTOM_MENU_HEIGHT } from "#modules/home/utils/constants";
 import { useLocationStore } from "#modules/location/hooks/useLocationStore.hook";
-import { useWeather } from "#modules/weather/hooks/useCurrentWeather.query";
 import { Spacer } from "#shared/components/Spacer";
 import { Typography } from "#shared/fonts/Typography";
 import { QueryErrorBoundary } from "#shared/infra/boundaries/QueryBoundary";
 import { shadowStyle } from "#shared/styling/shadowStyle";
 
 export const Charts = memo(() => {
-  const location = useLocationStore((state) => state.location);
-
-  return (
-    <FlexView>
-      {location ? (
-        <QueryErrorBoundary resetKeys={[location]}>
-          <ChartsData location={location} />
-        </QueryErrorBoundary>
-      ) : null}
-    </FlexView>
-  );
-});
-Charts.displayName = "Charts";
-
-const ChartsData = memo(({ location }: { location: string }) => {
   const theme = useTheme();
   const { bottom } = useSafeAreaInsets();
 
+  const location = useLocationStore((state) => state.location);
+
   const [chartMaxHeight, setChartMaxHeight] = useState(0);
 
-  const { forecastWeather } = useWeather(location);
-
-  const { today, tomorrow } = useChartsDataFromWeather(forecastWeather);
+  const days = ["today", "tomorrow"] as const;
 
   return (
     <Container>
-      <ChartContainer>
-        <Typography
-          text={t`Today`}
-          variant="H4"
-          bold
-          color={theme.colors.contrastLight}
-        />
-        <FlexView
-          onLayout={({ nativeEvent }) => {
-            const { height } = nativeEvent.layout;
-            setChartMaxHeight(height - 30);
-          }}
-        >
-          <DailyLineChart chartData={today} height={chartMaxHeight} />
-        </FlexView>
-      </ChartContainer>
-      <ChartContainer>
-        <Typography
-          text={t`Tomorrow`}
-          variant="H4"
-          bold
-          color={theme.colors.contrastLight}
-        />
-        <FlexView>
-          <DailyLineChart chartData={tomorrow} height={chartMaxHeight} />
-        </FlexView>
-      </ChartContainer>
+      {days.map((day) => (
+        <ChartContainer key={day}>
+          <Typography
+            text={day === "today" ? t`Today` : t`Tomorrow`}
+            variant="H4"
+            bold
+            color={theme.colors.contrastLight}
+          />
+          <FlexView
+            onLayout={({ nativeEvent }) => {
+              const { height } = nativeEvent.layout;
+              setChartMaxHeight(height - 30);
+            }}
+          >
+            {location ? (
+              <QueryErrorBoundary resetKeys={[location]}>
+                <DailyLineChart
+                  location={location}
+                  height={chartMaxHeight}
+                  day={day}
+                />
+              </QueryErrorBoundary>
+            ) : null}
+          </FlexView>
+        </ChartContainer>
+      ))}
       <Spacer size={BOTTOM_MENU_HEIGHT + bottom} vertical />
     </Container>
   );
 });
-ChartsData.displayName = "ChartsData";
+Charts.displayName = "Charts";
 
 const DailyLineChart = ({
-  chartData,
+  location,
   height,
+  day,
 }: {
-  chartData: lineDataItem[];
+  location: string;
   height?: number;
+  day: "today" | "tomorrow";
 }) => {
   const theme = useTheme();
+
+  const { today, tomorrow } = useChartsDataFromWeather(location);
 
   return (
     <LineChart
       // COMMON CONFIG
-      data={chartData}
+      data={day === "today" ? today : tomorrow}
       maxValue={5}
       stepValue={1}
       noOfSections={5}
