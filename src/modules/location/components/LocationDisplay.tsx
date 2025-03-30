@@ -94,5 +94,6 @@ const Container = styled.View(({ theme }) => ({
   alignItems: "center",
   justifyContent: "center",
   gap: theme.spacings.xs,
+  paddingHorizontal: theme.spacings.m,
   height: 24,
 }));
