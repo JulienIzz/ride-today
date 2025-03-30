@@ -3,6 +3,7 @@ import { memo } from "react";
 import { RefreshControl, ScrollView } from "react-native";
 
 import { FlexView } from "#design-system/utils/FlexView";
+import { BOTTOM_MENU_HEIGHT } from "#modules/home/utils/constants";
 import { useLocationStore } from "#modules/location/hooks/useLocationStore.hook";
 import { CurrentWeather } from "#modules/weather/components/CurrentWeather";
 import {
@@ -12,6 +13,7 @@ import {
 } from "#modules/weather/components/CurrentWeatherContainer";
 import { ForecastWeather } from "#modules/weather/components/ForecastWeather";
 import { useWeather } from "#modules/weather/hooks/useCurrentWeather.query";
+import { Spacer } from "#shared/components/Spacer";
 import { QueryErrorBoundary } from "#shared/infra/boundaries/QueryBoundary";
 
 export const Weather = memo(() => {
@@ -53,6 +55,7 @@ const WeatherData = ({ location }: { location: string }) => {
           tintColor={theme.colors.contrastLight}
         />
       }
+      showsVerticalScrollIndicator={false}
     >
       <CurrentWeather
         currentWeather={currentWeather}
@@ -62,6 +65,7 @@ const WeatherData = ({ location }: { location: string }) => {
         forecastWeather={forecastWeather}
         currentLocation={currentLocation}
       />
+      <Spacer size={BOTTOM_MENU_HEIGHT} vertical />
     </ScrollView>
   );
 };

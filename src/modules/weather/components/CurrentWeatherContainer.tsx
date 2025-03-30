@@ -50,7 +50,7 @@ export const useWeatherContainerStyle = () => {
   return {
     gap: theme.spacings.m,
     padding: theme.spacings.m,
-    paddingBottom: bottom + theme.spacings.s,
+    paddingBottom: bottom + theme.spacings.m,
   };
 };
 

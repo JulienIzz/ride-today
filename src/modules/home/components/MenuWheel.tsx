@@ -2,29 +2,36 @@ import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
 import { Cog, X } from "lucide-react-native";
 import Animated, { PinwheelIn } from "react-native-reanimated";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { ScaledPressable } from "#design-system/components/Button/ScaledPressable";
+import { useGlobalModal, useGlobalModalActions } from "#modules/modal/useModal";
 
-export const MenuWheel = ({
-  isMenuOpened,
-  onPress,
-}: {
-  isMenuOpened: boolean;
-  onPress?: () => void;
-}) => {
+export const MenuWheel = () => {
   const theme = useTheme();
+
+  const { isVisible, modal } = useGlobalModal();
+
+  const { showMenu, hideModal } = useGlobalModalActions();
+
+  const isMenuVisible = isVisible && modal === "menu";
+  const handleMenuPress = () => {
+    if (isMenuVisible) {
+      hideModal();
+    } else {
+      showMenu();
+    }
+  };
 
   return (
     <WheelContainer
-      onPress={onPress}
+      onPress={handleMenuPress}
       style={{
-        backgroundColor: isMenuOpened
+        backgroundColor: isMenuVisible
           ? theme.colors.contrast
           : theme.colors.primary,
       }}
     >
-      {isMenuOpened ? (
+      {isMenuVisible ? (
         <Animated.View entering={PinwheelIn}>
           <X strokeWidth={2} color={theme.colors.primary} size={32} />
         </Animated.View>
@@ -36,12 +43,9 @@ export const MenuWheel = ({
 };
 
 const WheelContainer = styled(ScaledPressable)(({ theme }) => {
-  const { bottom } = useSafeAreaInsets();
   return {
     position: "absolute",
-    bottom: 20 + bottom,
-    right: 20,
-    padding: theme.spacings.m,
+    padding: 20,
     borderRadius: theme.borderRadius.round,
     shadowColor: "black",
     shadowRadius: 8,

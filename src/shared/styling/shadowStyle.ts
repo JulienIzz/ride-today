@@ -1,10 +1,10 @@
 export const shadowStyle = [
   {
-    offsetX: 10,
-    offsetY: 10,
-    blurRadius: "30px",
+    offsetX: 2,
+    offsetY: 2,
+    blurRadius: "10px",
     spreadDistance: "0px",
-    color: "rgba(0, 0, 0, 0.3)",
+    color: "rgba(0, 0, 0, 0.2)",
     inset: false,
   },
 ];

@@ -75,6 +75,7 @@ const RootStack = () => {
   );
 };
 
-const RootView = styled.View({
+const RootView = styled.View(({ theme }) => ({
+  backgroundColor: theme.colors.appBackground,
   flex: 1,
-});
+}));

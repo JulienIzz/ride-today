@@ -7,6 +7,8 @@ const commonTheme = {
     m: 16,
     l: 24,
     xl: 32,
+    "2xl": 40,
+    "3xl": 48,
   },
   borderRadius: {
     none: 0,
