@@ -19,7 +19,8 @@
     "translations:extract": "lingui extract --clean",
     "translations:compile": "lingui compile",
     "translations:update": "lingui extract && lingui compile",
-    "postinstall": "yarn translations:update"
+    "postinstall": "yarn translations:update",
+    "create:module": "scripts/createModule.sh"
   },
   "dependencies": {
     "@emotion/native": "^11.11.0",
