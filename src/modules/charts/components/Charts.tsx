@@ -113,7 +113,7 @@ const DailyLineChart = ({
       // AREA
       areaChart
       startFillColor={theme.colors.primary}
-      startOpacity={0.7}
+      startOpacity={0.3}
       endFillColor={theme.colors.primary}
       endOpacity={0}
       // SCROLL
