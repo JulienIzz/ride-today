@@ -1,31 +1,20 @@
 import { useTheme } from "@emotion/react";
 import { Canvas, LinearGradient, Rect, vec } from "@shopify/react-native-skia";
-import { useState } from "react";
-import { View } from "react-native";
+import { Dimensions, View } from "react-native";
 
 import { absoluteFillStyle } from "#design-system/utils/absoluteFillStyle";
 
 export const HomeGradients = () => {
-  const [bgLayout, setBgLayout] = useState({ width: 0, height: 0 });
   return (
-    <View
-      style={absoluteFillStyle}
-      onLayout={({ nativeEvent: { layout } }) => setBgLayout(layout)}
-    >
-      <TopLeftGradient {...bgLayout} />
-      <BottomRightGradient {...bgLayout} />
+    <View style={absoluteFillStyle}>
+      <TopLeftGradient />
+      <BottomRightGradient />
     </View>
   );
 };
 
-const TopLeftGradient = ({
-  width,
-  height,
-}: {
-  width: number;
-  height: number;
-}) => {
-  // const { width, height } = Dimensions.get("window");
+const TopLeftGradient = () => {
+  const { width, height } = Dimensions.get("screen");
   const theme = useTheme();
   return (
     <Canvas style={absoluteFillStyle}>
@@ -40,14 +29,8 @@ const TopLeftGradient = ({
   );
 };
 
-const BottomRightGradient = ({
-  width,
-  height,
-}: {
-  width: number;
-  height: number;
-}) => {
-  // const { width, height } = Dimensions.get("window");
+const BottomRightGradient = () => {
+  const { width, height } = Dimensions.get("screen");
   const theme = useTheme();
   return (
     <Canvas style={absoluteFillStyle}>

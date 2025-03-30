@@ -67,7 +67,7 @@ const Section = ({
 };
 
 const TopRightGradient = () => {
-  const { width, height } = Dimensions.get("window");
+  const { width, height } = Dimensions.get("screen");
   const theme = useTheme();
   return (
     <Canvas style={absoluteFillStyle}>

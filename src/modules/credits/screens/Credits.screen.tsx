@@ -71,7 +71,7 @@ export const Credits = () => {
 };
 
 const TopRightGradient = () => {
-  const { width, height } = Dimensions.get("window");
+  const { width, height } = Dimensions.get("screen");
   const theme = useTheme();
   return (
     <Canvas style={absoluteFillStyle}>
