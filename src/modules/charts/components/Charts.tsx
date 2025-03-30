@@ -6,6 +6,7 @@ import { memo, useState } from "react";
 import { CurveType, LineChart } from "react-native-gifted-charts";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
+import { absoluteFillStyle } from "#design-system/utils/absoluteFillStyle";
 import { FlexView } from "#design-system/utils/FlexView";
 import { useChartsDataFromWeather } from "#modules/charts/hooks/useChartsDataFromWeather";
 import { BOTTOM_MENU_HEIGHT } from "#modules/home/utils/constants";
@@ -29,6 +30,7 @@ export const Charts = memo(() => {
     <Container>
       {days.map((day) => (
         <ChartContainer key={day}>
+          <Background style={absoluteFillStyle} />
           <Typography
             text={day === "today" ? t`Today` : t`Tomorrow`}
             variant="H4"
@@ -126,7 +128,7 @@ const Container = styled(FlexView)(({ theme }) => ({
 }));
 
 const ChartContainer = styled(FlexView)(({ theme }) => ({
-  backgroundColor: theme.colors.componentBackground,
+  // backgroundColor: theme.colors.componentBackground,
   padding: theme.spacings.m,
   paddingRight: 0,
   gap: theme.spacings.m,
@@ -140,3 +142,9 @@ const CenteredView = styled.View({
   justifyContent: "center",
   alignItems: "center",
 });
+
+const Background = styled.View(({ theme }) => ({
+  borderRadius: theme.borderRadius.m,
+  backgroundColor: theme.colors.componentBackground,
+  opacity: 0.5,
+}));
