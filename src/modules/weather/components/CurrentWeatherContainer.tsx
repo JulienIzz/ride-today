@@ -15,13 +15,14 @@ export const CurrentWeatherContainer = styled.View(({ theme }) => ({
 }));
 
 export const WeatherLocationMissing = () => {
+  const theme = useTheme();
   const style = useWeatherContainerStyle();
 
   return (
     <View style={style}>
       <CurrentWeatherContainer>
         <CenteredView>
-          <MapPinOff color="black" size={50} />
+          <MapPinOff color={theme.colors.contrast} size={50} />
         </CenteredView>
       </CurrentWeatherContainer>
     </View>

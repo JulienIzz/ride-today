@@ -1,6 +1,7 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
 import { t } from "@lingui/core/macro";
+import { MapPinOff } from "lucide-react-native";
 import { memo, useState } from "react";
 import { CurveType, LineChart } from "react-native-gifted-charts";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -48,7 +49,11 @@ export const Charts = memo(() => {
                   day={day}
                 />
               </QueryErrorBoundary>
-            ) : null}
+            ) : (
+              <CenteredView>
+                <MapPinOff color={theme.colors.contrastLight} size={50} />
+              </CenteredView>
+            )}
           </FlexView>
         </ChartContainer>
       ))}
@@ -129,3 +134,9 @@ const ChartContainer = styled(FlexView)(({ theme }) => ({
   borderRadius: theme.borderRadius.m,
   boxShadow: shadowStyle,
 }));
+
+const CenteredView = styled.View({
+  flex: 1,
+  justifyContent: "center",
+  alignItems: "center",
+});
