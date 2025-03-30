@@ -113,14 +113,14 @@ const TemperatureContainer = styled.View(({ theme }) => ({
 
 const Temperature = styled.Text(({ theme }) => ({
   fontSize: 50,
-  fontFamily: theme.fonts.bold,
+  fontFamily: theme.fonts.boldItalic,
   color: theme.colors.contrast,
   lineHeight: 53,
 }));
 
 const Degrees = styled.Text(({ theme }) => ({
   fontSize: 20,
-  fontFamily: theme.fonts.bold,
+  fontFamily: theme.fonts.boldItalic,
   color: theme.colors.contrast,
 }));
 

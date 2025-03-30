@@ -14,7 +14,7 @@ const Text = styled.Text<{
 
 const Tagline = styled.Text<{ color?: ColorValue }>(({ theme, color }) => ({
   fontSize: theme.fontSizes.tagline,
-  fontFamily: theme.fonts.bold,
+  fontFamily: theme.fonts.boldItalic,
   color: color ?? theme.colors.contrast,
 }));
 

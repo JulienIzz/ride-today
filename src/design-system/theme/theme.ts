@@ -33,7 +33,7 @@ const commonTheme = {
   fonts: {
     regular: "Montserrat_400Regular",
     semiBold: "Montserrat_600SemiBold",
-    bold: "Montserrat_800ExtraBold_Italic",
+    boldItalic: "Montserrat_800ExtraBold_Italic",
   },
 } as const;
 
