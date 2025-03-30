@@ -4,6 +4,7 @@ import { View } from "react-native";
 import PagerView from "react-native-pager-view";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
+import { Charts } from "#modules/charts/components/Charts";
 import { HomeGradients } from "#modules/home/components/HomeGradient";
 import { Logo } from "#modules/home/components/Logo";
 import { MenuWheel } from "#modules/home/components/MenuWheel";
@@ -43,7 +44,9 @@ export const Home = () => {
         <View key={1}>
           <Weather />
         </View>
-        <View key={2}></View>
+        <View key={2}>
+          <Charts />
+        </View>
       </PagerContainer>
       <BottomMenu>
         <PageSelector selectedPage={selectedPage} setPage={setPage} />
