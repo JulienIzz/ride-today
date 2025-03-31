@@ -8,6 +8,7 @@ import { ScrollView } from "react-native";
 import { FlexView } from "#design-system/utils/FlexView";
 import { Logo } from "#modules/home/components/Logo";
 import { PageTemplate } from "#modules/templates/components/PageTemplate";
+import { TopRightGradientSmall } from "#shared/components/gradients/TopRightGradient";
 import { Typography } from "#shared/fonts/Typography";
 
 import appStore from "../assets/web/appStore.png";
@@ -25,6 +26,7 @@ export const Home = () => {
 
   return (
     <PageTemplate>
+      <TopRightGradientSmall />
       <ScrollView contentContainerStyle={centeredStyle}>
         <CenterContainer>
           <Logo />

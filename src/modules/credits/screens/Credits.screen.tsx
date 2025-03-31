@@ -1,12 +1,11 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
 import { t } from "@lingui/core/macro";
-import { Canvas, LinearGradient, Rect, vec } from "@shopify/react-native-skia";
-import { Dimensions, Linking } from "react-native";
+import { Linking } from "react-native";
 
-import { absoluteFillStyle } from "#design-system/utils/absoluteFillStyle";
 import { FlexView } from "#design-system/utils/FlexView";
 import { SafePageTemplate } from "#modules/templates/components/PageTemplate";
+import { TopRightGradient } from "#shared/components/gradients/TopRightGradient";
 import { PageTitleWithBack } from "#shared/components/PageTitleWithBack";
 import { Link, Typography } from "#shared/fonts/Typography";
 
@@ -67,22 +66,6 @@ export const Credits = () => {
         />
       </RightInfos>
     </SafePageTemplate>
-  );
-};
-
-const TopRightGradient = () => {
-  const { width, height } = Dimensions.get("screen");
-  const theme = useTheme();
-  return (
-    <Canvas style={absoluteFillStyle}>
-      <Rect opacity={0.2} x={0} y={0} width={width} height={height}>
-        <LinearGradient
-          start={vec(width, 0)}
-          end={vec(width - 550, 100)}
-          colors={[theme.colors.primary, "transparent"]}
-        />
-      </Rect>
-    </Canvas>
   );
 };
 

@@ -1,15 +1,12 @@
 import styled from "@emotion/native";
-import { useTheme } from "@emotion/react";
 import { t } from "@lingui/core/macro";
-import { Canvas, LinearGradient, Rect, vec } from "@shopify/react-native-skia";
 import { useRouter } from "expo-router";
-import { Dimensions } from "react-native";
 
 import { ScaledButton } from "#design-system/components/Button/Button";
-import { absoluteFillStyle } from "#design-system/utils/absoluteFillStyle";
 import { Setting } from "#modules/settings/components/Setting";
 import { SafePageTemplate } from "#modules/templates/components/PageTemplate";
 import { Divider } from "#shared/components/Divider";
+import { TopRightGradient } from "#shared/components/gradients/TopRightGradient";
 import { PageTitleWithBack } from "#shared/components/PageTitleWithBack";
 import { isFeatureEnabled } from "#shared/env/featureFlags";
 import {
@@ -73,22 +70,6 @@ const CheatcodesButton = () => {
         onPress={() => router.navigate("/settings/cheatcodes")}
       />
     </ButtonContainer>
-  );
-};
-
-const TopRightGradient = () => {
-  const { width, height } = Dimensions.get("screen");
-  const theme = useTheme();
-  return (
-    <Canvas style={absoluteFillStyle}>
-      <Rect opacity={0.2} x={0} y={0} width={width} height={height}>
-        <LinearGradient
-          start={vec(width, 0)}
-          end={vec(width - 250, 100)}
-          colors={[theme.colors.primary, "transparent"]}
-        />
-      </Rect>
-    </Canvas>
   );
 };
 
