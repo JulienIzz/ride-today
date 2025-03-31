@@ -6,6 +6,7 @@ import type { ImageSourcePropType } from "react-native";
 import { Pressable, ScrollView } from "react-native";
 
 import { FlexView } from "#design-system/utils/FlexView";
+import { RightInfos } from "#modules/about/components/RightInfos";
 import { Logo } from "#modules/home/components/Logo";
 import { PageTemplate } from "#modules/templates/components/PageTemplate";
 import { TopRightGradientSmall } from "#shared/components/gradients/TopRightGradient";
@@ -61,13 +62,7 @@ export const Home = () => {
               <StoreImage source={playStore} />
             </StoreRedirect>
           </Row>
-          <RightInfos>
-            <Typography
-              variant="P1"
-              color={theme.colors.inactive}
-              text={t`© 2025 Julien Izzillo. All Rights Reserved.`}
-            />
-          </RightInfos>
+          <RightInfos />
         </CenterContainer>
       </ScrollView>
     </PageTemplate>
@@ -128,11 +123,6 @@ const PreviewImage = styled(Image)<{ variant: "left" | "center" | "right" }>(({
 const Row = styled.View(({ theme }) => ({
   gap: theme.spacings.m,
 }));
-
-const RightInfos = styled.View({
-  justifyContent: "flex-end",
-  alignItems: "center",
-});
 
 const StoreImage = styled(Image)({
   width: 200,

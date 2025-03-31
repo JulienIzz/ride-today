@@ -20,23 +20,25 @@ export const About = () => {
 
   return (
     <SafePageTemplate>
-      <TopRightGradient />
-      <PageTitleWithBack title={t`About`} />
-      <Section label={t`Privacy policy`} />
-      <Section label={t`User prevention`} onPress={showOnboarding} />
-      <Section
-        label={t`Credits`}
-        onPress={() => {
-          router.navigate("/about/credits");
-        }}
-      />
-      <DebugInfos>
-        <Typography
-          variant="P1"
-          color={theme.colors.inactive}
-          text={"Version " + appEnv.version}
+      <Container>
+        <TopRightGradient />
+        <PageTitleWithBack title={t`About`} />
+        <Section label={t`Privacy policy`} />
+        <Section label={t`User prevention`} onPress={showOnboarding} />
+        <Section
+          label={t`Credits`}
+          onPress={() => {
+            router.navigate("/about/credits");
+          }}
         />
-      </DebugInfos>
+        <DebugInfos>
+          <Typography
+            variant="P1"
+            color={theme.colors.inactive}
+            text={"Version " + appEnv.version}
+          />
+        </DebugInfos>
+      </Container>
     </SafePageTemplate>
   );
 };
@@ -64,12 +66,15 @@ const Section = ({
   );
 };
 
+const Container = styled(FlexView)(({ theme }) => ({
+  paddingBottom: theme.spacings.m,
+}));
+
 const SectionContainer = styled.TouchableOpacity(({ theme }) => ({
   padding: theme.spacings.l,
 }));
 
-const DebugInfos = styled(FlexView)(({ theme }) => ({
+const DebugInfos = styled(FlexView)({
   justifyContent: "flex-end",
   alignItems: "center",
-  padding: theme.spacings.m,
-}));
+});

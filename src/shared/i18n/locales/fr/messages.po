@@ -18,8 +18,7 @@ msgstr ""
 msgid "{0}"
 msgstr "{0}"
 
-#: src/modules/home/screens/Home.screen.web.tsx
-#: src/modules/credits/screens/Credits.screen.tsx
+#: src/modules/about/components/RightInfos.tsx
 msgid "© 2025 Julien Izzillo. All Rights Reserved."
 msgstr "© 2025 Julien Izzillo. Tous droits réservés."
 
