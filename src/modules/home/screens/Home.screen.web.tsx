@@ -3,7 +3,7 @@ import { useTheme } from "@emotion/react";
 import { t } from "@lingui/core/macro";
 import { Image } from "expo-image";
 import type { ImageSourcePropType } from "react-native";
-import { ScrollView } from "react-native";
+import { Pressable, ScrollView } from "react-native";
 
 import { FlexView } from "#design-system/utils/FlexView";
 import { Logo } from "#modules/home/components/Logo";
@@ -47,9 +47,19 @@ export const Home = () => {
               { source: thirdAsset, variant: "right" },
             ]}
           />
+          <Description
+            variant="P1"
+            text={t`Available soon !`}
+            bold
+            color={theme.colors.contrastLight}
+          />
           <Row>
-            <StoreImage source={appStore} />
-            <StoreImage source={playStore} />
+            <StoreRedirect disabled>
+              <StoreImage source={appStore} />
+            </StoreRedirect>
+            <StoreRedirect disabled>
+              <StoreImage source={playStore} />
+            </StoreRedirect>
           </Row>
           <RightInfos>
             <Typography
@@ -129,4 +139,8 @@ const StoreImage = styled(Image)({
   height: 50,
   resizeMode: "contain",
   alignItems: "flex-end",
+});
+
+const StoreRedirect = styled(Pressable)({
+  opacity: 0.4,
 });
