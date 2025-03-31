@@ -32,7 +32,7 @@ export const Home = () => {
           <Logo />
           <Description
             variant="P1"
-            text={t`RideToday is your go-to riding companion, offering a straightforward score to gauge if today’s weather is biker-friendly. No need to sift through endless forecasts—this app provides clear, concise insights to help you decide whether to hit the road or stay put.`}
+            text={t`RideToday is your go-to riding companion, offering a straightforward score to gauge if today’s weather is biker-friendly. No need to sift through endless forecasts—we provide clear, concise insights to help you decide whether to hit the road or stay put.`}
             color={theme.colors.contrastLight}
           />
           <Description

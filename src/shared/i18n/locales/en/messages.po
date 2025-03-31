@@ -18,6 +18,7 @@ msgstr ""
 msgid "{0}"
 msgstr "{0}"
 
+#: src/modules/home/screens/Home.screen.web.tsx
 #: src/modules/credits/screens/Credits.screen.tsx
 msgid "© 2025 Julien Izzillo. All Rights Reserved."
 msgstr "© 2025 Julien Izzillo. All Rights Reserved."
@@ -38,6 +39,10 @@ msgstr "Actual conditions may differ from predictions, and unforeseen circumstan
 #: src/shared/infra/boundaries/QueryBoundary.tsx
 msgid "An error has occurred"
 msgstr "An error has occurred"
+
+#: src/modules/home/screens/Home.screen.web.tsx
+msgid "Available soon !"
+msgstr "Available soon !"
 
 #: src/modules/modal/modals/OnboardingModal.tsx
 msgid "By proceeding, you acknowledge that the developers and providers of this service cannot be held responsible for any consequences arising from your ride decisions."
@@ -126,6 +131,14 @@ msgstr "Next hours"
 msgid "Night"
 msgstr "Night"
 
+#: src/shared/web/components/Unavailable.tsx
+msgid "Page unavailable"
+msgstr "Page unavailable"
+
+#: src/modules/home/screens/Home.screen.web.tsx
+msgid "Plan your rides a day or two in advance and experience the freedom of the open road with RideToday by your side."
+msgstr "Plan your rides a day or two in advance and experience the freedom of the open road with RideToday by your side."
+
 #. placeholder {0}: currentWeather.precip[unitSystem]
 #: src/modules/weather/components/CurrentWeather.tsx
 msgid "Precip. : {0}"
@@ -139,6 +152,10 @@ msgstr "Privacy policy"
 msgid "Rating System"
 msgstr "Rating System"
 
+#: src/shared/web/components/Unavailable.tsx
+msgid "Return to homepage"
+msgstr "Return to homepage"
+
 #: src/modules/home/components/Logo.tsx
 msgid "RIDE TODAY"
 msgstr "RIDE TODAY"
@@ -146,6 +163,10 @@ msgstr "RIDE TODAY"
 #: src/modules/rideScore/components/RideScore.tsx
 msgid "RideScore"
 msgstr "RideScore"
+
+#: src/modules/home/screens/Home.screen.web.tsx
+msgid "RideToday is your go-to riding companion, offering a straightforward score to gauge if today’s weather is biker-friendly. No need to sift through endless forecasts—we provide clear, concise insights to help you decide whether to hit the road or stay put."
+msgstr "RideToday is your go-to riding companion, offering a straightforward score to gauge if today’s weather is biker-friendly. No need to sift through endless forecasts—we provide clear, concise insights to help you decide whether to hit the road or stay put."
 
 #: src/modules/location/components/Location.tsx
 msgid "Search location"
@@ -211,6 +232,14 @@ msgstr "Third party services"
 #: src/modules/modal/modals/OnboardingModal.tsx
 msgid "This application provides a general weather-based riding score for your convenience."
 msgstr "This application provides a general weather-based riding score for your convenience."
+
+#: src/modules/charts/components/Charts.tsx
+msgid "Today"
+msgstr "Today"
+
+#: src/modules/charts/components/Charts.tsx
+msgid "Tomorrow"
+msgstr "Tomorrow"
 
 #: src/modules/location/components/LocationDisplay.tsx
 msgid "Unable to find location"
