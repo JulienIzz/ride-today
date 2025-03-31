@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useCallback } from "react";
-import { StatusBar } from "react-native";
+import { Platform, StatusBar } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { DevToolsBubble } from "react-native-react-query-devtools";
 import { darkTheme, lightTheme } from "src/design-system/theme/theme";
@@ -15,6 +15,8 @@ import { useOnboarding } from "#shared/hooks/useOnboarding";
 import { useThemeScheme } from "#shared/hooks/useThemeScheme";
 import { I18nProvider } from "#shared/i18n/I18n.provider";
 import { useMMKVDebugReactQuery } from "#shared/mmkv/useMMKV";
+
+export const isWeb = Platform.OS === "web";
 
 void SplashScreen.preventAutoHideAsync();
 
@@ -39,6 +41,16 @@ export default function RootLayout() {
 
   if (!appIsReady) {
     return null;
+  }
+
+  if (isWeb) {
+    return (
+      <ThemeProvider theme={scheme === "dark" ? darkTheme : lightTheme}>
+        <RootView onLayout={onLayoutRootView}>
+          <RootStack />
+        </RootView>
+      </ThemeProvider>
+    );
   }
 
   return (

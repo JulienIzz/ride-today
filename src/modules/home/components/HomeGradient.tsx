@@ -1,6 +1,6 @@
 import { useTheme } from "@emotion/react";
-import { Canvas, LinearGradient, Rect, vec } from "@shopify/react-native-skia";
-import { Dimensions, View } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
+import { StyleSheet, View } from "react-native";
 
 import { absoluteFillStyle } from "#design-system/utils/absoluteFillStyle";
 
@@ -14,33 +14,34 @@ export const HomeGradients = () => {
 };
 
 const TopLeftGradient = () => {
-  const { width, height } = Dimensions.get("screen");
   const theme = useTheme();
+
   return (
-    <Canvas style={absoluteFillStyle}>
-      <Rect opacity={0.5} x={0} y={0} width={width} height={height}>
-        <LinearGradient
-          start={vec(0, 0)}
-          end={vec(250, 125)}
-          colors={[theme.colors.primary, "transparent"]}
-        />
-      </Rect>
-    </Canvas>
+    <LinearGradient
+      colors={[theme.colors.primary, "transparent"]}
+      start={[0, 0]}
+      end={[0.57, 0.13]}
+      style={styles.gradientStyle}
+    />
   );
 };
 
 const BottomRightGradient = () => {
-  const { width, height } = Dimensions.get("screen");
   const theme = useTheme();
+
   return (
-    <Canvas style={absoluteFillStyle}>
-      <Rect opacity={0.5} x={0} y={0} width={width} height={height}>
-        <LinearGradient
-          start={vec(width - 250, height - 500)}
-          end={vec(width, height)}
-          colors={["transparent", theme.colors.primary]}
-        />
-      </Rect>
-    </Canvas>
+    <LinearGradient
+      colors={["transparent", theme.colors.primary]}
+      start={[0.43, 0.48]}
+      end={[1, 1]}
+      style={styles.gradientStyle}
+    />
   );
 };
+
+const styles = StyleSheet.create({
+  gradientStyle: {
+    ...absoluteFillStyle,
+    opacity: 0.5,
+  },
+});
