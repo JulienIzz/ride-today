@@ -20,8 +20,8 @@ export const About = () => {
 
   return (
     <SafePageTemplate>
+      <TopRightGradient />
       <Container>
-        <TopRightGradient />
         <PageTitleWithBack title={t`About`} />
         <Section label={t`Privacy policy`} />
         <Section label={t`User prevention`} onPress={showOnboarding} />
