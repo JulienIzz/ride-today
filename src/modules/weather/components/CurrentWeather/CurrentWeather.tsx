@@ -7,7 +7,7 @@ import { View } from "react-native";
 
 import { FlexView } from "#design-system/utils/FlexView";
 import { RideScore } from "#modules/rideScore/components/RideScore";
-import { CurrentWeatherContainer } from "#modules/weather/components/CurrentWeatherContainer";
+import { CurrentWeatherContainer } from "#modules/weather/components/CurrentWeather/CurrentWeatherContainer";
 import { useUnitSystem } from "#modules/weather/hooks/useUnitSystem";
 import { UnitsEnum } from "#modules/weather/types/units.types";
 import type { Current, Location } from "#modules/weather/types/weather.types";
