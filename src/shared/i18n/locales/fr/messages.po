@@ -165,7 +165,7 @@ msgstr "RideScore"
 
 #: src/modules/home/screens/Home.screen.web.tsx
 msgid "RideToday is your go-to riding companion, offering a straightforward score to gauge if today’s weather is biker-friendly. No need to sift through endless forecasts—we provide clear, concise insights to help you decide whether to hit the road or stay put."
-msgstr "RideToday est votre compagnon de route idéal, offrant un score simple pour évaluer si la météo du jour est favorable aux motards. Plus besoin de parcourir une multitude de prévisions : nous fournissons des informations claires et concises pour vous aider à décider si vous devez prendre la route ou rester chez vous."
+msgstr "RideToday est votre compagnon de route idéal, offrant un score simple pour évaluer si la météo du jour est favorable aux motards. Plus besoin de parcourir une multitude de prévisions\u00a0: nous fournissons des informations claires et concises pour vous aider à décider si vous devez prendre la route ou rester chez vous."
 
 #: src/modules/location/components/Location.tsx
 msgid "Search location"

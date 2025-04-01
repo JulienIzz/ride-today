@@ -47,8 +47,8 @@ export const Home = () => {
           />
           <PreviewImages
             images={[
-              { source: firstAsset, variant: "left" },
-              { source: secondAsset, variant: "center" },
+              { source: firstAsset, variant: "center" },
+              { source: secondAsset, variant: "left" },
               { source: thirdAsset, variant: "right" },
             ]}
           />
@@ -98,7 +98,7 @@ const CenterContainer = styled(FlexView)(({ theme }) => ({
 }));
 
 const Description = styled(Typography)({
-  textAlign: "justify",
+  textAlign: "center",
 });
 
 const ImagesContainer = styled.View({
