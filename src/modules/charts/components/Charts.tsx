@@ -128,7 +128,6 @@ const Container = styled(FlexView)(({ theme }) => ({
 }));
 
 const ChartContainer = styled(FlexView)(({ theme }) => ({
-  // backgroundColor: theme.colors.componentBackground,
   padding: theme.spacings.m,
   paddingRight: 0,
   gap: theme.spacings.m,
