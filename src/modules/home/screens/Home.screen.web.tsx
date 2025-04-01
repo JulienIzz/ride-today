@@ -28,7 +28,11 @@ export const Home = () => {
   return (
     <PageTemplate>
       <TopRightGradientSmall />
-      <ScrollView contentContainerStyle={centeredStyle}>
+      <ScrollView
+        contentContainerStyle={centeredStyle}
+        bounces={false}
+        showsVerticalScrollIndicator={false}
+      >
         <CenterContainer>
           <Logo />
           <Description
