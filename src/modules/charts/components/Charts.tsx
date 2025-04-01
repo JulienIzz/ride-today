@@ -76,9 +76,9 @@ const DailyLineChart = ({
 }) => {
   const theme = useTheme();
 
-  const { today, tomorrow } = useChartsDataFromWeather(location);
+  const { today, tomorrow, localDate } = useChartsDataFromWeather(location);
 
-  const nowIndex = new Date().getHours();
+  const nowIndex = localDate.getHours();
   const scrolltoIndex = Math.max(0, nowIndex - 3);
 
   return (

@@ -8,12 +8,14 @@ import { Typography } from "#shared/fonts/Typography";
 export const useChartsDataFromWeather = (location: string) => {
   const theme = useTheme();
 
-  const { forecastWeather } = useWeather(location);
+  const { forecastWeather, currentLocation } = useWeather(location);
 
   const todayHoursForecast = forecastWeather.forecastday[0]?.hour ?? [];
   const tomorrowHoursForecast = forecastWeather.forecastday[1]?.hour ?? [];
 
-  const now = formatToDisplayHour(new Date());
+  const localDate = new Date(currentLocation.localTime);
+
+  const now = formatToDisplayHour(localDate);
 
   const today: lineDataItem[] = todayHoursForecast.map((hour) => {
     const label = formatToDisplayHour(new Date(hour.time));
@@ -51,5 +53,5 @@ export const useChartsDataFromWeather = (location: string) => {
     };
   });
 
-  return { today, tomorrow };
+  return { today, tomorrow, localDate };
 };
