@@ -46,6 +46,7 @@ export default function RootLayout() {
   if (isWeb) {
     return (
       <ThemeProvider theme={scheme === "dark" ? darkTheme : lightTheme}>
+        <BackgroundWebMobile />
         <RootView onLayout={onLayoutRootView}>
           <RootStack />
         </RootView>
@@ -90,4 +91,14 @@ const RootStack = () => {
 const RootView = styled.View(({ theme }) => ({
   backgroundColor: theme.colors.appBackground,
   flex: 1,
+}));
+
+const BackgroundWebMobile = styled.View(({ theme }) => ({
+  backgroundColor: theme.colors.appBackground,
+  position: "absolute",
+  height: "150%",
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
 }));
