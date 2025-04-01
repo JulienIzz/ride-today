@@ -1,6 +1,7 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
 import { t } from "@lingui/core/macro";
+import { openURL } from "expo-linking";
 import { useRouter } from "expo-router";
 
 import { FlexView } from "#design-system/utils/FlexView";
@@ -23,7 +24,10 @@ export const About = () => {
       <TopRightGradient />
       <Container>
         <PageTitleWithBack title={t`About`} />
-        <Section label={t`Privacy policy`} />
+        <Section
+          label={t`Privacy policy`}
+          onPress={() => openURL("https://www.ride-today.com/privacy")}
+        />
         <Section label={t`User prevention`} onPress={showOnboarding} />
         <Section
           label={t`Credits`}
