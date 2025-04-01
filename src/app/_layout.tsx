@@ -2,6 +2,7 @@ import styled from "@emotion/native";
 import { ThemeProvider, useTheme } from "@emotion/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Stack } from "expo-router";
+import Head from "expo-router/head";
 import * as SplashScreen from "expo-splash-screen";
 import { useCallback } from "react";
 import { Platform, StatusBar } from "react-native";
@@ -48,6 +49,9 @@ export default function RootLayout() {
       <ThemeProvider theme={scheme === "dark" ? darkTheme : lightTheme}>
         <BackgroundWebMobile />
         <RootView onLayout={onLayoutRootView}>
+          <Head>
+            <title>Ride Today</title>
+          </Head>
           <RootStack />
         </RootView>
       </ThemeProvider>
