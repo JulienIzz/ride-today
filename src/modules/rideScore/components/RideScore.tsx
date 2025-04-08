@@ -1,10 +1,12 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
+import type { BottomSheetModal } from "@gorhom/bottom-sheet";
 import { t } from "@lingui/core/macro";
 import { BadgeInfo } from "lucide-react-native";
+import { useCallback, useRef } from "react";
 
 import { FlexView } from "#design-system/utils/FlexView";
-import { useGlobalModalActions } from "#modules/modal/useModal";
+import { RideScoreBottomSheet } from "#modules/rideScore/components/RideScoreBottomSheet";
 import { useRideScoreDetails } from "#modules/rideScore/utils/rideScoreDetails";
 import type { ConditionNotation } from "#modules/weather/types/weather.types";
 import { Spacer } from "#shared/components/Spacer";
@@ -19,7 +21,11 @@ export const RideScore = ({
 
   const rideScoreDetails = useRideScoreDetails();
 
-  const { showRideScoreModal } = useGlobalModalActions();
+  const bottomSheetModalRef = useRef<BottomSheetModal>(null);
+
+  const handlePresentModalPress = useCallback(() => {
+    bottomSheetModalRef.current?.present();
+  }, []);
 
   if (conditionNotation === undefined) return null;
 
@@ -34,7 +40,7 @@ export const RideScore = ({
         />
         <BadgeInfo
           color={theme.colors.contrastLight}
-          onPress={showRideScoreModal}
+          onPress={handlePresentModalPress}
           size={14}
           strokeWidth={3}
         />
@@ -64,6 +70,7 @@ export const RideScore = ({
           })}
         />
       </Message>
+      <RideScoreBottomSheet bottomSheetModalRef={bottomSheetModalRef} />
     </Container>
   );
 };

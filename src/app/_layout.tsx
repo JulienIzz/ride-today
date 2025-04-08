@@ -1,5 +1,6 @@
 import styled from "@emotion/native";
 import { ThemeProvider, useTheme } from "@emotion/react";
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Stack } from "expo-router";
 import Head from "expo-router/head";
@@ -63,12 +64,14 @@ export default function RootLayout() {
       <ThemeProvider theme={scheme === "dark" ? darkTheme : lightTheme}>
         <GestureHandlerRootView>
           <QueryClientProvider client={queryClient}>
-            <StatusBar hidden />
-            <RootView onLayout={onLayoutRootView}>
-              <RootStack />
-              <GlobalModal />
-            </RootView>
-            {isDebugReactQueryEnabled && <DevToolsBubble />}
+            <BottomSheetModalProvider>
+              <StatusBar hidden />
+              <RootView onLayout={onLayoutRootView}>
+                <RootStack />
+                <GlobalModal />
+              </RootView>
+              {isDebugReactQueryEnabled && <DevToolsBubble />}
+            </BottomSheetModalProvider>
           </QueryClientProvider>
         </GestureHandlerRootView>
       </ThemeProvider>
