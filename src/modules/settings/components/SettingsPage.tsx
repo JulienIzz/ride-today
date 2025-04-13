@@ -4,7 +4,10 @@ import { ScrollView } from "react-native";
 import { FlexView } from "#design-system/utils/FlexView";
 import { About } from "#modules/about/components/About";
 import { BOTTOM_MENU_HEIGHT } from "#modules/home/utils/constants";
-import { Settings } from "#modules/settings/components/SettingsList";
+import {
+  CheatcodesButton,
+  Settings,
+} from "#modules/settings/components/SettingsList";
 import { Spacer } from "#shared/components/Spacer";
 
 export const SettingsPage = () => {
@@ -13,6 +16,7 @@ export const SettingsPage = () => {
       <Container>
         <Settings />
         <About />
+        <CheatcodesButton />
         <Spacer size={BOTTOM_MENU_HEIGHT} vertical />
       </Container>
     </ScrollView>
