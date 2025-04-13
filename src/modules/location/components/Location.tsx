@@ -56,10 +56,8 @@ const LocationInputContainer = styled.View<{ disabled: boolean }>(
     flex: 1,
     height: 40,
     padding: theme.spacings.xs,
-    opacity: disabled ? 1 : 0.5,
-    backgroundColor: disabled
-      ? theme.colors.background.component
-      : theme.colors.inactive,
+    opacity: disabled ? 1 : 0.4,
+    backgroundColor: theme.colors.background.component,
     borderRadius: theme.borderRadius.round,
     boxShadow: shadowStyle,
   }),
