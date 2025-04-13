@@ -36,7 +36,7 @@ export const RideScoreBottomSheet = ({
   );
   return (
     <BottomSheetModal
-      backgroundStyle={{ backgroundColor: theme.colors.neutral[50] }}
+      backgroundStyle={{ backgroundColor: theme.colors.background.component }}
       ref={bottomSheetModalRef}
       enableDynamicSizing={false}
       snapPoints={snapPoints}
