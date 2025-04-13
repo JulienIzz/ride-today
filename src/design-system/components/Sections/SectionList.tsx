@@ -5,6 +5,7 @@ import { View } from "react-native";
 import { absoluteFillStyle } from "#design-system/utils/absoluteFillStyle";
 import { Divider } from "#shared/components/Divider";
 import { Typography } from "#shared/fonts/Typography";
+import { shadowStyle } from "#shared/styling/shadowStyle";
 
 export const SectionList = ({
   title,
@@ -16,7 +17,7 @@ export const SectionList = ({
   return (
     <View>
       <TitleContainer>
-        <Typography variant="P1" contrast text={title} />
+        <Typography variant="P1" bold contrast text={title} />
       </TitleContainer>
       <SectionsContainer>
         <BackgroundOpacity />
@@ -45,5 +46,6 @@ const BackgroundOpacity = styled.View(({ theme }) => ({
   ...absoluteFillStyle,
   backgroundColor: theme.colors.background.component,
   borderRadius: theme.borderRadius.m,
+  boxShadow: shadowStyle,
   opacity: 0.85,
 }));

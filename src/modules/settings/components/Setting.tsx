@@ -30,12 +30,7 @@ export const Setting = ({
 
   return (
     <SettingContainer disabled={disabled}>
-      <Typography
-        variant="P1"
-        bold
-        color={theme.colors.neutral[0]}
-        text={label}
-      />
+      <Typography variant="P1" color={theme.colors.neutral[0]} text={label} />
       <View>
         <ContentSwitch
           value={value}
