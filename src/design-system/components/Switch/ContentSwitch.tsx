@@ -11,7 +11,7 @@ import Animated, {
 
 type ContentSwitch = {
   value: boolean;
-  onPress: () => void;
+  onPress?: () => void;
   trackStyle?: {
     width: number;
     height: number;

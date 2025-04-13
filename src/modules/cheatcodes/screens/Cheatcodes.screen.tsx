@@ -1,3 +1,5 @@
+import styled from "@emotion/native";
+
 import { Setting } from "#modules/settings/components/Setting";
 import { SafePageTemplate } from "#modules/templates/components/PageTemplate";
 import { TopRightGradient } from "#shared/components/gradients/TopRightGradient";
@@ -11,15 +13,23 @@ export const Cheatcodes = () => {
     <SafePageTemplate>
       <TopRightGradient />
       <PageTitleWithBack title={"Cheatcodes"} />
-      <Setting
-        label={"Debug React Query"}
-        value={isDebugReactQueryEnabled}
-        onToggleValue={() => {
-          setIsDebugReactQueryEnabled(!isDebugReactQueryEnabled);
-        }}
-        leftChoice={"Off"}
-        rightChoice={"On"}
-      />
+      <Container>
+        <Setting
+          label={"Debug R-Query"}
+          value={isDebugReactQueryEnabled}
+          onToggleValue={() => {
+            setIsDebugReactQueryEnabled(!isDebugReactQueryEnabled);
+          }}
+          leftChoice={"Off"}
+          rightChoice={"On"}
+        />
+      </Container>
     </SafePageTemplate>
   );
 };
+
+const Container = styled.View(({ theme }) => ({
+  flex: 1,
+  padding: theme.spacings.m,
+  gap: theme.spacings.m,
+}));

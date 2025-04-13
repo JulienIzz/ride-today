@@ -4,10 +4,12 @@ import { t } from "@lingui/core/macro";
 import { Linking } from "react-native";
 
 import { FlexView } from "#design-system/utils/FlexView";
+import { DebugInfos } from "#modules/about/components/DebugInfos";
 import { RightInfos } from "#modules/about/components/RightInfos";
 import { SafePageTemplate } from "#modules/templates/components/PageTemplate";
 import { TopRightGradient } from "#shared/components/gradients/TopRightGradient";
 import { PageTitleWithBack } from "#shared/components/PageTitleWithBack";
+import { Spacer } from "#shared/components/Spacer";
 import { Link, Typography } from "#shared/fonts/Typography";
 
 export const Credits = () => {
@@ -59,8 +61,10 @@ export const Credits = () => {
             color={theme.colors.neutral[0]}
             text={"Lucide Icons"}
           />
+          <Spacer vertical />
+          <DebugInfos />
+          <RightInfos />
         </InfoContainer>
-        <RightInfos />
       </Container>
     </SafePageTemplate>
   );

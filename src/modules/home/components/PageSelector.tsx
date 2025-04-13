@@ -1,8 +1,7 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
-import { ChartSpline, ThermometerSun } from "lucide-react-native";
+import { ChartSpline, Cog, ThermometerSun } from "lucide-react-native";
 
-import { VerticalDivider } from "#shared/components/Divider";
 import { shadowStyle } from "#shared/styling/shadowStyle";
 
 export const PageSelector = ({
@@ -28,7 +27,6 @@ export const PageSelector = ({
           }
         />
       </IconContainer>
-      <VerticalDivider />
       <IconContainer
         onPress={() => {
           setPage(1);
@@ -41,6 +39,18 @@ export const PageSelector = ({
           }
         />
       </IconContainer>
+      <IconContainer
+        onPress={() => {
+          setPage(2);
+        }}
+      >
+        <Cog
+          size={24}
+          color={
+            selectedPage === 2 ? theme.colors.primary : theme.colors.inactive
+          }
+        />
+      </IconContainer>
     </Icons>
   );
 };
@@ -49,17 +59,14 @@ const Icons = styled.View(({ theme }) => {
   return {
     flexDirection: "row",
     backgroundColor: theme.colors.background.component,
-    borderRadius: theme.borderRadius.l,
+    borderRadius: theme.borderRadius.round,
     boxShadow: shadowStyle,
-    width: 250,
-    justifyContent: "space-around",
+    paddingHorizontal: theme.spacings.s,
   };
 });
 
 const IconContainer = styled.Pressable(({ theme }) => ({
-  paddingVertical: theme.spacings.m,
-  paddingHorizontal: theme.spacings.m,
-  height: "100%",
+  padding: theme.spacings.m,
   justifyContent: "flex-start",
   alignItems: "center",
 }));

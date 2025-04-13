@@ -3,7 +3,6 @@ import { useTheme } from "@emotion/react";
 import { View } from "react-native";
 
 import { ContentSwitch } from "#design-system/components/Switch/ContentSwitch";
-import { absoluteFillStyle } from "#design-system/utils/absoluteFillStyle";
 import { Typography } from "#shared/fonts/Typography";
 
 export const Setting = ({
@@ -30,17 +29,12 @@ export const Setting = ({
   };
 
   return (
-    <SettingContainer>
-      <Typography
-        variant="P1"
-        bold
-        color={theme.colors.neutral[0]}
-        text={label}
-      />
+    <SettingContainer disabled={disabled}>
+      <Typography variant="P1" color={theme.colors.neutral[0]} text={label} />
       <View>
         <ContentSwitch
           value={value}
-          onPress={onToggleValue}
+          onPress={disabled ? undefined : () => onToggleValue()}
           trackStyle={trackStyle}
           leftComponent={
             <Typography variant="P1" bold={!value} text={leftChoice} />
@@ -50,20 +44,15 @@ export const Setting = ({
           }
         />
       </View>
-      {disabled && <DisabledView style={absoluteFillStyle} />}
     </SettingContainer>
   );
 };
 
-const SettingContainer = styled.Pressable(({ theme }) => ({
-  flexDirection: "row",
-  justifyContent: "space-between",
-  alignItems: "center",
-  padding: theme.spacings.m,
-}));
-
-const DisabledView = styled.View(({ theme }) => ({
-  ...absoluteFillStyle,
-  backgroundColor: theme.colors.disabled,
-  opacity: 0.5,
-}));
+const SettingContainer = styled.Pressable<{ disabled?: boolean }>(
+  ({ disabled }) => ({
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    opacity: disabled ? 0.5 : 1,
+  }),
+);

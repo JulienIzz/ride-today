@@ -7,7 +7,6 @@ export type GlobalModalStore = {
   modal: Modal;
   actions: {
     showOnboarding: () => void;
-    showMenu: () => void;
     hideModal: () => void;
   };
 };
@@ -17,7 +16,6 @@ export const useGlobalModalStore = create<GlobalModalStore>((set) => ({
   modal: undefined,
   actions: {
     showOnboarding: () => set({ isVisible: true, modal: "onboarding" }),
-    showMenu: () => set({ isVisible: true, modal: "menu" }),
     hideModal: () => set({ isVisible: false, modal: undefined }),
   },
 }));

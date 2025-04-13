@@ -55,7 +55,7 @@ msgid "7. Contact Us"
 msgstr "7. Nous contacter"
 
 #: src/modules/modal/modals/MenuModal.tsx
-#: src/modules/about/screens/About.screen.tsx
+#: src/modules/about/components/About.tsx
 msgid "About"
 msgstr "A propos"
 
@@ -92,15 +92,15 @@ msgid "Creator and Developer"
 msgstr "Créateur et développeur"
 
 #: src/modules/credits/screens/Credits.screen.tsx
-#: src/modules/about/screens/About.screen.tsx
+#: src/modules/about/components/About.tsx
 msgid "Credits"
 msgstr "Crédits"
 
-#: src/modules/settings/screens/Settings.screen.tsx
+#: src/modules/settings/components/SettingsList.tsx
 msgid "Custom"
 msgstr "Choix"
 
-#: src/modules/settings/screens/Settings.screen.tsx
+#: src/modules/settings/components/SettingsList.tsx
 msgid "Dark"
 msgstr "Sombre"
 
@@ -146,7 +146,7 @@ msgstr "Conditions idéales : en selle et profitez-en !"
 msgid "If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at contact@ride-today.com."
 msgstr "Si vous avez des questions ou des préoccupations concernant cette politique de confidentialité ou nos pratiques en matière de données, veuillez nous contacter à l'adresse contact@ride-today.com."
 
-#: src/modules/settings/screens/Settings.screen.tsx
+#: src/modules/settings/components/SettingsList.tsx
 msgid "Imperial"
 msgstr "Impérial"
 
@@ -154,7 +154,7 @@ msgstr "Impérial"
 msgid "Important Notice"
 msgstr "Avis important"
 
-#: src/modules/settings/screens/Settings.screen.tsx
+#: src/modules/settings/components/SettingsList.tsx
 msgid "Light"
 msgstr "Clair"
 
@@ -166,7 +166,7 @@ msgstr "Chargement de la localisation"
 msgid "Manageable, ride carefully and watch for trouble."
 msgstr "Conditions moyennes. Roulez prudemment et surveillez les imprévus."
 
-#: src/modules/settings/screens/Settings.screen.tsx
+#: src/modules/settings/components/SettingsList.tsx
 msgid "Metric"
 msgstr "Métrique"
 
@@ -191,7 +191,7 @@ msgstr "Planifiez vos balades un jour ou deux à l’avance et profitez de la li
 msgid "Precip. : {0}"
 msgstr "Précip. : {0}"
 
-#: src/modules/about/screens/About.screen.tsx
+#: src/modules/about/components/About.tsx
 msgid "Privacy policy"
 msgstr "Politique de confidentialité"
 
@@ -231,7 +231,7 @@ msgstr "RideToday est votre compagnon de route idéal, offrant un score simple p
 msgid "Search location"
 msgstr "Chercher une ville"
 
-#: src/modules/settings/screens/Settings.screen.tsx
+#: src/modules/settings/components/SettingsList.tsx
 #: src/modules/modal/modals/MenuModal.tsx
 msgid "Settings"
 msgstr "Paramètres"
@@ -240,7 +240,7 @@ msgstr "Paramètres"
 msgid "Severely hazardous, better to stay off the road."
 msgstr "Conditions très dangereuses. Mieux vaut ne pas prendre le guidon."
 
-#: src/modules/settings/screens/Settings.screen.tsx
+#: src/modules/settings/components/SettingsList.tsx
 msgid "System"
 msgstr "Système"
 
@@ -276,13 +276,13 @@ msgstr "Le temps est bon (pas de pluie ni de conditions difficiles) et la tempé
 msgid "The weather is very bad (snow, heavy rain) and/or temperature is very low (or very high). Going out and riding in such conditions is very risky."
 msgstr "Le temps est très mauvais (neige, forte pluie) et/ou la température est très basse (ou très élevée). Sortir et rouler dans de telles conditions est très risqué."
 
-#: src/modules/settings/screens/Settings.screen.tsx
-msgid "Theme choice"
-msgstr "Choix du thème"
+#: src/modules/settings/components/SettingsList.tsx
+msgid "Theme"
+msgstr "Thème"
 
-#: src/modules/settings/screens/Settings.screen.tsx
+#: src/modules/settings/components/SettingsList.tsx
 msgid "Theme mode"
-msgstr "Mode du thème"
+msgstr "Mode thème"
 
 #: src/modules/credits/screens/Credits.screen.tsx
 msgid "Third party services"
@@ -308,11 +308,11 @@ msgstr "Demain"
 msgid "Unable to find location"
 msgstr "Localisation non trouvée"
 
-#: src/modules/settings/screens/Settings.screen.tsx
+#: src/modules/settings/components/SettingsList.tsx
 msgid "Units"
 msgstr "Unités"
 
-#: src/modules/about/screens/About.screen.tsx
+#: src/modules/about/components/About.tsx
 msgid "User prevention"
 msgstr "Prévention d'usage"
 

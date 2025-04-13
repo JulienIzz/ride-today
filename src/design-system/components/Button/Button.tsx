@@ -41,17 +41,23 @@ export const ScaledButton = ({
   ...props
 }: ButtonProps) => {
   return (
-    <ScaledPressable onPress={disabled ? undefined : onPress}>
+    <ButtonContainer onPress={disabled ? undefined : onPress}>
       <Button title={title} loading={loading} disabled={disabled} {...props} />
-    </ScaledPressable>
+    </ButtonContainer>
   );
 };
 
 const Container = styled.Pressable(({ theme, disabled }) => ({
-  width: 200,
+  width: "100%",
   backgroundColor: disabled ? theme.colors.disabled : theme.colors.primary,
   padding: theme.spacings.s,
   borderRadius: theme.borderRadius.round,
   alignItems: "center",
   justifyContent: "center",
 }));
+
+const ButtonContainer = styled(ScaledPressable)({
+  width: "100%",
+  alignItems: "center",
+  justifyContent: "center",
+});
