@@ -33,9 +33,9 @@ const LocationDisplayComponent = ({ location }: { location: string }) => {
 
   return (
     <Container>
-      <MapPin color={theme.colors.contrastLight} />
+      <MapPin color={theme.colors.neutral[0]} />
       <Typography
-        color={theme.colors.contrastLight}
+        color={theme.colors.neutral[0]}
         variant="P1"
         numberOfLines={1}
         text={`${currentLocation.name}, ${currentLocation.region}, ${currentLocation.country}`}
@@ -51,7 +51,7 @@ const LoadingLocation = () => {
       <ActivityIndicator size={"small"} />
       <Spacer size={4} horizontal />
       <Typography
-        color={theme.colors.contrastLight}
+        color={theme.colors.neutral[0]}
         variant="P1"
         text={t`Loading location`}
       />
@@ -63,10 +63,10 @@ const LocationMissing = () => {
   const theme = useTheme();
   return (
     <Container>
-      <RectangleEllipsis color={theme.colors.contrastLight} strokeWidth={1.5} />
+      <RectangleEllipsis color={theme.colors.neutral[0]} strokeWidth={1.5} />
       <Spacer size={4} horizontal />
       <Typography
-        color={theme.colors.contrastLight}
+        color={theme.colors.neutral[0]}
         variant="P1"
         text={t`Waiting for location`}
       />
@@ -78,10 +78,10 @@ const LocationError = () => {
   const theme = useTheme();
   return (
     <Container>
-      <CircleX color={theme.colors.contrastLight} strokeWidth={1.5} />
+      <CircleX color={theme.colors.neutral[0]} strokeWidth={1.5} />
       <Spacer size={4} horizontal />
       <Typography
-        color={theme.colors.contrastLight}
+        color={theme.colors.neutral[0]}
         variant="P1"
         text={t`Unable to find location`}
       />

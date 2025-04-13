@@ -116,5 +116,5 @@ const Thumb = styled(Animated.View)(({ theme }) => ({
 }));
 
 const Track = styled(Animated.View)(({ theme }) => ({
-  backgroundColor: theme.colors.componentBackground,
+  backgroundColor: theme.colors.background.component,
 }));

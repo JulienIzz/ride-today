@@ -13,14 +13,14 @@ export const Unavailable = () => {
       <CenteredView>
         <Typography
           variant="H1"
-          color={theme.colors.contrastLight}
+          color={theme.colors.neutral[0]}
           bold
           text={t`Page unavailable`}
         />
         <Link href={"/"}>
           <LinkTypo
             variant="H3"
-            color={theme.colors.contrastLight}
+            color={theme.colors.neutral[0]}
             text={t`Return to homepage`}
           />
         </Link>

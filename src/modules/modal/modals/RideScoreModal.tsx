@@ -15,29 +15,29 @@ export const RideScoreModalContent = () => {
     <TextContainer>
       <Title
         variant="H2"
-        color={theme.colors.contrastLight}
+        color={theme.colors.neutral[0]}
         bold
         text={t`About the RideScore`}
       />
       <Typo
         variant="P1"
-        color={theme.colors.contrastLight}
+        color={theme.colors.neutral[0]}
         text={t`The RideScore is a score that represents the estimated quality of the ride. It is based on several factors related to the current weather, time of the day and temperature.`}
       />
       <Typo
         variant="P1"
-        color={theme.colors.contrastLight}
+        color={theme.colors.neutral[0]}
         text={t`We wish to remind you that the RideScore is an estimation and that the actual quality of the ride may vary. DO NOT rely solely on the RideScore to determine if you should ride or not, always check the weather and the road conditions.`}
       />
       <Typo
         variant="H3"
-        color={theme.colors.contrastLight}
+        color={theme.colors.neutral[0]}
         bold
         text={t`Rating System`}
       />
       <Typo
         variant="P1"
-        color={theme.colors.contrastLight}
+        color={theme.colors.neutral[0]}
         text={t`The score goes from 0 to 5, where 0 is the worst and 5 is the best. To take into account night time and the increased danger, we divide by two the score. Here is a breakdown of the score:`}
       />
       <DetailsContainer>
@@ -46,7 +46,7 @@ export const RideScoreModalContent = () => {
             <ColorPill color={rideScoreDetails[rating].color} />
             <Typo
               variant="P1"
-              color={theme.colors.contrastLight}
+              color={theme.colors.neutral[0]}
               text={`${rating} : ${rideScoreDetails[rating].description}`}
             />
           </Row>
@@ -80,7 +80,7 @@ const Row = styled.View(({ theme }) => ({
 
 const ColorPill = styled.View<{ color: string | undefined }>(
   ({ theme, color }) => ({
-    backgroundColor: color ?? theme.colors.contrastLight,
+    backgroundColor: color ?? theme.colors.neutral[0],
     borderRadius: theme.borderRadius.round,
     width: 10,
     height: "100%",

@@ -37,7 +37,7 @@ export const MenuModal = () => {
                 <Typography
                   variant="P1"
                   bold
-                  color={theme.colors.contrastLight}
+                  color={theme.colors.neutral[0]}
                   text={item.label}
                 />
               </MenuItem>
@@ -55,7 +55,7 @@ const ModalContainer = styled.View(({ theme }) => {
 
   return {
     width: "80%",
-    backgroundColor: theme.colors.componentBackground,
+    backgroundColor: theme.colors.background.component,
     borderRadius: theme.borderRadius.m,
     alignItems: "center",
     position: "absolute",

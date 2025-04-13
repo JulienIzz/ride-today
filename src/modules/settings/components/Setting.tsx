@@ -34,7 +34,7 @@ export const Setting = ({
       <Typography
         variant="P1"
         bold
-        color={theme.colors.contrastLight}
+        color={theme.colors.neutral[0]}
         text={label}
       />
       <View>

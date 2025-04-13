@@ -52,7 +52,7 @@ const WeatherData = ({ location }: { location: string }) => {
         <RefreshControl
           refreshing={queryStates.isLoading}
           onRefresh={queryStates.refetch}
-          tintColor={theme.colors.contrastLight}
+          tintColor={theme.colors.neutral[0]}
         />
       }
       showsVerticalScrollIndicator={false}

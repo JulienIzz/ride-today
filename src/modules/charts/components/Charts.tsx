@@ -35,7 +35,7 @@ export const Charts = memo(() => {
             text={day === "today" ? t`Today` : t`Tomorrow`}
             variant="H4"
             bold
-            color={theme.colors.contrastLight}
+            color={theme.colors.neutral[0]}
           />
           <FlexView
             onLayout={({ nativeEvent }) => {
@@ -53,7 +53,7 @@ export const Charts = memo(() => {
               </QueryErrorBoundary>
             ) : (
               <CenteredView>
-                <MapPinOff color={theme.colors.contrastLight} size={50} />
+                <MapPinOff color={theme.colors.neutral[0]} size={50} />
               </CenteredView>
             )}
           </FlexView>
@@ -104,7 +104,7 @@ const DailyLineChart = ({
       yAxisColor={theme.colors.inactive}
       yAxisTextStyle={{
         fontFamily: theme.fonts.regular,
-        color: theme.colors.contrastLight,
+        color: theme.colors.neutral[0],
       }}
       dashGap={12}
       dashWidth={1}
@@ -144,6 +144,6 @@ const CenteredView = styled.View({
 
 const Background = styled.View(({ theme }) => ({
   borderRadius: theme.borderRadius.m,
-  backgroundColor: theme.colors.componentBackground,
+  backgroundColor: theme.colors.background.component,
   opacity: 0.5,
 }));

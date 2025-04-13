@@ -30,7 +30,7 @@ export const Location = () => {
           editable={!isLocationEnabled}
           onChangeText={changeTextHandler}
           cursorColor={theme.colors.primary}
-          placeholderTextColor={theme.colors.contrastLight}
+          placeholderTextColor={theme.colors.neutral[0]}
         />
       </LocationInputContainer>
       <GeolocationToggle
@@ -58,7 +58,7 @@ const LocationInputContainer = styled.View<{ disabled: boolean }>(
     padding: theme.spacings.xs,
     opacity: disabled ? 1 : 0.5,
     backgroundColor: disabled
-      ? theme.colors.componentBackground
+      ? theme.colors.background.component
       : theme.colors.inactive,
     borderRadius: theme.borderRadius.round,
     boxShadow: shadowStyle,
@@ -70,6 +70,6 @@ const LocationInput = styled.TextInput(({ theme }) => ({
   height: "100%",
   textAlign: "center",
   fontFamily: theme.fonts.regular,
-  color: theme.colors.contrastLight,
+  color: theme.colors.neutral[0],
   fontSize: 16,
 }));

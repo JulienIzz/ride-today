@@ -25,24 +25,24 @@ export const HourWeather = ({ hour }: { hour: Hour }) => {
       <LeftContainer>
         <IconAndText>
           {hour.isDay === 1 ? (
-            <Sun color={theme.colors.contrastLight} size={16} />
+            <Sun color={theme.colors.neutral[0]} size={16} />
           ) : (
-            <Moon color={theme.colors.contrastLight} size={16} />
+            <Moon color={theme.colors.neutral[0]} size={16} />
           )}
           <Typography
-            color={theme.colors.contrastLight}
+            color={theme.colors.neutral[0]}
             variant="P1"
             text={formatToDisplayHour(new Date(hour.time))}
           />
           <RideScoreMini score={hour.condition.notation} />
         </IconAndText>
         <Typography
-          color={theme.colors.contrastLight}
+          color={theme.colors.neutral[0]}
           variant="P1"
           text={hour.temp[unitSystem]}
         />
         <Typography
-          color={theme.colors.contrastLight}
+          color={theme.colors.neutral[0]}
           numberOfLines={2}
           variant="P1"
           text={hour.condition.text}
@@ -51,35 +51,35 @@ export const HourWeather = ({ hour }: { hour: Hour }) => {
       <RightContainer>
         <IconAndText>
           <Typography
-            color={theme.colors.contrastLight}
+            color={theme.colors.neutral[0]}
             variant="P1"
             text={hour.wind[unitSystem]}
           />
-          <Wind color={theme.colors.contrastLight} size={16} />
+          <Wind color={theme.colors.neutral[0]} size={16} />
         </IconAndText>
         <IconAndText>
           <Typography
-            color={theme.colors.contrastLight}
+            color={theme.colors.neutral[0]}
             variant="P1"
             text={hour.humidity}
           />
-          <Waves color={theme.colors.contrastLight} size={16} />
+          <Waves color={theme.colors.neutral[0]} size={16} />
         </IconAndText>
         <IconAndText>
           <Typography
-            color={theme.colors.contrastLight}
+            color={theme.colors.neutral[0]}
             variant="P1"
             text={hour.chanceOfRain}
           />
-          <CloudRain color={theme.colors.contrastLight} size={16} />
+          <CloudRain color={theme.colors.neutral[0]} size={16} />
         </IconAndText>
         <IconAndText>
           <Typography
-            color={theme.colors.contrastLight}
+            color={theme.colors.neutral[0]}
             variant="P1"
             text={hour.chanceOfSnow}
           />
-          <Snowflake color={theme.colors.contrastLight} size={16} />
+          <Snowflake color={theme.colors.neutral[0]} size={16} />
         </IconAndText>
       </RightContainer>
     </HourContainer>

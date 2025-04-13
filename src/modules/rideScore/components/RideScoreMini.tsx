@@ -22,7 +22,7 @@ export const RideScoreMini = ({
       <Spacer horizontal size={theme.spacings.xs} />
       <Typography
         variant="P1"
-        color={theme.colors.contrastLight}
+        color={theme.colors.neutral[0]}
         bold
         text={`${score} / 5`}
       />

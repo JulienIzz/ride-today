@@ -27,7 +27,7 @@ export const MenuWheel = () => {
       onPress={handleMenuPress}
       style={{
         backgroundColor: isMenuVisible
-          ? theme.colors.contrast
+          ? theme.colors.neutral["100"]
           : theme.colors.primary,
       }}
     >
@@ -36,7 +36,7 @@ export const MenuWheel = () => {
           <X strokeWidth={2} color={theme.colors.primary} size={32} />
         </Animated.View>
       ) : (
-        <Cog strokeWidth={2} color={theme.colors.contrast} size={32} />
+        <Cog strokeWidth={2} color={theme.colors.neutral["100"]} size={32} />
       )}
     </WheelContainer>
   );

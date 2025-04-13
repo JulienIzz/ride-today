@@ -28,14 +28,16 @@ export const GeolocationToggle = ({
       onPress={handleSwitch}
       trackStyle={toggleTrackStyle}
       trackColors={{
-        left: theme.colors.componentBackground,
-        right: theme.colors.componentBackground,
+        left: theme.colors.background.component,
+        right: theme.colors.background.component,
       }}
       containerStyle={{ boxShadow: shadowStyle }}
       leftComponent={
         <Search
           color={
-            !isLocationEnabled ? theme.colors.contrast : theme.colors.inactive
+            !isLocationEnabled
+              ? theme.colors.neutral["100"]
+              : theme.colors.inactive
           }
           size={20}
         />
@@ -51,7 +53,7 @@ const LocationPin = ({ disabled }: { disabled?: boolean }) => {
   const theme = useTheme();
   return (
     <MapPinned
-      color={disabled ? theme.colors.inactive : theme.colors.contrast}
+      color={disabled ? theme.colors.inactive : theme.colors.neutral["100"]}
       size={20}
     />
   );

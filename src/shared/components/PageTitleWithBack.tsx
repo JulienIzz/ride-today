@@ -19,12 +19,12 @@ export const PageTitleWithBack = ({ title }: TitleProps) => {
     <View>
       <TitleContainer>
         <BackContainer onPress={goBack}>
-          <ChevronLeft color={theme.colors.contrast} size={24} />
+          <ChevronLeft color={theme.colors.neutral["100"]} size={24} />
         </BackContainer>
         <Typography
           variant="H1"
           bold
-          color={theme.colors.contrastLight}
+          color={theme.colors.neutral[0]}
           text={title}
         />
       </TitleContainer>
@@ -44,7 +44,7 @@ const TitleContainer = styled.View(({ theme }) => ({
 const BackContainer = styled(ScaledPressable)(({ theme }) => ({
   padding: theme.spacings.s,
   borderRadius: theme.borderRadius.round,
-  shadowColor: theme.colors.contrast,
+  shadowColor: theme.colors.neutral["100"],
   shadowRadius: 8,
   shadowOpacity: 0.5,
   shadowOffset: { width: 4, height: 4 },

@@ -22,7 +22,7 @@ export const WeatherLocationMissing = () => {
     <View style={style}>
       <CurrentWeatherContainer>
         <CenteredView>
-          <MapPinOff color={theme.colors.contrast} size={50} />
+          <MapPinOff color={theme.colors.neutral["100"]} size={50} />
         </CenteredView>
       </CurrentWeatherContainer>
     </View>

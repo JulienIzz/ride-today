@@ -47,14 +47,14 @@ export const CurrentWeather = ({
           </SideContainer>
           <SideContainer>
             <IconAndText>
-              <Waves color={theme.colors.contrast} size={20} />
+              <Waves color={theme.colors.neutral["100"]} size={20} />
               <Typography
                 variant="P1"
                 text={t({ message: `Humidity : ${currentWeather.humidity}` })}
               />
             </IconAndText>
             <IconAndText>
-              <Wind color={theme.colors.contrast} size={20} />
+              <Wind color={theme.colors.neutral["100"]} size={20} />
               <Typography
                 variant="P1"
                 text={t({
@@ -63,7 +63,7 @@ export const CurrentWeather = ({
               />
             </IconAndText>
             <IconAndText>
-              <CloudRain color={theme.colors.contrast} size={20} />
+              <CloudRain color={theme.colors.neutral["100"]} size={20} />
               <Typography
                 variant="P1"
                 text={t({
@@ -73,9 +73,9 @@ export const CurrentWeather = ({
             </IconAndText>
             <IconAndText>
               {currentWeather.isDay === 1 ? (
-                <Sun color={theme.colors.contrast} size={20} />
+                <Sun color={theme.colors.neutral["100"]} size={20} />
               ) : (
-                <Moon color={theme.colors.contrast} size={20} />
+                <Moon color={theme.colors.neutral["100"]} size={20} />
               )}
               <Typography
                 variant="P1"
@@ -114,14 +114,14 @@ const TemperatureContainer = styled.View(({ theme }) => ({
 const Temperature = styled.Text(({ theme }) => ({
   fontSize: 50,
   fontFamily: theme.fonts.boldItalic,
-  color: theme.colors.contrast,
+  color: theme.colors.neutral["100"],
   lineHeight: 53,
 }));
 
 const Degrees = styled.Text(({ theme }) => ({
   fontSize: 20,
   fontFamily: theme.fonts.boldItalic,
-  color: theme.colors.contrast,
+  color: theme.colors.neutral["100"],
 }));
 
 const IconAndText = styled.View(({ theme }) => ({

@@ -34,12 +34,12 @@ export const RideScore = ({
       <Labels>
         <Typography
           variant="P1"
-          color={theme.colors.contrastLight}
+          color={theme.colors.neutral[0]}
           bold
           text={t`RideScore`}
         />
         <BadgeInfo
-          color={theme.colors.contrastLight}
+          color={theme.colors.neutral[0]}
           onPress={handlePresentModalPress}
           size={14}
           strokeWidth={3}
@@ -47,7 +47,7 @@ export const RideScore = ({
         <Spacer />
         <Typography
           variant="P1"
-          color={theme.colors.contrastLight}
+          color={theme.colors.neutral[0]}
           bold
           text={`${conditionNotation} / 5`}
         />
@@ -64,7 +64,7 @@ export const RideScore = ({
       <Message>
         <MessageText
           variant="P2"
-          color={theme.colors.contrastLight}
+          color={theme.colors.neutral[0]}
           text={t({
             message: `${rideScoreDetails[conditionNotation].catchPhrase}`,
           })}
@@ -79,7 +79,7 @@ const Container = styled(FlexView)(({ theme }) => ({
   gap: theme.spacings.s,
   borderRadius: theme.borderRadius.m,
   padding: theme.spacings.m,
-  backgroundColor: theme.colors.componentBackground,
+  backgroundColor: theme.colors.background.component,
   justifyContent: "flex-start",
   alignItems: "center",
   transform: [{ translateY: 2 }],

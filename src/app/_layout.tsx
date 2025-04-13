@@ -88,7 +88,7 @@ const RootStack = () => {
       screenOptions={{
         headerShown: false,
         contentStyle: {
-          backgroundColor: theme.colors.appBackground,
+          backgroundColor: theme.colors.background.app,
         },
       }}
     />
@@ -96,12 +96,12 @@ const RootStack = () => {
 };
 
 const RootView = styled.View(({ theme }) => ({
-  backgroundColor: theme.colors.appBackground,
+  backgroundColor: theme.colors.background.app,
   flex: 1,
 }));
 
 const BackgroundWebMobile = styled.View(({ theme }) => ({
-  backgroundColor: theme.colors.appBackground,
+  backgroundColor: theme.colors.background.app,
   position: "absolute",
   height: "150%",
   top: 0,

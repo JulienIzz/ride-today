@@ -9,13 +9,13 @@ const Text = styled.Text<{
 }>(({ theme, fontSize, color, bold }) => ({
   fontSize: fontSize,
   fontFamily: bold ? theme.fonts.semiBold : theme.fonts.regular,
-  color: color ?? theme.colors.contrast,
+  color: color ?? theme.colors.neutral["100"],
 }));
 
 const Tagline = styled.Text<{ color?: ColorValue }>(({ theme, color }) => ({
   fontSize: theme.fontSizes.tagline,
   fontFamily: theme.fonts.boldItalic,
-  color: color ?? theme.colors.contrast,
+  color: color ?? theme.colors.neutral["100"],
 }));
 
 type Props = {
