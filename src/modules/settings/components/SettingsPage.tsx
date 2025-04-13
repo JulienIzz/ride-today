@@ -9,6 +9,7 @@ import {
   Settings,
 } from "#modules/settings/components/SettingsList";
 import { Spacer } from "#shared/components/Spacer";
+import { isFeatureEnabled } from "#shared/env/featureFlags";
 
 export const SettingsPage = () => {
   return (
@@ -16,7 +17,7 @@ export const SettingsPage = () => {
       <Container>
         <Settings />
         <About />
-        <CheatcodesButton />
+        {isFeatureEnabled("CHEATCODES_ENABLED") && <CheatcodesButton />}
         <Spacer size={BOTTOM_MENU_HEIGHT} vertical />
       </Container>
     </ScrollView>

@@ -1,4 +1,3 @@
-import styled from "@emotion/native";
 import { t } from "@lingui/core/macro";
 import { useRouter } from "expo-router";
 
@@ -55,17 +54,9 @@ export const CheatcodesButton = () => {
   const router = useRouter();
 
   return (
-    <ButtonContainer>
-      <ScaledButton
-        title="Cheatcodes"
-        onPress={() => router.navigate("/settings/cheatcodes")}
-      />
-    </ButtonContainer>
+    <ScaledButton
+      title="Cheatcodes"
+      onPress={() => router.navigate("/settings/cheatcodes")}
+    />
   );
 };
-
-const ButtonContainer = styled.View(({ theme }) => ({
-  padding: theme.spacings.m,
-  justifyContent: "center",
-  alignItems: "center",
-}));
