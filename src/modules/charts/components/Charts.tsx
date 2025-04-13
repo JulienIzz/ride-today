@@ -145,5 +145,5 @@ const CenteredView = styled.View({
 const Background = styled.View(({ theme }) => ({
   borderRadius: theme.borderRadius.m,
   backgroundColor: theme.colors.background.component,
-  opacity: 0.5,
+  opacity: 0.85,
 }));

@@ -84,7 +84,7 @@ const ListHeaderContainer = styled.View(({ theme }) => ({
 const Background = styled.View(({ theme }) => ({
   borderRadius: theme.borderRadius.m,
   backgroundColor: theme.colors.background.component,
-  opacity: 0.4,
+  opacity: 0.6,
 }));
 
 const EndOfDayContainer = styled.View(({ theme }) => ({
