@@ -4,23 +4,31 @@ import type { ColorValue, TextProps, TextStyle } from "react-native";
 
 const Text = styled.Text<{
   fontSize: number;
+  contrast?: boolean;
   color?: ColorValue;
   bold?: boolean;
-}>(({ theme, fontSize, color, bold }) => ({
+}>(({ theme, fontSize, color, contrast, bold }) => ({
   fontSize: fontSize,
   fontFamily: bold ? theme.fonts.semiBold : theme.fonts.regular,
-  color: color ?? theme.colors.neutral["100"],
+  color:
+    color ??
+    (contrast ? theme.colors.neutral["0"] : theme.colors.neutral["100"]),
 }));
 
-const Tagline = styled.Text<{ color?: ColorValue }>(({ theme, color }) => ({
-  fontSize: theme.fontSizes.tagline,
-  fontFamily: theme.fonts.boldItalic,
-  color: color ?? theme.colors.neutral["100"],
-}));
+const Tagline = styled.Text<{ color?: ColorValue; contrast?: boolean }>(
+  ({ theme, color, contrast }) => ({
+    fontSize: theme.fontSizes.tagline,
+    fontFamily: theme.fonts.boldItalic,
+    color:
+      color ??
+      (contrast ? theme.colors.neutral["0"] : theme.colors.neutral["100"]),
+  }),
+);
 
 type Props = {
   variant: "tagline" | "P1" | "P2" | "P3" | "P4" | "H1" | "H2" | "H3" | "H4";
   text: string;
+  contrast?: boolean;
   style?: TextStyle;
   color?: ColorValue;
   bold?: boolean;
