@@ -1,10 +1,12 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
+import type { BottomSheetModal } from "@gorhom/bottom-sheet";
 import { t } from "@lingui/core/macro";
 import { BadgeInfo } from "lucide-react-native";
+import { useCallback, useRef } from "react";
 
 import { FlexView } from "#design-system/utils/FlexView";
-import { useGlobalModalActions } from "#modules/modal/useModal";
+import { RideScoreBottomSheet } from "#modules/rideScore/components/RideScoreBottomSheet";
 import { useRideScoreDetails } from "#modules/rideScore/utils/rideScoreDetails";
 import type { ConditionNotation } from "#modules/weather/types/weather.types";
 import { Spacer } from "#shared/components/Spacer";
@@ -19,7 +21,11 @@ export const RideScore = ({
 
   const rideScoreDetails = useRideScoreDetails();
 
-  const { showRideScoreModal } = useGlobalModalActions();
+  const bottomSheetModalRef = useRef<BottomSheetModal>(null);
+
+  const handlePresentModalPress = useCallback(() => {
+    bottomSheetModalRef.current?.present();
+  }, []);
 
   if (conditionNotation === undefined) return null;
 
@@ -28,20 +34,20 @@ export const RideScore = ({
       <Labels>
         <Typography
           variant="P1"
-          color={theme.colors.contrastLight}
+          color={theme.colors.neutral[0]}
           bold
           text={t`RideScore`}
         />
         <BadgeInfo
-          color={theme.colors.contrastLight}
-          onPress={showRideScoreModal}
+          color={theme.colors.neutral[0]}
+          onPress={handlePresentModalPress}
           size={14}
           strokeWidth={3}
         />
         <Spacer />
         <Typography
           variant="P1"
-          color={theme.colors.contrastLight}
+          color={theme.colors.neutral[0]}
           bold
           text={`${conditionNotation} / 5`}
         />
@@ -58,12 +64,13 @@ export const RideScore = ({
       <Message>
         <MessageText
           variant="P2"
-          color={theme.colors.contrastLight}
+          color={theme.colors.neutral[0]}
           text={t({
             message: `${rideScoreDetails[conditionNotation].catchPhrase}`,
           })}
         />
       </Message>
+      <RideScoreBottomSheet bottomSheetModalRef={bottomSheetModalRef} />
     </Container>
   );
 };
@@ -72,7 +79,7 @@ const Container = styled(FlexView)(({ theme }) => ({
   gap: theme.spacings.s,
   borderRadius: theme.borderRadius.m,
   padding: theme.spacings.m,
-  backgroundColor: theme.colors.componentBackground,
+  backgroundColor: theme.colors.background.component,
   justifyContent: "flex-start",
   alignItems: "center",
   transform: [{ translateY: 2 }],

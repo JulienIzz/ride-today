@@ -22,41 +22,41 @@ export const Credits = () => {
           <Typography
             variant="H3"
             bold
-            color={theme.colors.contrastLight}
+            color={theme.colors.neutral[0]}
             text={t`Development`}
           />
           <Typography
             variant="P1"
-            color={theme.colors.contrastLight}
+            color={theme.colors.neutral[0]}
             text={"Julien IZZILLO"}
           />
           <Typography
             variant="H3"
             bold
-            color={theme.colors.contrastLight}
+            color={theme.colors.neutral[0]}
             text={t`Design`}
           />
           <Typography
             variant="P1"
-            color={theme.colors.contrastLight}
+            color={theme.colors.neutral[0]}
             text={"Yolaine BOURREAU"}
           />
           <Typography
             variant="H3"
             bold
-            color={theme.colors.contrastLight}
+            color={theme.colors.neutral[0]}
             text={t`Third party services`}
           />
           <Link
             variant="P1"
             onPress={() => Linking.openURL("https://www.weatherapi.com/")}
-            color={theme.colors.contrastLight}
+            color={theme.colors.neutral[0]}
             text={"WeatherAPI.com"}
           />
           <Link
             variant="P1"
             onPress={() => Linking.openURL("https://lucide.dev/")}
-            color={theme.colors.contrastLight}
+            color={theme.colors.neutral[0]}
             text={"Lucide Icons"}
           />
         </InfoContainer>

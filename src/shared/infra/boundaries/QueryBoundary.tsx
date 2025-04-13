@@ -62,7 +62,7 @@ const ErrorFallback = () => {
     <CenteredView>
       <Typography
         variant="P1"
-        color={theme.colors.contrastLight}
+        color={theme.colors.neutral[0]}
         text={t`An error has occurred`}
       />
     </CenteredView>

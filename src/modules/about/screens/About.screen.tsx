@@ -59,11 +59,7 @@ const Section = ({
   return (
     <>
       <SectionContainer onPress={onPress}>
-        <Typography
-          variant="H3"
-          color={theme.colors.contrastLight}
-          text={label}
-        />
+        <Typography variant="H3" color={theme.colors.neutral[0]} text={label} />
       </SectionContainer>
       <Divider />
     </>

@@ -25,14 +25,14 @@ export const useChartsDataFromWeather = (location: string) => {
       labelComponent: () => (
         <Typography
           text={label === "0h" ? "" : label}
-          color={theme.colors.contrastLight}
+          color={theme.colors.neutral[0]}
           variant="P1"
         />
       ),
       showStrip: label === now,
       hideDataPoint: label !== now,
       verticalLineUptoDataPoint: true,
-      verticalLineColor: theme.colors.contrastLight,
+      verticalLineColor: theme.colors.neutral[0],
       stripStrokeDashArray: [4, 4],
     };
   });
@@ -45,7 +45,7 @@ export const useChartsDataFromWeather = (location: string) => {
       labelComponent: () => (
         <Typography
           text={label === "0h" ? "" : label}
-          color={theme.colors.contrastLight}
+          color={theme.colors.neutral[0]}
           variant="P1"
         />
       ),

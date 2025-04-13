@@ -35,7 +35,7 @@ export const ForecastWeather = ({
           <ListHeaderContainer>
             <Typography
               variant="P1"
-              color={theme.colors.contrastLight}
+              color={theme.colors.neutral[0]}
               bold
               text={t({ message: "Next hours" })}
             />
@@ -61,7 +61,7 @@ const EndOfDay = () => {
 
   return (
     <EndOfDayContainer>
-      <MoonStar size={40} strokeWidth={1} color={theme.colors.contrastLight} />
+      <MoonStar size={40} strokeWidth={1} color={theme.colors.neutral[0]} />
     </EndOfDayContainer>
   );
 };
@@ -83,7 +83,7 @@ const ListHeaderContainer = styled.View(({ theme }) => ({
 
 const Background = styled.View(({ theme }) => ({
   borderRadius: theme.borderRadius.m,
-  backgroundColor: theme.colors.componentBackground,
+  backgroundColor: theme.colors.background.component,
   opacity: 0.4,
 }));
 

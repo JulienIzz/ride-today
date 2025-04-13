@@ -3,7 +3,6 @@ import { BackHandler } from "react-native";
 
 import { MenuModal } from "#modules/modal/modals/MenuModal";
 import { OnboardingModal } from "#modules/modal/modals/OnboardingModal";
-import { RideScoreModal } from "#modules/modal/modals/RideScoreModal";
 import { useGlobalModal, useGlobalModalActions } from "#modules/modal/useModal";
 
 export const GlobalModal = () => {
@@ -29,7 +28,6 @@ export const GlobalModal = () => {
 
   return (
     <>
-      <RideScoreModal />
       <OnboardingModal />
       <MenuModal />
     </>

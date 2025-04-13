@@ -9,7 +9,7 @@ export const Logo = () => {
 
   return (
     <TagLine
-      color={theme.colors.contrastLight}
+      color={theme.colors.neutral[0]}
       variant="tagline"
       text={t`RIDE TODAY`}
     />

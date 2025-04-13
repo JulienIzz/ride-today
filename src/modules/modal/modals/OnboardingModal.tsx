@@ -27,23 +27,23 @@ export const OnboardingModal = () => {
         <TextContainer>
           <Title
             variant="H2"
-            color={theme.colors.contrastLight}
+            color={theme.colors.neutral[0]}
             bold
             text={t`Important Notice`}
           />
           <Typo
             variant="P1"
-            color={theme.colors.contrastLight}
+            color={theme.colors.neutral[0]}
             text={t`This application provides a general weather-based riding score for your convenience.`}
           />
           <Typo
             variant="P1"
-            color={theme.colors.contrastLight}
+            color={theme.colors.neutral[0]}
             text={t`Actual conditions may differ from predictions, and unforeseen circumstances can arise at any time. Your decision to ride should not be based solely on this score or any other information provided by the app.`}
           />
           <Typo
             variant="P1"
-            color={theme.colors.contrastLight}
+            color={theme.colors.neutral[0]}
             text={t`By proceeding, you acknowledge that the developers and providers of this service cannot be held responsible for any consequences arising from your ride decisions.`}
           />
         </TextContainer>
@@ -62,7 +62,7 @@ export const OnboardingModal = () => {
 const Container = styled.View(({ theme }) => ({
   width: "100%",
   height: 500,
-  backgroundColor: theme.colors.componentBackground,
+  backgroundColor: theme.colors.background.component,
   borderRadius: theme.borderRadius.xl,
   padding: theme.spacings.l,
   alignItems: "center",

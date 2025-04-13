@@ -48,7 +48,7 @@ export const PageSelector = ({
 const Icons = styled.View(({ theme }) => {
   return {
     flexDirection: "row",
-    backgroundColor: theme.colors.componentBackground,
+    backgroundColor: theme.colors.background.component,
     borderRadius: theme.borderRadius.l,
     boxShadow: shadowStyle,
     width: 250,

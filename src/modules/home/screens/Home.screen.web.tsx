@@ -38,12 +38,12 @@ export const Home = () => {
           <Description
             variant="P1"
             text={t`RideToday is your go-to riding companion, offering a straightforward score to gauge if today’s weather is biker-friendly. No need to sift through endless forecasts—we provide clear, concise insights to help you decide whether to hit the road or stay put.`}
-            color={theme.colors.contrastLight}
+            color={theme.colors.neutral[0]}
           />
           <Description
             variant="P1"
             text={t`Plan your rides a day or two in advance and experience the freedom of the open road with RideToday by your side.`}
-            color={theme.colors.contrastLight}
+            color={theme.colors.neutral[0]}
           />
           <PreviewImages
             images={[
@@ -56,7 +56,7 @@ export const Home = () => {
             variant="P1"
             text={t`Available soon !`}
             bold
-            color={theme.colors.contrastLight}
+            color={theme.colors.neutral[0]}
           />
           <Row>
             <StoreRedirect disabled>
