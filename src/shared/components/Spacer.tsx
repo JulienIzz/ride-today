@@ -1,4 +1,7 @@
 import styled from "@emotion/native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+
+import { BOTTOM_MENU_HEIGHT } from "#modules/home/utils/constants";
 
 export const Spacer = styled.View<{
   size?: number;
@@ -16,3 +19,9 @@ export const Spacer = styled.View<{
     flex: 1,
   };
 });
+
+export const SpacerBottomMenu = () => {
+  const { bottom } = useSafeAreaInsets();
+
+  return <Spacer size={BOTTOM_MENU_HEIGHT + bottom} vertical />;
+};

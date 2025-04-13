@@ -2,76 +2,64 @@ import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
 import { t } from "@lingui/core/macro";
 import { MapPinOff } from "lucide-react-native";
-import { memo, useState } from "react";
+import { memo } from "react";
+import { ScrollView } from "react-native";
 import { CurveType, LineChart } from "react-native-gifted-charts";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { absoluteFillStyle } from "#design-system/utils/absoluteFillStyle";
 import { FlexView } from "#design-system/utils/FlexView";
 import { useChartsDataFromWeather } from "#modules/charts/hooks/useChartsDataFromWeather";
-import { BOTTOM_MENU_HEIGHT } from "#modules/home/utils/constants";
 import { useLocationStore } from "#modules/location/hooks/useLocationStore.hook";
-import { Spacer } from "#shared/components/Spacer";
+import { SpacerBottomMenu } from "#shared/components/Spacer";
 import { Typography } from "#shared/fonts/Typography";
 import { QueryErrorBoundary } from "#shared/infra/boundaries/QueryBoundary";
 import { shadowStyle } from "#shared/styling/shadowStyle";
 
+const CHART_HEIGHT = 200;
+const CHART_CONTAINER_HEIGHT = CHART_HEIGHT + 100;
+
 export const Charts = memo(() => {
   const theme = useTheme();
-  const { bottom } = useSafeAreaInsets();
 
   const location = useLocationStore((state) => state.location);
-
-  const [chartMaxHeight, setChartMaxHeight] = useState(0);
 
   const days = ["today", "tomorrow"] as const;
 
   return (
-    <Container>
-      {days.map((day) => (
-        <ChartContainer key={day}>
-          <Background style={absoluteFillStyle} />
-          <Typography
-            text={day === "today" ? t`Today` : t`Tomorrow`}
-            variant="H4"
-            bold
-            color={theme.colors.neutral[0]}
-          />
-          <FlexView
-            onLayout={({ nativeEvent }) => {
-              const { height } = nativeEvent.layout;
-              setChartMaxHeight(height - 30);
-            }}
-          >
+    <ScrollView>
+      <Container>
+        {days.map((day) => (
+          <ChartContainer key={day}>
+            <Background style={absoluteFillStyle} />
+            <Typography
+              text={day === "today" ? t`Today` : t`Tomorrow`}
+              variant="H4"
+              bold
+              color={theme.colors.neutral[0]}
+            />
             {location ? (
               <QueryErrorBoundary resetKeys={[location]}>
-                <DailyLineChart
-                  location={location}
-                  height={chartMaxHeight}
-                  day={day}
-                />
+                <DailyLineChart location={location} day={day} />
               </QueryErrorBoundary>
             ) : (
               <CenteredView>
                 <MapPinOff color={theme.colors.neutral[0]} size={50} />
               </CenteredView>
             )}
-          </FlexView>
-        </ChartContainer>
-      ))}
-      <Spacer size={BOTTOM_MENU_HEIGHT + bottom} vertical />
-    </Container>
+          </ChartContainer>
+        ))}
+        <SpacerBottomMenu />
+      </Container>
+    </ScrollView>
   );
 });
 Charts.displayName = "Charts";
 
 const DailyLineChart = ({
   location,
-  height,
   day,
 }: {
   location: string;
-  height?: number;
   day: "today" | "tomorrow";
 }) => {
   const theme = useTheme();
@@ -88,7 +76,7 @@ const DailyLineChart = ({
       maxValue={5}
       stepValue={1}
       noOfSections={5}
-      height={height}
+      height={CHART_HEIGHT}
       curved
       curveType={CurveType.QUADRATIC}
       interpolateMissingValues
@@ -127,9 +115,10 @@ const Container = styled(FlexView)(({ theme }) => ({
   gap: theme.spacings.m,
 }));
 
-const ChartContainer = styled(FlexView)(({ theme }) => ({
+const ChartContainer = styled.View(({ theme }) => ({
   padding: theme.spacings.m,
   paddingRight: 0,
+  height: CHART_CONTAINER_HEIGHT,
   gap: theme.spacings.m,
   overflow: "hidden",
   borderRadius: theme.borderRadius.m,

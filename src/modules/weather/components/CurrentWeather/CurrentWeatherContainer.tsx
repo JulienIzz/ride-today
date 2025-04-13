@@ -2,7 +2,6 @@ import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
 import { MapPinOff } from "lucide-react-native";
 import { ActivityIndicator, View } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { shadowStyle } from "#shared/styling/shadowStyle";
 
@@ -46,12 +45,9 @@ export const WeatherLoading = () => {
 export const useWeatherContainerStyle = () => {
   const theme = useTheme();
 
-  const { bottom } = useSafeAreaInsets();
-
   return {
     gap: theme.spacings.m,
     padding: theme.spacings.m,
-    paddingBottom: bottom + theme.spacings.m,
   };
 };
 
