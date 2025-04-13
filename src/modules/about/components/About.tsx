@@ -19,17 +19,17 @@ export const About = () => {
       title={t`About`}
       childrens={[
         <Section
-          key={t`Contact`}
+          key={"Privacy policy"}
           label={t`Privacy policy`}
           onPress={() => openURL("https://www.ride-today.com/privacy")}
         />,
         <Section
-          key={t`User prevention`}
+          key={"User prevention"}
           label={t`User prevention`}
           onPress={showOnboarding}
         />,
         <Section
-          key={t`Terms of use`}
+          key={"Credits"}
           label={t`Credits`}
           onPress={() => {
             router.navigate("/about/credits");

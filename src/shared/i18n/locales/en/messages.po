@@ -55,7 +55,7 @@ msgid "7. Contact Us"
 msgstr "7. Contact Us"
 
 #: src/modules/modal/modals/MenuModal.tsx
-#: src/modules/about/screens/About.screen.tsx
+#: src/modules/about/components/About.tsx
 msgid "About"
 msgstr "About"
 
@@ -92,15 +92,15 @@ msgid "Creator and Developer"
 msgstr "Creator and Developer"
 
 #: src/modules/credits/screens/Credits.screen.tsx
-#: src/modules/about/screens/About.screen.tsx
+#: src/modules/about/components/About.tsx
 msgid "Credits"
 msgstr "Credits"
 
-#: src/modules/settings/screens/Settings.screen.tsx
+#: src/modules/settings/components/SettingsList.tsx
 msgid "Custom"
 msgstr "Custom"
 
-#: src/modules/settings/screens/Settings.screen.tsx
+#: src/modules/settings/components/SettingsList.tsx
 msgid "Dark"
 msgstr "Dark"
 
@@ -146,7 +146,7 @@ msgstr "Ideal condition ! Hit the road and enjoy!"
 msgid "If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at contact@ride-today.com."
 msgstr "If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at contact@ride-today.com."
 
-#: src/modules/settings/screens/Settings.screen.tsx
+#: src/modules/settings/components/SettingsList.tsx
 msgid "Imperial"
 msgstr "Imperial"
 
@@ -154,7 +154,7 @@ msgstr "Imperial"
 msgid "Important Notice"
 msgstr "Important Notice"
 
-#: src/modules/settings/screens/Settings.screen.tsx
+#: src/modules/settings/components/SettingsList.tsx
 msgid "Light"
 msgstr "Light"
 
@@ -166,7 +166,7 @@ msgstr "Loading location"
 msgid "Manageable, ride carefully and watch for trouble."
 msgstr "Manageable, ride carefully and watch for trouble."
 
-#: src/modules/settings/screens/Settings.screen.tsx
+#: src/modules/settings/components/SettingsList.tsx
 msgid "Metric"
 msgstr "Metric"
 
@@ -191,7 +191,7 @@ msgstr "Plan your rides a day or two in advance and experience the freedom of th
 msgid "Precip. : {0}"
 msgstr "Precip. : {0}"
 
-#: src/modules/about/screens/About.screen.tsx
+#: src/modules/about/components/About.tsx
 msgid "Privacy policy"
 msgstr "Privacy policy"
 
@@ -231,7 +231,7 @@ msgstr "RideToday is your go-to riding companion, offering a straightforward sco
 msgid "Search location"
 msgstr "Search location"
 
-#: src/modules/settings/screens/Settings.screen.tsx
+#: src/modules/settings/components/SettingsList.tsx
 #: src/modules/modal/modals/MenuModal.tsx
 msgid "Settings"
 msgstr "Settings"
@@ -240,7 +240,7 @@ msgstr "Settings"
 msgid "Severely hazardous, better to stay off the road."
 msgstr "Severely hazardous, better to stay off the road."
 
-#: src/modules/settings/screens/Settings.screen.tsx
+#: src/modules/settings/components/SettingsList.tsx
 msgid "System"
 msgstr "System"
 
@@ -276,11 +276,11 @@ msgstr "The weather is good (no rain or challenging conditions), temperature is 
 msgid "The weather is very bad (snow, heavy rain) and/or temperature is very low (or very high). Going out and riding in such conditions is very risky."
 msgstr "The weather is very bad (snow, heavy rain) and/or temperature is very low (or very high). Going out and riding in such conditions is very risky."
 
-#: src/modules/settings/screens/Settings.screen.tsx
-msgid "Theme choice"
-msgstr "Theme choice"
+#: src/modules/settings/components/SettingsList.tsx
+msgid "Theme"
+msgstr "Theme"
 
-#: src/modules/settings/screens/Settings.screen.tsx
+#: src/modules/settings/components/SettingsList.tsx
 msgid "Theme mode"
 msgstr "Theme mode"
 
@@ -308,11 +308,11 @@ msgstr "Tomorrow"
 msgid "Unable to find location"
 msgstr "Unable to find location"
 
-#: src/modules/settings/screens/Settings.screen.tsx
+#: src/modules/settings/components/SettingsList.tsx
 msgid "Units"
 msgstr "Units"
 
-#: src/modules/about/screens/About.screen.tsx
+#: src/modules/about/components/About.tsx
 msgid "User prevention"
 msgstr "User prevention"
 

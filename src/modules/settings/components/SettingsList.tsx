@@ -22,7 +22,7 @@ export const Settings = () => {
       title={t`Settings`}
       childrens={[
         <Setting
-          key={t`Units`}
+          key={"Units"}
           label={t`Units`}
           value={isImperialEnabled}
           onToggleValue={() => setIsImperialEnabled(!isImperialEnabled)}
@@ -30,7 +30,7 @@ export const Settings = () => {
           rightChoice={t`Imperial`}
         />,
         <Setting
-          key={t`Theme mode`}
+          key={"Theme mode"}
           label={t`Theme mode`}
           value={!!isCustomThemeEnabled}
           onToggleValue={() => setIsCustomThemeEnabled(!isCustomThemeEnabled)}
@@ -38,8 +38,8 @@ export const Settings = () => {
           rightChoice={t`Custom`}
         />,
         <Setting
-          key={t`Theme choice`}
-          label={t`Theme choice`}
+          key={"Theme choice"}
+          label={t`Theme`}
           value={theme === "light"}
           onToggleValue={() => setTheme(theme === "dark" ? "light" : "dark")}
           leftChoice={t`Dark`}
