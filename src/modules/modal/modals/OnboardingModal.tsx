@@ -62,7 +62,7 @@ export const OnboardingModal = () => {
 const Container = styled.View(({ theme }) => ({
   width: "100%",
   height: 500,
-  backgroundColor: theme.colors.background.component,
+  backgroundColor: theme.colors.neutral[50],
   borderRadius: theme.borderRadius.xl,
   padding: theme.spacings.l,
   alignItems: "center",
