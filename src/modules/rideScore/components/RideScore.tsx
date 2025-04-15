@@ -33,7 +33,7 @@ export const RideScore = ({
     <Container>
       <Labels>
         <Typography
-          variant="P1"
+          variant="H4"
           color={theme.colors.neutral[0]}
           bold
           text={t`RideScore`}

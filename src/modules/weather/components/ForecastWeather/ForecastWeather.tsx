@@ -34,7 +34,7 @@ export const ForecastWeather = ({
         <FlexView>
           <ListHeaderContainer>
             <Typography
-              variant="P1"
+              variant="H4"
               color={theme.colors.neutral[0]}
               bold
               text={t({ message: "Next hours" })}
@@ -76,9 +76,7 @@ const HoursContainer = styled(FlexView)(({ theme }) => ({
 }));
 
 const ListHeaderContainer = styled.View(({ theme }) => ({
-  paddingTop: theme.spacings.m,
-  paddingHorizontal: theme.spacings.m,
-  marginBottom: theme.spacings.s,
+  padding: theme.spacings.m,
 }));
 
 const Background = styled.View(({ theme }) => ({
