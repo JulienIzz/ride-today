@@ -31,12 +31,19 @@ export const Charts = memo(() => {
         {days.map((day) => (
           <ChartContainer key={day}>
             <Background style={absoluteFillStyle} />
-            <Typography
-              text={day === "today" ? t`Today` : t`Tomorrow`}
-              variant="H4"
-              bold
-              color={theme.colors.neutral[0]}
-            />
+            <TitlesContainer>
+              <Typography
+                text={t`RideScore`}
+                variant="H4"
+                bold
+                color={theme.colors.neutral[0]}
+              />
+              <Typography
+                text={day === "today" ? t`Today` : t`Tomorrow`}
+                variant="H4"
+                color={theme.colors.neutral[20]}
+              />
+            </TitlesContainer>
             {location ? (
               <QueryErrorBoundary resetKeys={[location]}>
                 <DailyLineChart location={location} day={day} />
@@ -115,6 +122,14 @@ const Container = styled(FlexView)(({ theme }) => ({
   gap: theme.spacings.m,
 }));
 
+const TitlesContainer = styled(FlexView)(({ theme }) => ({
+  flexDirection: "row",
+  justifyContent: "space-between",
+  // alignItems: "center",
+  gap: theme.spacings.s,
+  paddingRight: theme.spacings.m,
+}));
+
 const ChartContainer = styled.View(({ theme }) => ({
   padding: theme.spacings.m,
   paddingRight: 0,
@@ -126,7 +141,7 @@ const ChartContainer = styled.View(({ theme }) => ({
 }));
 
 const CenteredView = styled.View({
-  flex: 1,
+  ...absoluteFillStyle,
   justifyContent: "center",
   alignItems: "center",
 });
