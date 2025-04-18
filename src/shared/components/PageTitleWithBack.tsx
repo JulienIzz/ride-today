@@ -5,7 +5,6 @@ import { ChevronLeft } from "lucide-react-native";
 import { View } from "react-native";
 
 import { ScaledPressable } from "#design-system/components/Button/ScaledPressable";
-import { Divider } from "#shared/components/Divider";
 import { Typography } from "#shared/fonts/Typography";
 
 interface TitleProps {
@@ -28,7 +27,6 @@ export const PageTitleWithBack = ({ title }: TitleProps) => {
           text={title}
         />
       </TitleContainer>
-      <Divider />
     </View>
   );
 };
@@ -36,12 +34,14 @@ export const PageTitleWithBack = ({ title }: TitleProps) => {
 const TitleContainer = styled.View(({ theme }) => ({
   flexDirection: "row",
   alignItems: "center",
-  justifyContent: "space-between",
+  justifyContent: "center",
   padding: theme.spacings.l,
   gap: theme.spacings.m,
 }));
 
 const BackContainer = styled(ScaledPressable)(({ theme }) => ({
+  position: "absolute",
+  left: theme.spacings.l,
   padding: theme.spacings.s,
   borderRadius: theme.borderRadius.round,
   shadowColor: theme.colors.neutral["100"],

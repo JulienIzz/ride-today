@@ -1,6 +1,5 @@
 import styled from "@emotion/native";
 import { Fragment } from "react";
-import { View } from "react-native";
 
 import { absoluteFillStyle } from "#design-system/utils/absoluteFillStyle";
 import { Divider } from "#shared/components/Divider";
@@ -15,9 +14,9 @@ export const SectionList = ({
   childrens: React.ReactNode[];
 }) => {
   return (
-    <View>
+    <Container>
       <TitleContainer>
-        <Typography variant="P1" bold contrast text={title} />
+        <Typography variant="H4" bold contrast text={title} />
       </TitleContainer>
       <SectionsContainer>
         <BackgroundOpacity />
@@ -28,12 +27,16 @@ export const SectionList = ({
           </Fragment>
         ))}
       </SectionsContainer>
-    </View>
+    </Container>
   );
 };
 
+const Container = styled.View(({ theme }) => ({
+  gap: theme.spacings.s,
+}));
+
 const TitleContainer = styled.View(({ theme }) => ({
-  padding: theme.spacings.m,
+  paddingHorizontal: theme.spacings.m,
   borderRadius: theme.borderRadius.m,
 }));
 

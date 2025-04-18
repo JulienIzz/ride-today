@@ -48,7 +48,7 @@ const darkThemeObject = {
     error: "#FF3333",
     disabled: "#333333",
     inactive: "#808080",
-    link: "#29a6ff",
+    link: "#7E33FF",
     neutral: {
       100: "#000000",
       80: "#313131",
