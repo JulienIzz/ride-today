@@ -14,7 +14,7 @@ import { LocationDisplay } from "#modules/location/components/LocationDisplay";
 import { SettingsPage } from "#modules/settings/components/SettingsPage";
 import { PageTemplate } from "#modules/templates/components/PageTemplate";
 import { Weather } from "#modules/weather/components/Weather";
-import { Divider } from "#shared/components/Divider";
+import { ShadedDivider } from "#shared/components/Divider";
 
 export const Home = () => {
   const [selectedPage, setSelectedPage] = useState(0);
@@ -34,7 +34,7 @@ export const Home = () => {
         <Location />
         <LocationDisplay />
       </LocationContainer>
-      <Divider />
+      <ShadedDivider />
       <PagerContainer
         ref={pagerViewRef}
         onPageSelected={({ nativeEvent }) => {
