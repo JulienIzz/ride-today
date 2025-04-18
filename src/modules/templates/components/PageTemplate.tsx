@@ -15,12 +15,17 @@ export const SafePageTemplate = ({ children }: PropsWithChildren) => {
 
 export const PageTemplate = ({ children }: PropsWithChildren) => {
   return (
-    <FlexView>
+    <Container>
       <QueryErrorBoundary>{children}</QueryErrorBoundary>
-    </FlexView>
+    </Container>
   );
 };
 
-const SafeContainer = styled(SafeAreaView)({
+const Container = styled(FlexView)(({ theme }) => ({
+  backgroundColor: theme.colors.background.app,
+}));
+
+const SafeContainer = styled(SafeAreaView)(({ theme }) => ({
   flex: 1,
-});
+  backgroundColor: theme.colors.background.app,
+}));
