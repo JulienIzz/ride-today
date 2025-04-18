@@ -55,7 +55,7 @@ const LocationInputContainer = styled.View<{ disabled: boolean }>(
     justifyContent: "center",
     flex: 1,
     height: 40,
-    padding: theme.spacings.xs,
+    paddingHorizontal: theme.spacings.m,
     opacity: disabled ? 1 : 0.4,
     backgroundColor: theme.colors.background.component,
     borderRadius: theme.borderRadius.round,
@@ -66,7 +66,7 @@ const LocationInputContainer = styled.View<{ disabled: boolean }>(
 const LocationInput = styled.TextInput(({ theme }) => ({
   width: "100%",
   height: "100%",
-  textAlign: "center",
+  textAlign: "left",
   fontFamily: theme.fonts.regular,
   color: theme.colors.neutral[0],
   fontSize: 16,
