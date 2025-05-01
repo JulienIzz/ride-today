@@ -5,6 +5,9 @@ module.exports = defineConfig({
     // see source: https://github.com/bamlab/react-native-project-config/blob/main/packages/eslint-plugin/lib/configs/recommended.js
     "plugin:@bam.tech/recommended",
   ],
+  rules: {
+    "import/no-unresolved": "off",
+  },
   ignorePatterns: [
     "node_modules",
     "ios",
