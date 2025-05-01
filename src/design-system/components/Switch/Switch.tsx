@@ -60,7 +60,7 @@ export const Switch = ({
   });
 
   return (
-    <Pressable onPress={onPress}>
+    <Pressable onPress={onPress} role="switch">
       <Animated.View
         onLayout={(e) => {
           height.value = e.nativeEvent.layout.height;

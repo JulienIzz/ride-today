@@ -73,7 +73,7 @@ export const ContentSwitch = ({
 
   return (
     <View>
-      <Pressable onPress={onPress}>
+      <Pressable onPress={onPress} role="switch">
         <Track
           onLayout={(e) => {
             height.value = e.nativeEvent.layout.height;
