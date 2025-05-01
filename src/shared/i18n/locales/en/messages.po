@@ -54,7 +54,6 @@ msgstr "6. Changes to This Privacy Policy"
 msgid "7. Contact Us"
 msgstr "7. Contact Us"
 
-#: src/modules/modal/modals/MenuModal.tsx
 #: src/modules/about/components/About.tsx
 msgid "About"
 msgstr "About"
@@ -220,6 +219,7 @@ msgid "Ride Today only collects your device’s location data. No other personal
 msgstr "Ride Today only collects your device’s location data. No other personal information, such as your name, email, or unique device identifiers, is gathered or processed. Your location data cannot be used to identify you, either by us or by our third-party service providers."
 
 #: src/modules/rideScore/components/RideScore.tsx
+#: src/modules/charts/components/Charts.tsx
 msgid "RideScore"
 msgstr "RideScore"
 
@@ -232,7 +232,6 @@ msgid "Search location"
 msgstr "Search location"
 
 #: src/modules/settings/components/SettingsList.tsx
-#: src/modules/modal/modals/MenuModal.tsx
 msgid "Settings"
 msgstr "Settings"
 
