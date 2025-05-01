@@ -1,0 +1,17 @@
+{
+  "React-Native snapshot test": {
+    "prefix": "rnsnap",
+    "body": [
+      "import { screen } from \"@testing-library/react-native\";",
+      "",
+      "import { ${1:${TM_FILENAME_BASE/(.+)\\.test/$1/}} } from \"#${RELATIVE_FILEPATH/(?:^src\\/)?(.*)\\.test\\.[tj]sx?/$1/}\";",
+      "import { renderWithProviders } from \"#testing/render\";",
+      "",
+      "it(\"renders the ${1} component\", () => {",
+      "  renderWithProviders(<${1} />);",
+      "",
+      "  expect(screen).toMatchComponentSnapshot();",
+      "});",
+    ],
+  },
+}

@@ -9,8 +9,8 @@ import { useCallback } from "react";
 import { Platform, StatusBar } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { DevToolsBubble } from "react-native-react-query-devtools";
-import { darkTheme, lightTheme } from "src/design-system/theme/theme";
 
+import { darkTheme, lightTheme } from "#design-system/theme/theme";
 import { GlobalModal } from "#modules/modal/GlobalModal";
 import { useAppIsReady } from "#shared/config/useAppIsReady.hook";
 import { useOnboarding } from "#shared/hooks/useOnboarding";

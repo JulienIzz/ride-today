@@ -15,6 +15,7 @@ const packagesToTransform = [
   "@react-navigation",
   "expo",
   "expo-(.*)",
+  "@expo-google-fonts/(.*)",
 ];
 
 /** @type {import('@jest/types').Config.InitialOptions} */
@@ -26,11 +27,17 @@ const config = {
    */
   preset: "jest-expo",
   // test environment setup
-  setupFiles: ["./src/testing/jest-setup.ts"],
+  setupFiles: [
+    "react-native-gesture-handler/jestSetup",
+    "./src/testing/jest-setup.ts",
+  ],
   setupFilesAfterEnv: ["./src/testing/jest-setupAfterEnv.ts"],
   clearMocks: true,
   // module resolution
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
+  moduleNameMapper: {
+    "^punycode$": "punycode/",
+  },
   testRegex: "\\.test\\.[jt]sx?$",
   transformIgnorePatterns: [
     `node_modules/(?!(${packagesToTransform.join("|")})/)`,

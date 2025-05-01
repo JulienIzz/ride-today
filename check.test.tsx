@@ -1,12 +1,14 @@
-import { render, screen } from "@testing-library/react-native";
+import { screen } from "@testing-library/react-native";
 import { Text, View } from "react-native";
+
+import { renderWithProviders } from "#testing/render";
 
 test("check jest setup", () => {
   expect(true).toBeTruthy();
 });
 
 it("finds rendered text", () => {
-  render(
+  renderWithProviders(
     <View>
       <Text>hello</Text>
     </View>,
