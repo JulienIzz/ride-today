@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the DebugInfos component 1`] = `"Version 1.0.0"`;
+
+exports[`renders the DebugInfos component 2`] = `
+[
+  <View
+    pointerEvents="box-none"
+    style={
+      {
+        "bottom": 0,
+        "left": 0,
+        "overflow": "hidden",
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  />,
+  <View
+    style={
+      {
+        "backgroundColor": "#1F1F1F",
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "gap": 8,
+        }
+      }
+    >
+      <Text
+        color="#808080"
+        fontSize={14}
+        style={
+          {
+            "color": "#808080",
+            "fontFamily": "Montserrat_400Regular",
+            "fontSize": 14,
+          }
+        }
+      >
+        Version 1.0.0
+      </Text>
+    </View>
+  </View>,
+]
+`;

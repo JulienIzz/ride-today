@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the Logo component 1`] = `"RIDE TODAY"`;
+
+exports[`renders the Logo component 2`] = `
+[
+  <View
+    pointerEvents="box-none"
+    style={
+      {
+        "bottom": 0,
+        "left": 0,
+        "overflow": "hidden",
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  />,
+  <View
+    style={
+      {
+        "backgroundColor": "#1F1F1F",
+        "flex": 1,
+      }
+    }
+  >
+    <Text
+      color="#FFFFFF"
+      style={
+        {
+          "color": "#FFFFFF",
+          "fontFamily": "Montserrat_800ExtraBold_Italic",
+          "fontSize": 32,
+          "textAlign": "center",
+          "width": "100%",
+        }
+      }
+    >
+      RIDE TODAY
+    </Text>
+  </View>,
+]
+`;

@@ -1,0 +1,209 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the LocationDisplay component 1`] = `"Waiting for location"`;
+
+exports[`renders the LocationDisplay component 2`] = `
+[
+  <View
+    pointerEvents="box-none"
+    style={
+      {
+        "bottom": 0,
+        "left": 0,
+        "overflow": "hidden",
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  />,
+  <View
+    style={
+      {
+        "backgroundColor": "#1F1F1F",
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "gap": 4,
+          "height": 24,
+          "justifyContent": "center",
+          "paddingHorizontal": 16,
+        }
+      }
+    >
+      <RNSVGSvgView
+        align="xMidYMid"
+        bbHeight={24}
+        bbWidth={24}
+        fill="none"
+        focusable={false}
+        height={24}
+        meetOrSlice={0}
+        minX={0}
+        minY={0}
+        stroke="#FFFFFF"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={1.5}
+        style={
+          {
+            "backgroundColor": "transparent",
+            "borderWidth": 0,
+            "flex": 0,
+            "height": 24,
+            "width": 24,
+          }
+        }
+        vbHeight={24}
+        vbWidth={24}
+        width={24}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <RNSVGGroup
+          fill={null}
+          propList={
+            [
+              "fill",
+              "stroke",
+              "strokeWidth",
+              "strokeLinecap",
+              "strokeLinejoin",
+            ]
+          }
+          stroke={
+            {
+              "payload": 4294967295,
+              "type": 0,
+            }
+          }
+          strokeLinecap={1}
+          strokeLinejoin={1}
+          strokeWidth={1.5}
+        >
+          <RNSVGRect
+            fill={null}
+            height="12"
+            propList={
+              [
+                "fill",
+                "stroke",
+                "strokeWidth",
+                "strokeLinecap",
+                "strokeLinejoin",
+              ]
+            }
+            rx="2"
+            stroke={
+              {
+                "payload": 4294967295,
+                "type": 0,
+              }
+            }
+            strokeLinecap={1}
+            strokeLinejoin={1}
+            strokeWidth={1.5}
+            width="20"
+            x="2"
+            y="6"
+          />
+          <RNSVGPath
+            d="M12 12h.01"
+            fill={null}
+            propList={
+              [
+                "fill",
+                "stroke",
+                "strokeWidth",
+                "strokeLinecap",
+                "strokeLinejoin",
+              ]
+            }
+            stroke={
+              {
+                "payload": 4294967295,
+                "type": 0,
+              }
+            }
+            strokeLinecap={1}
+            strokeLinejoin={1}
+            strokeWidth={1.5}
+          />
+          <RNSVGPath
+            d="M17 12h.01"
+            fill={null}
+            propList={
+              [
+                "fill",
+                "stroke",
+                "strokeWidth",
+                "strokeLinecap",
+                "strokeLinejoin",
+              ]
+            }
+            stroke={
+              {
+                "payload": 4294967295,
+                "type": 0,
+              }
+            }
+            strokeLinecap={1}
+            strokeLinejoin={1}
+            strokeWidth={1.5}
+          />
+          <RNSVGPath
+            d="M7 12h.01"
+            fill={null}
+            propList={
+              [
+                "fill",
+                "stroke",
+                "strokeWidth",
+                "strokeLinecap",
+                "strokeLinejoin",
+              ]
+            }
+            stroke={
+              {
+                "payload": 4294967295,
+                "type": 0,
+              }
+            }
+            strokeLinecap={1}
+            strokeLinejoin={1}
+            strokeWidth={1.5}
+          />
+        </RNSVGGroup>
+      </RNSVGSvgView>
+      <View
+        horizontal={true}
+        size={4}
+        style={
+          {
+            "height": undefined,
+            "width": 4,
+          }
+        }
+      />
+      <Text
+        color="#FFFFFF"
+        fontSize={14}
+        style={
+          {
+            "color": "#FFFFFF",
+            "fontFamily": "Montserrat_400Regular",
+            "fontSize": 14,
+          }
+        }
+      >
+        Waiting for location
+      </Text>
+    </View>
+  </View>,
+]
+`;

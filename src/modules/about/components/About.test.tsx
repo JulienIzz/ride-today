@@ -6,5 +6,5 @@ import { renderWithProviders } from "#testing/render";
 it("renders the About component", () => {
   renderWithProviders(<About />);
 
-  expect(screen).toMatchSnapshot();
+  expect(screen).toMatchComponentSnapshot();
 });
