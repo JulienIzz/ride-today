@@ -85,7 +85,7 @@ const appConfigs = {
   production: appConfig_PRODUCTION,
 };
 
-const appConfig = appConfigs[STAGE];
+const appConfig = appConfigs[STAGE as "dev" | "staging" | "production"];
 
 export type AppEnv = (typeof appConfig_DEV)["appEnv"];
 
