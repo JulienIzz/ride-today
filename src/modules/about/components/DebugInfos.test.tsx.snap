@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders the DebugInfos component 1`] = `"Version 1.0.0"`;
+exports[`renders the DebugInfos component 1`] = `"Version mock"`;
 
 exports[`renders the DebugInfos component 2`] = `
 [
@@ -44,7 +44,7 @@ exports[`renders the DebugInfos component 2`] = `
           }
         }
       >
-        Version 1.0.0
+        Version mock
       </Text>
     </View>
   </View>,
