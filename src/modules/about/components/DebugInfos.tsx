@@ -1,7 +1,7 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
+import * as Application from "expo-application";
 
-import { appEnv } from "#shared/env/appEnv";
 import { Typography } from "#shared/fonts/Typography";
 
 export const DebugInfos = () => {
@@ -12,7 +12,7 @@ export const DebugInfos = () => {
       <Typography
         variant="P1"
         color={theme.colors.inactive}
-        text={"Version " + appEnv.version}
+        text={"Version " + Application.nativeApplicationVersion}
       />
     </Container>
   );
