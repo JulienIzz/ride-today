@@ -1,6 +1,6 @@
 import type { ExpoConfig } from "@expo/config";
 
-const STAGE = process.env.STAGE || "dev";
+const STAGE = process.env.STAGE || "production";
 
 if (STAGE !== "dev" && STAGE !== "staging" && STAGE !== "production") {
   throw new Error(`Invalid STAGE env var: ${STAGE}`);

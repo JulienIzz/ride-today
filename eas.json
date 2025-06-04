@@ -1,23 +1,62 @@
 {
   "cli": {
-    "version": ">= 16.0.0",
-    "appVersionSource": "remote"
+    "version": ">= 7.1.2"
   },
   "build": {
-    "development": {
+    "dev": {
       "developmentClient": true,
-      "distribution": "internal"
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
+      "channel": "main",
+      "env": {
+        "STAGE": "dev"
+      }
     },
-    "preview": {
+    "dev-simulator": {
+      "extends": "dev",
       "ios": {
         "simulator": true
       }
     },
+    "staging": {
+      "env": {
+        "STAGE": "staging"
+      },
+      "channel": "staging"
+    },
     "production": {
-      "autoIncrement": true
+      "env": {
+        "STAGE": "production"
+      },
+      "channel": "production"
     }
   },
   "submit": {
-    "production": {}
+    "staging": {
+      "ios": {
+        "ascAppId": "<TODO>",
+        "appleTeamId": "<TODO>"
+      },
+      "android": {
+        "track": "internal",
+        "releaseStatus": "draft",
+        "applicationId": "<TODO>"
+      }
+    },
+    "production": {
+      "ios": {
+        "appleTeamId": "<TODO>",
+        "ascAppId": "<TODO>",
+        "language": "fr-FR",
+        "appName": "<TODO: Name visible on the app store>"
+      },
+      "android": {
+        "track": "internal",
+        "releaseStatus": "completed",
+        "applicationId": "<TODO>"
+      }
+    }
   }
 }
