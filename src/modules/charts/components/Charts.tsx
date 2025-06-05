@@ -26,7 +26,7 @@ export const Charts = memo(() => {
   const days = ["today", "tomorrow"] as const;
 
   return (
-    <ScrollView>
+    <ScrollView showsVerticalScrollIndicator={false}>
       <Container>
         {days.map((day) => (
           <ChartContainer key={day}>

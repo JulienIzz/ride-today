@@ -1,8 +1,8 @@
+import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
 import { memo } from "react";
 import { RefreshControl, ScrollView } from "react-native";
 
-import { FlexView } from "#design-system/utils/FlexView";
 import { useLocationStore } from "#modules/location/hooks/useLocationStore.hook";
 import { CurrentWeather } from "#modules/weather/components/CurrentWeather/CurrentWeather";
 import {
@@ -19,7 +19,7 @@ export const Weather = memo(() => {
   const location = useLocationStore((state) => state.location);
 
   return (
-    <FlexView>
+    <FullSizeView>
       {location ? (
         <QueryErrorBoundary
           errorFallback={<WeatherLocationMissing />}
@@ -31,7 +31,7 @@ export const Weather = memo(() => {
       ) : (
         <WeatherLocationMissing />
       )}
-    </FlexView>
+    </FullSizeView>
   );
 });
 Weather.displayName = "Weather";
@@ -68,3 +68,8 @@ const WeatherData = ({ location }: { location: string }) => {
     </ScrollView>
   );
 };
+
+const FullSizeView = styled.View({
+  width: "100%",
+  height: "100%",
+});
