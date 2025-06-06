@@ -33,7 +33,9 @@ exports[`renders the Charts component 2`] = `
       }
     }
   >
-    <RCTScrollView>
+    <RCTScrollView
+      showsVerticalScrollIndicator={false}
+    >
       <View>
         <View
           style={
