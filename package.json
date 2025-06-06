@@ -8,6 +8,8 @@
     "prebuild": "STAGE=dev expo prebuild",
     "prebuild:staging": "STAGE=staging expo prebuild",
     "prebuild:production": "STAGE=production expo prebuild",
+    "build:production:android": "STAGE=production expo prebuild && git add . && git commit -m 'chore: bump runtime ver' && eas build --platform android --profile production",
+    "build:production:ios": "STAGE=production expo prebuild && git add . && git commit -m 'chore: bump runtime ver' && eas build --platform ios --profile production",
     "build:web": "expo export -p web",
     "android": "expo run:android",
     "ios": "expo run:ios",
