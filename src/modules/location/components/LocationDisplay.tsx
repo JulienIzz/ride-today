@@ -12,19 +12,26 @@ import { QueryErrorBoundary } from "#shared/infra/boundaries/QueryBoundary";
 
 export const LocationDisplay = () => {
   const location = useLocationStore((state) => state.location);
+  const isLocationEnabled = useLocationStore(
+    (state) => state.isLocationEnabled,
+  );
 
-  if (!location) {
+  if (location) {
+    return (
+      <QueryErrorBoundary
+        loadingFallback={<LoadingLocation />}
+        errorFallback={<LocationError />}
+      >
+        <LocationDisplayComponent location={location} />
+      </QueryErrorBoundary>
+    );
+  }
+
+  if (isLocationEnabled) {
     return <LocationMissing />;
   }
 
-  return (
-    <QueryErrorBoundary
-      loadingFallback={<LoadingLocation />}
-      errorFallback={<LocationError />}
-    >
-      <LocationDisplayComponent location={location} />
-    </QueryErrorBoundary>
-  );
+  return <LocationWaiting />;
 };
 
 const LocationDisplayComponent = ({ location }: { location: string }) => {
@@ -54,6 +61,21 @@ const LoadingLocation = () => {
         color={theme.colors.neutral[0]}
         variant="P1"
         text={t`Loading location`}
+      />
+    </Container>
+  );
+};
+
+const LocationWaiting = () => {
+  const theme = useTheme();
+  return (
+    <Container>
+      <RectangleEllipsis color={theme.colors.neutral[0]} strokeWidth={1.5} />
+      <Spacer size={4} horizontal />
+      <Typography
+        color={theme.colors.neutral[0]}
+        variant="P1"
+        text={t`Type location or enable geolocation`}
       />
     </Container>
   );

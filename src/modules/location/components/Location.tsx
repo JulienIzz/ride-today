@@ -4,6 +4,7 @@ import { t } from "@lingui/core/macro";
 import { useState } from "react";
 
 import { GeolocationToggle } from "#modules/location/components/GeolocationToggle";
+import { useLocationStore } from "#modules/location/hooks/useLocationStore.hook";
 import { useSearchLocation } from "#modules/location/hooks/useSearchLocation";
 import { shadowStyle } from "#shared/styling/shadowStyle";
 
@@ -14,11 +15,16 @@ export const Location = () => {
 
   const { search, changeTextHandler, updateLocation } = useSearchLocation();
 
+  const toggleLocationEnabled = useLocationStore(
+    (state) => state.toggleLocationEnabled,
+  );
+
   const handleSwitch = () => {
     if (isLocationEnabled) {
       updateLocation(search);
     }
     setLocationEnabled(!isLocationEnabled);
+    toggleLocationEnabled();
   };
 
   return (

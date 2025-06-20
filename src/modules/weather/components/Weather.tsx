@@ -9,6 +9,7 @@ import {
   useWeatherContainerStyle,
   WeatherLoading,
   WeatherLocationMissing,
+  WeatherLocationWaiting,
 } from "#modules/weather/components/CurrentWeather/CurrentWeatherContainer";
 import { ForecastWeather } from "#modules/weather/components/ForecastWeather/ForecastWeather";
 import { useWeather } from "#modules/weather/hooks/useCurrentWeather.query";
@@ -17,6 +18,13 @@ import { QueryErrorBoundary } from "#shared/infra/boundaries/QueryBoundary";
 
 export const Weather = memo(() => {
   const location = useLocationStore((state) => state.location);
+  const isLocationEnabled = useLocationStore(
+    (state) => state.isLocationEnabled,
+  );
+
+  const MissingLocationComponent = isLocationEnabled
+    ? WeatherLocationMissing
+    : WeatherLocationWaiting;
 
   return (
     <FullSizeView>
@@ -29,7 +37,7 @@ export const Weather = memo(() => {
           <WeatherData location={location} />
         </QueryErrorBoundary>
       ) : (
-        <WeatherLocationMissing />
+        <MissingLocationComponent />
       )}
     </FullSizeView>
   );
