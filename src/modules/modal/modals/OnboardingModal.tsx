@@ -1,6 +1,7 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
 import { t } from "@lingui/core/macro";
+import { ScrollView } from "react-native-gesture-handler";
 
 import { ScaledButton } from "#design-system/components/Button/Button";
 import { Modal } from "#modules/modal/Modal";
@@ -24,29 +25,31 @@ export const OnboardingModal = () => {
   return (
     <Modal>
       <Container>
-        <TextContainer>
-          <Title
-            variant="H2"
-            color={theme.colors.neutral[0]}
-            bold
-            text={t`Important Notice`}
-          />
-          <Typo
-            variant="P1"
-            color={theme.colors.neutral[0]}
-            text={t`This application provides a general weather-based riding score for your convenience.`}
-          />
-          <Typo
-            variant="P1"
-            color={theme.colors.neutral[0]}
-            text={t`Actual conditions may differ from predictions, and unforeseen circumstances can arise at any time. Your decision to ride should not be based solely on this score or any other information provided by the app.`}
-          />
-          <Typo
-            variant="P1"
-            color={theme.colors.neutral[0]}
-            text={t`By proceeding, you acknowledge that the developers and providers of this service cannot be held responsible for any consequences arising from your ride decisions.`}
-          />
-        </TextContainer>
+        <Title
+          variant="H2"
+          color={theme.colors.neutral[0]}
+          bold
+          text={t`Important Notice`}
+        />
+        <ScrollView showsVerticalScrollIndicator={true}>
+          <TextContainer>
+            <Typo
+              variant="P1"
+              color={theme.colors.neutral[0]}
+              text={t`This application provides a general weather-based riding score for your convenience.`}
+            />
+            <Typo
+              variant="P1"
+              color={theme.colors.neutral[0]}
+              text={t`Actual conditions may differ from predictions, and unforeseen circumstances can arise at any time. Your decision to ride should not be based solely on this score or any other information provided by the app.`}
+            />
+            <Typo
+              variant="P1"
+              color={theme.colors.neutral[0]}
+              text={t`By proceeding, you acknowledge that the developers and providers of this service cannot be held responsible for any consequences arising from your ride decisions.`}
+            />
+          </TextContainer>
+        </ScrollView>
         <ScaledButton
           onPress={() => {
             setHasReadOnboarding(true);
@@ -65,6 +68,7 @@ const Container = styled.View(({ theme }) => ({
   backgroundColor: theme.colors.background.component,
   borderRadius: theme.borderRadius.xl,
   padding: theme.spacings.l,
+  gap: theme.spacings.l,
   alignItems: "center",
 }));
 
