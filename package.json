@@ -12,7 +12,7 @@
     "build:production:ios": "STAGE=production expo prebuild && git add . && git commit -m 'chore: bump runtime ver' && eas build --platform ios --profile production",
     "build:web": "expo export -p web",
     "android": "expo run:android",
-    "ios": "expo run:ios",
+    "ios": "expo run:ios --device",
     "web": "expo start --web",
     "test:unit": "./scripts/checkTranslation.sh && jest",
     "test:lint": "./scripts/checkTranslation.sh && eslint .",
