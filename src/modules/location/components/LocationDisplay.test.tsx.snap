@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders the LocationDisplay component 1`] = `"Waiting for location"`;
+exports[`renders the LocationDisplay component 1`] = `"Type location or enable geolocation"`;
 
 exports[`renders the LocationDisplay component 2`] = `
 [
@@ -201,7 +201,7 @@ exports[`renders the LocationDisplay component 2`] = `
           }
         }
       >
-        Waiting for location
+        Type location or enable geolocation
       </Text>
     </View>
   </View>,

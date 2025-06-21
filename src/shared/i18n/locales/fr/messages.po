@@ -231,6 +231,10 @@ msgstr "RideToday est votre compagnon de route idéal, offrant un score simple p
 msgid "Search location"
 msgstr "Chercher une ville"
 
+#: src/modules/weather/components/CurrentWeather/CurrentWeatherContainer.tsx
+msgid "Search your location with the input above"
+msgstr "Cherchez un lieu ou passez en géolocalisation"
+
 #: src/modules/settings/components/SettingsList.tsx
 msgid "Settings"
 msgstr "Paramètres"
@@ -302,6 +306,10 @@ msgstr "Aujourd'hui"
 #: src/modules/charts/components/Charts.tsx
 msgid "Tomorrow"
 msgstr "Demain"
+
+#: src/modules/location/components/LocationDisplay.tsx
+msgid "Type location or enable geolocation"
+msgstr "Entrez un lieu"
 
 #: src/modules/location/components/LocationDisplay.tsx
 msgid "Unable to find location"
