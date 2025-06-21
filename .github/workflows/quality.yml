@@ -51,11 +51,5 @@ jobs:
             ${{ runner.os }}-quality-${{ github.ref_name }}
             ${{ runner.os }}-quality-
 
-      - name: TypeScript
-        run: yarn test:types
-
-      - name: ESLint
-        run: yarn test:lint
-
-      - name: Jest
-        run: yarn test:unit --maxWorkers=2
+      - name: Full Run
+        run: yarn test
