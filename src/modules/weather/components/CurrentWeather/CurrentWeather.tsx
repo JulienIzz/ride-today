@@ -43,7 +43,11 @@ export const CurrentWeather = ({
                 })}
               />
             </View>
-            <Typography variant="P1" text={currentWeather.condition.text} />
+            <Typography
+              variant="P1"
+              numberOfLines={2}
+              text={currentWeather.condition.text}
+            />
           </SideContainer>
           <SideContainer>
             <IconAndText>
