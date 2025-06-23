@@ -45,6 +45,7 @@ exports[`renders the RightInfos component 2`] = `
             "color": "#7E33FF",
             "fontFamily": "Montserrat_400Regular",
             "fontSize": 14,
+            "textAlign": undefined,
           }
         }
       >
@@ -58,6 +59,7 @@ exports[`renders the RightInfos component 2`] = `
             "color": "#808080",
             "fontFamily": "Montserrat_400Regular",
             "fontSize": 14,
+            "textAlign": undefined,
           }
         }
       >

@@ -7,12 +7,14 @@ const Text = styled.Text<{
   contrast?: boolean;
   color?: ColorValue;
   bold?: boolean;
-}>(({ theme, fontSize, color, contrast, bold }) => ({
+  center?: boolean;
+}>(({ theme, fontSize, color, contrast, bold, center }) => ({
   fontSize: fontSize,
   fontFamily: bold ? theme.fonts.semiBold : theme.fonts.regular,
   color:
     color ??
     (contrast ? theme.colors.neutral["0"] : theme.colors.neutral["100"]),
+  textAlign: center ? "center" : undefined,
 }));
 
 const Tagline = styled.Text<{ color?: ColorValue; contrast?: boolean }>(
@@ -32,6 +34,7 @@ type Props = {
   style?: TextStyle;
   color?: ColorValue;
   bold?: boolean;
+  center?: boolean;
 } & TextProps;
 
 export const Typography = ({ variant, text, ...props }: Props) => {

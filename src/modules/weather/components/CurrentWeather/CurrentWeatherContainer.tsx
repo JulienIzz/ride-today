@@ -44,6 +44,7 @@ export const WeatherLocationWaiting = () => {
             variant="P1"
             bold
             text={t`Search your location with the input above`}
+            center
           />
         </CenteredView>
       </CurrentWeatherContainer>

@@ -198,6 +198,7 @@ exports[`renders the LocationDisplay component 2`] = `
             "color": "#FFFFFF",
             "fontFamily": "Montserrat_400Regular",
             "fontSize": 14,
+            "textAlign": undefined,
           }
         }
       >
