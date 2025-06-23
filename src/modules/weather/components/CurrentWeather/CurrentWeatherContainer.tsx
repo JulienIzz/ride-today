@@ -8,7 +8,7 @@ import { Typography } from "#shared/fonts/Typography";
 import { shadowStyle } from "#shared/styling/shadowStyle";
 
 export const CurrentWeatherContainer = styled.View(({ theme }) => ({
-  height: 265,
+  height: 280,
   width: "100%",
   backgroundColor: theme.colors.primary,
   borderRadius: theme.borderRadius.m,
