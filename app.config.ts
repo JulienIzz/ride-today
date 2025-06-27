@@ -91,6 +91,10 @@ const config: ExpoConfig = {
     supportsTablet: true,
     bundleIdentifier: appConfig.bundleId,
     icon: appConfig.iosIcon,
+    infoPlist: {
+      CFBundleDevelpmentRegion: "fr",
+      CFBundleLocalizations: ["fr", "en"],
+    },
   },
   android: {
     adaptiveIcon: appConfig.androidIcon,
