@@ -106,6 +106,20 @@ const config: ExpoConfig = {
     favicon: "./assets/icons/ios-dark.png",
   },
   plugins: [
+    [
+      "expo-build-properties",
+      {
+        ios: {
+          deploymentTarget: "15.1",
+          useFrameworks: "static",
+        },
+        android: {
+          compileSdkVersion: 35,
+          targetSdkVersion: 35,
+          buildToolsVersion: "35.0.0",
+        },
+      },
+    ],
     "./plugins/versioning",
     "expo-router",
     "expo-font",
