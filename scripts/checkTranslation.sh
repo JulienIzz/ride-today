@@ -2,7 +2,7 @@
 
 yarn translations:update
 
-git diff --exit-code --quiet
+git diff --exit-code --quiet -- src/shared/i18n/locales/
 
 if [ $? -eq 0 ]; then
     exit 0
