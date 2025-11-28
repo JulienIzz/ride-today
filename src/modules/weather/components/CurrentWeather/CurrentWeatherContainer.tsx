@@ -1,6 +1,7 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
-import { t } from "@lingui/core/macro";
+import { msg } from "@lingui/core/macro";
+import { useLingui } from "@lingui/react";
 import { MapPinOff, Search } from "lucide-react-native";
 import { ActivityIndicator, View } from "react-native";
 
@@ -32,6 +33,7 @@ export const WeatherLocationMissing = () => {
 
 export const WeatherLocationWaiting = () => {
   const theme = useTheme();
+  const { _ } = useLingui();
   const style = useWeatherContainerStyle();
 
   return (
@@ -43,7 +45,7 @@ export const WeatherLocationWaiting = () => {
             color={theme.colors.neutral["100"]}
             variant="P1"
             bold
-            text={t`Search your location with the input above`}
+            text={_(msg`Search your location with the input above`)}
             center
           />
         </CenteredView>

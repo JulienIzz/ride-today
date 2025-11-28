@@ -1,6 +1,7 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
-import { t } from "@lingui/core/macro";
+import { msg } from "@lingui/core/macro";
+import { useLingui } from "@lingui/react";
 import { format } from "date-fns";
 import { CloudRain, Moon, Sun, Waves, Wind } from "lucide-react-native";
 import { View } from "react-native";
@@ -21,6 +22,7 @@ export const CurrentWeather = ({
   currentLocation: Location;
 }) => {
   const theme = useTheme();
+  const { _ } = useLingui();
 
   const unitSystem = useUnitSystem();
 
@@ -38,9 +40,7 @@ export const CurrentWeather = ({
               </TemperatureContainer>
               <Typography
                 variant="P1"
-                text={t({
-                  message: `Feelslike ${currentWeather.feelslike[unitSystem]}`,
-                })}
+                text={_(msg`Feelslike ${currentWeather.feelslike[unitSystem]}`)}
               />
             </View>
             <Typography
@@ -54,25 +54,21 @@ export const CurrentWeather = ({
               <Waves color={theme.colors.neutral["100"]} size={20} />
               <Typography
                 variant="P1"
-                text={t({ message: `Humidity : ${currentWeather.humidity}` })}
+                text={_(msg`Humidity : ${currentWeather.humidity}`)}
               />
             </IconAndText>
             <IconAndText>
               <Wind color={theme.colors.neutral["100"]} size={20} />
               <Typography
                 variant="P1"
-                text={t({
-                  message: `Wind : ${currentWeather.wind[unitSystem]}`,
-                })}
+                text={_(msg`Wind : ${currentWeather.wind[unitSystem]}`)}
               />
             </IconAndText>
             <IconAndText>
               <CloudRain color={theme.colors.neutral["100"]} size={20} />
               <Typography
                 variant="P1"
-                text={t({
-                  message: `Precip. : ${currentWeather.precip[unitSystem]}`,
-                })}
+                text={_(msg`Precip. : ${currentWeather.precip[unitSystem]}`)}
               />
             </IconAndText>
             <IconAndText>
@@ -84,9 +80,7 @@ export const CurrentWeather = ({
               <Typography
                 variant="P1"
                 text={`${format(currentLocation.localTime, "HH:mm")} - ${
-                  currentWeather.isDay === 1
-                    ? t({ message: "Day" })
-                    : t({ message: "Night" })
+                  currentWeather.isDay === 1 ? _(msg`Day`) : _(msg`Night`)
                 }`}
               />
             </IconAndText>

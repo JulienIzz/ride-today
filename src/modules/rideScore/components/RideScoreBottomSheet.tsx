@@ -12,7 +12,7 @@ import { RideScoreModalContent } from "#modules/modal/modals/RideScoreModal";
 import { Spacer } from "#shared/components/Spacer";
 
 interface RideScoreBottomSheetProps {
-  bottomSheetModalRef: React.RefObject<BottomSheetModal>;
+  bottomSheetModalRef: React.RefObject<BottomSheetModal | null>;
 }
 
 export const RideScoreBottomSheet = ({

@@ -1,6 +1,7 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
-import { t } from "@lingui/core/macro";
+import { msg } from "@lingui/core/macro";
+import { useLingui } from "@lingui/react";
 import { MapPinOff } from "lucide-react-native";
 import { memo } from "react";
 import { ScrollView } from "react-native";
@@ -20,6 +21,7 @@ const CHART_CONTAINER_HEIGHT = CHART_HEIGHT + 100;
 
 export const Charts = memo(() => {
   const theme = useTheme();
+  const { _ } = useLingui();
 
   const location = useLocationStore((state) => state.location);
 
@@ -33,13 +35,13 @@ export const Charts = memo(() => {
             <Background style={absoluteFillStyle} />
             <TitlesContainer>
               <Typography
-                text={t`RideScore`}
+                text={_(msg`RideScore`)}
                 variant="H4"
                 bold
                 color={theme.colors.neutral[0]}
               />
               <Typography
-                text={day === "today" ? t`Today` : t`Tomorrow`}
+                text={day === "today" ? _(msg`Today`) : _(msg`Tomorrow`)}
                 variant="H4"
                 color={theme.colors.neutral[20]}
               />

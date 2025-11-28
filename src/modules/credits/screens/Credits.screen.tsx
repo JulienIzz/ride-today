@@ -1,6 +1,7 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
-import { t } from "@lingui/core/macro";
+import { msg } from "@lingui/core/macro";
+import { useLingui } from "@lingui/react";
 import { Linking } from "react-native";
 
 import { FlexView } from "#design-system/utils/FlexView";
@@ -14,18 +15,19 @@ import { Link, Typography } from "#shared/fonts/Typography";
 
 export const Credits = () => {
   const theme = useTheme();
+  const { _ } = useLingui();
 
   return (
     <SafePageTemplate>
       <TopRightGradient />
-      <PageTitleWithBack title={t`Credits`} />
+      <PageTitleWithBack title={_(msg`Credits`)} />
       <Container>
         <InfoContainer>
           <Typography
             variant="H3"
             bold
             color={theme.colors.neutral[0]}
-            text={t`Development`}
+            text={_(msg`Development`)}
           />
           <Typography
             variant="P1"
@@ -36,7 +38,7 @@ export const Credits = () => {
             variant="H3"
             bold
             color={theme.colors.neutral[0]}
-            text={t`Design`}
+            text={_(msg`Design`)}
           />
           <Typography
             variant="P1"
@@ -47,7 +49,7 @@ export const Credits = () => {
             variant="H3"
             bold
             color={theme.colors.neutral[0]}
-            text={t`Third party services`}
+            text={_(msg`Third party services`)}
           />
           <Link
             variant="P1"

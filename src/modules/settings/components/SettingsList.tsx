@@ -1,4 +1,5 @@
-import { t } from "@lingui/core/macro";
+import { msg } from "@lingui/core/macro";
+import { useLingui } from "@lingui/react";
 import { useRouter } from "expo-router";
 
 import { ScaledButton } from "#design-system/components/Button/Button";
@@ -11,6 +12,7 @@ import {
 } from "#shared/mmkv/useMMKV";
 
 export const Settings = () => {
+  const { _ } = useLingui();
   const { isImperialEnabled, setIsImperialEnabled } = useMMKVUnits();
   const { isCustomThemeEnabled, setIsCustomThemeEnabled } =
     useMMKVCustomTheme();
@@ -18,31 +20,31 @@ export const Settings = () => {
 
   return (
     <SectionList
-      title={t`Settings`}
+      title={_(msg`Settings`)}
       childrens={[
         <Setting
           key={"Units"}
-          label={t`Units`}
+          label={_(msg`Units`)}
           value={isImperialEnabled}
           onToggleValue={() => setIsImperialEnabled(!isImperialEnabled)}
-          leftChoice={t`Metric`}
-          rightChoice={t`Imperial`}
+          leftChoice={_(msg`Metric`)}
+          rightChoice={_(msg`Imperial`)}
         />,
         <Setting
           key={"Theme mode"}
-          label={t`Theme mode`}
+          label={_(msg`Theme mode`)}
           value={!!isCustomThemeEnabled}
           onToggleValue={() => setIsCustomThemeEnabled(!isCustomThemeEnabled)}
-          leftChoice={t`System`}
-          rightChoice={t`Custom`}
+          leftChoice={_(msg`System`)}
+          rightChoice={_(msg`Custom`)}
         />,
         <Setting
           key={"Theme choice"}
-          label={t`Theme`}
+          label={_(msg`Theme`)}
           value={theme === "light"}
           onToggleValue={() => setTheme(theme === "dark" ? "light" : "dark")}
-          leftChoice={t`Dark`}
-          rightChoice={t`Light`}
+          leftChoice={_(msg`Dark`)}
+          rightChoice={_(msg`Light`)}
           disabled={!isCustomThemeEnabled}
         />,
       ]}

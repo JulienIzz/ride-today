@@ -17,11 +17,6 @@ msgstr ""
 msgid "(Last Updated: April 2025)"
 msgstr "(Last Updated: April 2025)"
 
-#. placeholder {0}: rideScoreDetails[conditionNotation].catchPhrase
-#: src/modules/rideScore/components/RideScore.tsx
-msgid "{0}"
-msgstr "{0}"
-
 #: src/modules/about/components/RightInfos.tsx
 msgid "© 2025 Julien Izzillo. All Rights Reserved."
 msgstr "© 2025 Julien Izzillo. All Rights Reserved."
@@ -43,8 +38,8 @@ msgid "4. Data Security"
 msgstr "4. Data Security"
 
 #: src/app/(web)/privacy.tsx
-msgid "5. Children’s Privacy"
-msgstr "5. Children’s Privacy"
+msgid "5. Children's Privacy"
+msgstr "5. Children's Privacy"
 
 #: src/app/(web)/privacy.tsx
 msgid "6. Changes to This Privacy Policy"
@@ -215,8 +210,8 @@ msgid "Ride Today does not knowingly collect any personal information from indiv
 msgstr "Ride Today does not knowingly collect any personal information from individuals under the age of 13 (or a minor in your jurisdiction) without parental consent. If you believe we have inadvertently collected such data, please contact us so that we can promptly remove the information."
 
 #: src/app/(web)/privacy.tsx
-msgid "Ride Today only collects your device’s location data. No other personal information, such as your name, email, or unique device identifiers, is gathered or processed. Your location data cannot be used to identify you, either by us or by our third-party service providers."
-msgstr "Ride Today only collects your device’s location data. No other personal information, such as your name, email, or unique device identifiers, is gathered or processed. Your location data cannot be used to identify you, either by us or by our third-party service providers."
+msgid "Ride Today only collects your device's location data. No other personal information, such as your name, email, or unique device identifiers, is gathered or processed. Your location data cannot be used to identify you, either by us or by our third-party service providers."
+msgstr "Ride Today only collects your device's location data. No other personal information, such as your name, email, or unique device identifiers, is gathered or processed. Your location data cannot be used to identify you, either by us or by our third-party service providers."
 
 #: src/modules/rideScore/components/RideScore.tsx
 #: src/modules/charts/components/Charts.tsx
@@ -224,8 +219,8 @@ msgid "RideScore"
 msgstr "RideScore"
 
 #: src/modules/home/screens/Home.screen.web.tsx
-msgid "RideToday is your go-to riding companion, offering a straightforward score to gauge if today’s weather is biker-friendly. No need to sift through endless forecasts—we provide clear, concise insights to help you decide whether to hit the road or stay put."
-msgstr "RideToday is your go-to riding companion, offering a straightforward score to gauge if today’s weather is biker-friendly. No need to sift through endless forecasts—we provide clear, concise insights to help you decide whether to hit the road or stay put."
+msgid "RideToday is your go-to riding companion, offering a straightforward score to gauge if today's weather is biker-friendly. No need to sift through endless forecasts—we provide clear, concise insights to help you decide whether to hit the road or stay put."
+msgstr "RideToday is your go-to riding companion, offering a straightforward score to gauge if today's weather is biker-friendly. No need to sift through endless forecasts—we provide clear, concise insights to help you decide whether to hit the road or stay put."
 
 #: src/modules/location/components/Location.tsx
 msgid "Search location"
@@ -336,8 +331,8 @@ msgid "We implement security measures to help protect your data. Any communicati
 msgstr "We implement security measures to help protect your data. Any communication with our weather provider is encrypted using industry-standard protocols (e.g., HTTPS). We take precautions to keep your data secure on your device; however, no security system is completely impenetrable, and we cannot guarantee absolute security of your data."
 
 #: src/app/(web)/privacy.tsx
-msgid "We may update this Privacy Policy from time to time to reflect changes in our practices. When we do, we will post the updated policy within the App and update the “Last Updated” date at the top of this document. Your continued use of the App following any changes indicates your acknowledgment of the modifications."
-msgstr "We may update this Privacy Policy from time to time to reflect changes in our practices. When we do, we will post the updated policy within the App and update the “Last Updated” date at the top of this document. Your continued use of the App following any changes indicates your acknowledgment of the modifications."
+msgid "We may update this Privacy Policy from time to time to reflect changes in our practices. When we do, we will post the updated policy within the App and update the \"Last Updated\" date at the top of this document. Your continued use of the App following any changes indicates your acknowledgment of the modifications."
+msgstr "We may update this Privacy Policy from time to time to reflect changes in our practices. When we do, we will post the updated policy within the App and update the \"Last Updated\" date at the top of this document. Your continued use of the App following any changes indicates your acknowledgment of the modifications."
 
 #: src/app/(web)/privacy.tsx
 msgid "We use your location data solely to fetch relevant weather details from our trusted third-party weather provider. No other data is transmitted to the weather provider. By transmitting only location coordinates—and not any personally identifiable information—you remain anonymous to us and our third-party services."
@@ -348,8 +343,8 @@ msgid "We wish to remind you that the RideScore is an estimation and that the ac
 msgstr "We wish to remind you that the RideScore is an estimation and that the actual quality of the ride may vary. DO NOT rely solely on the RideScore to determine if you should ride or not, always check the weather and the road conditions."
 
 #: src/app/(web)/privacy.tsx
-msgid "Welcome to Ride Today. We respect your privacy and are committed to protecting it through our compliance with this policy. This Privacy Policy describes how we collect, use, and safeguard your personal information when you use Ride Today (the “App”)."
-msgstr "Welcome to Ride Today. We respect your privacy and are committed to protecting it through our compliance with this policy. This Privacy Policy describes how we collect, use, and safeguard your personal information when you use Ride Today (the “App”)."
+msgid "Welcome to Ride Today. We respect your privacy and are committed to protecting it through our compliance with this policy. This Privacy Policy describes how we collect, use, and safeguard your personal information when you use Ride Today (the \"App\")."
+msgstr "Welcome to Ride Today. We respect your privacy and are committed to protecting it through our compliance with this policy. This Privacy Policy describes how we collect, use, and safeguard your personal information when you use Ride Today (the \"App\")."
 
 #. placeholder {0}: currentWeather.wind[unitSystem]
 #: src/modules/weather/components/CurrentWeather/CurrentWeather.tsx

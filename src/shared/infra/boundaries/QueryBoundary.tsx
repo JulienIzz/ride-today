@@ -1,6 +1,7 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
-import { t } from "@lingui/core/macro";
+import { msg } from "@lingui/core/macro";
+import { useLingui } from "@lingui/react";
 import { QueryErrorResetBoundary } from "@tanstack/react-query";
 import { type PropsWithChildren, Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
@@ -58,12 +59,14 @@ const LoaderFallback = () => {
 
 const ErrorFallback = () => {
   const theme = useTheme();
+  const { _ } = useLingui();
+
   return (
     <CenteredView>
       <Typography
         variant="P1"
         color={theme.colors.neutral[0]}
-        text={t`An error has occurred`}
+        text={_(msg`An error has occurred`)}
       />
     </CenteredView>
   );

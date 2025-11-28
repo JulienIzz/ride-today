@@ -1,6 +1,7 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
-import { t } from "@lingui/core/macro";
+import { msg } from "@lingui/core/macro";
+import { useLingui } from "@lingui/react";
 import { MoonStar } from "lucide-react-native";
 import { Fragment } from "react";
 
@@ -21,6 +22,7 @@ export const ForecastWeather = ({
   currentLocation: Location;
 }) => {
   const theme = useTheme();
+  const { _ } = useLingui();
 
   const HoursWeather = filterOnlyNextHours({
     hours: forecastWeather.forecastday[0]?.hour,
@@ -37,7 +39,7 @@ export const ForecastWeather = ({
               variant="H4"
               color={theme.colors.neutral[0]}
               bold
-              text={t({ message: "Next hours" })}
+              text={_(msg`Next hours`)}
             />
           </ListHeaderContainer>
           <Divider />

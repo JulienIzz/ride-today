@@ -1,6 +1,7 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
-import { t } from "@lingui/core/macro";
+import { msg } from "@lingui/core/macro";
+import { useLingui } from "@lingui/react";
 import { ScrollView } from "react-native-gesture-handler";
 
 import { ScaledButton } from "#design-system/components/Button/Button";
@@ -11,6 +12,7 @@ import { useMMKVOnboarding } from "#shared/mmkv/useMMKV";
 
 export const OnboardingModal = () => {
   const theme = useTheme();
+  const { _ } = useLingui();
 
   const { isVisible, modal } = useGlobalModal();
 
@@ -29,24 +31,30 @@ export const OnboardingModal = () => {
           variant="H2"
           color={theme.colors.neutral[0]}
           bold
-          text={t`Important Notice`}
+          text={_(msg`Important Notice`)}
         />
         <ScrollView showsVerticalScrollIndicator={true}>
           <TextContainer>
             <Typo
               variant="P1"
               color={theme.colors.neutral[0]}
-              text={t`This application provides a general weather-based riding score for your convenience.`}
+              text={_(
+                msg`This application provides a general weather-based riding score for your convenience.`,
+              )}
             />
             <Typo
               variant="P1"
               color={theme.colors.neutral[0]}
-              text={t`Actual conditions may differ from predictions, and unforeseen circumstances can arise at any time. Your decision to ride should not be based solely on this score or any other information provided by the app.`}
+              text={_(
+                msg`Actual conditions may differ from predictions, and unforeseen circumstances can arise at any time. Your decision to ride should not be based solely on this score or any other information provided by the app.`,
+              )}
             />
             <Typo
               variant="P1"
               color={theme.colors.neutral[0]}
-              text={t`By proceeding, you acknowledge that the developers and providers of this service cannot be held responsible for any consequences arising from your ride decisions.`}
+              text={_(
+                msg`By proceeding, you acknowledge that the developers and providers of this service cannot be held responsible for any consequences arising from your ride decisions.`,
+              )}
             />
           </TextContainer>
         </ScrollView>
@@ -55,7 +63,7 @@ export const OnboardingModal = () => {
             setHasReadOnboarding(true);
             hideModal();
           }}
-          title={t`Got it`}
+          title={_(msg`Got it`)}
         />
       </Container>
     </Modal>

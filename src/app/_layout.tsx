@@ -47,15 +47,17 @@ export default function RootLayout() {
 
   if (isWeb) {
     return (
-      <ThemeProvider theme={scheme === "dark" ? darkTheme : lightTheme}>
-        <BackgroundWebMobile />
-        <RootView onLayout={onLayoutRootView}>
-          <Head>
-            <title>Ride Today</title>
-          </Head>
-          <RootStack />
-        </RootView>
-      </ThemeProvider>
+      <I18nProvider>
+        <ThemeProvider theme={scheme === "dark" ? darkTheme : lightTheme}>
+          <BackgroundWebMobile />
+          <RootView onLayout={onLayoutRootView}>
+            <Head>
+              <title>Ride Today</title>
+            </Head>
+            <RootStack />
+          </RootView>
+        </ThemeProvider>
+      </I18nProvider>
     );
   }
 

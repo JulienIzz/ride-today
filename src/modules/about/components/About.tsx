@@ -1,6 +1,7 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
-import { t } from "@lingui/core/macro";
+import { msg } from "@lingui/core/macro";
+import { useLingui } from "@lingui/react";
 import { openURL } from "expo-linking";
 import { useRouter } from "expo-router";
 import { ChevronRight } from "lucide-react-native";
@@ -11,26 +12,27 @@ import { Typography } from "#shared/fonts/Typography";
 
 export const About = () => {
   const router = useRouter();
+  const { _ } = useLingui();
 
   const { showOnboarding } = useGlobalModalActions();
 
   return (
     <SectionList
-      title={t`About`}
+      title={_(msg`About`)}
       childrens={[
         <Section
           key={"Privacy policy"}
-          label={t`Privacy policy`}
+          label={_(msg`Privacy policy`)}
           onPress={() => openURL("https://www.ride-today.com/privacy")}
         />,
         <Section
           key={"User prevention"}
-          label={t`User prevention`}
+          label={_(msg`User prevention`)}
           onPress={showOnboarding}
         />,
         <Section
           key={"Credits"}
-          label={t`Credits`}
+          label={_(msg`Credits`)}
           onPress={() => {
             router.navigate("/about/credits");
           }}

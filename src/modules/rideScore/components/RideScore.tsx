@@ -1,7 +1,8 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
 import type { BottomSheetModal } from "@gorhom/bottom-sheet";
-import { t } from "@lingui/core/macro";
+import { msg } from "@lingui/core/macro";
+import { useLingui } from "@lingui/react";
 import { BadgeInfo } from "lucide-react-native";
 import { useCallback, useRef } from "react";
 
@@ -18,6 +19,7 @@ export const RideScore = ({
   conditionNotation: ConditionNotation | undefined;
 }) => {
   const theme = useTheme();
+  const { _ } = useLingui();
 
   const rideScoreDetails = useRideScoreDetails();
 
@@ -36,7 +38,7 @@ export const RideScore = ({
           variant="H4"
           color={theme.colors.neutral[0]}
           bold
-          text={t`RideScore`}
+          text={_(msg`RideScore`)}
         />
         <BadgeInfo
           color={theme.colors.neutral[0]}
@@ -65,9 +67,7 @@ export const RideScore = ({
         <MessageText
           variant="P2"
           color={theme.colors.neutral[0]}
-          text={t({
-            message: `${rideScoreDetails[conditionNotation].catchPhrase}`,
-          })}
+          text={rideScoreDetails[conditionNotation].catchPhrase}
         />
       </Message>
       <RideScoreBottomSheet bottomSheetModalRef={bottomSheetModalRef} />

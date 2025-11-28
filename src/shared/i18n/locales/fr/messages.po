@@ -17,11 +17,6 @@ msgstr ""
 msgid "(Last Updated: April 2025)"
 msgstr "(Dernière mise à jour : Avril 2025)"
 
-#. placeholder {0}: rideScoreDetails[conditionNotation].catchPhrase
-#: src/modules/rideScore/components/RideScore.tsx
-msgid "{0}"
-msgstr "{0}"
-
 #: src/modules/about/components/RightInfos.tsx
 msgid "© 2025 Julien Izzillo. All Rights Reserved."
 msgstr "© 2025 Julien Izzillo. Tous droits réservés."
@@ -43,7 +38,7 @@ msgid "4. Data Security"
 msgstr "4. Sécurité des données"
 
 #: src/app/(web)/privacy.tsx
-msgid "5. Children’s Privacy"
+msgid "5. Children's Privacy"
 msgstr "5. Confidentialité des enfants"
 
 #: src/app/(web)/privacy.tsx
@@ -215,8 +210,8 @@ msgid "Ride Today does not knowingly collect any personal information from indiv
 msgstr "Ride Today ne collecte pas sciemment d'informations personnelles auprès de personnes âgées de moins de 13 ans (ou mineures selon votre juridiction) sans le consentement parental. Si vous pensez que nous avons recueilli de telles données par inadvertance, veuillez nous contacter afin que nous puissions les supprimer rapidement."
 
 #: src/app/(web)/privacy.tsx
-msgid "Ride Today only collects your device’s location data. No other personal information, such as your name, email, or unique device identifiers, is gathered or processed. Your location data cannot be used to identify you, either by us or by our third-party service providers."
-msgstr "Ride Today ne collecte que les données de localisation de votre appareil. Aucune autre information personnelle, telle que votre nom, votre adresse e-mail ou vos identifiants uniques, n’est recueillie ou traitée. Vos données de localisation ne peuvent pas être utilisées pour vous identifier, ni par nous ni par nos prestataires de services tiers."
+msgid "Ride Today only collects your device's location data. No other personal information, such as your name, email, or unique device identifiers, is gathered or processed. Your location data cannot be used to identify you, either by us or by our third-party service providers."
+msgstr "Ride Today ne collecte que les données de localisation de votre appareil. Aucune autre information personnelle, telle que votre nom, votre adresse e-mail ou vos identifiants uniques, n'est recueillie ou traitée. Vos données de localisation ne peuvent pas être utilisées pour vous identifier, ni par nous ni par nos prestataires de services tiers."
 
 #: src/modules/rideScore/components/RideScore.tsx
 #: src/modules/charts/components/Charts.tsx
@@ -224,8 +219,8 @@ msgid "RideScore"
 msgstr "RideScore"
 
 #: src/modules/home/screens/Home.screen.web.tsx
-msgid "RideToday is your go-to riding companion, offering a straightforward score to gauge if today’s weather is biker-friendly. No need to sift through endless forecasts—we provide clear, concise insights to help you decide whether to hit the road or stay put."
-msgstr "RideToday est votre compagnon de route idéal, offrant un score simple pour évaluer si la météo du jour est favorable aux motards. Plus besoin de parcourir une multitude de prévisions\\u00a0: nous fournissons des informations claires et concises pour vous aider à décider si vous devez prendre la route ou rester chez vous."
+msgid "RideToday is your go-to riding companion, offering a straightforward score to gauge if today's weather is biker-friendly. No need to sift through endless forecasts—we provide clear, concise insights to help you decide whether to hit the road or stay put."
+msgstr "RideToday est votre compagnon de route idéal, offrant un score simple pour évaluer si la météo du jour est favorable aux motards. Plus besoin de parcourir une multitude de prévisions : nous fournissons des informations claires et concises pour vous aider à décider si vous devez prendre la route ou rester chez vous."
 
 #: src/modules/location/components/Location.tsx
 msgid "Search location"
@@ -336,8 +331,8 @@ msgid "We implement security measures to help protect your data. Any communicati
 msgstr "Nous mettons en œuvre des mesures de sécurité pour protéger vos données. Toute communication avec notre fournisseur de services météorologiques est chiffrée à l’aide de protocoles reconnus dans l’industrie (p. ex., HTTPS). Nous prenons des précautions pour sécuriser vos données sur votre appareil ; toutefois, aucun système de sécurité n’est totalement inviolable et nous ne pouvons pas garantir une sécurité absolue de vos données."
 
 #: src/app/(web)/privacy.tsx
-msgid "We may update this Privacy Policy from time to time to reflect changes in our practices. When we do, we will post the updated policy within the App and update the “Last Updated” date at the top of this document. Your continued use of the App following any changes indicates your acknowledgment of the modifications."
-msgstr "Nous pouvons mettre à jour cette politique de confidentialité de temps à autre afin de refléter les changements de nos pratiques. Le cas échéant, nous publierons la politique mise à jour dans l’App et modifierons la date de « Dernière mise à jour » en haut de ce document. Votre utilisation continue de l’App après ces modifications indique que vous reconnaissez et acceptez ces changements."
+msgid "We may update this Privacy Policy from time to time to reflect changes in our practices. When we do, we will post the updated policy within the App and update the \"Last Updated\" date at the top of this document. Your continued use of the App following any changes indicates your acknowledgment of the modifications."
+msgstr "Nous pouvons mettre à jour cette politique de confidentialité de temps à autre afin de refléter les changements de nos pratiques. Le cas échéant, nous publierons la politique mise à jour dans l'App et modifierons la date de « Dernière mise à jour » en haut de ce document. Votre utilisation continue de l'App après ces modifications indique que vous reconnaissez et acceptez ces changements."
 
 #: src/app/(web)/privacy.tsx
 msgid "We use your location data solely to fetch relevant weather details from our trusted third-party weather provider. No other data is transmitted to the weather provider. By transmitting only location coordinates—and not any personally identifiable information—you remain anonymous to us and our third-party services."
@@ -348,8 +343,8 @@ msgid "We wish to remind you that the RideScore is an estimation and that the ac
 msgstr "Nous tenons à vous rappeler que le RideScore est une estimation et que la qualité réelle de la sortie peut varier. NE VOUS FIEZ PAS UNIQUEMENT au RideScore pour déterminer si vous devez rouler ou non ; vérifiez toujours la météo et l’état de la route."
 
 #: src/app/(web)/privacy.tsx
-msgid "Welcome to Ride Today. We respect your privacy and are committed to protecting it through our compliance with this policy. This Privacy Policy describes how we collect, use, and safeguard your personal information when you use Ride Today (the “App”)."
-msgstr "Bienvenue sur Ride Today. Nous respectons votre vie privée et nous nous engageons à la protéger conformément à cette politique. La présente politique de confidentialité décrit la manière dont nous collectons, utilisons et protégeons vos informations personnelles lorsque vous utilisez Ride Today (l’« App »)."
+msgid "Welcome to Ride Today. We respect your privacy and are committed to protecting it through our compliance with this policy. This Privacy Policy describes how we collect, use, and safeguard your personal information when you use Ride Today (the \"App\")."
+msgstr "Bienvenue sur Ride Today. Nous respectons votre vie privée et nous nous engageons à la protéger conformément à cette politique. La présente politique de confidentialité décrit la manière dont nous collectons, utilisons et protégeons vos informations personnelles lorsque vous utilisez Ride Today (l'« App »)."
 
 #. placeholder {0}: currentWeather.wind[unitSystem]
 #: src/modules/weather/components/CurrentWeather/CurrentWeather.tsx

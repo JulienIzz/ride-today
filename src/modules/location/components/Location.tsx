@@ -1,6 +1,7 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
-import { t } from "@lingui/core/macro";
+import { msg } from "@lingui/core/macro";
+import { useLingui } from "@lingui/react";
 import { useState } from "react";
 
 import { GeolocationToggle } from "#modules/location/components/GeolocationToggle";
@@ -10,6 +11,7 @@ import { shadowStyle } from "#shared/styling/shadowStyle";
 
 export const Location = () => {
   const theme = useTheme();
+  const { _ } = useLingui();
 
   const [isLocationEnabled, setLocationEnabled] = useState(false);
 
@@ -31,7 +33,7 @@ export const Location = () => {
     <Container>
       <LocationInputContainer disabled={!isLocationEnabled}>
         <LocationInput
-          placeholder={t`Search location`}
+          placeholder={_(msg`Search location`)}
           value={search}
           editable={!isLocationEnabled}
           onChangeText={changeTextHandler}

@@ -1,6 +1,7 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
-import { t } from "@lingui/core/macro";
+import { msg } from "@lingui/core/macro";
+import { useLingui } from "@lingui/react";
 import { Link } from "expo-router";
 
 import { PageTemplate } from "#modules/templates/components/PageTemplate";
@@ -8,6 +9,7 @@ import { Link as LinkTypo, Typography } from "#shared/fonts/Typography";
 
 export const Unavailable = () => {
   const theme = useTheme();
+  const { _ } = useLingui();
   return (
     <PageTemplate>
       <CenteredView>
@@ -15,13 +17,13 @@ export const Unavailable = () => {
           variant="H1"
           color={theme.colors.neutral[0]}
           bold
-          text={t`Page unavailable`}
+          text={_(msg`Page unavailable`)}
         />
         <Link href={"/"}>
           <LinkTypo
             variant="H3"
             color={theme.colors.neutral[0]}
-            text={t`Return to homepage`}
+            text={_(msg`Return to homepage`)}
           />
         </Link>
       </CenteredView>

@@ -1,17 +1,19 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
-import { t } from "@lingui/core/macro";
+import { msg } from "@lingui/core/macro";
+import { useLingui } from "@lingui/react";
 
 import { Typography } from "#shared/fonts/Typography";
 
 export const Logo = () => {
   const theme = useTheme();
+  const { _ } = useLingui();
 
   return (
     <TagLine
       color={theme.colors.neutral[0]}
       variant="tagline"
-      text={t`RIDE TODAY`}
+      text={_(msg`RIDE TODAY`)}
     />
   );
 };

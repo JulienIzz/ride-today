@@ -1,12 +1,14 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
-import { t } from "@lingui/core/macro";
+import { msg } from "@lingui/core/macro";
+import { useLingui } from "@lingui/react";
 import { openURL } from "expo-linking";
 
 import { Link as LinkTypo, Typography } from "#shared/fonts/Typography";
 
 export const RightInfos = () => {
   const theme = useTheme();
+  const { _ } = useLingui();
 
   return (
     <Container>
@@ -19,7 +21,7 @@ export const RightInfos = () => {
       <Typography
         variant="P1"
         color={theme.colors.inactive}
-        text={t`© 2025 Julien Izzillo. All Rights Reserved.`}
+        text={_(msg`© 2025 Julien Izzillo. All Rights Reserved.`)}
       />
     </Container>
   );

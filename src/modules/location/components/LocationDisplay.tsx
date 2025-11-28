@@ -1,6 +1,7 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
-import { t } from "@lingui/core/macro";
+import { msg } from "@lingui/core/macro";
+import { useLingui } from "@lingui/react";
 import { CircleX, MapPin, RectangleEllipsis } from "lucide-react-native";
 import { ActivityIndicator } from "react-native";
 
@@ -53,6 +54,7 @@ const LocationDisplayComponent = ({ location }: { location: string }) => {
 
 const LoadingLocation = () => {
   const theme = useTheme();
+  const { _ } = useLingui();
   return (
     <Container>
       <ActivityIndicator size={"small"} />
@@ -60,7 +62,7 @@ const LoadingLocation = () => {
       <Typography
         color={theme.colors.neutral[0]}
         variant="P1"
-        text={t`Loading location`}
+        text={_(msg`Loading location`)}
       />
     </Container>
   );
@@ -68,6 +70,7 @@ const LoadingLocation = () => {
 
 const LocationWaiting = () => {
   const theme = useTheme();
+  const { _ } = useLingui();
   return (
     <Container>
       <RectangleEllipsis color={theme.colors.neutral[0]} strokeWidth={1.5} />
@@ -75,7 +78,7 @@ const LocationWaiting = () => {
       <Typography
         color={theme.colors.neutral[0]}
         variant="P1"
-        text={t`Type location or enable geolocation`}
+        text={_(msg`Type location or enable geolocation`)}
       />
     </Container>
   );
@@ -83,6 +86,7 @@ const LocationWaiting = () => {
 
 const LocationMissing = () => {
   const theme = useTheme();
+  const { _ } = useLingui();
   return (
     <Container>
       <RectangleEllipsis color={theme.colors.neutral[0]} strokeWidth={1.5} />
@@ -90,7 +94,7 @@ const LocationMissing = () => {
       <Typography
         color={theme.colors.neutral[0]}
         variant="P1"
-        text={t`Waiting for location`}
+        text={_(msg`Waiting for location`)}
       />
     </Container>
   );
@@ -98,6 +102,7 @@ const LocationMissing = () => {
 
 const LocationError = () => {
   const theme = useTheme();
+  const { _ } = useLingui();
   return (
     <Container>
       <CircleX color={theme.colors.neutral[0]} strokeWidth={1.5} />
@@ -105,7 +110,7 @@ const LocationError = () => {
       <Typography
         color={theme.colors.neutral[0]}
         variant="P1"
-        text={t`Unable to find location`}
+        text={_(msg`Unable to find location`)}
       />
     </Container>
   );

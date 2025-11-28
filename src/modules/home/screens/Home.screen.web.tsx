@@ -1,6 +1,7 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
-import { t } from "@lingui/core/macro";
+import { msg } from "@lingui/core/macro";
+import { useLingui } from "@lingui/react";
 import { Image } from "expo-image";
 import type { ImageSourcePropType } from "react-native";
 import { Pressable, ScrollView } from "react-native";
@@ -24,6 +25,7 @@ const centeredStyle = {
 
 export const Home = () => {
   const theme = useTheme();
+  const { _ } = useLingui();
 
   return (
     <PageTemplate>
@@ -37,12 +39,16 @@ export const Home = () => {
           <Logo />
           <Description
             variant="P1"
-            text={t`RideToday is your go-to riding companion, offering a straightforward score to gauge if today’s weather is biker-friendly. No need to sift through endless forecasts—we provide clear, concise insights to help you decide whether to hit the road or stay put.`}
+            text={_(
+              msg`RideToday is your go-to riding companion, offering a straightforward score to gauge if today's weather is biker-friendly. No need to sift through endless forecasts—we provide clear, concise insights to help you decide whether to hit the road or stay put.`,
+            )}
             color={theme.colors.neutral[0]}
           />
           <Description
             variant="P1"
-            text={t`Plan your rides a day or two in advance and experience the freedom of the open road with RideToday by your side.`}
+            text={_(
+              msg`Plan your rides a day or two in advance and experience the freedom of the open road with RideToday by your side.`,
+            )}
             color={theme.colors.neutral[0]}
           />
           <PreviewImages
@@ -54,7 +60,7 @@ export const Home = () => {
           />
           <Description
             variant="P1"
-            text={t`Available soon !`}
+            text={_(msg`Available soon !`)}
             bold
             color={theme.colors.neutral[0]}
           />
