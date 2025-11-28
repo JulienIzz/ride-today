@@ -122,6 +122,8 @@ const config: ExpoConfig = {
     ],
     "./plugins/versioning",
     "expo-router",
+    "expo-localization",
+    "expo-web-browser",
     "expo-font",
     [
       "expo-splash-screen",
