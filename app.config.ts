@@ -94,6 +94,7 @@ const config: ExpoConfig = {
     infoPlist: {
       CFBundleDevelpmentRegion: "fr",
       CFBundleLocalizations: ["fr", "en"],
+      ITSAppUsesNonExemptEncryption: false,
     },
   },
   android: {
