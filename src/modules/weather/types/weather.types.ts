@@ -1,4 +1,7 @@
+import type { ConditionNotation } from "#modules/weather/domain/types";
 import type { Units } from "#modules/weather/types/units.types";
+
+export type { ConditionNotation };
 
 export interface Weather {
   location: Location;
@@ -16,8 +19,6 @@ export interface Current {
   isDay: number;
   condition: Condition;
 }
-
-export type ConditionNotation = 0 | 1 | 2 | 3 | 4 | 5;
 
 interface Condition {
   text: string;
