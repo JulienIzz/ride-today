@@ -1,4 +1,4 @@
-import { conditionNotations } from "#modules/rideScore/utils/notationMapping";
+import { conditionNotations } from "#modules/rideScore/domain/notationMapping";
 
 import type { ConditionNotation } from "./types";
 
