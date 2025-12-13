@@ -127,7 +127,6 @@ const Container = styled(FlexView)(({ theme }) => ({
 const TitlesContainer = styled(FlexView)(({ theme }) => ({
   flexDirection: "row",
   justifyContent: "space-between",
-  // alignItems: "center",
   gap: theme.spacings.s,
   paddingRight: theme.spacings.m,
 }));
