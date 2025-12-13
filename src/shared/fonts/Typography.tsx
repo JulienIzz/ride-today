@@ -2,6 +2,8 @@ import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
 import type { ColorValue, TextProps, TextStyle } from "react-native";
 
+import type { Theme } from "#design-system/theme/theme";
+
 const Text = styled.Text<{
   fontSize: number;
   contrast?: boolean;
@@ -27,8 +29,22 @@ const Tagline = styled.Text<{ color?: ColorValue; contrast?: boolean }>(
   }),
 );
 
+type TextVariant = "P1" | "P2" | "P3" | "P4" | "H1" | "H2" | "H3" | "H4";
+type Variant = "tagline" | TextVariant;
+
+const variantToFontSize: Record<TextVariant, keyof Theme["fontSizes"]> = {
+  P1: "m",
+  P2: "s",
+  P3: "xs",
+  P4: "2xs",
+  H1: "3xl",
+  H2: "2xl",
+  H3: "xl",
+  H4: "l",
+};
+
 type Props = {
-  variant: "tagline" | "P1" | "P2" | "P3" | "P4" | "H1" | "H2" | "H3" | "H4";
+  variant: Variant;
   text: string;
   contrast?: boolean;
   style?: TextStyle;
@@ -40,58 +56,17 @@ type Props = {
 export const Typography = ({ variant, text, ...props }: Props) => {
   const theme = useTheme();
 
-  switch (variant) {
-    case "tagline":
-      return <Tagline {...props}>{text}</Tagline>;
-    case "P1":
-      return (
-        <Text fontSize={theme.fontSizes.m} {...props}>
-          {text}
-        </Text>
-      );
-    case "P2":
-      return (
-        <Text fontSize={theme.fontSizes.s} {...props}>
-          {text}
-        </Text>
-      );
-    case "P3":
-      return (
-        <Text fontSize={theme.fontSizes.xs} {...props}>
-          {text}
-        </Text>
-      );
-    case "P4":
-      return (
-        <Text fontSize={theme.fontSizes["2xs"]} {...props}>
-          {text}
-        </Text>
-      );
-    case "H1":
-      return (
-        <Text fontSize={theme.fontSizes["3xl"]} {...props}>
-          {text}
-        </Text>
-      );
-    case "H2":
-      return (
-        <Text fontSize={theme.fontSizes["2xl"]} {...props}>
-          {text}
-        </Text>
-      );
-    case "H3":
-      return (
-        <Text fontSize={theme.fontSizes.xl} {...props}>
-          {text}
-        </Text>
-      );
-    case "H4":
-      return (
-        <Text fontSize={theme.fontSizes.l} {...props}>
-          {text}
-        </Text>
-      );
+  if (variant === "tagline") {
+    return <Tagline {...props}>{text}</Tagline>;
   }
+
+  const fontSize = theme.fontSizes[variantToFontSize[variant]];
+
+  return (
+    <Text fontSize={fontSize} {...props}>
+      {text}
+    </Text>
+  );
 };
 export const Link = (props: Props) => {
   const theme = useTheme();
