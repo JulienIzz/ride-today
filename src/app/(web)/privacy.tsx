@@ -6,8 +6,8 @@ import { ScrollView } from "react-native";
 
 import { FlexView } from "#design-system/utils/FlexView";
 import { RightInfos } from "#modules/about/components/RightInfos";
-import { PageTemplate } from "#modules/templates/components/PageTemplate";
 import { TopRightGradientSmall } from "#shared/components/gradients/TopRightGradient";
+import { PageTemplate } from "#shared/components/PageTemplate";
 import { Typography } from "#shared/fonts/Typography";
 
 const centeredStyle = {

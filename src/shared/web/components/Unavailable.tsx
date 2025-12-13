@@ -4,7 +4,7 @@ import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
 import { Link } from "expo-router";
 
-import { PageTemplate } from "#modules/templates/components/PageTemplate";
+import { PageTemplate } from "#shared/components/PageTemplate";
 import { Link as LinkTypo, Typography } from "#shared/fonts/Typography";
 
 export const Unavailable = () => {

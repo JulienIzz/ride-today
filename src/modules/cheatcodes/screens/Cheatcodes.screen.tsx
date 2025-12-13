@@ -1,8 +1,8 @@
 import styled from "@emotion/native";
 
 import { Setting } from "#modules/settings/components/Setting";
-import { SafePageTemplate } from "#modules/templates/components/PageTemplate";
 import { TopRightGradient } from "#shared/components/gradients/TopRightGradient";
+import { SafePageTemplate } from "#shared/components/PageTemplate";
 import { PageTitleWithBack } from "#shared/components/PageTitleWithBack";
 import { useMMKVDebugReactQuery } from "#shared/mmkv/useMMKV";
 

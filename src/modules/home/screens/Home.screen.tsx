@@ -12,9 +12,9 @@ import { BOTTOM_MENU_HEIGHT } from "#modules/home/utils/constants";
 import { Location } from "#modules/location/components/Location";
 import { LocationDisplay } from "#modules/location/components/LocationDisplay";
 import { SettingsPage } from "#modules/settings/components/SettingsPage";
-import { PageTemplate } from "#modules/templates/components/PageTemplate";
 import { Weather } from "#modules/weather/components/Weather";
 import { ShadedDivider } from "#shared/components/Divider";
+import { PageTemplate } from "#shared/components/PageTemplate";
 
 export const Home = () => {
   const [selectedPage, setSelectedPage] = useState(0);

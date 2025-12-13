@@ -9,8 +9,8 @@ import { Pressable, ScrollView } from "react-native";
 import { FlexView } from "#design-system/utils/FlexView";
 import { RightInfos } from "#modules/about/components/RightInfos";
 import { Logo } from "#modules/home/components/Logo";
-import { PageTemplate } from "#modules/templates/components/PageTemplate";
 import { TopRightGradientSmall } from "#shared/components/gradients/TopRightGradient";
+import { PageTemplate } from "#shared/components/PageTemplate";
 import { Typography } from "#shared/fonts/Typography";
 
 import appStore from "../assets/web/appStore.png";
