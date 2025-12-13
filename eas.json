@@ -34,28 +34,16 @@
     }
   },
   "submit": {
-    "staging": {
-      "ios": {
-        "ascAppId": "<TODO>",
-        "appleTeamId": "<TODO>"
-      },
-      "android": {
-        "track": "internal",
-        "releaseStatus": "draft",
-        "applicationId": "<TODO>"
-      }
-    },
     "production": {
       "ios": {
-        "appleTeamId": "<TODO>",
-        "ascAppId": "<TODO>",
-        "language": "fr-FR",
-        "appName": "<TODO: Name visible on the app store>"
+        "appleTeamId": "82RFCZNAL6",
+        "ascAppId": "6756441621",
+        "language": "en-US",
+        "appName": "Ride Today Companion"
       },
       "android": {
-        "track": "internal",
-        "releaseStatus": "completed",
-        "applicationId": "<TODO>"
+        "track": "beta",
+        "releaseStatus": "completed"
       }
     }
   }

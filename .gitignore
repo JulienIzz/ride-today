@@ -50,3 +50,6 @@ app-example
 
 # devtools cache
 .cache/
+
+# Local files
+.local/
