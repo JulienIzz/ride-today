@@ -4,7 +4,7 @@ import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
 
 import { useRideScoreDetails } from "#modules/rideScore/utils/rideScoreDetails";
-import type { ConditionNotation } from "#modules/weather/types/weather.types";
+import type { ConditionNotation } from "#modules/weather/domain/types";
 import { Typography } from "#shared/fonts/Typography";
 
 export const RideScoreModalContent = () => {

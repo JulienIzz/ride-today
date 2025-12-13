@@ -2,7 +2,7 @@ import { useTheme } from "@emotion/react";
 import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
 
-import type { ConditionNotation } from "#modules/weather/types/weather.types";
+import type { ConditionNotation } from "#modules/weather/domain/types";
 
 export const useRideScoreDetails = () => {
   const theme = useTheme();

@@ -9,7 +9,7 @@ import { useCallback, useRef } from "react";
 import { FlexView } from "#design-system/utils/FlexView";
 import { RideScoreBottomSheet } from "#modules/rideScore/components/RideScoreBottomSheet";
 import { useRideScoreDetails } from "#modules/rideScore/utils/rideScoreDetails";
-import type { ConditionNotation } from "#modules/weather/types/weather.types";
+import type { ConditionNotation } from "#modules/weather/domain/types";
 import { Spacer } from "#shared/components/Spacer";
 import { Typography } from "#shared/fonts/Typography";
 

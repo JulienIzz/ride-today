@@ -1,7 +1,7 @@
 import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
 
-import type { ConditionNotation } from "#modules/weather/types/weather.types";
+import type { ConditionNotation } from "#modules/weather/domain/types";
 import { Spacer } from "#shared/components/Spacer";
 import { Typography } from "#shared/fonts/Typography";
 
