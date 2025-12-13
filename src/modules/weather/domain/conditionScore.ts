@@ -1,6 +1,5 @@
 import { conditionNotations } from "#modules/rideScore/domain/notationMapping";
-
-import type { ConditionNotation } from "./types";
+import type { ConditionNotation } from "#modules/weather/domain/types";
 
 /**
  * Calculates a temperature modifier based on how the temperature

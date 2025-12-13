@@ -1,4 +1,4 @@
-import { conditionNotations } from "./notationMapping";
+import { conditionNotations } from "#modules/rideScore/domain/notationMapping";
 
 describe("conditionNotations", () => {
   it("contains mappings for all weather API condition codes", () => {

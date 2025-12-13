@@ -2,7 +2,7 @@ import {
   getBaseNotation,
   getConditionNotation,
   getTemperatureModifier,
-} from "./conditionScore";
+} from "#modules/weather/domain/conditionScore";
 
 describe("getTemperatureModifier", () => {
   it("returns -5 for very cold temperatures (below -2°C)", () => {

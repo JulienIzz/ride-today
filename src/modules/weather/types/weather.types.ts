@@ -1,8 +1,6 @@
 import type { ConditionNotation } from "#modules/weather/domain/types";
 import type { Units } from "#modules/weather/types/units.types";
 
-export type { ConditionNotation };
-
 export interface Weather {
   location: Location;
   current: Current;
