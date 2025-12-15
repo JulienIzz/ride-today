@@ -74,7 +74,7 @@ echo "  0. Run tests"
 echo "  1. Bump version in config/APP_VERSION"
 echo "  2. Run expo prebuild (STAGE=production)"
 echo "  3. Stage all changes (git add .)"
-echo "  4. Commit: 'chore: bump to v$APP_VERSION (runtime $RUNTIME_VERSION)'"
+echo "  4. Commit: 'chore: bump to v$APP_VERSION (runtime $((RUNTIME_VERSION + 1)))'"
 echo "  5. Create git tag: v$APP_VERSION"
 echo "  6. Push to origin/main with tags"
 echo "  7. Build & auto-submit to stores ($PLATFORM_NAME)"
@@ -101,7 +101,7 @@ echo ""
 yarn test
 STAGE=production expo prebuild
 git add .
-git commit -m "chore: bump to v$APP_VERSION (runtime $RUNTIME_VERSION)"
+git commit -m "chore: bump to v$APP_VERSION (runtime $((RUNTIME_VERSION + 1)))"
 git tag -a "v$APP_VERSION" -m "Release v$APP_VERSION"
 git push origin main --tags
 eas build --profile production $PLATFORM_FLAG --auto-submit
