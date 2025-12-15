@@ -11,10 +11,6 @@ expo-env.d.ts
 ios
 android
 
-# Allow locale directories
-!**/locales/ios
-!**/locales/android
-
 # Native
 *.orig.*
 *.jks

@@ -93,14 +93,12 @@ const config: ExpoConfig = {
     icon: appConfig.iosIcon,
     infoPlist: {
       CFBundleAllowMixedLocalizations: true,
-      CFBundleDevelpmentRegion: "fr",
+      CFBundleDevelopmentRegion: "fr",
       CFBundleLocalizations: ["fr", "en"],
       ITSAppUsesNonExemptEncryption: false,
+      NSLocationWhenInUseUsageDescription:
+        "Your location is used to get local weather conditions and calculate the ride enjoyment score.",
     },
-  },
-  locales: {
-    en: "./locales/ios/en.json",
-    fr: "./locales/ios/fr.json",
   },
   android: {
     adaptiveIcon: appConfig.androidIcon,
