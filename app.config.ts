@@ -92,10 +92,15 @@ const config: ExpoConfig = {
     bundleIdentifier: appConfig.bundleId,
     icon: appConfig.iosIcon,
     infoPlist: {
+      CFBundleAllowMixedLocalizations: true,
       CFBundleDevelpmentRegion: "fr",
       CFBundleLocalizations: ["fr", "en"],
       ITSAppUsesNonExemptEncryption: false,
     },
+  },
+  locales: {
+    en: "./locales/ios/en.json",
+    fr: "./locales/ios/fr.json",
   },
   android: {
     adaptiveIcon: appConfig.androidIcon,
