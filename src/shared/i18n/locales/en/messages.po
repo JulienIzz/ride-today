@@ -65,10 +65,6 @@ msgstr "Actual conditions may differ from predictions, and unforeseen circumstan
 msgid "An error has occurred"
 msgstr "An error has occurred"
 
-#: src/modules/home/screens/Home.screen.web.tsx
-msgid "Available soon !"
-msgstr "Available soon !"
-
 #: src/app/(web)/privacy.tsx
 msgid "Because your location data remains on your device, we do not maintain separate databases storing your personal information. You may delete this data at any time by clearing the application data or uninstalling the App."
 msgstr "Because your location data remains on your device, we do not maintain separate databases storing your personal information. You may delete this data at any time by clearing the application data or uninstalling the App."

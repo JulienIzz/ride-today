@@ -4,7 +4,7 @@ import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
 import { Image } from "expo-image";
 import type { ImageSourcePropType } from "react-native";
-import { Pressable, ScrollView } from "react-native";
+import { Linking, Pressable, ScrollView } from "react-native";
 
 import { FlexView } from "#design-system/utils/FlexView";
 import { RightInfos } from "#modules/about/components/RightInfos";
@@ -51,6 +51,26 @@ export const Home = () => {
             )}
             color={theme.colors.neutral[0]}
           />
+          <Row>
+            <Pressable
+              onPress={() =>
+                Linking.openURL(
+                  "https://play.google.com/store/apps/details?id=com.julienizz.ridetoday",
+                )
+              }
+            >
+              <StoreImage source={appStore} />
+            </Pressable>
+            <Pressable
+              onPress={() =>
+                Linking.openURL(
+                  "https://apps.apple.com/fr/app/ride-today-companion/id6756441621",
+                )
+              }
+            >
+              <StoreImage source={playStore} />
+            </Pressable>
+          </Row>
           <PreviewImages
             images={[
               { source: firstAsset, variant: "center" },
@@ -58,20 +78,6 @@ export const Home = () => {
               { source: thirdAsset, variant: "right" },
             ]}
           />
-          <Description
-            variant="P1"
-            text={_(msg`Available soon !`)}
-            bold
-            color={theme.colors.neutral[0]}
-          />
-          <Row>
-            <StoreRedirect disabled>
-              <StoreImage source={appStore} />
-            </StoreRedirect>
-            <StoreRedirect disabled>
-              <StoreImage source={playStore} />
-            </StoreRedirect>
-          </Row>
           <RightInfos />
         </CenterContainer>
       </ScrollView>
@@ -139,8 +145,4 @@ const StoreImage = styled(Image)({
   height: 50,
   resizeMode: "contain",
   alignItems: "flex-end",
-});
-
-const StoreRedirect = styled(Pressable)({
-  opacity: 0.4,
 });
