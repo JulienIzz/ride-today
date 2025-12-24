@@ -55,7 +55,7 @@ export const Home = () => {
             <Pressable
               onPress={() =>
                 Linking.openURL(
-                  "https://play.google.com/store/apps/details?id=com.julienizz.ridetoday",
+                  "https://apps.apple.com/fr/app/ride-today-companion/id6756441621",
                 )
               }
             >
@@ -64,7 +64,7 @@ export const Home = () => {
             <Pressable
               onPress={() =>
                 Linking.openURL(
-                  "https://apps.apple.com/fr/app/ride-today-companion/id6756441621",
+                  "https://play.google.com/store/apps/details?id=com.julienizz.ridetoday",
                 )
               }
             >
