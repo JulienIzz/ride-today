@@ -99,12 +99,12 @@ echo "Version bumped: $CURRENT_VERSION → $APP_VERSION"
 echo ""
 
 yarn test
-STAGE=production expo prebuild
+STAGE=production expo prebuild --clean
 git add .
 git commit -m "chore: bump to v$APP_VERSION (runtime $((RUNTIME_VERSION + 1)))"
 git tag -a "v$APP_VERSION" -m "Release v$APP_VERSION"
 git push origin main --tags
-eas build --profile production $PLATFORM_FLAG --auto-submit
+STAGE=production eas build --profile production $PLATFORM_FLAG
 
 echo ""
 echo "Production build completed successfully!"
