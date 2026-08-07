@@ -36,6 +36,13 @@ export const useMMKVUnits = () => {
   return { isImperialEnabled, setIsImperialEnabled };
 };
 
+export const useMMKVStoreReview = () => {
+  const [hasRequestedStoreReview = false, setHasRequestedStoreReview] =
+    useMMKVBoolean(StorageKeys.HAS_REQUESTED_STORE_REVIEW, storage);
+
+  return { hasRequestedStoreReview, setHasRequestedStoreReview };
+};
+
 export const useMMKVDebugReactQuery = () => {
   const [isDebugReactQueryEnabled = false, setIsDebugReactQueryEnabled] =
     useMMKVBoolean(StorageKeys.IS_DEBUG_REACT_QUERY_ENABLED, storage);

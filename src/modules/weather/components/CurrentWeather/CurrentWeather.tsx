@@ -8,6 +8,7 @@ import { View } from "react-native";
 
 import { FlexView } from "#design-system/utils/FlexView";
 import { RideScore } from "#modules/rideScore/components/RideScore";
+import { useRequestStoreReview } from "#modules/storeReview/hooks/useRequestStoreReview";
 import { CurrentWeatherContainer } from "#modules/weather/components/CurrentWeather/CurrentWeatherContainer";
 import { useUnitSystem } from "#modules/weather/hooks/useUnitSystem";
 import { UnitsEnum } from "#modules/weather/types/units.types";
@@ -25,6 +26,10 @@ export const CurrentWeather = ({
   const { _ } = useLingui();
 
   const unitSystem = useUnitSystem();
+
+  useRequestStoreReview({
+    enabled: currentWeather.condition.notation !== undefined,
+  });
 
   return (
     <CurrentWeatherContainer>

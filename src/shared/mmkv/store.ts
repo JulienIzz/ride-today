@@ -8,4 +8,6 @@ export enum StorageKeys {
   CUSTOM_THEME = "customTheme",
   HAS_READ_ONBOARDING = "hasReadOnboarding",
   IS_DEBUG_REACT_QUERY_ENABLED = "isDebugReactQueryEnabled",
+  APP_LAUNCH_COUNT = "appLaunchCount",
+  HAS_REQUESTED_STORE_REVIEW = "hasRequestedStoreReview",
 }

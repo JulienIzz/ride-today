@@ -12,6 +12,7 @@ import { DevToolsBubble } from "react-native-react-query-devtools";
 
 import { darkTheme, lightTheme } from "#design-system/theme/theme";
 import { GlobalModal } from "#modules/modal/GlobalModal";
+import { useTrackAppLaunch } from "#modules/storeReview/hooks/useTrackAppLaunch";
 import { useAppIsReady } from "#shared/config/useAppIsReady.hook";
 import { useOnboarding } from "#shared/hooks/useOnboarding";
 import { useThemeScheme } from "#shared/hooks/useThemeScheme";
@@ -34,6 +35,8 @@ export default function RootLayout() {
   const scheme = useThemeScheme();
 
   const { isDebugReactQueryEnabled } = useMMKVDebugReactQuery();
+
+  useTrackAppLaunch();
 
   const onLayoutRootView = useCallback(() => {
     if (appIsReady) {
