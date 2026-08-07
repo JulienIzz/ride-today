@@ -1,14 +1,21 @@
 import styled from "@emotion/native";
 
+import { Button } from "#design-system/components/Button/Button";
+import { MMKVPreview } from "#modules/cheatcodes/components/MMKVPreview";
 import { Setting } from "#modules/settings/components/Setting";
 import { TopRightGradient } from "#shared/components/gradients/TopRightGradient";
 import { SafePageTemplate } from "#shared/components/PageTemplate";
 import { PageTitleWithBack } from "#shared/components/PageTitleWithBack";
-import { useMMKVDebugReactQuery } from "#shared/mmkv/useMMKV";
+import {
+  useMMKVDebugReactQuery,
+  useMMKVStoreReview,
+} from "#shared/mmkv/useMMKV";
 
 export const Cheatcodes = () => {
   const { isDebugReactQueryEnabled, setIsDebugReactQueryEnabled } =
     useMMKVDebugReactQuery();
+  const { hasRequestedStoreReview, setHasRequestedStoreReview } =
+    useMMKVStoreReview();
   return (
     <SafePageTemplate>
       <TopRightGradient />
@@ -23,6 +30,14 @@ export const Cheatcodes = () => {
           leftChoice={"Off"}
           rightChoice={"On"}
         />
+        <Button
+          title={"Reset review request"}
+          disabled={!hasRequestedStoreReview}
+          onPress={() => {
+            setHasRequestedStoreReview(false);
+          }}
+        />
+        <MMKVPreview />
       </Container>
     </SafePageTemplate>
   );
