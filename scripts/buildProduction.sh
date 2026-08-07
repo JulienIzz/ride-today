@@ -104,7 +104,7 @@ git add .
 git commit -m "chore: bump to v$APP_VERSION (runtime $((RUNTIME_VERSION + 1)))"
 git tag -a "v$APP_VERSION" -m "Release v$APP_VERSION"
 git push origin main --tags
-STAGE=production eas build --profile production $PLATFORM_FLAG
+STAGE=production eas build --profile production --auto-submit $PLATFORM_FLAG
 
 echo ""
 echo "Production build completed successfully!"
