@@ -36,6 +36,14 @@ jest.mock("react-native-gesture-handler", () => {
   };
 });
 
+// react-native-nitro-modules throws at import time without native code.
+// With it mocked, react-native-mmkv detects Jest and uses its in-memory mock.
+jest.mock("react-native-nitro-modules", () => ({
+  NitroModules: {
+    createHybridObject: jest.fn(),
+  },
+}));
+
 jest.mock("expo-splash-screen", () => ({
   preventAutoHideAsync: jest.fn(() => Promise.resolve()),
   hideAsync: jest.fn(() => Promise.resolve()),
