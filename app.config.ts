@@ -86,7 +86,6 @@ const config: ExpoConfig = {
   icon: "./assets/icons/ios-light.png",
   scheme: "ride-today",
   userInterfaceStyle: "automatic",
-  newArchEnabled: true,
   ios: {
     supportsTablet: false,
     bundleIdentifier: appConfig.bundleId,
@@ -114,13 +113,7 @@ const config: ExpoConfig = {
       "expo-build-properties",
       {
         ios: {
-          deploymentTarget: "15.1",
           useFrameworks: "static",
-        },
-        android: {
-          compileSdkVersion: 35,
-          targetSdkVersion: 35,
-          buildToolsVersion: "35.0.0",
         },
       },
     ],
@@ -145,6 +138,7 @@ const config: ExpoConfig = {
   ],
   experiments: {
     typedRoutes: true,
+    reactCompiler: true,
   },
   extra: {
     router: {

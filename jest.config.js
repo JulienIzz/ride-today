@@ -12,7 +12,6 @@ const packagesToTransform = [
   "react-native-(.*)",
   "@react-native",
   "@react-native-community",
-  "@react-navigation",
   "expo",
   "expo-(.*)",
   "@expo-google-fonts/(.*)",
@@ -38,6 +37,7 @@ const config = {
   moduleNameMapper: {
     "^punycode$": "punycode/",
   },
+  resolver: "./jest.resolver.js",
   testRegex: "\\.test\\.[jt]sx?$",
   transformIgnorePatterns: [
     `node_modules/(?!(${packagesToTransform.join("|")})/)`,
