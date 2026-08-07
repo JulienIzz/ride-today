@@ -1,12 +1,13 @@
 import styled from "@emotion/native";
 import { useCallback, useRef, useState } from "react";
-import { View } from "react-native";
+import { Platform, View } from "react-native";
 import PagerView from "react-native-pager-view";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { Charts } from "#modules/charts/components/Charts";
 import { HomeGradients } from "#modules/home/components/HomeGradient";
 import { Logo } from "#modules/home/components/Logo";
+import { NativeTabBar } from "#modules/home/components/NativeTabBar";
 import { PageSelector } from "#modules/home/components/PageSelector";
 import { BOTTOM_MENU_HEIGHT } from "#modules/home/utils/constants";
 import { Location } from "#modules/location/components/Location";
@@ -51,9 +52,13 @@ export const Home = () => {
           <SettingsPage />
         </View>
       </PagerContainer>
-      <BottomMenu>
-        <PageSelector selectedPage={selectedPage} setPage={setPage} />
-      </BottomMenu>
+      {Platform.OS === "ios" ? (
+        <NativeTabBar selectedPage={selectedPage} onSelectPage={setPage} />
+      ) : (
+        <BottomMenu>
+          <PageSelector selectedPage={selectedPage} setPage={setPage} />
+        </BottomMenu>
+      )}
     </PageTemplate>
   );
 };

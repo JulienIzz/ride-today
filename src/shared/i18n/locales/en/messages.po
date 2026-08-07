@@ -77,6 +77,10 @@ msgstr "By proceeding, you acknowledge that the developers and providers of this
 msgid "Challenging conditions, stay sharp and be prepared."
 msgstr "Challenging conditions, stay sharp and be prepared."
 
+#: src/modules/home/components/NativeTabBar.tsx
+msgid "Charts"
+msgstr "Charts"
+
 #: src/app/(web)/privacy.tsx
 msgid "Creator and Developer"
 msgstr "Creator and Developer"
@@ -227,6 +231,7 @@ msgid "Search your location with the input above"
 msgstr "Search your location with the input above"
 
 #: src/modules/settings/components/SettingsList.tsx
+#: src/modules/home/components/NativeTabBar.tsx
 msgid "Settings"
 msgstr "Settings"
 
@@ -337,6 +342,10 @@ msgstr "We use your location data solely to fetch relevant weather details from 
 #: src/modules/modal/modals/RideScoreModal.tsx
 msgid "We wish to remind you that the RideScore is an estimation and that the actual quality of the ride may vary. DO NOT rely solely on the RideScore to determine if you should ride or not, always check the weather and the road conditions."
 msgstr "We wish to remind you that the RideScore is an estimation and that the actual quality of the ride may vary. DO NOT rely solely on the RideScore to determine if you should ride or not, always check the weather and the road conditions."
+
+#: src/modules/home/components/NativeTabBar.tsx
+msgid "Weather"
+msgstr "Weather"
 
 #: src/app/(web)/privacy.tsx
 msgid "Welcome to Ride Today. We respect your privacy and are committed to protecting it through our compliance with this policy. This Privacy Policy describes how we collect, use, and safeguard your personal information when you use Ride Today (the \"App\")."

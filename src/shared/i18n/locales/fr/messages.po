@@ -77,6 +77,10 @@ msgstr "En continuant, vous reconnaissez que les développeurs et les fournisseu
 msgid "Challenging conditions, stay sharp and be prepared."
 msgstr "Conditions exigeantes : restez vigilant et soyez alerte."
 
+#: src/modules/home/components/NativeTabBar.tsx
+msgid "Charts"
+msgstr "Graphiques"
+
 #: src/app/(web)/privacy.tsx
 msgid "Creator and Developer"
 msgstr "Créateur et développeur"
@@ -227,6 +231,7 @@ msgid "Search your location with the input above"
 msgstr "Cherchez un lieu ou passez en géolocalisation"
 
 #: src/modules/settings/components/SettingsList.tsx
+#: src/modules/home/components/NativeTabBar.tsx
 msgid "Settings"
 msgstr "Paramètres"
 
@@ -337,6 +342,10 @@ msgstr "Nous utilisons uniquement vos données de localisation pour obtenir des 
 #: src/modules/modal/modals/RideScoreModal.tsx
 msgid "We wish to remind you that the RideScore is an estimation and that the actual quality of the ride may vary. DO NOT rely solely on the RideScore to determine if you should ride or not, always check the weather and the road conditions."
 msgstr "Nous tenons à vous rappeler que le RideScore est une estimation et que la qualité réelle de la sortie peut varier. NE VOUS FIEZ PAS UNIQUEMENT au RideScore pour déterminer si vous devez rouler ou non ; vérifiez toujours la météo et l’état de la route."
+
+#: src/modules/home/components/NativeTabBar.tsx
+msgid "Weather"
+msgstr "Météo"
 
 #: src/app/(web)/privacy.tsx
 msgid "Welcome to Ride Today. We respect your privacy and are committed to protecting it through our compliance with this policy. This Privacy Policy describes how we collect, use, and safeguard your personal information when you use Ride Today (the \"App\")."
