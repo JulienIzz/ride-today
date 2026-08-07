@@ -2,7 +2,7 @@
   "name": "ride-today",
   "main": "expo-router/entry",
   "scripts": {
-    "start": "expo start",
+    "start": "STAGE=dev expo start",
     "start:staging": "STAGE=staging expo start",
     "start:production": "STAGE=production expo start",
     "prebuild": "STAGE=dev expo prebuild",
