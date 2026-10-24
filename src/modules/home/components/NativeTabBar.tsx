@@ -68,20 +68,21 @@ export const NativeTabBar = ({
   );
 };
 
-const HostStrip = styled.View(() => {
+const HostStrip = styled.View(({ theme }) => {
   const { bottom, left, right } = useSafeAreaInsets();
   const verticalBarEdge = useVerticalBarEdgeIOS();
 
   // When iOS moves bars to a vertical rail (e.g. iPhone Duo), keep the host
-  // inside the rail inset: the native host swallows every touch in its frame,
-  // and the content is padded away from that inset anyway
+  // within the rail inset plus the content gutter (see useHorizontalSafePadding):
+  // the native host swallows every touch in its frame, and the bar needs room
+  // beyond the inset or its selection bubble overflows the squeezed pill
   if (verticalBarEdge) {
     return {
       position: "absolute",
       top: 0,
       bottom: 0,
       [verticalBarEdge === "leading" ? "start" : "end"]: 0,
-      width: Math.max(left, right),
+      width: Math.max(left, right) + theme.spacings.m,
     };
   }
 
