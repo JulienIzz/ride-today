@@ -40,7 +40,8 @@ const pages = [
 export const Home = () => {
   const [selectedPage, setSelectedPage] = useState(0);
   const { width } = useWindowDimensions();
-  const isDualPage = width >= DUAL_PAGE_MIN_WIDTH;
+  // iOS only: the Android page selector has no two-tab mode
+  const isDualPage = Platform.OS === "ios" && width >= DUAL_PAGE_MIN_WIDTH;
 
   const pagerViewRef = useRef<PagerView>(null);
 
