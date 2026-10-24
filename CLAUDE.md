@@ -31,7 +31,17 @@ yarn translations:update    # Extract and compile
 
 # Scaffolding
 yarn create:module -- <name>  # Create new module with standard folder structure
+
+# Release
+yarn release [patch|minor|major]  # Bump, tag and push from main; the tag triggers the EAS store builds
 ```
+
+### Releasing
+
+`yarn release` (`scripts/release.sh`) runs the tests, bumps `config/APP_VERSION` and `config/RUNTIME_VERSION`, commits, tags `vX.Y.Z` and pushes. The tag push starts `.eas/workflows/release.yml`, which builds both platforms with the `production` profile and submits them to the stores. It requires the GitHub repo to be linked to the EAS project.
+
+- Retry a failed run from the workflow page on expo.dev.
+- Rebuild only the platform that failed (the build number stays the same, so only when its upload never reached the store): `git checkout vX.Y.Z && eas build --profile production --platform <ios|android> --auto-submit`.
 
 ## Architecture
 
