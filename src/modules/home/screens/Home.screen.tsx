@@ -16,6 +16,7 @@ import { SettingsPage } from "#modules/settings/components/SettingsPage";
 import { Weather } from "#modules/weather/components/Weather";
 import { ShadedDivider } from "#shared/components/Divider";
 import { PageTemplate } from "#shared/components/PageTemplate";
+import { useHorizontalSafePadding } from "#shared/hooks/useHorizontalSafePadding";
 
 export const Home = () => {
   const [selectedPage, setSelectedPage] = useState(0);
@@ -65,8 +66,10 @@ export const Home = () => {
 
 const LocationContainer = styled.View(({ theme }) => {
   const { top } = useSafeAreaInsets();
+  const horizontalPadding = useHorizontalSafePadding(theme.spacings.m);
   return {
     padding: theme.spacings.m,
+    ...horizontalPadding,
     paddingTop: top ? top : theme.spacings.m,
     gap: theme.spacings.m,
   };

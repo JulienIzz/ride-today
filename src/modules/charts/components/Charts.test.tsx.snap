@@ -42,6 +42,8 @@ exports[`renders the Charts component 2`] = `
               "flex": 1,
               "gap": 16,
               "padding": 16,
+              "paddingLeft": 16,
+              "paddingRight": 16,
             }
           }
         >

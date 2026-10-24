@@ -6,6 +6,7 @@ import { MapPinOff, Search } from "lucide-react-native";
 import { ActivityIndicator, View } from "react-native";
 
 import { Typography } from "#shared/fonts/Typography";
+import { useHorizontalSafePadding } from "#shared/hooks/useHorizontalSafePadding";
 import { shadowStyle } from "#shared/styling/shadowStyle";
 
 export const CurrentWeatherContainer = styled.View(({ theme }) => ({
@@ -70,10 +71,12 @@ export const WeatherLoading = () => {
 
 export const useWeatherContainerStyle = () => {
   const theme = useTheme();
+  const horizontalPadding = useHorizontalSafePadding(theme.spacings.m);
 
   return {
     gap: theme.spacings.m,
     padding: theme.spacings.m,
+    ...horizontalPadding,
   };
 };
 

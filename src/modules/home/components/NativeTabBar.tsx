@@ -2,6 +2,7 @@ import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
 import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
+import { useVerticalBarEdgeIOS } from "expo-status-bar";
 import { type NativeSyntheticEvent } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Tabs, type TabSelectedEvent } from "react-native-screens";
@@ -68,7 +69,21 @@ export const NativeTabBar = ({
 };
 
 const HostStrip = styled.View(() => {
-  const { bottom } = useSafeAreaInsets();
+  const { bottom, left, right } = useSafeAreaInsets();
+  const verticalBarEdge = useVerticalBarEdgeIOS();
+
+  // When iOS moves bars to a vertical rail (e.g. iPhone Duo), keep the host
+  // inside the rail inset: the native host swallows every touch in its frame,
+  // and the content is padded away from that inset anyway
+  if (verticalBarEdge) {
+    return {
+      position: "absolute",
+      top: 0,
+      bottom: 0,
+      [verticalBarEdge === "leading" ? "start" : "end"]: 0,
+      width: Math.max(left, right),
+    };
+  }
 
   return {
     position: "absolute",

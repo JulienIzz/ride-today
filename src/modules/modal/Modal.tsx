@@ -4,6 +4,7 @@ import Animated, { FadeIn, FadeOut } from "react-native-reanimated";
 
 import { absoluteFillStyle } from "#design-system/utils/absoluteFillStyle";
 import { useGlobalModalActions } from "#modules/modal/useModal";
+import { useHorizontalSafePadding } from "#shared/hooks/useHorizontalSafePadding";
 
 export const Modal = ({ children }: PropsWithChildren) => {
   const { hideModal } = useGlobalModalActions();
@@ -21,6 +22,7 @@ export const Modal = ({ children }: PropsWithChildren) => {
 const ModalContainer = styled(Animated.View)(({ theme }) => ({
   ...absoluteFillStyle,
   padding: theme.spacings.l,
+  ...useHorizontalSafePadding(theme.spacings.l),
   justifyContent: "center",
   alignItems: "center",
 }));
