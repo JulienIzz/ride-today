@@ -2,8 +2,8 @@ import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
 import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
+import type { ImageProps } from "expo-image";
 import { Image } from "expo-image";
-import type { ImageSourcePropType } from "react-native";
 import { Linking, Pressable, ScrollView } from "react-native";
 
 import { FlexView } from "#design-system/utils/FlexView";
@@ -89,7 +89,7 @@ const PreviewImages = ({
   images,
 }: {
   images: Array<{
-    source: ImageSourcePropType;
+    source: ImageProps["source"];
     variant: "left" | "center" | "right";
   }>;
 }) => {

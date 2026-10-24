@@ -58,7 +58,9 @@ const WeatherData = ({ location }: { location: string }) => {
       refreshControl={
         <RefreshControl
           refreshing={queryStates.isLoading}
-          onRefresh={queryStates.refetch}
+          onRefresh={async () => {
+            await queryStates.refetch();
+          }}
           tintColor={theme.colors.neutral[0]}
         />
       }

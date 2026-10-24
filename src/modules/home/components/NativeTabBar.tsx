@@ -35,7 +35,7 @@ export const NativeTabBar = ({
     <HostStrip pointerEvents="box-none">
       <Tabs.Host
         navStateRequest={{
-          selectedScreenKey: TAB_KEYS[selectedPage],
+          selectedScreenKey: TAB_KEYS[selectedPage] ?? "weather",
           baseProvenance: 0,
         }}
         onTabSelected={({
