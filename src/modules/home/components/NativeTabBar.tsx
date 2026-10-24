@@ -18,9 +18,11 @@ const transparentContainer = { backgroundColor: "transparent" };
 export const NativeTabBar = ({
   selectedPage,
   onSelectPage,
+  hiddenPages = [],
 }: {
   selectedPage: number;
   onSelectPage: (page: number) => void;
+  hiddenPages?: number[];
 }) => {
   const { _ } = useLingui();
   const theme = useTheme();
@@ -30,7 +32,7 @@ export const NativeTabBar = ({
     { key: "weather", title: _(msg`Weather`), icon: "thermometer.sun" },
     { key: "charts", title: _(msg`Charts`), icon: "chart.xyaxis.line" },
     { key: "settings", title: _(msg`Settings`), icon: "gearshape" },
-  ];
+  ].filter((_tab, page) => !hiddenPages.includes(page));
 
   return (
     <HostStrip pointerEvents="box-none">
