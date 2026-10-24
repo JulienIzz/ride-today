@@ -9,6 +9,7 @@ import {
 } from "#modules/settings/components/SettingsList";
 import { SpacerBottomMenu } from "#shared/components/Spacer";
 import { isFeatureEnabled } from "#shared/env/featureFlags";
+import { useHorizontalSafePadding } from "#shared/hooks/useHorizontalSafePadding";
 
 export const SettingsPage = () => {
   return (
@@ -25,5 +26,6 @@ export const SettingsPage = () => {
 
 const Container = styled(FlexView)(({ theme }) => ({
   padding: theme.spacings.m,
+  ...useHorizontalSafePadding(theme.spacings.m),
   gap: theme.spacings.m,
 }));

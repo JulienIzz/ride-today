@@ -10,6 +10,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { RideScoreModalContent } from "#modules/modal/modals/RideScoreModal";
 import { Spacer } from "#shared/components/Spacer";
+import { useHorizontalSafePadding } from "#shared/hooks/useHorizontalSafePadding";
 
 interface RideScoreBottomSheetProps {
   bottomSheetModalRef: React.RefObject<BottomSheetModal | null>;
@@ -20,6 +21,7 @@ export const RideScoreBottomSheet = ({
 }: RideScoreBottomSheetProps) => {
   const theme = useTheme();
   const { bottom } = useSafeAreaInsets();
+  const horizontalPadding = useHorizontalSafePadding(theme.spacings.l);
 
   const snapPoints = useMemo(() => ["50%", "90%"], []);
 
@@ -43,7 +45,9 @@ export const RideScoreBottomSheet = ({
       index={0}
       backdropComponent={renderBackdrop}
     >
-      <BottomSheetScrollView style={{ padding: theme.spacings.l }}>
+      <BottomSheetScrollView
+        style={{ padding: theme.spacings.l, ...horizontalPadding }}
+      >
         <RideScoreModalContent />
         <Spacer vertical size={theme.spacings["3xl"] + bottom} />
       </BottomSheetScrollView>

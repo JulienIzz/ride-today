@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders the Charts component 1`] = `
 "RideScore
@@ -42,6 +42,8 @@ exports[`renders the Charts component 2`] = `
               "flex": 1,
               "gap": 16,
               "padding": 16,
+              "paddingLeft": 16,
+              "paddingRight": 16,
             }
           }
         >

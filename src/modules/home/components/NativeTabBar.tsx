@@ -2,6 +2,7 @@ import styled from "@emotion/native";
 import { useTheme } from "@emotion/react";
 import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
+import { useVerticalBarEdgeIOS } from "expo-status-bar";
 import { type NativeSyntheticEvent } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Tabs, type TabSelectedEvent } from "react-native-screens";
@@ -17,9 +18,11 @@ const transparentContainer = { backgroundColor: "transparent" };
 export const NativeTabBar = ({
   selectedPage,
   onSelectPage,
+  hiddenPages = [],
 }: {
   selectedPage: number;
   onSelectPage: (page: number) => void;
+  hiddenPages?: number[];
 }) => {
   const { _ } = useLingui();
   const theme = useTheme();
@@ -29,13 +32,13 @@ export const NativeTabBar = ({
     { key: "weather", title: _(msg`Weather`), icon: "thermometer.sun" },
     { key: "charts", title: _(msg`Charts`), icon: "chart.xyaxis.line" },
     { key: "settings", title: _(msg`Settings`), icon: "gearshape" },
-  ];
+  ].filter((_tab, page) => !hiddenPages.includes(page));
 
   return (
     <HostStrip pointerEvents="box-none">
       <Tabs.Host
         navStateRequest={{
-          selectedScreenKey: TAB_KEYS[selectedPage],
+          selectedScreenKey: TAB_KEYS[selectedPage] ?? "weather",
           baseProvenance: 0,
         }}
         onTabSelected={({
@@ -67,8 +70,23 @@ export const NativeTabBar = ({
   );
 };
 
-const HostStrip = styled.View(() => {
-  const { bottom } = useSafeAreaInsets();
+const HostStrip = styled.View(({ theme }) => {
+  const { bottom, left, right } = useSafeAreaInsets();
+  const verticalBarEdge = useVerticalBarEdgeIOS();
+
+  // When iOS moves bars to a vertical rail (e.g. iPhone Duo), keep the host
+  // within the rail inset plus the content gutter (see useHorizontalSafePadding):
+  // the native host swallows every touch in its frame, and the bar needs room
+  // beyond the inset or its selection bubble overflows the squeezed pill
+  if (verticalBarEdge) {
+    return {
+      position: "absolute",
+      top: 0,
+      bottom: 0,
+      [verticalBarEdge === "leading" ? "start" : "end"]: 0,
+      width: Math.max(left, right) + theme.spacings.m,
+    };
+  }
 
   return {
     position: "absolute",

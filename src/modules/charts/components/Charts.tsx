@@ -13,6 +13,7 @@ import { useChartsDataFromWeather } from "#modules/charts/hooks/useChartsDataFro
 import { useLocationStore } from "#modules/location/hooks/useLocationStore.hook";
 import { SpacerBottomMenu } from "#shared/components/Spacer";
 import { Typography } from "#shared/fonts/Typography";
+import { useHorizontalSafePadding } from "#shared/hooks/useHorizontalSafePadding";
 import { QueryErrorBoundary } from "#shared/infra/boundaries/QueryBoundary";
 import { shadowStyle } from "#shared/styling/shadowStyle";
 
@@ -121,6 +122,7 @@ const DailyLineChart = ({
 
 const Container = styled(FlexView)(({ theme }) => ({
   padding: theme.spacings.m,
+  ...useHorizontalSafePadding(theme.spacings.m),
   gap: theme.spacings.m,
 }));
 
