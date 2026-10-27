@@ -34,18 +34,23 @@ export const RideScore = ({
   return (
     <Container>
       <Labels>
-        <Typography
-          variant="H4"
-          color={theme.colors.neutral[0]}
-          bold
-          text={_(msg`RideScore`)}
-        />
-        <BadgeInfo
-          color={theme.colors.neutral[0]}
+        <InfoTrigger
           onPress={handlePresentModalPress}
-          size={14}
-          strokeWidth={3}
-        />
+          hitSlop={theme.spacings.s}
+          accessibilityRole="button"
+        >
+          <Typography
+            variant="H4"
+            color={theme.colors.neutral[0]}
+            bold
+            text={_(msg`RideScore`)}
+          />
+          <BadgeInfo
+            color={theme.colors.neutral[0]}
+            size={14}
+            strokeWidth={3}
+          />
+        </InfoTrigger>
         <Spacer />
         <Typography
           variant="P1"
@@ -86,6 +91,12 @@ const Container = styled(FlexView)(({ theme }) => ({
 }));
 
 const Labels = styled.View(({ theme }) => ({
+  flexDirection: "row",
+  alignItems: "center",
+  gap: theme.spacings.xs,
+}));
+
+const InfoTrigger = styled.Pressable(({ theme }) => ({
   flexDirection: "row",
   alignItems: "center",
   gap: theme.spacings.xs,
