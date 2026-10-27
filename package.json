@@ -27,7 +27,7 @@
     "@emotion/native": "^11.11.0",
     "@emotion/react": "^11.14.0",
     "@expo-google-fonts/montserrat": "^0.2.3",
-    "@gorhom/bottom-sheet": "^5.2.8",
+    "@gorhom/bottom-sheet": "^5.2.14",
     "@lingui/react": "^5.2.0",
     "@tanstack/react-query": "^5.66.8",
     "axios": "^1.7.9",

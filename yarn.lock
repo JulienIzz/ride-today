@@ -2007,9 +2007,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@gorhom/bottom-sheet@npm:^5.2.8":
-  version: 5.2.8
-  resolution: "@gorhom/bottom-sheet@npm:5.2.8"
+"@gorhom/bottom-sheet@npm:^5.2.14":
+  version: 5.2.14
+  resolution: "@gorhom/bottom-sheet@npm:5.2.14"
   dependencies:
     "@gorhom/portal": "npm:1.0.14"
     invariant: "npm:^2.2.4"
@@ -2025,7 +2025,7 @@ __metadata:
       optional: true
     "@types/react-native":
       optional: true
-  checksum: 10c0/9bb71a375cdcaec650e8c84ab5e3e42f55b3ae19d9e08cf90688cf72706588d211f3aeef28b857a37e9e411efa8fdf038429c90a8855167c7ab3dce5c595dfca
+  checksum: 10c0/744c718aaa4e66989043378932ea31d8ff510cff289b5561115530ff49218af080d28dbe409191b33ab7d87b1cfab4e7c16cfb0015cf2b6917b26c61f033bc05
   languageName: node
   linkType: hard
 
@@ -11669,7 +11669,7 @@ __metadata:
     "@emotion/native": "npm:^11.11.0"
     "@emotion/react": "npm:^11.14.0"
     "@expo-google-fonts/montserrat": "npm:^0.2.3"
-    "@gorhom/bottom-sheet": "npm:^5.2.8"
+    "@gorhom/bottom-sheet": "npm:^5.2.14"
     "@lingui/cli": "npm:^5.2.0"
     "@lingui/macro": "npm:^5.2.0"
     "@lingui/react": "npm:^5.2.0"

@@ -10,8 +10,11 @@ exports[`renders the PageSelector component 2`] = `
     style={
       {
         "bottom": 0,
+        "left": 0,
         "overflow": "hidden",
         "pointerEvents": "box-none",
+        "position": "absolute",
+        "right": 0,
         "top": 0,
       }
     }
