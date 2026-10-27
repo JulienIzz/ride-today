@@ -12,6 +12,8 @@ import {
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
 
+import { WindowSafeAreaInsetsContext } from "#shared/hooks/useWindowSafeAreaInsets";
+
 const VISIBLE_PAGES = 2;
 
 /**
@@ -66,16 +68,19 @@ export const DualPager = ({
           contentOffset={{ x: scrolledPosition.current * pageWidth, y: 0 }}
           onMomentumScrollEnd={onMomentumScrollEnd}
         >
-          {/* The container already clears the side insets, so pages must not add them again */}
-          <SafeAreaInsetsContext.Provider
-            value={{ ...insets, left: 0, right: 0 }}
-          >
-            {pages.map((page, index) => (
-              <View key={index} style={{ width: pageWidth }}>
-                {page}
-              </View>
-            ))}
-          </SafeAreaInsetsContext.Provider>
+          {/* The container already clears the side insets, so pages must not
+              add them again; surfaces over the whole window still get them */}
+          <WindowSafeAreaInsetsContext.Provider value={insets}>
+            <SafeAreaInsetsContext.Provider
+              value={{ ...insets, left: 0, right: 0 }}
+            >
+              {pages.map((page, index) => (
+                <View key={index} style={{ width: pageWidth }}>
+                  {page}
+                </View>
+              ))}
+            </SafeAreaInsetsContext.Provider>
+          </WindowSafeAreaInsetsContext.Provider>
         </ScrollView>
       )}
     </Container>
